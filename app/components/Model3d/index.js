@@ -2,6 +2,7 @@
 import React, { useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import Image from "next/image";
 
 function Box(props) {
   // This reference will give us direct access to the mesh
@@ -30,6 +31,14 @@ function Box(props) {
 const index = () => {
   return (
     <div>
+      <Image
+        width={300}
+        height={300}
+        // src={images.moon}
+        src="/public/assets/images/moon.png"
+        className="w-full h-[300px]"
+        alt=""
+      />
       <Canvas>
         <ambientLight intensity={Math.PI / 2} />
         <spotLight

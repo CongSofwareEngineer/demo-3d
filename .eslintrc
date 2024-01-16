@@ -1,0 +1,67 @@
+{
+  // "off" or 0 - turn the rule off
+  // "warn" or 1 - turn the rule on as a warning (doesn’t affect exit code)
+  // "error" or 2 - turn the rule on as an error (exit code is 1 when triggered)
+
+  "parser": "@babel/eslint-parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "standard",
+    "standard-react"
+  ],
+  "env": {
+    "es6": true
+  },
+  "plugins": [
+    "react",
+    "react-hooks"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "no-undef": "error",
+    "no-unused-vars": "error",
+    "no-console": "off",
+    "multiline-ternary": "off",
+    "indent": ["error", 2],
+    "react/react-in-jsx-scope": "off",
+    "react/no-unescaped-entities": "off",
+    "react/prop-types": "off",
+    "react/sort-comp": "error",
+    "react/no-string-refs": "off",
+    "react/jsx-first-prop-new-line": ["warn" , "multiline"],
+    "react/jsx-max-props-per-line": ["warn" ,
+      {
+        "maximum": 1 ,
+        "when": "multiline"
+      }
+    ],
+    // Docs => https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-wrap-multilines.md
+    "react/jsx-wrap-multilines": ["warn" , {
+      "declaration": "parens-new-line",
+      "assignment": "parens-new-line",
+      "return": "parens-new-line",
+      "arrow": "parens-new-line",
+      "condition": "parens-new-line",
+      "logical": "parens-new-line",
+      "prop": "parens-new-line"
+    }],
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies,
+  },
+  "globals": {
+    "localStorage": true,
+    "fetch": true,
+    "enquire": true,
+    "FontFaceObserver": true,
+    "imagesloaded": true,
+    "Modernizr": true,
+    "alert": false,
+    "FileReader": false
+  }
+}
