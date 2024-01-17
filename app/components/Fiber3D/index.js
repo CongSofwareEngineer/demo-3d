@@ -1,10 +1,14 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Environment, Float, Html, OrbitControls, ScrollControls, useScroll } from "@react-three/drei";
+import { Center, Environment, Float, Html, OrbitControls, ScrollControls, Text, Text3D, useScroll } from "@react-three/drei";
 import styled from 'styled-components';
 import ImageAni from "../ImageAni";
-const CanvasCustom = styled(Canvas)`
+
+ 
+
+
+ const CanvasCustom = styled(Canvas)`
     height: 100% !important;
     min-height: 100vh !important;
     >div{
@@ -117,12 +121,15 @@ function Box({position,indexItem=0}) {
   );
 }
 
-const Fiber3D = () => {
- 
-
+const Fiber3D = () => { 
+  useEffect(() => {
+    
+  
+   }, [])
+  
   return (
-    <div className="w-full min-h-screen h-screen fixed inset-0 ">
-    {/* <div className="w-full min-h-screen h-screen   ">  */}
+    // <div className="w-full min-h-screen h-screen fixed inset-0 ">
+    <div className="w-full min-h-screen h-screen   "> 
       <CanvasCustom className="h-full w-full  min-h-screen">
         <ambientLight intensity={Math.PI / 2} />
         <spotLight
@@ -138,15 +145,29 @@ const Fiber3D = () => {
         <Box position={[1.2, 0, 0]}  indexItem={1}/> */}
         {/* </ScrollControls> */}
         <mesh>
-        {/* <ImageAni /> */}
-        </mesh>
-  <mesh>
+        {/* <ImageAni /> */} 
       
          <Float  floatIntensity={10} rotationIntensity={2} speed={3}>
-         <Box position={[-1.2, 0, 0]}  />
-        <Box position={[1.2, 0, 0]}  indexItem={1}/>
-             
-        {/* <Html style={{ userSelect: 'none',width:'100%', height:'100%',background:'transparent' }} castShadow receiveShadow occlude="blending" transform>
+         <Center  rotation={[-0.5, -0.25, 0]} >
+         
+         <Text3D  
+          curveSegments={32}
+          bevelEnabled
+          bevelSize={0.04}
+          bevelThickness={0.1}
+          height={0.5}
+          lineHeight={0.5}
+          letterSpacing={-0.06}
+          size={1.2}
+         font={'/assets/fonts/basic.json'} >
+           coming soon
+           <meshNormalMaterial   />
+         </Text3D>
+ 
+         </Center>
+         {/* <Box position={[-1.2, 0, 0]}  />
+        <Box position={[1.2, 0, 0]}  indexItem={1}/> */}
+         {/* <Html style={{ userSelect: 'none',width:'100%', height:'100%',background:'transparent' }} castShadow receiveShadow occlude="blending" transform>
         <ImageAni />
         </Html>
         <Html position={[-1.2, 0, 1]} style={{ userSelect: 'none',width:'100%', height:'100%',background:'transparent' }} castShadow receiveShadow occlude="blending" transform>
@@ -157,7 +178,12 @@ const Fiber3D = () => {
 
         {/* <Environment background preset="dawn" blur={0.8} /> */}
 
-        <OrbitControls enableZoom={false}/>
+        <OrbitControls 
+        // autoRotate 
+        // rotation={false} 
+        enableZoom={false}
+        
+        />
 
       
       </CanvasCustom>
