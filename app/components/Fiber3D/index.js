@@ -1,9 +1,11 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Center, Environment, Float, Html, OrbitControls, ScrollControls, Text, Text3D, useScroll } from "@react-three/drei";
+import { Center, Environment, Float, Html, Image, OrbitControls, ScrollControls, Sphere, Text, Text3D, useScroll, useTexture } from "@react-three/drei";
 import styled from 'styled-components';
 import ImageAni from "../ImageAni";
+import { images } from "@/config/images";
+import { Vector3 } from "three";
 
  
 
@@ -122,15 +124,46 @@ function Box({position,indexItem=0}) {
 }
 
 const Fiber3D = () => { 
-  useEffect(() => {
-    
-  
-   }, [])
+  const text3dRef=useRef(null)
+  const texture=useTexture(images.comingSoon.bgComingSoon)
+
+  useFrame(()=>{
+    if(text3dRef.current){
+      if(window?.innerWidth<500){
+        text3dRef.current.scale.set(0.2,0.2,0.2)
+        text3dRef.current.position.set(2,0,0)
+      }else{
+        if(window.innerWidth>2400){
+          text3dRef.current.scale.set(0.95,0.95,0.95)
+          text3dRef.current.position.set(0 ,0,0)
+
+         }else{
+          const ratio=2500-window.innerWidth
+          const a=(8-ratio/250)
+          const ax=ratio/250
+          if(a<1){
+            text3dRef.current.scale.set(0.3,0.3,0.3)
+            text3dRef.current.position.set(2 ,0,0)
+
+           }else{
+            const b=0.1*a
+            const bx=0.125*ax
+            text3dRef.current.scale.set(0.2+b,0.2+b,0.2+b)
+             text3dRef.current.position.set(0.5+bx,0,0)
+
+           }
+        }
+      }
+
+     
+    }
+   
+  })
+
   
   return (
     // <div className="w-full min-h-screen h-screen fixed inset-0 ">
-    <div className="w-full min-h-screen h-screen   "> 
-      <CanvasCustom className="h-full w-full  min-h-screen">
+    < >
         <ambientLight intensity={Math.PI / 2} />
         <spotLight
           position={[10, 10, 10]}
@@ -144,13 +177,23 @@ const Fiber3D = () => {
         {/* <Box position={[-1.2, 0, 0]}  />
         <Box position={[1.2, 0, 0]}  indexItem={1}/> */}
         {/* </ScrollControls> */}
-        <mesh>
-        {/* <ImageAni /> */} 
+       
+      <Image 
       
-         <Float  floatIntensity={10} rotationIntensity={2} speed={3}>
+       opacity={0.8} 
+       scale={[16,9]}
+       transparent
+        url={images.comingSoon.bgComingSoon} 
+        
+      />
+        <mesh>
+       
+         <Float position={[0, 0, 2]}  floatIntensity={5} rotationIntensity={1} speed={3}>
          <Center  rotation={[-0.5, -0.25, 0]} >
          
-         <Text3D  
+         <Text3D 
+         size={0.8}
+         ref={text3dRef} 
           curveSegments={32}
           bevelEnabled
           bevelSize={0.04}
@@ -158,37 +201,37 @@ const Fiber3D = () => {
           height={0.5}
           lineHeight={0.5}
           letterSpacing={-0.06}
-          size={1.2}
+           
          font={'/assets/fonts/basic.json'} >
            coming soon
            <meshNormalMaterial   />
          </Text3D>
  
          </Center>
-         {/* <Box position={[-1.2, 0, 0]}  />
-        <Box position={[1.2, 0, 0]}  indexItem={1}/> */}
-         {/* <Html style={{ userSelect: 'none',width:'100%', height:'100%',background:'transparent' }} castShadow receiveShadow occlude="blending" transform>
-        <ImageAni />
-        </Html>
-        <Html position={[-1.2, 0, 1]} style={{ userSelect: 'none',width:'100%', height:'100%',background:'transparent' }} castShadow receiveShadow occlude="blending" transform>
-        <ImageAni />
-        </Html> */}
+         
          </Float>
         </mesh>
 
-        {/* <Environment background preset="dawn" blur={0.8} /> */}
+       
 
-        <OrbitControls 
+        {/* <OrbitControls 
         // autoRotate 
-        // rotation={false} 
+        rotation={false} 
         enableZoom={false}
+        enablePan={false}
         
-        />
-
-      
-      </CanvasCustom>
-    </div>
+        />  */}
+      </>
   );
 };
 
-export default Fiber3D;
+const index = () => { 
+  return (
+    <div className="w-full min-h-screen h-screen   "> 
+    <CanvasCustom className="h-full w-full  min-h-screen">
+      <Fiber3D />
+    </CanvasCustom>
+  </div>
+  )
+ }
+export default index;
