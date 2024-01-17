@@ -6,7 +6,7 @@ import ImageAni from "./components/ImageAni";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-4">
+    <main className="flex min-h-screen flex-col items-center justify-between">
       <Fiber3D />
      
       {/* <div  className="h-screen w-full relative indent-1">
