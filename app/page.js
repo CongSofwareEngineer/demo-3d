@@ -7,6 +7,9 @@ import Parallax3D from './components/Parallax'
 import { ParallaxProvider } from 'react-scroll-parallax'
 import { useRedux, useUserData } from '@/Redux/store'
 import { useEffect, useState, useLayoutEffect } from 'react'
+import BigNumber from 'bignumber.js';
+import { toast } from 'react-toastify';
+import moment from 'moment/moment';
 
 export default function Home () {
   const { userData, readyRedux } = useRedux(state => state)
