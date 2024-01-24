@@ -4,12 +4,12 @@ import {
   useCallback,
   forwardRef,
   useState,
-  useImperativeHandle,
-} from "react";
-import { useSpring, animated } from "@react-spring/three";
-import { Canvas, useThree } from "@react-three/fiber";
-import { MeshDistortMaterial } from "@react-three/drei";
-import { Vector2 } from "three";
+  useImperativeHandle
+} from 'react';
+import { useSpring, animated } from '@react-spring/three';
+import { Canvas, useThree } from '@react-three/fiber';
+import { MeshDistortMaterial } from '@react-three/drei';
+import { Vector2 } from 'three';
 
 const AnimatedMeshDistortMaterial = animated(MeshDistortMaterial);
 
@@ -23,29 +23,29 @@ const MyScene = forwardRef(({}, ref) => {
     () => ({
       scale: 1,
       position: [0, 0],
-      color: "#ff6d6d",
+      color: '#ff6d6d',
       onChange: ({ value }) => {
         vector2.set(value.position[0], value.position[1]);
       },
       config: (key) => {
         switch (key) {
-          case "scale":
-            return {
-              mass: 4,
-              friction: 10,
-            };
-          case "position":
-            return { mass: 4, friction: 220 };
-          default:
-            return {};
+        case 'scale':
+          return {
+            mass: 4,
+            friction: 10
+          };
+        case 'position':
+          return { mass: 4, friction: 220 };
+        default:
+          return {};
         }
-      },
+      }
     }),
     []
   );
 
   useImperativeHandle(ref, () => ({
-    getCurrentPosition: () => vector2,
+    getCurrentPosition: () => vector2
   }));
 
   const handleClick = useCallback(() => {
@@ -54,20 +54,20 @@ const MyScene = forwardRef(({}, ref) => {
     return () => {
       clicked = !clicked;
       api.start({
-        color: clicked ? "#569AFF" : "#ff6d6d",
+        color: clicked ? '#569AFF' : '#ff6d6d'
       });
     };
   }, []);
 
   const handlePointerEnter = () => {
     api.start({
-      scale: 1.5,
+      scale: 1.5
     });
   };
 
   const handlePointerLeave = () => {
     api.start({
-      scale: 1,
+      scale: 1
     });
   };
 
@@ -79,7 +79,7 @@ const MyScene = forwardRef(({}, ref) => {
     isOver.current = false;
 
     api.start({
-      position: [0, 0],
+      position: [0, 0]
     });
   }, []);
 
@@ -90,7 +90,7 @@ const MyScene = forwardRef(({}, ref) => {
         const y = (e.offsetY / height) * -2 + 1;
 
         api.start({
-          position: [x * 5, y * 2],
+          position: [x * 5, y * 2]
         });
       }
     },
@@ -98,14 +98,14 @@ const MyScene = forwardRef(({}, ref) => {
   );
 
   useEffect(() => {
-    window.addEventListener("pointerover", handleWindowPointerOver);
-    window.addEventListener("pointerout", handleWindowPointerOut);
-    window.addEventListener("pointermove", handlePointerMove);
+    window.addEventListener('pointerover', handleWindowPointerOver);
+    window.addEventListener('pointerout', handleWindowPointerOut);
+    window.addEventListener('pointermove', handlePointerMove);
 
     return () => {
-      window.removeEventListener("pointerover", handleWindowPointerOver);
-      window.removeEventListener("pointerout", handleWindowPointerOut);
-      window.removeEventListener("pointermove", handlePointerMove);
+      window.removeEventListener('pointerover', handleWindowPointerOver);
+      window.removeEventListener('pointerout', handleWindowPointerOut);
+      window.removeEventListener('pointermove', handlePointerMove);
     };
   }, [handleWindowPointerOver, handleWindowPointerOut, handlePointerMove]);
 
@@ -127,14 +127,14 @@ const MyScene = forwardRef(({}, ref) => {
   );
 });
 
-export default function Spring() {
+export default function Spring () {
   const blobApi = useRef(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (blobApi.current) {
         const { x, y } = blobApi.current.getCurrentPosition();
-        console.log("the blob is at position", { x, y });
+        console.log('the blob is at position', { x, y });
       }
     }, 2000);
 
