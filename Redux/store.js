@@ -10,26 +10,38 @@ export const useLanguage = create(
         la: 'en',
         messages: MessageEN
       },
-      setLanguage: () => set((state) => {
-        switch (state) {
+      setLanguage: (language) => {
+        console.log({ language });
+        switch (language) {
         case LOCALE_DATA.EN:
-          return {
-            la: LOCALE_DATA.EN,
-            messages: MessageEN
-          }
+          set({
+            language: {
+              la: LOCALE_DATA.EN,
+              messages: MessageEN
+            }
+          })
+
+          break
 
         case LOCALE_DATA.VN:
-          return {
-            la: LOCALE_DATA.VN,
-            messages: MessageVN
-          }
+          set({
+            language: {
+              la: LOCALE_DATA.VN,
+              messages: MessageVN
+            }
+          })
+          break
+
         default:
-          return {
-            la: LOCALE_DATA.EN,
-            messages: MessageEN
-          }
+          set({
+            language: {
+              la: LOCALE_DATA.EN,
+              messages: MessageEN
+            }
+          })
+          break
         }
-      }),
+      },
       refreshLanguage: () => set((state) => ({ language: state }))
     }),
     {
