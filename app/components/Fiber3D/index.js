@@ -1,11 +1,12 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Center, Environment, Float, Html, Image, OrbitControls, ScrollControls, Sphere, Text, Text3D, useScroll, useTexture } from "@react-three/drei";
+import { Center, Environment, Float, Html, Image, OrbitControls, Plane, ScrollControls, Sphere, Text, Text3D, useCamera, useScroll, useTexture } from "@react-three/drei";
 import styled from 'styled-components';
 import ImageAni from "../ImageAni";
 import { images } from "@/config/images";
 import { Vector3 } from "three";
+import Spline from "../Spline";
 
  
 
@@ -90,21 +91,7 @@ function Box({position,indexItem=0}) {
     
   })
  
-  useEffect(() => {
-    const handleScroll = (event) => {
-        // Adjust the zoom speed as needed
-        const zoomSpeed = 0.1;
-  
-        // Update the camera position based on the scroll direction
-        console.log({deltaY:event.deltaY });
-      };
-    document.addEventListener('wheel', handleScroll);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      document.removeEventListener('wheel', handleScroll);
-    };
-  }, [])
+ 
   
   
 
@@ -125,9 +112,25 @@ function Box({position,indexItem=0}) {
 
 const Fiber3D = () => { 
   const text3dRef=useRef(null)
-  const texture=useTexture(images.comingSoon.bgComingSoon)
+  const containerText3dRef=useRef(null)
+const cameraRef=useRef(null)
 
-  useFrame(()=>{
+  const texture=useTexture(images.comingSoon.bgComingSoon)
+  const { viewport } = useThree()
+
+  const scroll= useScroll();
+  const camera=useCamera()
+  
+  // useFrame((state,dental)=>{
+  //   console.log({scroll,state,dental});
+  // })
+  console.log({scroll });
+
+
+  
+
+  
+  useFrame((state)=>{
     if(text3dRef.current){
       if(window?.innerWidth<500){
         text3dRef.current.scale.set(0.2,0.2,0.2)
@@ -157,13 +160,22 @@ const Fiber3D = () => {
 
      
     }
-   
-  })
-
+    if(containerText3dRef.current){
+      containerText3dRef.current.position.set(-(state.mouse.x*0.08),state.mouse.y*0.08,0)
+    }
+    
+  }) 
   
   return (
     // <div className="w-full min-h-screen h-screen fixed inset-0 ">
-    < >
+    // <Plane args={[1, 1]} scale={[viewport.width, viewport.height, 1]}>
+    <> 
+              <OrbitControls />
+            {/* <perspectiveCamera   ref={cameraRef} position={[1000, 20, 0]} /> */}
+        
+        
+        
+        
         <ambientLight intensity={Math.PI / 2} />
         <spotLight
           position={[10, 10, 10]}
@@ -173,12 +185,37 @@ const Fiber3D = () => {
           intensity={Math.PI}
         />
         <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
+        <Box position={[-1,0, -5]} ref={containerText3dRef} /> 
+        <Center  rotation={[-0.5, -0.25, 0]} ref={containerText3dRef} >
+         
+         <Text3D 
+         size={0.8}
+         ref={text3dRef} 
+          curveSegments={32}
+          bevelEnabled
+          bevelSize={0.04}
+          bevelThickness={0.1}
+          height={0.5}
+          lineHeight={0.5}
+          letterSpacing={-0.06}
+           
+         font={'/assets/fonts/basic.json'} >
+           coming soon
+           <meshNormalMaterial   />
+         </Text3D>
+ 
+         </Center>
+         
         {/* <ScrollControls pages={2} damping={0.25}> */}
+        
         {/* <Box position={[-1.2, 0, 0]}  />
         <Box position={[1.2, 0, 0]}  indexItem={1}/> */}
         {/* </ScrollControls> */}
-       
-      <Image 
+        {/* <Box position={[1.2, 0, 0]}  indexItem={1}/>
+        <Box position={[-1.2, 0, 0]}/>
+        <Box position={[1, 0, -5]}/>
+        <Box position={[-1,0, -5]}/> */}
+      {/* <Image 
       
        opacity={0.8} 
        scale={[16,9]}
@@ -186,10 +223,10 @@ const Fiber3D = () => {
         url={images.comingSoon.bgComingSoon} 
         
       />
-        <mesh>
+        <mesh >
        
          <Float position={[0, 0, 2]}  floatIntensity={5} rotationIntensity={1} speed={3}>
-         <Center  rotation={[-0.5, -0.25, 0]} >
+         <Center  rotation={[-0.5, -0.25, 0]} ref={containerText3dRef} >
          
          <Text3D 
          size={0.8}
@@ -210,17 +247,19 @@ const Fiber3D = () => {
          </Center>
          
          </Float>
-        </mesh>
+        </mesh> */}
 
        
 
         {/* <OrbitControls 
         // autoRotate 
-        rotation={false} 
-        enableZoom={false}
-        enablePan={false}
+        // rotation={false} 
+        // enableZoom={false}
+        // enablePan={false}
         
         />  */}
+         
+ 
       </>
   );
 };
@@ -229,7 +268,9 @@ const index = () => {
   return (
     <div className="w-full min-h-screen h-screen   "> 
     <CanvasCustom className="h-full w-full  min-h-screen">
-      <Fiber3D />
+    <Fiber3D />
+    {/* <Spline /> */}
+
     </CanvasCustom>
   </div>
   )

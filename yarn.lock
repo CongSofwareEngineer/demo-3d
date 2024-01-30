@@ -356,6 +356,18 @@
   resolved "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.6.1.tgz"
   integrity sha512-UY+FGM/2jjMkzQLn8pxcHGMaVLh9aEitG3zY2CiY7XHdLiz3bZOwa6oDxNqEMv7zZkV+cj5DOdz0cQ1BP5Hjgw==
 
+"@splinetool/loader@^1.0.30":
+  version "1.0.30"
+  resolved "https://registry.yarnpkg.com/@splinetool/loader/-/loader-1.0.30.tgz#91cdf7e2c46afa0f764640a7402680cc9d2c1258"
+  integrity sha512-M3vsvJWLzvMOl7nriBF7H19Mw7suVcSFzxuXbp+9qhc8peF0A2tsp9/w8G0yI8/OQP9g4Jf7x2tB90kEqbLMVw==
+  dependencies:
+    semver-compare "^1.0.0"
+
+"@splinetool/r3f-spline@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@splinetool/r3f-spline/-/r3f-spline-1.0.2.tgz#557b09815ec11d4695ecd9a8fb0f34915d985b2c"
+  integrity sha512-Fl1qboRpTE8yJm4BAe1l6j3Xgh3HwIzvtdX2LjCpBiSo21+j0b2rilJpLHfsXJndrq4Hegz6oEUKlPvVWumaHg==
+
 "@swc/helpers@0.5.2":
   version "0.5.2"
   resolved "https://registry.npmjs.org/@swc/helpers/-/helpers-0.5.2.tgz"
@@ -2538,6 +2550,11 @@ scheduler@^0.23.0:
   integrity sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==
   dependencies:
     loose-envify "^1.1.0"
+
+semver-compare@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/semver-compare/-/semver-compare-1.0.0.tgz#0dee216a1c941ab37e9efb1788f6afc5ff5537fc"
+  integrity sha512-YM3/ITh2MJ5MtzaM429anh+x2jiLVjqILF4m4oyQB18W7Ggea7BfqdH/wGMK7dDiMghv/6WG7znWMwUDzJiXow==
 
 semver@^6.3.1:
   version "6.3.1"

@@ -12,6 +12,8 @@
     "@react-spring/three": "^9.7.3",
     "@react-three/drei": "^9.93.0",
     "@react-three/fiber": "^8.15.14",
+    "@splinetool/loader": "^1.0.30",
+    "@splinetool/r3f-spline": "^1.0.2",
     "@types/three": "^0.160.0",
     "next": "14.0.4",
     "react": "^18",
