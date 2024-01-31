@@ -11,6 +11,7 @@ import BigNumber from 'bignumber.js';
 import { toast } from 'react-toastify';
 import moment from 'moment/moment';
 import { LOCALE_DATA } from '@/constants/app'
+import Frame from './components/Frame'
 
 export default function Home () {
   const { userData, readyRedux } = useRedux(state => state)
@@ -34,18 +35,19 @@ export default function Home () {
 
   return (
     <>
-      <div onClick={changeLanguage}>
+      {/* <div onClick={changeLanguage}>
       change langua
       </div>
       <div onClick={changeLanguageEn}>
       change langua En
       </div>
-      <div>
+      <div>/assets/images/frameDetail.svg
         {`Data ${messages?.back}`}
-      </div>
+      </div> */}
       {/* <Fiber3D /> */}
       {/* <ParallaxProvider scrollAxis="horizontal" > */}
       {/* <Parallax3D /> */}
+      <Frame />
 
       {/* </ParallaxProvider> */}
 
