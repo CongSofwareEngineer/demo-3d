@@ -1,56 +1,46 @@
 'use client'
-import { images, videos } from '@/config/images';
-import Image from 'next/image';
+import { images, videos } from '@/config/images'
+import Image from 'next/image'
 import React from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components'
 const ImgCustom = styled(Image)`
   position: fixed !important;
   inset: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
-`;
+`
 const Frame = () => {
   const frameButton = () => {
     return (
-      <div className='fixed inset-0 w-screen h-screen' dangerouslySetInnerHTML={{
-        __html: `
-        <svg width="100%" height="100%" viewBox="0" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <g clip-path="url(#clip0_19_16)">
-          <rect x="26" y="1120" width="400" height="400" fill="url(#pattern0)"/>
-          <rect x="372" y="1050" width="400" height="400" fill="url(#pattern1)"/>
-          <rect x="1494" y="1120" width="400" height="400" fill="url(#pattern2)"/>
-          <rect x="760" y="1066" width="400" height="400" fill="url(#pattern3)"/>
-          <rect x="1152" y="1066" width="400" height="400" fill="url(#pattern4)"/>
-        </g>
-        <defs>
-          <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-            <use xlink:href="#image0_19_16" transform="scale(0.0025)"/>
-          </pattern>
-          <pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
-            <use xlink:href="#image1_19_16" transform="scale(0.0025)"/>
-          </pattern>
-          <pattern id="pattern2" patternContentUnits="objectBoundingBox" width="1" height="1">
-            <use xlink:href="#image2_19_16" transform="scale(0.0025)"/>
-          </pattern>
-          <pattern id="pattern3" patternContentUnits="objectBoundingBox" width="1" height="1">
-            <use xlink:href="#image3_19_16" transform="scale(0.0025)"/>
-          </pattern>
-          <pattern id="pattern4" patternContentUnits="objectBoundingBox" width="1" height="1">
-            <use xlink:href="#image4_19_16" transform="scale(0.0025)"/>
-          </pattern>
-          <clipPath id="clip0_19_16">
-            <rect width="1920" height="1440" fill="white"/>
-          </clipPath>
-          <image id="image0_19_16" width="400" height="400" />
-          <image id="image1_19_16" width="400" height="400" />
-          <image id="imag2_19_16" width="400" height="400" />
-          <image id="image3_19_16" width="400" height="400" />
-          <image id="image4_19_16" width="400" height="400" />
-        </defs>
-      </svg>
-        `
-      }}
-      />
+      <div className='fixed h-screen w-screen'>
+
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <foreignObject width="100%" height="100%">
+            <div
+              xmlns="http://www.w3.org/1999/xhtml"
+              className='h-full w-full'
+            >
+              {/* Replace 'your_gif.gif' with the path to your animated .gif */}
+              <img
+                src={images.ourServices1}
+                alt="Animated GIF"
+                className='h-[80px] w-[100px] absolute bottom-10'
+              />
+              <img
+                src={images.ourServices1}
+                alt="Animated GIF"
+                className='h-[80px] w-[100px] absolute bottom-10 right-10'
+              />
+              <img
+                src={images.ourServices1}
+                alt="Animated GIF"
+                className='h-[80px] w-[100px]'
+              />
+            </div>
+          </foreignObject>
+        </svg>
+      </div>
+
     )
   }
   return (
@@ -59,8 +49,7 @@ const Frame = () => {
         src={images.frameMain}
         fill
         quality={80}
-        // placeholder="blur"
-        // style={{ objectFit: 'contain' }}
+
       />
       {/* <ImgCustom
         src={images.frameDetail}
@@ -70,7 +59,8 @@ const Frame = () => {
       {/* {
         frameButton()
       } */}
-      <video
+      {frameButton()}
+      {/* <video
         src={videos.planet1}
         muted
         autoPlay
@@ -80,7 +70,7 @@ const Frame = () => {
         preload='auto'
         className='w-screen h-screen'
         style={{ objectFit: 'fill' }}
-      />
+      /> */}
     </div>
   )
 }
