@@ -1,18 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 export const initialState = {
-  modal: {
-    body: null,
-    width: '500px',
-    className: '',
-    header: true,
-    footer: false,
-    maskClose: false,
-    onCancel: () => {},
-    closeIcon: true,
-    title: '',
-    option: {},
-    open: false
-  },
+  modal: null,
   // userInfo: null,
   // token: null,
   // language: localeVN,
