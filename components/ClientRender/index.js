@@ -1,11 +1,8 @@
 'use client'
 import React, { useLayoutEffect, useState } from 'react'
-import { IntlProvider } from 'react-intl'
-import { useSelector } from 'react-redux'
 import MyModal from '../MyModal'
 
 const ClientRender = ({ children }) => {
-  const locale = useSelector(state => state?.app?.language)
   const [isClient, setIsClient] = useState(false)
   useLayoutEffect(() => {
     setIsClient(true)

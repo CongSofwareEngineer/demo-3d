@@ -3,7 +3,6 @@ import { images, videos } from '@/config/images'
 import Image from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
-import { ImgOurPortfolio, ImgOurService } from './styled'
 import SvgOurService from './svgOurService'
 import useModal from '@/hooks/useModal'
 const ImgCustom = styled(Image)`
