@@ -1,9 +1,11 @@
+import Frame from '@/components/Frame'
 import React from 'react'
-import Frame from '../components/Frame'
 
 const Demo = () => {
   return (
-    <Frame />
+    <div className='h-screen'>
+      <Frame />
+    </div>
   )
 }
 

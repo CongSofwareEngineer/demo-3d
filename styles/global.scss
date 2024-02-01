@@ -1,0 +1,34 @@
+.animation {
+    &-zoom955-2 {
+        animation: zoom 2s linear infinite alternate;
+        -moz-animation: zoom 2s linear infinite alternate;
+        -webkit-animation: zoom 2s linear infinite alternate;
+        -o-animation: zoom 2s linear infinite alternate;
+        @keyframes zoom {
+            from {
+                transform: scale(0.955) translateX(1%); 
+            }
+            to {
+                transform: scale(1) translateX(0%); ;
+            }
+        }
+
+        @-webkit-keyframes zoom {
+            from {
+                transform: scale(0.955) translateX(1%); 
+            }
+            to {
+                transform: scale(1) translateX(0%);
+            }
+        }
+    }
+}
+.hover{
+    cursor: pointer;
+    &-zoom25{
+       &:hover{
+        transform: scale(1.025);
+        cursor: pointer;
+       }
+    }
+}
