@@ -1,7 +1,6 @@
 'use client'
 import React, { useLayoutEffect, useState } from 'react'
 import MyModal from '../MyModal'
-import ReduxServices from '@/Redux/service'
 import { IntlProvider } from 'react-intl'
 import { useSelector } from 'react-redux'
 
