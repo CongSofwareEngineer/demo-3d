@@ -1,5 +1,7 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://tcstore.vercel.app/',
-  generateRobotsTxt: true
+  siteUrl: 'https://www.tree.net.vn/',
+  generateRobotsTxt: true,
+  generateIndexSitemap: true,
+  trailingSlash: true
 }
