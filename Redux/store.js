@@ -4,6 +4,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
 import appReducer, { setLanguage } from './appSlice'
+import { WHITE_LIST_REDUX } from '@/config/app';
 
 let storeRedux
 
@@ -12,7 +13,7 @@ export const makeStore = () => {
   const persistConfig = {
     key: 'nextjs',
     storage,
-    whitelist: ['local'],
+    whitelist: WHITE_LIST_REDUX,
     stateReconciler: autoMergeLevel2
   }
 
