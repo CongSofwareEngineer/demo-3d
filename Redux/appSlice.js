@@ -1,30 +1,35 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { LOCALE_DATA, LOCALE_KEY } from '@/config/app'
+import { createSlice } from '@reduxjs/toolkit'
 export const initialState = {
   modal: null,
-  // userInfo: null,
-  // token: null,
-  // language: localeVN,
+
+  local: LOCALE_KEY.EN,
+  language: LOCALE_DATA[LOCALE_KEY.EN],
   loadingRoutePage: false
-  // amountCart: 0,
-  // menuCategory: null,
-  // pageActive: '/'
+
 }
 export const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
     setModal: (state, action) => {
-      console.log('====================================')
-      console.log('set modal', action.payload)
-      console.log('====================================')
       if (action.payload === null && state.modal?.afterClose) {
         state.modal?.afterClose()
       }
       state.modal = action.payload
+    },
+    setLanguage: (state, action) => {
+      if (!action?.payload) {
+        state.language = LOCALE_DATA[state.local]
+      } else {
+        state.language = LOCALE_DATA[action.payload]
+        state.local = action.payload
+      }
     }
   }
 })
 export const {
-  setModal
+  setModal,
+  setLanguage
 } = appSlice.actions
 export default appSlice.reducer
