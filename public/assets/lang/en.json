@@ -1,5 +1,8 @@
 {
     "common":{
         "cancel":"Cancel"
-    }
+    },
+    "scrollToLearn":"Scroll to learn more!",
+    "whatWenCanHelp":"What we can help you with",
+    "service2d3d":"Full-cycle 2D and 3D Art Production services"
 }

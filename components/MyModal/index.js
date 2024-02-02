@@ -1,8 +1,8 @@
 import { Modal } from 'antd'
-import { useSelector } from 'react-redux'
+import { shallowEqual, useSelector } from 'react-redux'
 
 const MyModal = () => {
-  const modalConfig = useSelector(state => state.app.modal)
+  const modalConfig = useSelector(state => state.app.modal, shallowEqual)
   return (
     modalConfig?.body && (
       <Modal

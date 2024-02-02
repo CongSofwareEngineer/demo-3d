@@ -17,14 +17,14 @@ const Frame = () => {
 
   return (
     <div className='relative w-screen h-screen'>
-      {/* <ImgCustom
+      <ImgCustom
         src={images.frameMain}
         fill
         quality={80}
 
-      /> */}
+      />
       <SvgOurService/>
-      {/* <video
+      <video
         src={videos.planet1}
         muted
         autoPlay
@@ -34,7 +34,7 @@ const Frame = () => {
         preload='auto'
         className='w-screen h-screen'
         style={{ objectFit: 'fill' }}
-      /> */}
+      />
     </div>
   )
 }

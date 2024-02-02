@@ -1,6 +1,7 @@
 import ReduxServices from '@/Redux/service'
 import { SLICES } from '@/config/app'
 import { FormattedMessage, createIntl, createIntlCache } from 'react-intl'
+
 export const translate = (languageId, isFormatText = false, valueObj = {}, defaultMessage = ' ') => {
   if (isFormatText) {
     return (

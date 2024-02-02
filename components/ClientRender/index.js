@@ -24,7 +24,6 @@ const ClientRender = ({ children }) => {
       : (
         <div />
       )
-  // <IntlProvider defaultLocale={'vi'} locale={locale?.la || 'vn'} messages={locale?.messages || {}}>
 
   )
 }
