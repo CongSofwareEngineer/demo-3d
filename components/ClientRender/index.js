@@ -4,25 +4,23 @@ import MyModal from '../MyModal'
 
 const ClientRender = ({ children }) => {
   const [isClient, setIsClient] = useState(false)
+
   useLayoutEffect(() => {
     setIsClient(true)
   }, [isClient])
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      {
-        isClient
-          ? (
-            <>
-              {children}
-              <MyModal />
-            </>
-          )
-          : (
-            <></>
-          )
-      }
-    </main>
-    // <IntlProvider defaultLocale={'vi'} locale={locale?.la || 'vn'} messages={locale?.messages || {}}>
+    isClient
+      ? (
+        <>
+          {children}
+          <MyModal />
+        </>
+      )
+      : (
+        <div />
+      )
+  // <IntlProvider defaultLocale={'vi'} locale={locale?.la || 'vn'} messages={locale?.messages || {}}>
 
   )
 }

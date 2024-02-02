@@ -5,6 +5,7 @@ import React from 'react'
 import styled from 'styled-components'
 import SvgOurService from './svgOurService'
 import useModal from '@/hooks/useModal'
+
 const ImgCustom = styled(Image)`
   position: fixed !important;
   inset: 0 !important;
@@ -16,14 +17,14 @@ const Frame = () => {
 
   return (
     <div className='relative w-screen h-screen'>
-      <ImgCustom
+      {/* <ImgCustom
         src={images.frameMain}
         fill
         quality={80}
 
-      />
+      /> */}
       <SvgOurService/>
-      <video
+      {/* <video
         src={videos.planet1}
         muted
         autoPlay
@@ -33,7 +34,7 @@ const Frame = () => {
         preload='auto'
         className='w-screen h-screen'
         style={{ objectFit: 'fill' }}
-      />
+      /> */}
     </div>
   )
 }

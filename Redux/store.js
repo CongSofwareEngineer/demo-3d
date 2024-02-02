@@ -8,21 +8,33 @@ import appReducer from './appSlice'
 let storeRedux
 
 export const makeStore = () => {
-  const persistConfig = {
-    key: 'root',
-    storage,
-    whitelist: [],
-    stateReconciler: autoMergeLevel2
-  }
-  const persistedReducer = persistReducer(persistConfig, appReducer)
+  const isClient = typeof window !== 'undefined';
 
-  storeRedux = configureStore({
-    reducer: {
-      app: persistedReducer
-    },
-    // preloadedState:
-    devTools: process.env.NEXT_PUBLIC_ENABLE_TOOL_REDUX
-  })
+  if (isClient) {
+    const persistConfig = {
+      key: 'root',
+      storage,
+      whitelist: [],
+      stateReconciler: autoMergeLevel2
+    }
+    const persistedReducer = persistReducer(persistConfig, appReducer)
+
+    storeRedux = configureStore({
+      reducer: {
+        app: persistedReducer
+      },
+      // preloadedState:
+      devTools: process.env.NEXT_PUBLIC_ENABLE_TOOL_REDUX
+    })
+  } else {
+    storeRedux = configureStore({
+      reducer: {
+        app: appReducer
+      },
+      // preloadedState:
+      devTools: process.env.NEXT_PUBLIC_ENABLE_TOOL_REDUX
+    })
+  }
 
   return storeRedux
 }

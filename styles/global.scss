@@ -1,34 +1,50 @@
 .animation {
-    &-zoom955-2 {
-        animation: zoom 2s linear infinite alternate;
-        -moz-animation: zoom 2s linear infinite alternate;
-        -webkit-animation: zoom 2s linear infinite alternate;
-        -o-animation: zoom 2s linear infinite alternate;
-        @keyframes zoom {
+    &__transformTop {
+        animation: vibrateTop 2s ease-in infinite alternate ;
+        @keyframes vibrateTop {
             from {
-                transform: scale(0.955) translateX(1%); 
+                transform: translateY(0px) ;
             }
             to {
-                transform: scale(1) translateX(0%); ;
+                transform: translateY(-15px) ;
             }
         }
+    }
+
+    &-zoom955-2 {
+        -o-animation: zoom 2s linear infinite alternate;
+        -moz-animation: zoom 2s linear infinite alternate;
+        -webkit-animation: zoom 2s linear infinite alternate;
+        animation: zoom 2s linear infinite alternate;
+        @keyframes zoom {
+            from { 
+                transform: scale(0.955) translateX(1%);
+            }
+            to {
+                transform: scale(1) translateX(0%); 
+            }
+        }
+        
 
         @-webkit-keyframes zoom {
-            from {
-                transform: scale(0.955) translateX(1%); 
+            from { 
+                transform: scale(0.955) translateX(1%);
             }
             to {
                 transform: scale(1) translateX(0%);
             }
         }
     }
+
+   
 }
-.hover{
+
+.hover {
     cursor: pointer;
-    &-zoom25{
-       &:hover{
-        transform: scale(1.025);
-        cursor: pointer;
-       }
+    &-zoom25 {
+        &:hover {
+            transform: scale(1.025);
+            cursor: pointer;
+        }
     }
 }

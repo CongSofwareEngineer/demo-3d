@@ -4,14 +4,6 @@ import { useSelector } from 'react-redux'
 const MyModal = () => {
   const modalConfig = useSelector(state => state.app.modal)
   return (
-    // <Modal title="Basic Modal" open >
-    //   <p>Some contents...</p>
-    //   <p>Some contents...</p>
-    //   <p>Some contents...</p>
-    //   {
-    //     modalConfig?.body
-    //   }
-    // </Modal>
     modalConfig?.body && (
       <Modal
         title="Basic Modal"
