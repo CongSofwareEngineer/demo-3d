@@ -4,6 +4,8 @@ import '@/styles/global.scss'
 import ReduxProvider from '@/components/ReduxProvider'
 import StyledComponentsRegistry from '@/components/AntdRegistry'
 import ClientRender from '@/components/ClientRender'
+import { AntdRegistry } from '@ant-design/nextjs-registry';
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -16,13 +18,16 @@ export default function RootLayout ({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <main className="flex min-h-screen flex-col items-center justify-between">
-          <StyledComponentsRegistry >
-            <ReduxProvider>
-              <ClientRender>
-                {children}
-              </ClientRender>
-            </ReduxProvider>
-          </StyledComponentsRegistry>
+          <AntdRegistry >
+            <StyledComponentsRegistry >
+              <ReduxProvider>
+                <ClientRender>
+                  {children}
+                </ClientRender>
+              </ReduxProvider>
+            </StyledComponentsRegistry>
+          </AntdRegistry>
+
         </main>
 
       </body>
