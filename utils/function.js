@@ -14,3 +14,7 @@ export const flattenMessages = (nestedMessages, prefix = '') => {
     return messages
   }, {})
 }
+export const getPersistDataByKey = (key, defaultValue = '') => {
+  const persistData = JSON.parse(localStorage.getItem('persist:nextjs'))
+  return persistData?.[key] ? JSON.parse(persistData[key]) : defaultValue
+}

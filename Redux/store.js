@@ -4,7 +4,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
 import appReducer, { setLanguage } from './appSlice'
-import { WHITE_LIST_REDUX } from '@/config/app';
+import { SLICES, WHITE_LIST_REDUX } from '@/config/app';
+ import { getPersistDataByKey } from '@/utils/function';
 
 let storeRedux
 
@@ -32,6 +33,12 @@ export const makeStore = () => {
         }
       })
   })
+  if (isClient) {
+    const intlReducerData = getPersistDataByKey(SLICES.local)
+    if (intlReducerData) {
+      storeRedux.dispatch(setLanguage(intlReducerData))
+    }
+  }
 
   return storeRedux
 }

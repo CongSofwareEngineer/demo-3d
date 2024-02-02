@@ -11,7 +11,6 @@ const ClientRender = ({ children }) => {
 
   useLayoutEffect(() => {
     setIsClient(true)
-    ReduxServices.setLanguage(null)
   }, [])
 
   return (

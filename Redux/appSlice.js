@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 export const initialState = {
   modal: null,
 
-  local: LOCALE_KEY.EN,
-  language: LOCALE_DATA[LOCALE_KEY.EN],
+  local: LOCALE_KEY.VN,
+  language: LOCALE_DATA[LOCALE_KEY.VN],
   loadingRoutePage: false
 
 }
