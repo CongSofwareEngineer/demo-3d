@@ -22,15 +22,6 @@ export const metadata = {
   url: 'https://tree.net.vn',
   bookmarks: 'https://tree.net.vn',
   type: 'website',
-  robots: {
-    index: true,
-    follow: true,
-    nocache: true,
-    googleBot: {
-      index: true,
-      follow: true
-    }
-  },
   icons: {
     icon: { url: '/favicon.ico' },
     shortcut: { url: '/favicon.ico' },
