@@ -10,7 +10,47 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'TREE STUDIOS',
-  description: 'coming soon'
+  description: 'coming soon',
+  keywords: [],
+  openGraph: {
+    title: 'TREE STUDIOS',
+    description: 'coming soon',
+    images: '/favicon.ico',
+    siteName: 'TREE STUDIOS',
+    url: 'https://tree.net.vn'
+  },
+  url: 'https://tree.net.vn',
+  bookmarks: 'https://tree.net.vn',
+  type: 'website',
+  robots: {
+    index: true,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: true
+    }
+  },
+  icons: {
+    icon: { url: '/favicon.ico' },
+    shortcut: { url: '/favicon.ico' },
+    apple: { url: '/favicon.ico' }
+  },
+  twitter: {
+    title: 'TREE STUDIOS',
+    description: 'coming soon',
+    card: 'summary_large_image',
+    images: '/favicon.ico'
+  },
+  appleWebApp: {
+    title: 'TREE STUDIOS'
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false
+  }
 }
 
 export default function RootLayout ({ children }) {
