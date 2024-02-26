@@ -5,6 +5,7 @@ export const images = {
   frameMain: '/assets/images/frameMain.png',
   frameMainTop: '/assets/images/frameMainTop.png',
   frameDetail: '/assets/images/frameDetail.svg',
+  bgVideo: '/assets/images/bgVideo.png',
   // aboutUs: '/assets/images/aboutUs.gif',
   // myPortfolio: '/assets/images/myPortfolio.gif',
   ourServices: '/assets/images/ourServices.gif',
