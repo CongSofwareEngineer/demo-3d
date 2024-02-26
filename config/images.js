@@ -3,6 +3,7 @@ export const images = {
     bgComingSoon: '/assets/images/ComingSoon/bgComingSoon.jpg'
   },
   frameMain: '/assets/images/frameMain.png',
+  frameMainTop: '/assets/images/frameMainTop.png',
   frameDetail: '/assets/images/frameDetail.svg',
   // aboutUs: '/assets/images/aboutUs.gif',
   // myPortfolio: '/assets/images/myPortfolio.gif',
