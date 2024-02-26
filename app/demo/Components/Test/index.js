@@ -11,8 +11,10 @@ const BgVideo = styled.img`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 100vh;
+  /* height: 100vh; */
   max-width: fit-content;
+  min-height: 100vh;
+  min-width: 100vw;
 `;
 
 const ImgCustom2 = styled.img`
