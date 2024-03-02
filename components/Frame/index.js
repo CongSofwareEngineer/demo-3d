@@ -12,12 +12,30 @@ const ImgCustom = styled(Image)`
   width: 100vw !important;
   height: 100vh !important;
 `
+
+const ImgCustom2 = styled.img`
+  position: absolute !important;
+  height: 100vh !important;
+  width: auto !important;
+  max-width: fit-content !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
 const Frame = () => {
   const { openModal } = useModal()
 
   return (
-    <div className='relative w-screen h-screen'>
-      <ImgCustom
+    <div className='relative w-screen h-screen overflow-hidden  '>
+      <ImgCustom2
+        src={images.frameMain}
+        // fill
+        // quality={80}
+
+      />
+      {/* <ImgCustom
         src={images.frameMain}
         fill
         quality={80}
@@ -34,7 +52,7 @@ const Frame = () => {
         preload='auto'
         className='w-screen h-screen'
         style={{ objectFit: 'fill' }}
-      />
+      /> */}
     </div>
   )
 }

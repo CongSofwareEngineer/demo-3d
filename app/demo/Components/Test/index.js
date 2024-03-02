@@ -42,8 +42,9 @@ const VideoCustom = styled.video`
   max-width: fit-content;
   min-height: 100vh;
   min-width: 100vw;
-  bottom: 0;,
+  bottom: 0;
   object-fit: fill;
+  max-height: 120vh;
 `;
 
 const Test = () => {
