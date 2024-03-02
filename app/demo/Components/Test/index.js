@@ -2,9 +2,10 @@
 import { images, videos } from '@/config/images';
 import Image from 'next/image';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import useModal from '@/hooks/useModal';
 import ImageEx from '@/components/ImageEx';
+import useSizeScreen from '@/hooks/useSizeScreen';
 
 const BgVideo = styled.img`
   position: absolute !important;
@@ -35,20 +36,26 @@ const ImgCustom2Top = styled.img`
 
 const VideoCustom = styled.video`
   position: absolute !important;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* height: 100vh; */
-  max-width: fit-content;
-  min-height: 100vh;
-  min-width: 100vw;
-  bottom: 0;
-  object-fit: fill;
-  max-height: 120vh;
+  inset: 0;
+  object-fit: cover;
+
+  ${(props) =>
+    props.isScaleWidth
+      ? css`
+          width: 100vw;
+          height: auto;
+        `
+      : css`
+          height: 100vh;
+          width: auto;
+        `}
 `;
 
 const Test = () => {
   const { openModal } = useModal();
+  const { ratioScreen } = useSizeScreen();
+
+  console.log({ ratioScreen });
 
   return (
     <div className="relative w-screen h-screen overflow-hidden  ">
@@ -61,7 +68,8 @@ const Test = () => {
           playsInline
           loop
           controls={false}
-          preload='auto'
+          preload="auto"
+          isScaleWidth={ratioScreen.isScaleWidth}
         />
       </div>
       {/* <ImageEx /> */}
