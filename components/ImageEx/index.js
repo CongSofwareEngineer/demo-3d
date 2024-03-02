@@ -54,7 +54,6 @@ const ImageEx = ({
   return (
     <div className='w-full h-full relative'>
       <BgVideo src={images.bgVideo} fill quality={80} />
-
       <Line />
     </div>
   )

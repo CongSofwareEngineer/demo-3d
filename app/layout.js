@@ -9,13 +9,14 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
+  metadataBase: new URL('https://tree.net.vn/'),
   title: 'TREE STUDIOS',
   description: 'coming soon',
   keywords: [],
   openGraph: {
     title: 'TREE STUDIOS',
     description: 'coming soon',
-    images: '/favicon.ico',
+    images: 'https://www.tree.net.vn/favicon.ico',
     siteName: 'TREE STUDIOS',
     url: 'https://tree.net.vn'
   },
@@ -23,15 +24,15 @@ export const metadata = {
   bookmarks: 'https://tree.net.vn',
   type: 'website',
   icons: {
-    icon: { url: '/favicon.ico' },
-    shortcut: { url: '/favicon.ico' },
-    apple: { url: '/favicon.ico' }
+    icon: { url: 'https://www.tree.net.vn/favicon.ico' },
+    shortcut: { url: 'https://www.tree.net.vn/favicon.ico' },
+    apple: { url: 'https://www.tree.net.vn/favicon.ico' }
   },
   twitter: {
     title: 'TREE STUDIOS',
     description: 'coming soon',
     card: 'summary_large_image',
-    images: '/favicon.ico'
+    images: 'https://www.tree.net.vn/favicon.ico'
   },
   appleWebApp: {
     title: 'TREE STUDIOS'
