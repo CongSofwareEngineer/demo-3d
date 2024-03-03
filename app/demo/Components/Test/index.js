@@ -24,6 +24,10 @@ const ImgCustom2 = styled.img`
   position: absolute;
 
   bottom: 0;
+  @media screen and (max-width: 1300px) {
+   min-width: 120vw;
+   left: -10vw;
+  } 
 `;
 
 const ImgCustom2Top = styled.img`
@@ -32,6 +36,10 @@ const ImgCustom2Top = styled.img`
   position: absolute;
   inset: 0;
   bottom: 0;
+  @media screen and (max-width: 1300px) {
+   min-width: 120vw;
+   left: -10vw;
+  } 
 `;
 
 const VideoCustom = styled.video`

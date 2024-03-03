@@ -3,7 +3,7 @@ import React, { useMemo, useLayoutEffect, useState, useRef, useEffect } from 're
 const useSizeScreen = () => {
   const [sizeScreen, setSizeScreen] = useState({
     width: window?.innerWidth || 21,
-    innerHeight: window?.innerHeight || 99,
+    height: window?.innerHeight || 99,
     ratioBeautiful: false
   })
 
@@ -16,7 +16,7 @@ const useSizeScreen = () => {
           ...sizeScreen,
           ...{
             width: window.innerWidth,
-            innerHeight: window.innerHeight,
+            height: window.innerHeight,
             ratioBeautiful: false
           }
         })
@@ -25,7 +25,7 @@ const useSizeScreen = () => {
           ...sizeScreen,
           ...{
             width: window.innerWidth,
-            innerHeight: window.innerHeight,
+            height: window.innerHeight,
             ratioBeautiful: true
           }
         })
