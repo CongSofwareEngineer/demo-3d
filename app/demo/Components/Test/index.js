@@ -69,7 +69,7 @@ const Test = () => {
           loop
           controls={false}
           preload="auto"
-          isScaleWidth={ratioScreen.isScaleWidth}
+          isScaleWidth={!ratioScreen.ratioBeautiful}
         />
       </div>
       {/* <ImageEx /> */}

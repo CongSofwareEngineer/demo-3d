@@ -1,36 +1,41 @@
-import React, { useMemo, useLayoutEffect, useState } from 'react'
+import React, { useMemo, useLayoutEffect, useState, useRef, useEffect } from 'react'
 
 const useSizeScreen = () => {
   const [sizeScreen, setSizeScreen] = useState({
     width: window?.innerWidth || 21,
-    innerHeight: window?.innerHeight || 99
+    innerHeight: window?.innerHeight || 99,
+    ratioBeautiful: false
   })
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.addEventListener('resize', () => {
-      setSizeScreen({
-        width: window?.innerWidth,
-        innerHeight: window?.innerHeight
-      })
+      const ratio = window.innerWidth / window.innerHeight
+      const ratioBeautiful = 21 / 9
+      if (ratio > ratioBeautiful) {
+        setSizeScreen({
+          ...sizeScreen,
+          ...{
+            width: window?.innerWidth,
+            innerHeight: window?.innerHeight,
+            ratioBeautiful: false
+          }
+        })
+      } else {
+        setSizeScreen({
+          ...sizeScreen,
+          ...{
+            width: window?.innerWidth,
+            innerHeight: window?.innerHeight,
+            ratioBeautiful: true
+          }
+        })
+      }
     })
   }, [])
 
-  const ratioScreen = useMemo(() => {
-    const ratio = sizeScreen.width / sizeScreen.innerHeight
-    const ratioBeautiful = 21 / 9
-    if (ratio > ratioBeautiful) {
-      return {
-        ratio,
-        isScaleWidth: true
-      }
-    }
-    return {
-      ratio,
-      isScaleWidth: false
-    }
-  }, [sizeScreen])
-
-  return { ratioScreen }
+  return {
+    ratioScreen: sizeScreen
+  }
 }
 
 export default useSizeScreen
