@@ -8,15 +8,15 @@ const useSizeScreen = () => {
   })
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
+    const changeSizeScreen = () => {
       const ratio = window.innerWidth / window.innerHeight
       const ratioBeautiful = 21 / 9
       if (ratio > ratioBeautiful) {
         setSizeScreen({
           ...sizeScreen,
           ...{
-            width: window?.innerWidth,
-            innerHeight: window?.innerHeight,
+            width: window.innerWidth,
+            innerHeight: window.innerHeight,
             ratioBeautiful: false
           }
         })
@@ -24,13 +24,19 @@ const useSizeScreen = () => {
         setSizeScreen({
           ...sizeScreen,
           ...{
-            width: window?.innerWidth,
-            innerHeight: window?.innerHeight,
+            width: window.innerWidth,
+            innerHeight: window.innerHeight,
             ratioBeautiful: true
           }
         })
       }
+    }
+
+    window.addEventListener('resize', () => {
+      changeSizeScreen()
     })
+
+    changeSizeScreen()
   }, [])
 
   return {
