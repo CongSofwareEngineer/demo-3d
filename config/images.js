@@ -14,6 +14,7 @@ export const images = {
   email: '/assets/images/email.png',
   workFlow: '/assets/images/workFlow.png',
   frameBottom: '/assets/images/frameBottom.png',
+  frameFullMain: '/assets/images/frameFullMain.png',
   aboutUs: '/assets/images/aboutUs.png'
 }
 export const videos = {
