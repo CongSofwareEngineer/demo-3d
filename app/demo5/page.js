@@ -40,13 +40,11 @@ const Demo4 = () => {
   const { openModal } = useModal();
   const { ratioScreen } = useSizeScreen();
 
-  console.log({ ratioScreen });
-
   return (
     <div className="relative w-screen h-screen overflow-hidden  ">
       <div className="w-full h-full relative">
         {/* <BgVideo src={images.bgVideo} fill quality={80} /> */}
-        {/* <VideoCustom
+        <VideoCustom
           src={videos.planet1}
           muted
           autoPlay
@@ -55,9 +53,12 @@ const Demo4 = () => {
           controls={false}
           preload="auto"
           isScaleWidth={!ratioScreen.ratioBeautiful}
-        /> */}
+        />
+        {/* <ImageCustom src={images.home.bgFrameBase} fill /> */}
+        <SvgOurService />
+
       </div>
-      <SvgOurService />
+      {/* <SvgOurService /> */}
       {/* <ImageCustom src={images.frameFullMain} fill /> */}
 
     </div>

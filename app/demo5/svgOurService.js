@@ -1,204 +1,205 @@
 import { images } from '@/config/images';
 import useModal from '@/hooks/useModal';
-import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
+import useSizeScreen from '@/hooks/useSizeScreen';
+import React, { useEffect, useRef } from 'react';
 
-const rotate = keyframes`
-  from {
-    transform: scale(0.955) translateX(1%);
-  }
-
-  to {
-    transform: scale(1) translateX(0%); 
-  }
+import styled, { css } from 'styled-components';
+const ContainerSVG = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
 `;
+
+const SVGCustom = styled.svg`
+  position: absolute !important;
+  left: 50% !important;
+  right: 50% !important;
+  transform: translate(-50%, 0%) !important;
+  ${(props) =>
+    props.isScale
+      ? css`
+          min-width: 100vw !important;
+          width: auto !important;
+        `
+      : css`
+          min-height: 100vh !important;
+          height: auto !important;
+        `}
+
+ `;
+
 const RectCustom = styled.rect`
-  /* animation: ${rotate} 2s linear infinite; */
-`;
-const ImageCustom = styled.image`
-  -o-animation: ${rotate} 2s ease-in infinite alternate;
-  -moz-animation: ${rotate} 2s ease-in infinite alternate;
-  -webkit-animation: ${rotate} 2s ease-in infinite alternate;
-  animation: ${rotate} 2s ease-in infinite alternate;
-`;
+  cursor: pointer;
+ `;
 
+const TYPE = {
+  ourService: 'ourService',
+  aboutUs: 'aboutUs',
+  contact: 'contact',
+  profile: 'profile'
+}
 const SvgOurService = () => {
+  const { ratioScreen } = useSizeScreen()
   const { openModal } = useModal()
-  const uorServiceRef = useRef(null)
+
+  const ourServiceRef = useRef(null)
+  const aboutUseRef = useRef(null)
+  const contactRef = useRef(null)
+  const proFileRef = useRef(null)
 
   useEffect(() => {
-    const ourService = document.querySelector('#image1_35_9_react')
-    console.log({ ourService });
+    const ourService = document.querySelector('#rectOurService')
+    const aboutUs = document.querySelector('#rectAboutUs')
+    const contact = document.querySelector('#rectContact')
+    const profile = document.querySelector('#rectProfile')
+
+    console.log({ aboutUs, contact, profile });
 
     ourService.addEventListener('mousedown', (e) => {
-      uorServiceRef.current.setAttribute('href', images.myPortfolio)
+      ourServiceRef.current.setAttribute('href', images.home.btnOurServiceClick)
+    })
+    ourService.addEventListener('mouseup', (e) => {
+      ourServiceRef.current.setAttribute('href', images.home.btnOurService)
     })
 
-    ourService.addEventListener('mouseup', (e) => {
-      uorServiceRef.current.setAttribute('href', images.ourServices1)
+    profile.addEventListener('mousedown', (e) => {
+      proFileRef.current.setAttribute('href', images.home.btnPortFltoClick)
+    })
+    profile.addEventListener('mouseup', (e) => {
+      proFileRef.current.setAttribute('href', images.home.btnPortFlto)
+    })
+
+    aboutUs.addEventListener('mousedown', (e) => {
+      aboutUseRef.current.setAttribute('href', images.home.btnAboutUsClick)
+    })
+    aboutUs.addEventListener('mouseup', (e) => {
+      aboutUseRef.current.setAttribute('href', images.home.btnAboutUs)
+    })
+
+    contact.addEventListener('mousedown', (e) => {
+      contactRef.current.setAttribute('href', images.home.btnContactClick)
+    })
+    contact.addEventListener('mouseup', (e) => {
+      contactRef.current.setAttribute('href', images.home.btnContact)
     })
   }, [])
 
-  const handleOpen = (text) => {
-    // openModal({
-    //   body: <div>{text}</div>
-    // });
-  };
+  const handleClick = (type) => {
+    let title = 'our Service'
+    switch (type) {
+    case TYPE.aboutUs:
+      title = 'About Us'
+      break;
+    case TYPE.contact:
+      title = 'contact'
+      break;
+    case TYPE.profile:
+      title = 'Our ProtFolto'
+      break;
+    default:
+      title = 'our Service'
+      break;
+    }
+    openModal({
+      body: <div>{title}</div>
+    });
+  }
+
+  const renderImgSvg = (id, url, ref) => {
+    return (
+      <image
+        ref={ref}
+        id={id}
+        width="355"
+        // height="300"
+        href={url}
+      />
+    )
+  }
+
   return (
-    <div className="absolute w-full bottom-0 z-10">
-      <svg
-        width="100%"
-        height="auto"
-        viewBox="0 0 1920 1080"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-      >
-        <rect y="179" width="1920" height="100%" fill="url(#pattern0)" />
-        <g clipPath="url(#clip0_35_9)">
-          <RectCustom
-            onClick={() => handleOpen('our service')}
-            className="hover"
-            x="26"
-            y="758"
-            width="384"
-            height="346"
-            fill="url(#pattern1)"
-            id='image1_35_9_react'
+    <SVGCustom
+      viewBox="0 0 2560 1097"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlnsXlink="http://www.w3.org/1999/xlink"
+      isScale={!ratioScreen.ratioBeautiful}
+    >
+      <rect width="2560" height="1097" fill="url(#pattern0)" />
+      <RectCustom onClick={() => handleClick(TYPE.ourService)} id='rectOurService' x="390" y="960" width="2560" height="1097" fill="url(#pattern2)" />
+      <RectCustom onClick={() => handleClick(TYPE.profile)} id='rectProfile' x="730" y="940" width="2560" height="1097" fill="url(#pattern1)" />
+      <RectCustom onClick={() => handleClick(TYPE.aboutUs)} id='rectAboutUs' x="1480" y="940" width="2560" height="1097" fill="url(#pattern3)" />
+      <RectCustom onClick={() => handleClick(TYPE.contact)} id='rectContact' x="1830" y="960" width="2560" height="1097" fill="url(#pattern4)" />
+      <defs>
+        <pattern
+          id="pattern0"
+          patternContentUnits="objectBoundingBox"
+          width="1"
+          height="1"
+        >
+          <use
+            xlinkHref="#image0_1109_3"
+            transform="scale(0.000390625 0.000911577)"
           />
-          <RectCustom
-            className="hover"
-            x="372"
-            y="726"
-            width="400"
-            height="400"
-            fill="url(#pattern2)"
+        </pattern>
+        <pattern
+          id="pattern1"
+          patternContentUnits="objectBoundingBox"
+          width="1"
+          height="1"
+        >
+          <use
+            xlinkHref="#image1_1109_3"
+            transform="scale(0.000390625 0.000911577)"
           />
-          <RectCustom
-            className="hover"
-            x="1494"
-            y="758"
-            width="400"
-            height="400"
-            fill="url(#pattern3)"
+        </pattern>
+        <pattern
+          id="pattern2"
+          patternContentUnits="objectBoundingBox"
+          width="1"
+          height="1"
+        >
+          <use
+            xlinkHref="#image2_1109_3"
+            transform="scale(0.000390625 0.000911577)"
           />
-          <RectCustom
-            className="hover"
-            x="760"
-            y="704"
-            width="400"
-            height="400"
-            fill="url(#pattern4)"
+        </pattern>
+        <pattern
+          id="pattern3"
+          patternContentUnits="objectBoundingBox"
+          width="1"
+          height="1"
+        >
+          <use
+            xlinkHref="#image3_1109_3"
+            transform="scale(0.000390625 0.000911577)"
           />
-          <RectCustom
-            className="hover"
-            x="1152"
-            y="724"
-            width="400"
-            height="400"
-            fill="url(#pattern5)"
+        </pattern>
+        <pattern
+          id="pattern4"
+          patternContentUnits="objectBoundingBox"
+          width="1"
+          height="1"
+        >
+          <use
+            xlinkHref="#image4_1109_3"
+            transform="scale(0.000390625 0.000911577)"
           />
-        </g>
-        <defs>
-          <pattern
-            id="pattern0"
-            patternContentUnits="objectBoundingBox"
-            width="1"
-            height="1"
-          >
-            <use
-              xlinkHref="#image0_35_9"
-              transform="matrix(0.000520833 0 0 0.000925926 0.00108612 -0.333627)"
-            />
-          </pattern>
-          <pattern
-            id="pattern1"
-            patternContentUnits="objectBoundingBox"
-            width="1"
-            height="1"
-          >
-            <use
-              xlinkHref="#image1_35_9"
-              transform="matrix(0.00281576 0 0 0.003125 -0.063151 0)"
-            />
-          </pattern>
-          <pattern
-            id="pattern2"
-            patternContentUnits="objectBoundingBox"
-            width="1"
-            height="1"
-          >
-            <use xlinkHref="#image2_35_9" transform="scale(0.0025)" />
-          </pattern>
-          <pattern
-            id="pattern3"
-            patternContentUnits="objectBoundingBox"
-            width="1"
-            height="1"
-          >
-            <use xlinkHref="#image3_35_9" transform="scale(0.0025)" />
-          </pattern>
-          <pattern
-            id="pattern4"
-            patternContentUnits="objectBoundingBox"
-            width="1"
-            height="1"
-          >
-            <use xlinkHref="#image4_35_9" transform="scale(0.0025)" />
-          </pattern>
-          <pattern
-            id="pattern5"
-            patternContentUnits="objectBoundingBox"
-            width="1"
-            height="1"
-          >
-            <use xlinkHref="#image5_35_9" transform="scale(0.0025)" />
-          </pattern>
-          <clipPath id="clip0_35_9">
-            <rect width="1920" height="1080" fill="white" />
-          </clipPath>
-          <ImageCustom
-            id="image1_35_9"
-            height="320"
-            ref={uorServiceRef}
-            width="400"
-            href={images.ourServices1}
-          />
-          <ImageCustom
-            id="image2_35_9"
-            width="400"
-            height="320"
-            href={images.myPortfolio}
-          />
-          <ImageCustom
-            id="image3_35_9"
-            width="400"
-            height="320"
-            href={images.aboutUs}
-          />
-          <ImageCustom
-            id="image4_35_9"
-            width="400"
-            height="320"
-            href={images.email}
-          />
-          <ImageCustom
-            id="image5_35_9"
-            width="400"
-            height="320"
-            href={images.workFlow}
-          />
-          <image
-            id="image0_35_9"
-            width="1920"
-            height="1440"
-            href={images.frameBottom}
-          />
-        </defs>
-      </svg>
-      {/* <image id="image0_33_2" width="400" height="320" href={images.ourServices1} /> */}
-    </div>
+        </pattern>
+        <image
+          id="image0_1109_3"
+          width="2560"
+          height="1097"
+          href={images.home.bgFrameBase}
+        />
+
+        {renderImgSvg('image1_1109_3', images.home.btnPortFlto, proFileRef)}
+        {renderImgSvg('image2_1109_3', images.home.btnOurService, ourServiceRef)}
+        {renderImgSvg('image3_1109_3', images.home.btnAboutUs, aboutUseRef)}
+        {renderImgSvg('image4_1109_3', images.home.btnContact, contactRef)}
+
+      </defs>
+    </SVGCustom>
   );
 };
 

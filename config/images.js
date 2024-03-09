@@ -15,7 +15,19 @@ export const images = {
   workFlow: '/assets/images/workFlow.png',
   frameBottom: '/assets/images/frameBottom.png',
   frameFullMain: '/assets/images/frameFullMain.png',
-  aboutUs: '/assets/images/aboutUs.png'
+  aboutUs: '/assets/images/aboutUs.png',
+  bgFrameBase219: '/assets/images/bgFrameBase219.png',
+  home: {
+    btnContact: '/assets/images/Home/btnContact.png',
+    btnContactClick: '/assets/images/Home/btnContactClick.png',
+    btnAboutUs: '/assets/images/Home/btnAboutUs.png',
+    btnAboutUsClick: '/assets/images/Home/btnAboutUsClick.png',
+    btnOurService: '/assets/images/Home/btnOurService.png',
+    btnOurServiceClick: '/assets/images/Home/btnOurServiceClick.png',
+    btnPortFlto: '/assets/images/Home/btnPortFlto.png',
+    btnPortFltoClick: '/assets/images/Home/btnPortFltoClick.png',
+    bgFrameBase: '/assets/images/Home/bgFrameBase.png'
+  }
 }
 export const videos = {
   planet1: '/assets/video/planet1.mp4',
