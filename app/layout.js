@@ -5,7 +5,7 @@ import ReduxProvider from '@/components/ReduxProvider'
 import StyledComponentsRegistry from '@/components/AntdRegistry'
 import ClientRender from '@/components/ClientRender'
 import { AntdRegistry } from '@ant-design/nextjs-registry';
-
+/** @type {import('next').Metadata} */
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -33,6 +33,9 @@ export const metadata = {
     description: 'coming soon',
     card: 'summary_large_image',
     images: 'https://www.tree.net.vn/favicon.ico'
+  },
+  verification: {
+    google: 't1w9GTio8AJGDTzsGbJVaMX1yHocs4zCvyLqa_kQmAg'
   },
   appleWebApp: {
     title: 'TREE STUDIOS'
