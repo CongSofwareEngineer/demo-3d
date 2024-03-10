@@ -39,7 +39,7 @@ const TYPE = {
   profile: 'profile'
 }
 const SvgOurService = () => {
-  const { ratioScreen } = useSizeScreen()
+  const { ratioBeautiful } = useSizeScreen()
   const { openModal } = useModal()
 
   const ourServiceRef = useRef(null)
@@ -52,8 +52,6 @@ const SvgOurService = () => {
     const aboutUs = document.querySelector('#rectAboutUs')
     const contact = document.querySelector('#rectContact')
     const profile = document.querySelector('#rectProfile')
-
-    console.log({ aboutUs, contact, profile });
 
     ourService.addEventListener('mousedown', (e) => {
       ourServiceRef.current.setAttribute('href', images.home.btnOurServiceClick)
@@ -123,7 +121,7 @@ const SvgOurService = () => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      isScale={!ratioScreen.ratioBeautiful}
+      isScale={!ratioBeautiful}
     >
       <rect width="2560" height="1097" fill="url(#pattern0)" />
       <RectCustom onClick={() => handleClick(TYPE.ourService)} id='rectOurService' x="390" y="960" width="2560" height="1097" fill="url(#pattern2)" />

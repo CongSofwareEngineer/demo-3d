@@ -5,7 +5,7 @@ import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 
 import appReducer, { setLanguage } from './appSlice'
 import { SLICES, WHITE_LIST_REDUX } from '@/config/app';
- import { getPersistDataByKey } from '@/utils/function';
+import { getPersistDataByKey } from '@/utils/function';
 
 let storeRedux
 
@@ -24,14 +24,8 @@ export const makeStore = () => {
     reducer: {
       app: persistedReducer
     },
-    // preloadedState:
-    devTools: process.env.NEXT_PUBLIC_ENABLE_TOOL_REDUX,
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        serializableCheck: {
-          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
-        }
-      })
+    devTools: !process.env.NEXT_PUBLIC_ENABLE_TOOL_REDUX
+
   })
   if (isClient) {
     const intlReducerData = getPersistDataByKey(SLICES.local)

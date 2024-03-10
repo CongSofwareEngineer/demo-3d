@@ -38,28 +38,25 @@ const ImageCustom = styled(Image)`
 
 const Demo4 = () => {
   const { openModal } = useModal();
-  const { ratioScreen } = useSizeScreen();
+  const { ratioBeautiful } = useSizeScreen();
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden  ">
-      <div className="w-full h-full relative">
-        {/* <BgVideo src={images.bgVideo} fill quality={80} /> */}
+    <div className="relative w-screen h-screen overflow-auto  ">
+      <div className="w-full h-full relative overflow-hidden">
         <VideoCustom
-          src={videos.planet1}
           muted
           autoPlay
           playsInline
           loop
           controls={false}
-          preload="auto"
-          isScaleWidth={!ratioScreen.ratioBeautiful}
-        />
-        {/* <ImageCustom src={images.home.bgFrameBase} fill /> */}
+          preload="none"
+          isScaleWidth={!ratioBeautiful}
+        >
+          <source src={videos.planet1}type="video/mp4"></source>
+        </VideoCustom>
         <SvgOurService />
 
       </div>
-      {/* <SvgOurService /> */}
-      {/* <ImageCustom src={images.frameFullMain} fill /> */}
 
     </div>
   );

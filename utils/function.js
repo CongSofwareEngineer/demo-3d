@@ -18,3 +18,22 @@ export const getPersistDataByKey = (key, defaultValue = '') => {
   const persistData = JSON.parse(localStorage.getItem('persist:nextjs'))
   return persistData?.[key] ? JSON.parse(persistData[key]) : defaultValue
 }
+
+export const saveDataLocal = (key, data) => {
+  try {
+    // eslint-disable-next-line no-undef
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const getDataLocal = (key) => {
+  try {
+    // eslint-disable-next-line no-undef
+    return JSON.parse(localStorage.getItem(key));
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+};

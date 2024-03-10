@@ -61,9 +61,9 @@ const VideoCustom = styled.video`
 
 const Test = () => {
   const { openModal } = useModal();
-  const { ratioScreen } = useSizeScreen();
+  const { ratioBeautiful } = useSizeScreen();
 
-  console.log({ ratioScreen });
+  console.log({ ratioBeautiful });
 
   return (
     <div className="relative w-screen h-screen overflow-hidden  ">
@@ -77,7 +77,7 @@ const Test = () => {
           loop
           controls={false}
           preload="auto"
-          isScaleWidth={!ratioScreen.ratioBeautiful}
+          isScaleWidth={!ratioBeautiful}
         />
       </div>
       {/* <ImageEx /> */}

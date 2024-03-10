@@ -6,9 +6,6 @@ const ReduxServices = {
   callDispatch: (func) => {
     storeRedux.dispatch(func)
   },
-  setCloseModal: () => {
-    ReduxServices.callDispatch(setModal(null))
-  },
   setLanguage: (language) => {
     ReduxServices.callDispatch(setLanguage(language))
   },

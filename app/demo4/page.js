@@ -37,9 +37,9 @@ const ImageCustom = styled(Image)`
 
 const Demo4 = () => {
   const { openModal } = useModal();
-  const { ratioScreen } = useSizeScreen();
+  const { ratioBeautiful } = useSizeScreen();
 
-  console.log({ ratioScreen });
+  console.log({ ratioBeautiful });
 
   return (
     <div className="relative w-screen h-screen overflow-hidden  ">
@@ -53,7 +53,7 @@ const Demo4 = () => {
           loop
           controls={false}
           preload="auto"
-          isScaleWidth={!ratioScreen.ratioBeautiful}
+          isScaleWidth={!ratioBeautiful}
         />
       </div>
       <ImageCustom src={images.frameFullMain} fill />

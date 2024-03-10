@@ -5,6 +5,7 @@ import ReduxProvider from '@/components/ReduxProvider'
 import StyledComponentsRegistry from '@/components/AntdRegistry'
 import ClientRender from '@/components/ClientRender'
 import { AntdRegistry } from '@ant-design/nextjs-registry';
+import ReactQueryProvider from '@/components/ReactQueryProvider'
 /** @type {import('next').Metadata} */
 const inter = Inter({ subsets: ['latin'] })
 
@@ -53,18 +54,18 @@ export default function RootLayout ({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <main className="flex min-h-screen flex-col items-center justify-between">
-          <AntdRegistry >
-            <StyledComponentsRegistry >
-              <ReduxProvider>
-                <ClientRender>
-                  {children}
-                </ClientRender>
-              </ReduxProvider>
-            </StyledComponentsRegistry>
-          </AntdRegistry>
-
+          <ReduxProvider>
+            <AntdRegistry >
+              <ReactQueryProvider>
+                <StyledComponentsRegistry >
+                  <ClientRender>
+                    {children}
+                  </ClientRender>
+                </StyledComponentsRegistry>
+              </ReactQueryProvider>
+            </AntdRegistry>
+          </ReduxProvider>
         </main>
-
       </body>
     </html>
   )

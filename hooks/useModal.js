@@ -25,7 +25,7 @@ const useModal = () => {
       header,
       footer,
       maskClose,
-      onCancel: () => onCancel || ReduxServices.setCloseModal(),
+      onCancel: () => onCancel || dispatch(setModal(null)),
       closeIcon,
       title,
       ...option,

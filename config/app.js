@@ -10,6 +10,12 @@ export const SLICES = {
   local: 'local'
 }
 
+export const QUEY_KEY = {
+  userData: 'userData',
+  language: 'language',
+  local: 'local'
+}
+
 export const LOCALE_KEY = {
   EN: 'en',
   VN: 'vi'
