@@ -44,8 +44,6 @@ const Demo3 = () => {
   const { openModal } = useModal();
   const { ratioBeautiful } = useSizeScreen();
 
-  console.log({ ratioBeautiful });
-
   return (
     <div className="relative w-screen h-screen overflow-hidden  ">
       <div className="w-full h-full relative">
@@ -58,6 +56,7 @@ const Demo3 = () => {
           controls={false}
           preload="none"
           isScaleWidth={!ratioBeautiful}
+
         >
           <source src={videos.planet1} type="video/mp4"/>
         </VideoCustom>

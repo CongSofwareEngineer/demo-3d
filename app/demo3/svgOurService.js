@@ -1,6 +1,7 @@
 import { images } from '@/config/images';
 import useModal from '@/hooks/useModal';
 import useSizeScreen from '@/hooks/useSizeScreen';
+import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 
@@ -24,6 +25,19 @@ const RectCustom = styled.rect`
   cursor: pointer;
  `;
 
+const BgSVG = styled(Image)`
+    position: absolute ;
+    inset: unset !important; 
+    bottom: 0 !important;
+    width: auto !important;
+    left: 50% !important;
+    right: 50% !important;
+    transform: translate(-50%, 0%) !important;
+    max-width: fit-content !important;
+    width: ${props => props.w};
+    height: ${props => props.h};
+ `;
+
 const TYPE = {
   ourService: 'ourService',
   aboutUs: 'aboutUs',
@@ -34,11 +48,31 @@ const SvgOurService = () => {
   const { ratioBeautiful } = useSizeScreen()
   const { openModal } = useModal()
   const isMouseClickRef = useRef(false)
+  const svgRef = useRef(null)
+  const bgSvg = useRef(null)
 
   const [isCLickOurService, setIsCLickOurService] = useState(false)
   const [isCLickAboutUs, setIsCLickAboutUs] = useState(false)
   const [isCLickContact, setIsCLickContact] = useState(false)
   const [isCLickProFileRef, setIsCLickProFileRef] = useState(false)
+  const [isLoadingSVG, setIsLoadingSVG] = useState(true)
+  const [dataFrame, setDataFrame] = useState({
+    w: 0,
+    h: 0
+  })
+
+  useEffect(() => {
+    console.log({ svgRef: svgRef.current });
+
+    setIsLoadingSVG(false)
+    window.addEventListener('resize', () => {
+      console.log({ width: svgRef.current.clientHeight });
+      setDataFrame({
+        w: `${svgRef.current.clientWidth}px !important`,
+        h: `${svgRef.current.clientHeight}px !important`
+      })
+    })
+  }, [])
 
   const handleClick = (type) => {
     const timeDebone = 200
@@ -83,7 +117,6 @@ const SvgOurService = () => {
       });
     }
   }
-  console.log({ isCLickOurService });
 
   const renderImgSvg = (id, stateClick, url, urlClick) => {
     return (
@@ -106,12 +139,26 @@ const SvgOurService = () => {
   }
 
   return (
+    <> {
+      !isLoadingSVG && (
+        <BgSVG
+          ref={bgSvg}
+          id='bg-svg'
+          fill
+          w={dataFrame.w}
+          h={ dataFrame.h}
+          src={images.home.bgFrameBase}
+        />
+      )
+    }
+
     <SVGCustom
       viewBox="0 0 2560 1097"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       isScale={!ratioBeautiful}
+      ref={svgRef}
     >
       <rect width="2560" height="1097" fill="url(#pattern0)" />
       <RectCustom
@@ -205,12 +252,12 @@ const SvgOurService = () => {
             transform="scale(0.00390625 0.011)"
           />
         </pattern>
-        <image
+        {/* <image
           id="image0_1109_3"
           width="2560"
           height="1097"
           href={images.home.bgFrameBase}
-        />
+        /> */}
 
         {renderImgSvg(
           'image2_1109_3',
@@ -243,7 +290,10 @@ const SvgOurService = () => {
         {renderImgSvg('image4_1109_3', images.home.btnContact, contactRef)} */}
 
       </defs>
+
     </SVGCustom>
+
+    </>
   );
 };
 
