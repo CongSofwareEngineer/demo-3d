@@ -142,6 +142,7 @@ const SvgOurService = () => {
     <> {
       !isLoadingSVG && (
         <BgSVG
+          quality={95}
           ref={bgSvg}
           id='bg-svg'
           fill
