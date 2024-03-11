@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components';
 import useModal from '@/hooks/useModal';
 import useSizeScreen from '@/hooks/useSizeScreen';
 import SvgOurService from './svgOurService';
+import SvgOurService2 from './svgOurService2';
 
 const VideoCustom = styled.video`
   position: absolute !important;
@@ -54,7 +55,7 @@ const Demo4 = () => {
         >
           <source src={videos.planet1}type="video/mp4"></source>
         </VideoCustom>
-        <SvgOurService />
+        <SvgOurService2 />
 
       </div>
 
