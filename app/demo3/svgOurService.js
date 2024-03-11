@@ -33,17 +33,17 @@ const TYPE = {
 const SvgOurService = () => {
   const { ratioBeautiful } = useSizeScreen()
   const { openModal } = useModal()
+  const isMouseClickRef = useRef(false)
 
   const [isCLickOurService, setIsCLickOurService] = useState(false)
   const [isCLickAboutUs, setIsCLickAboutUs] = useState(false)
   const [isCLickContact, setIsCLickContact] = useState(false)
   const [isCLickProFileRef, setIsCLickProFileRef] = useState(false)
-  const [isMouseClick, setIsMouseClick] = useState(false)
 
   const handleClick = (type) => {
     const timeDebone = 200
-    if (!isMouseClick) {
-      setIsMouseClick(true)
+    if (!isMouseClickRef.current) {
+      isMouseClickRef.current = true
       let title = 'our Service'
       switch (type) {
       case TYPE.aboutUs:
@@ -76,7 +76,7 @@ const SvgOurService = () => {
         break;
       }
       setTimeout(() => {
-        setIsMouseClick(false)
+        isMouseClickRef.current = false
       }, timeDebone);
       openModal({
         body: <div>{title}</div>
