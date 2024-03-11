@@ -5,6 +5,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import useModal from '@/hooks/useModal';
 import useSizeScreen from '@/hooks/useSizeScreen';
+import SvgOurService from './svgOurService';
 
 const VideoCustom = styled.video`
   position: absolute !important;
@@ -57,8 +58,9 @@ const Demo3 = () => {
           preload="auto"
           isScaleWidth={!ratioBeautiful}
         />
+        <SvgOurService />
       </div>
-      <ImageCustom src={images.frameFullMain} fill />
+      {/* <ImageCustom src={images.frameFullMain} fill /> */}
 
     </div>
   );
