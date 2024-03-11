@@ -5,7 +5,9 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import useModal from '@/hooks/useModal';
 import useSizeScreen from '@/hooks/useSizeScreen';
-import SvgOurService from './svgOurService';
+// import SvgOurService from './svgOurService';
+import dynamic from 'next/dynamic';
+const SvgOurService = dynamic(() => import('./svgOurService'), { ssr: false })
 
 const VideoCustom = styled.video`
   position: absolute !important;
@@ -49,15 +51,16 @@ const Demo3 = () => {
       <div className="w-full h-full relative">
         {/* <BgVideo src={images.bgVideo} fill quality={80} /> */}
         <VideoCustom
-          src={videos.planet1}
           muted
           autoPlay
           playsInline
           loop
           controls={false}
-          preload="auto"
+          preload="none"
           isScaleWidth={!ratioBeautiful}
-        />
+        >
+          <source src={videos.planet1} type="video/mp4"/>
+        </VideoCustom>
         <SvgOurService />
       </div>
       {/* <ImageCustom src={images.frameFullMain} fill /> */}
