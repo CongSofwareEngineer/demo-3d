@@ -78,9 +78,9 @@ const SvgOurService = () => {
       setTimeout(() => {
         setIsMouseClick(false)
       }, timeDebone);
-      // openModal({
-      //   body: <div>{title}</div>
-      // });
+      openModal({
+        body: <div>{title}</div>
+      });
     }
   }
   console.log({ isCLickOurService });
