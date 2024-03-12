@@ -56,13 +56,12 @@ const Demo3 = () => {
           controls={false}
           preload="none"
           isScaleWidth={!ratioBeautiful}
-
+          poster={images.home.bannerPreload}
         >
           <source src={videos.planet1} type="video/mp4"/>
         </VideoCustom>
         <SvgOurService />
       </div>
-      {/* <ImageCustom src={images.frameFullMain} fill /> */}
 
     </div>
   );

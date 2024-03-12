@@ -26,10 +26,13 @@ export const images = {
     btnOurServiceClick: '/assets/images/Home/btnOurServiceClick.png',
     btnPortFlto: '/assets/images/Home/btnPortFlto.png',
     btnPortFltoClick: '/assets/images/Home/btnPortFltoClick.png',
-    bgFrameBase: '/assets/images/Home/bgFrameBase.png'
+    bgFrameBase: '/assets/images/Home/bgFrameBase.png',
+    bannerPreload: '/assets/images/Home/bannerPreload.png',
+    banner2Preload: '/assets/images/Home/banner2Preload.png'
   }
 }
 export const videos = {
   planet1: '/assets/video/planet1.mp4',
-  aboutUs: '/assets/video/aboutUs.mp4'
+  aboutUs: '/assets/video/aboutUs.mp4',
+  banner2: '/assets/video/banner2.mp4'
 }
