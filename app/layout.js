@@ -8,17 +8,20 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import ReactQueryProvider from '@/components/ReactQueryProvider'
 /** @type {import('next').Metadata} */
 const inter = Inter({ subsets: ['latin'] })
-
+const BaseMeta = {
+  title: 'TREE STUDIOS',
+  des: 'Tree Studios is an art outsourcing studio for game art, concept art, 2D/ 3D environment, assets and animations specializing in stylized art styles.'
+}
 export const metadata = {
   metadataBase: new URL('https://tree.net.vn/'),
-  title: 'TREE STUDIOS',
-  description: 'coming soon',
+  title: BaseMeta.title,
+  description: BaseMeta.des,
   keywords: [],
   openGraph: {
-    title: 'TREE STUDIOS',
-    description: 'coming soon',
+    title: BaseMeta.title,
+    description: BaseMeta.des,
     images: 'https://www.tree.net.vn/favicon.ico',
-    siteName: 'TREE STUDIOS',
+    siteName: BaseMeta.title,
     url: 'https://tree.net.vn'
   },
   url: 'https://tree.net.vn',
@@ -30,8 +33,8 @@ export const metadata = {
     apple: { url: 'https://www.tree.net.vn/favicon.ico' }
   },
   twitter: {
-    title: 'TREE STUDIOS',
-    description: 'coming soon',
+    title: BaseMeta.title,
+    description: BaseMeta.des,
     card: 'summary_large_image',
     images: 'https://www.tree.net.vn/favicon.ico'
   },
@@ -39,7 +42,7 @@ export const metadata = {
     google: 't1w9GTio8AJGDTzsGbJVaMX1yHocs4zCvyLqa_kQmAg'
   },
   appleWebApp: {
-    title: 'TREE STUDIOS'
+    title: BaseMeta.title
   },
   viewport: {
     width: 'device-width',
