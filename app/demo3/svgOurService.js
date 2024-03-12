@@ -139,7 +139,8 @@ const SvgOurService = () => {
   }
 
   return (
-    <> {
+    <>
+      {/* {
       !isLoadingSVG && (
         <BgSVG
           quality={95}
@@ -151,148 +152,148 @@ const SvgOurService = () => {
           src={images.home.bgFrameBase}
         />
       )
-    }
+    } */}
 
-    <SVGCustom
-      viewBox="0 0 2560 1097"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink"
-      isScale={!ratioBeautiful}
-      ref={svgRef}
-    >
-      <rect width="2560" height="1097" fill="url(#pattern0)" />
-      <RectCustom
-        onMouseDown={() => handleClick(TYPE.ourService)}
-        onClick={() => isMobile ? handleClick(TYPE.ourService) : {}}
-        id='rectOurService'
-        x="395" y="965"
-        width="350"
-        height="120"
-        fill="url(#pattern2)"
-      />
-      <RectCustom
-        onMouseDown={() => handleClick(TYPE.profile)}
-        onClick={() => isMobile ? handleClick(TYPE.profile) : {}}
-        id='rectProfile'
-        x="720" y="945"
-        width="350"
-        height="120"
-        fill="url(#pattern1)"
-      />
+      <SVGCustom
+        viewBox="0 0 2560 1097"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        isScale={!ratioBeautiful}
+        ref={svgRef}
+      >
+        <rect width="2560" height="1097" fill="url(#pattern0)" />
+        <RectCustom
+          onMouseDown={() => handleClick(TYPE.ourService)}
+          onClick={() => isMobile ? handleClick(TYPE.ourService) : {}}
+          id='rectOurService'
+          x="395" y="965"
+          width="350"
+          height="120"
+          fill="url(#pattern2)"
+        />
+        <RectCustom
+          onMouseDown={() => handleClick(TYPE.profile)}
+          onClick={() => isMobile ? handleClick(TYPE.profile) : {}}
+          id='rectProfile'
+          x="720" y="945"
+          width="350"
+          height="120"
+          fill="url(#pattern1)"
+        />
 
-      <RectCustom
-        onMouseDown={() => handleClick(TYPE.aboutUs)}
-        onClick={() => isMobile ? handleClick(TYPE.aboutUs) : {}}
-        id='rectAboutUs'
-        x="1480" y="940"
-        width="350"
-        height="120"
-        fill="url(#pattern3)" />
-      <RectCustom
-        onMouseDown={() => handleClick(TYPE.contact)}
-        onClick={() => isMobile ? handleClick(TYPE.contact) : {}}
-        id='rectContact'
-        x="1830" y="960"
-        width="350"
-        height="120"
-        fill="url(#pattern4)" />
-      <defs>
-        <pattern
-          id="pattern0"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1"
-        >
-          <use
-            xlinkHref="#image0_1109_3"
-            transform="scale(0.000390625 0.000911577)"
+        <RectCustom
+          onMouseDown={() => handleClick(TYPE.aboutUs)}
+          onClick={() => isMobile ? handleClick(TYPE.aboutUs) : {}}
+          id='rectAboutUs'
+          x="1480" y="940"
+          width="350"
+          height="120"
+          fill="url(#pattern3)" />
+        <RectCustom
+          onMouseDown={() => handleClick(TYPE.contact)}
+          onClick={() => isMobile ? handleClick(TYPE.contact) : {}}
+          id='rectContact'
+          x="1830" y="960"
+          width="350"
+          height="120"
+          fill="url(#pattern4)" />
+        <defs>
+          <pattern
+            id="pattern0"
+            patternContentUnits="objectBoundingBox"
+            width="1"
+            height="1"
+          >
+            <use
+              xlinkHref="#image0_1109_3"
+              transform="scale(0.000390625 0.000911577)"
+            />
+          </pattern>
+          <pattern
+            id="pattern1"
+            patternContentUnits="objectBoundingBox"
+            width="1"
+            height="1"
+          >
+            <use
+              xlinkHref="#image1_1109_3"
+              transform="scale(0.00390625 0.011)"
+            />
+          </pattern>
+          <pattern
+            id="pattern2"
+            patternContentUnits="objectBoundingBox"
+            width="1"
+            height="1"
+          >
+            <use
+              xlinkHref="#image2_1109_3"
+              transform="scale(0.00390625 0.011)"
+            />
+          </pattern>
+          <pattern
+            id="pattern3"
+            patternContentUnits="objectBoundingBox"
+            width="1"
+            height="1"
+          >
+            <use
+              xlinkHref="#image3_1109_3"
+              transform="scale(0.00390625 0.011)"
+            />
+          </pattern>
+          <pattern
+            id="pattern4"
+            patternContentUnits="objectBoundingBox"
+            width="1"
+            height="1"
+          >
+            <use
+              xlinkHref="#image4_1109_3"
+              transform="scale(0.00390625 0.011)"
+            />
+          </pattern>
+          <image
+            id="image0_1109_3"
+            width="2560"
+            height="1097"
+            href={images.home.bgFrameBase}
           />
-        </pattern>
-        <pattern
-          id="pattern1"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1"
-        >
-          <use
-            xlinkHref="#image1_1109_3"
-            transform="scale(0.00390625 0.011)"
-          />
-        </pattern>
-        <pattern
-          id="pattern2"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1"
-        >
-          <use
-            xlinkHref="#image2_1109_3"
-            transform="scale(0.00390625 0.011)"
-          />
-        </pattern>
-        <pattern
-          id="pattern3"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1"
-        >
-          <use
-            xlinkHref="#image3_1109_3"
-            transform="scale(0.00390625 0.011)"
-          />
-        </pattern>
-        <pattern
-          id="pattern4"
-          patternContentUnits="objectBoundingBox"
-          width="1"
-          height="1"
-        >
-          <use
-            xlinkHref="#image4_1109_3"
-            transform="scale(0.00390625 0.011)"
-          />
-        </pattern>
-        {/* <image
-          id="image0_1109_3"
-          width="2560"
-          height="1097"
-          href={images.home.bgFrameBase}
-        /> */}
 
-        {renderImgSvg(
-          'image2_1109_3',
-          isCLickOurService,
-          images.home.btnOurService,
-          images.home.btnOurServiceClick
-        )}
-        {renderImgSvg(
-          'image1_1109_3',
-          isCLickProFileRef,
-          images.home.btnPortFlto,
-          images.home.btnPortFltoClick
-        )}
+          {renderImgSvg(
+            'image2_1109_3',
+            isCLickOurService,
+            images.home.btnOurService,
+            images.home.btnOurServiceClick
+          )}
+          {renderImgSvg(
+            'image1_1109_3',
+            isCLickProFileRef,
+            images.home.btnPortFlto,
+            images.home.btnPortFltoClick
+          )}
 
-        {renderImgSvg(
-          'image3_1109_3',
-          isCLickAboutUs,
-          images.home.btnAboutUs,
-          images.home.btnAboutUsClick
-        )}
+          {renderImgSvg(
+            'image3_1109_3',
+            isCLickAboutUs,
+            images.home.btnAboutUs,
+            images.home.btnAboutUsClick
+          )}
 
-        {renderImgSvg(
-          'image4_1109_3',
-          isCLickContact,
-          images.home.btnContact,
-          images.home.btnContactClick
-        )}
+          {renderImgSvg(
+            'image4_1109_3',
+            isCLickContact,
+            images.home.btnContact,
+            images.home.btnContactClick
+          )}
 
-        {/* {renderImgSvg('image3_1109_3', images.home.btnAboutUs, aboutUseRef)}
+          {/* {renderImgSvg('image3_1109_3', images.home.btnAboutUs, aboutUseRef)}
         {renderImgSvg('image4_1109_3', images.home.btnContact, contactRef)} */}
 
-      </defs>
+        </defs>
 
-    </SVGCustom>
+      </SVGCustom>
 
     </>
   );
