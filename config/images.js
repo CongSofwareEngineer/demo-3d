@@ -26,7 +26,7 @@ export const images = {
     btnOurServiceClick: '/assets/images/Home/btnOurServiceClick.png',
     btnPortFlto: '/assets/images/Home/btnPortFlto.png',
     btnPortFltoClick: '/assets/images/Home/btnPortFltoClick.png',
-    bgFrameBase: '/assets/images/Home/bgFrameBase.png',
+    bgFrameBase: '/assets/images/Home/bgFrameBase.webp',
     bannerPreload: '/assets/images/Home/bannerPreload.png',
     banner2Preload: '/assets/images/Home/banner2Preload.png'
   }

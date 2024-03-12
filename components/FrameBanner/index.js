@@ -55,14 +55,12 @@ const FrameBanner = () => {
   const [isCLickAboutUs, setIsCLickAboutUs] = useState(false)
   const [isCLickContact, setIsCLickContact] = useState(false)
   const [isCLickProFileRef, setIsCLickProFileRef] = useState(false)
-  const [isLoadingSVG, setIsLoadingSVG] = useState(true)
   const [dataFrame, setDataFrame] = useState({
     w: 0,
     h: 0
   })
 
   useEffect(() => {
-    setIsLoadingSVG(false)
     window.addEventListener('resize', () => {
       console.log({ width: svgRef.current.clientHeight });
       setDataFrame({
@@ -144,19 +142,15 @@ const FrameBanner = () => {
 
   return (
     <>
-      {
-        !isLoadingSVG && (
-          <BgSVG
-            quality={95}
-            ref={bgSvg}
-            id='bg-svg'
-            fill
-            w={dataFrame.w}
-            h={ dataFrame.h}
-            src={images.home.bgFrameBase}
-          />
-        )
-      }
+      <BgSVG
+        quality={95}
+        ref={bgSvg}
+        id='bg-svg'
+        fill
+        w={dataFrame.w}
+        h={ dataFrame.h}
+        src={images.home.bgFrameBase}
+      />
 
       <SVGCustom
         viewBox="0 0 2560 1097"
