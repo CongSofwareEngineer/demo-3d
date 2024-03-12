@@ -33,7 +33,7 @@ const BgSVG = styled(Image)`
     left: 50% !important;
     right: 50% !important;
     transform: translate(-50%, 0%) !important;
-    max-width: fit-content !important;
+    max-width: none !important;
     width: ${props => props.w};
     height: ${props => props.h};
  `;
@@ -72,6 +72,12 @@ const SvgOurService = () => {
         h: `${svgRef.current.clientHeight}px !important`
       })
     })
+    if (svgRef.current) {
+      setDataFrame({
+        w: `${svgRef.current.clientWidth}px !important`,
+        h: `${svgRef.current.clientHeight}px !important`
+      })
+    }
   }, [])
 
   const handleClick = (type) => {
@@ -140,19 +146,19 @@ const SvgOurService = () => {
 
   return (
     <>
-      {/* {
-      !isLoadingSVG && (
-        <BgSVG
-          quality={95}
-          ref={bgSvg}
-          id='bg-svg'
-          fill
-          w={dataFrame.w}
-          h={ dataFrame.h}
-          src={images.home.bgFrameBase}
-        />
-      )
-    } */}
+      {
+        !isLoadingSVG && (
+          <BgSVG
+            quality={95}
+            ref={bgSvg}
+            id='bg-svg'
+            fill
+            w={dataFrame.w}
+            h={ dataFrame.h}
+            src={images.home.bgFrameBase}
+          />
+        )
+      }
 
       <SVGCustom
         viewBox="0 0 2560 1097"
@@ -254,12 +260,12 @@ const SvgOurService = () => {
               transform="scale(0.00390625 0.011)"
             />
           </pattern>
-          <image
+          {/* <image
             id="image0_1109_3"
             width="2560"
             height="1097"
             href={images.home.bgFrameBase}
-          />
+          /> */}
 
           {renderImgSvg(
             'image2_1109_3',
