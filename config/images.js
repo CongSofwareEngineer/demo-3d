@@ -28,7 +28,10 @@ export const images = {
     btnPortFltoClick: '/assets/images/Home/btnPortFltoClick.png',
     bgFrameBase: '/assets/images/Home/bgFrameBase.webp',
     bannerPreload: '/assets/images/Home/bannerPreload.png',
-    banner2Preload: '/assets/images/Home/banner2Preload.png'
+    banner2Preload: '/assets/images/Home/banner2Preload.png',
+    banner2: {
+      gameArt: '/assets/images/Home/Banner2/gameArt.png'
+    }
   }
 }
 export const videos = {

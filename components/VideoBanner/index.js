@@ -5,10 +5,10 @@ import useSizeScreen from '@/hooks/useSizeScreen';
 const VideoBanner = ({
   url,
   poster,
-  callBack = () => {}
+  callBack = () => {},
+  videoRef = React.createRef(null)
 }) => {
   const { ratioBeautiful } = useSizeScreen()
-  const videoRef = useRef(null)
 
   useEffect(() => {
     if (videoRef.current) {
@@ -29,7 +29,7 @@ const VideoBanner = ({
       preload="none"
       isScaleWidth={!ratioBeautiful}
       poster={poster}
-      className={`${styles.videoBannerBase} ${!ratioBeautiful && styles.isScale}`}
+      className={`${styles.videoBannerBase} ${!ratioBeautiful && styles.isScale} opacity-20`}
     >
       <source src={url} type="video/mp4"/>
     </video>
