@@ -29,7 +29,7 @@ const VideoBanner = ({
       preload="none"
       isScaleWidth={!ratioBeautiful}
       poster={poster}
-      className={`${styles.videoBannerBase} ${!ratioBeautiful && styles.isScale} opacity-20`}
+      className={`${styles.videoBannerBase} ${!ratioBeautiful && styles.isScale} `}
     >
       <source src={url} type="video/mp4"/>
     </video>

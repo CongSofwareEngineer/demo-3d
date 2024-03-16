@@ -1,7 +1,7 @@
 import BannerVideo from '@/app/page2/Components/bannerVideo';
 import { images } from '@/config/images';
 import Image from 'next/image';
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components';
 import FrameBtn from './frameBtn';
 import SlideBanner from './slideBanner';
@@ -21,6 +21,19 @@ const BgBase = styled(Image)`
     max-width: none !important; 
 `;
 
+const BgBase2 = styled(Image)`
+    min-height: 100vh !important; 
+    position: absolute !important;
+    width: auto !important;
+    height: auto !important;
+    inset: unset !important;
+    bottom: 0 !important;
+    max-width: none !important; 
+    max-width: none !important;
+    margin-left: 50%;
+    transform: translate(-50%, 0%);
+`;
+
 const SVGCustom = styled.svg` 
   position: absolute;
   width: 100%;
@@ -32,24 +45,20 @@ const SVGCustom = styled.svg`
 
 const Rects = styled.rect.attrs(() => ({ className: 'cursor-pointer' }))``
 const Frame2 = () => {
-  const renderSlide = () => {
-    return (
-      <div className='absolute  inset-0 flex h-full gap-0 w-full overflow-hidden overflow-x-auto flex-col flex-wrap snap-x'>
-        <div className='snap-center w-full h-full bg-green-200'/>
-        <div className='snap-center w-full h-full bg-orange-200'/>
-        <div className='snap-center w-full h-full bg-blue-400'/>
-      </div>
-    )
-  }
+  const [hoverGameArt, setHoverGameArt] = useState(false)
 
   return (
     <div className='relative w-screen h-screen overflow-hidden'>
-      <ContainerFrame >
+      {/* <ContainerFrame >
         <BgBase fill src={images.home.bgFrameBase}/>
-        {/* {renderSlide()} */}
+        {renderSlide()}
         <SlideBanner />
         <FrameBtn />
-      </ContainerFrame>
+      </ContainerFrame> */}
+      <SlideBanner />
+      <BgBase2 fill src={images.home.bgFrameBase}/>
+      <SlideBanner />
+      <FrameBtn />
     </div>
   )
 }

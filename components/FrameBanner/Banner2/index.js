@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { isMobileOnly } from 'react-device-detect'
 import styled from 'styled-components'
 
-const Banner2 = ({ ref }) => {
+const Banner2 = ({ ref, noShowElement = false }) => {
   const [hoverGameArt, setHoverGameArt] = useState(false)
 
   const handleHover = () => {
@@ -86,7 +86,7 @@ const Banner2 = ({ ref }) => {
           hoverGameArt
         )}
         {
-          !hoverGameArt && (
+          hoverGameArt && !noShowElement && (
             <image href={ images.home.banner2.tableGameArt} id="image5_1220_6" width="800" height="800" />
 
           )

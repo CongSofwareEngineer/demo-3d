@@ -31,3 +31,10 @@ export const LOCALE_DATA = {
     messages: flattenMessages(MessageEN)
   }
 }
+
+export const TYPE_BANNER = {
+  ourService: 'ourService',
+  aboutUs: 'aboutUs',
+  contact: 'contact',
+  profile: 'profile'
+};

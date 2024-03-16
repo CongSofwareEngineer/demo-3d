@@ -5,7 +5,10 @@ export const initialState = {
 
   local: LOCALE_KEY.VN,
   language: LOCALE_DATA[LOCALE_KEY.VN],
-  loadingRoutePage: false
+  loadingRoutePage: false,
+  banner2: {
+    hoverGameArt: false
+  }
 
 }
 export const appSlice = createSlice({
@@ -17,6 +20,9 @@ export const appSlice = createSlice({
         state.modal?.afterClose()
       }
       state.modal = action.payload
+    },
+    setEventBanner: (state, action) => {
+      state.banner2 = action.payload
     },
     setLanguage: (state, action) => {
       if (!action?.payload) {

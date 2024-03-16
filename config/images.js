@@ -30,7 +30,10 @@ export const images = {
     bannerPreload: '/assets/images/Home/bannerPreload.png',
     banner2Preload: '/assets/images/Home/banner2Preload.png',
     banner2: {
-      gameArt: '/assets/images/Home/Banner2/gameArt.png'
+      gameArt: '/assets/images/Home/Banner2/gameArt.png',
+      gameArtClick: '/assets/images/Home/Banner2/gameArtClick.png',
+      tableGameArt: '/assets/images/Home/Banner2/tableGameArt.png'
+
     }
   }
 }
