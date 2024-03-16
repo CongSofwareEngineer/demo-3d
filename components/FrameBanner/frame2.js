@@ -1,25 +1,9 @@
-import BannerVideo from '@/app/page2/Components/bannerVideo';
 import { images } from '@/config/images';
 import Image from 'next/image';
 import React, { useState } from 'react'
 import styled from 'styled-components';
 import FrameBtn from './frameBtn';
 import SlideBanner from './slideBanner';
-const ContainerFrame = styled.div`
-    position: absolute !important;
-    margin-left: 50%;
-    transform: translate(-50%, 0%);
-    width: max-content;
-    bottom: 0;
-  
-`;
-const BgBase = styled(Image)`
-    min-height: 100vh !important; 
-    position: relative !important;
-    width: auto !important;
-    height: auto !important;
-    max-width: none !important; 
-`;
 
 const BgBase2 = styled(Image)`
     min-height: 100vh !important; 

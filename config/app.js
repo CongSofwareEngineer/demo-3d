@@ -38,3 +38,9 @@ export const TYPE_BANNER = {
   contact: 'contact',
   profile: 'profile'
 };
+
+export const TYPE_OPTION_BANNER_2 = {
+  character: 'character',
+  gameArt: 'gameArt',
+  branding: 'branding'
+};

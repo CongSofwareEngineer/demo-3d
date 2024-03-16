@@ -1,0 +1,30 @@
+import { images } from '@/config/images';
+import Image from 'next/image';
+import React from 'react';
+import styled from 'styled-components';
+
+const BgBase2 = styled(Image)`
+  min-height: 100vh !important;
+  position: absolute !important;
+  width: auto !important;
+  height: auto !important;
+  inset: unset !important;
+  bottom: 0 !important;
+  max-width: none !important;
+  max-width: none !important;
+  margin-left: 50%;
+  transform: translate(-50%, 0%);
+`;
+const BgFrameBanner = ({ ref, className, ...props }) => {
+  return (
+    <BgBase2
+      ref={ref}
+      fill
+      src={images.home.bgFrameBase}
+      className={`bg-frame-banner ${className}`}
+      {...props}
+    />
+  );
+};
+
+export default BgFrameBanner;

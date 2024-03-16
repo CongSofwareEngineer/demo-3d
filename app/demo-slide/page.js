@@ -1,8 +1,8 @@
 'use client'
+import BgFrameBanner from '@/components/BgFrameBanner';
 import FrameBtn from '@/components/FrameBanner/frameBtn';
 import VideoBanner from '@/components/VideoBanner';
 import { images, videos } from '@/config/images';
-import Image from 'next/image';
 import React, { useEffect } from 'react'
 import styled from 'styled-components';
 const ContainerSlide = styled.div`
@@ -31,19 +31,6 @@ const ItemSlide = styled.div`
   position: relative;
 `;
 
-const BgFrame = styled(Image)`
-    min-height: 100vh !important; 
-    position: absolute !important;
-    width: auto !important;
-    height: auto !important;
-    inset: unset !important;
-    bottom: 0 !important;
-    max-width: none !important; 
-    max-width: none !important;
-    margin-left: 50%;
-    transform: translate(-50%, 0%);
-`;
-
 const DemoSlide = () => {
   useEffect(() => {
     const slideVideo = document.getElementsByClassName('slide-video')[0]
@@ -70,12 +57,6 @@ const DemoSlide = () => {
             poster={images.home.banner2Preload}
           />
         </ItemSlide>
-        {/* <ItemSlide id='3'>
-          <VideoBanner
-            url={videos.banner2}
-            poster={images.home.banner2Preload}
-          />
-        </ItemSlide> */}
       </ContainerSlide>
     )
   }
@@ -85,7 +66,6 @@ const DemoSlide = () => {
       <ContainerSlide className='slide-video-transparent' >
         <ItemSlide />
         <ItemSlide />
-        <ItemSlide />
       </ContainerSlide>
     )
   }
@@ -93,7 +73,7 @@ const DemoSlide = () => {
     <div className='relative w-screen h-screen overflow-hidden'>
       {renderVideo()}
 
-      <BgFrame fill src={images.home.bgFrameBase}/>
+      <BgFrameBanner/>
       {renderSlideVideo()}
       <FrameBtn />
     </div>

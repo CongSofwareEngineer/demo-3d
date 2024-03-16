@@ -32,7 +32,11 @@ export const images = {
     banner2: {
       gameArt: '/assets/images/Home/Banner2/gameArt.png',
       gameArtClick: '/assets/images/Home/Banner2/gameArtClick.png',
-      tableGameArt: '/assets/images/Home/Banner2/tableGameArt.png'
+      tableGameArt: '/assets/images/Home/Banner2/tableGameArt.png',
+      tableCharacter: '/assets/images/Home/Banner2/tableChacter.png',
+      branding: '/assets/images/Home/Banner2/branding.png',
+      tableBranding: '/assets/images/Home/Banner2/tableBranding.png',
+      character: '/assets/images/Home/Banner2/character.png'
 
     }
   }

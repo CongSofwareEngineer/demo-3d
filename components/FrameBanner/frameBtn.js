@@ -2,7 +2,7 @@ import { TYPE_BANNER } from '@/config/app';
 import { images } from '@/config/images'
 import useModal from '@/hooks/useModal';
 import useSizeScreen from '@/hooks/useSizeScreen';
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { isMobile } from 'react-device-detect';
 import styled from 'styled-components';
 
@@ -27,6 +27,31 @@ const FrameBtn = ({ height }) => {
   const [isCLickAboutUs, setIsCLickAboutUs] = useState(false);
   const [isCLickContact, setIsCLickContact] = useState(false);
   const [isCLickProFileRef, setIsCLickProFileRef] = useState(false);
+
+  const [heightBgFrame, setHeightBgFrame] = useState(null)
+
+  useEffect(() => {
+    if (!ratioBeautiful) {
+      window.addEventListener(('resize'), () => {
+        const bgFrame = document.getElementsByClassName('bg-frame-banner')[0]
+        if (bgFrame) {
+          setTimeout(() => {
+            setHeightBgFrame(bgFrame.clientHeight * 0.19)
+          }, 100);
+        }
+      })
+      const bgFrame = document.getElementsByClassName('bg-frame-banner')[0]
+      if (bgFrame) {
+        setTimeout(() => {
+          setHeightBgFrame(bgFrame.clientHeight * 0.19)
+        }, 100);
+      }
+    } else {
+      setHeightBgFrame(null)
+      window.removeEventListener('resize', () => {})
+    }
+    return () => window.removeEventListener('resize', () => {})
+  }, [ratioBeautiful])
 
   const handleClick = (type) => {
     const timeDebone = 200;
@@ -97,7 +122,7 @@ const FrameBtn = ({ height }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      $height={!ratioBeautiful ? 100 : height}
+      $height={!ratioBeautiful ? heightBgFrame : height}
       // onClick={() => handleClick(TYPE_BANNER.ourService)}
     >
       <Rects
