@@ -359,22 +359,22 @@ const FrameBanner = () => {
   }
   return <Frame2 />
 
-  return (
-    <ContainerBgFrame >
-      <ContainerBgSVG>
-        <BgSVG
-          ref={bgSvg}
-          id="bg-svg"
-          fill
-          w={dataFrame.w}
-          h={dataFrame.h}
-          src={images.home.bgFrameBase}
-        />
-        {renderSVG2()}
-      </ContainerBgSVG>
-    </ContainerBgFrame>
+  // return (
+  //   <ContainerBgFrame >
+  //     <ContainerBgSVG>
+  //       <BgSVG
+  //         ref={bgSvg}
+  //         id="bg-svg"
+  //         fill
+  //         w={dataFrame.w}
+  //         h={dataFrame.h}
+  //         src={images.home.bgFrameBase}
+  //       />
+  //       {renderSVG2()}
+  //     </ContainerBgSVG>
+  //   </ContainerBgFrame>
 
-  );
+  // );
 };
 
 export default React.memo(FrameBanner);
