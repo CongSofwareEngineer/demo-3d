@@ -1,8 +1,13 @@
 .videoBannerBase{
     position: absolute !important;
     inset: 0;
-    object-fit: cover;
-    height: 100vh;
+    -o-object-fit: cover; /* Opera */
+    -moz-object-fit: cover; /* Firefox */
+    -webkit-object-fit: cover; /* Safari/Chrome */
+    object-fit: cover; /* Standard */
+
+    // height: 100vh;
+    min-height: 100%;
     width: auto;
 }
 
