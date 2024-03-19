@@ -182,7 +182,7 @@ const SlideVideo = ({
             images.home.banner2.gameArt,
             images.home.banner2.gameArtClick,
             hoverGameArt,
-            0.9799999
+            0.9799
           )}
           {/*
           {renderImgSvg(
