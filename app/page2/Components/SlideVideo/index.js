@@ -43,14 +43,14 @@ const SlideVideo = ({
     }
   };
 
-  const renderImgSvg = (id, url, urHover, isHover) => {
+  const renderImgSvg = (id, url, urHover, isHover, scale = 1) => {
     // const getId = (isClick) => {
     //     if(isClick)
     //  }
     return (
       <>
-        <image href={url} id={isHover ? 'no-data' : id} height="100" />
-        <image href={urHover} id={!isHover ? 'no-data' : id} height="100" />
+        <image href={url} id={isHover ? 'no-data' : id} height={100} />
+        <image href={urHover} id={!isHover ? 'no-data' : id} height={scale * 100} />
       </>
     );
   };
@@ -73,9 +73,9 @@ const SlideVideo = ({
         {/* img character */}
         <rect
           className=" cursor-pointer"
-          x={1035}
+          x={1055}
           y={340}
-          width="420"
+          width="480"
           height="170"
           fill={`url(#pattern1${keySVG})`}
         />
@@ -117,9 +117,9 @@ const SlideVideo = ({
               transform="scale(0.0037 0.009)"
             />
           </pattern>
-          <pattern id={`pattern1${keySVG}`} patternContentUnits="objectBoundingBox" width="1" height="1">
+          <pattern x={1000} id={`pattern1${keySVG}`} patternContentUnits="objectBoundingBox" width="1" height="1">
             <use xlinkHref={`#image1_1220_6${keySVG}`}
-              transform="scale(0.0037 0.009)"
+              transform="scale(0.0031 0.009)"
             />
           </pattern>
           <pattern
@@ -168,20 +168,21 @@ const SlideVideo = ({
           {renderImgSvg(
             `image0_1220_6${keySVG}`,
             images.home.banner2.branding,
-            images.home.banner2.branding,
+            images.home.banner2.brandingClick,
             hoverBranding
           )}
           {renderImgSvg(
             `image1_1220_6${keySVG}`,
             images.home.banner2.character,
-            images.home.banner2.character,
+            images.home.banner2.characterClick,
             hoverCharacter
           )}
           {renderImgSvg(
             `image2_1220_6${keySVG}`,
             images.home.banner2.gameArt,
             images.home.banner2.gameArtClick,
-            hoverGameArt
+            hoverGameArt,
+            0.97999999
           )}
           {/*
           {renderImgSvg(

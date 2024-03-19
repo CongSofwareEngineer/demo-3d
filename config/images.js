@@ -35,8 +35,10 @@ export const images = {
       tableGameArt: '/assets/images/Home/Banner2/tableGameArt.png',
       tableCharacter: '/assets/images/Home/Banner2/tableChacter.png',
       branding: '/assets/images/Home/Banner2/branding.png',
+      brandingClick: '/assets/images/Home/Banner2/brandingClick.png',
       tableBranding: '/assets/images/Home/Banner2/tableBranding.png',
-      character: '/assets/images/Home/Banner2/character.png'
+      character: '/assets/images/Home/Banner2/character.png',
+      characterClick: '/assets/images/Home/Banner2/characterClick.png'
 
     }
   }
