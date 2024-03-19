@@ -73,7 +73,7 @@ const SlideVideo = ({
         {/* img character */}
         <rect
           className=" cursor-pointer"
-          x={1055}
+          x={1045}
           y={340}
           width="480"
           height="170"
