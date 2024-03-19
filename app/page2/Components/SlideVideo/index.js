@@ -50,7 +50,7 @@ const SlideVideo = ({
     return (
       <>
         <image href={url} id={isHover ? 'no-data' : id} height={100} />
-        <image href={urHover} id={!isHover ? 'no-data' : id} height={scale * 100} />
+        <image y={scale === 1 ? 0 : 1} href={urHover} id={!isHover ? 'no-data' : id} height={scale * 100} />
       </>
     );
   };
@@ -182,7 +182,7 @@ const SlideVideo = ({
             images.home.banner2.gameArt,
             images.home.banner2.gameArtClick,
             hoverGameArt,
-            0.97999999
+            0.9799999
           )}
           {/*
           {renderImgSvg(
