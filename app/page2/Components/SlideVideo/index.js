@@ -2,7 +2,7 @@ import { TYPE_OPTION_BANNER_2 } from '@/config/app';
 import { images } from '@/config/images';
 import React from 'react';
 import { isMobile } from 'react-device-detect';
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 const SlideVideo = ({
   hoverGameArt,
@@ -12,9 +12,9 @@ const SlideVideo = ({
   setHoverCharacter,
   hoverBranding,
   setHoverBranding,
-  keySVG = 'slide'
+  keySVG = 'slide',
+  isLoaded = true
 }) => {
-  console.log({ hoverBranding, hoverGameArt });
   const handleHover = (key) => {
     switch (key) {
     case TYPE_OPTION_BANNER_2.gameArt:
@@ -66,6 +66,7 @@ const SlideVideo = ({
         key={keySVG}
         className={keySVG}
         id={keySVG}
+        loadedBanner2={isLoaded}
       >
         {/* <rect width="2560" height="1097" fill="url(#pattern0)"/>
         <rect width="2560" height="1097" fill="url(#pattern1)"/> */}
@@ -105,7 +106,7 @@ const SlideVideo = ({
         {/* table branding */}
         <rect x="1163" y="499" width="655" height="400" fill={`url(#pattern3${keySVG})`}/>
         {/* table branding */}
-        <rect x="618" y="380" width="545" height="325" fill={`url(#pattern4${keySVG})`}/>
+        <rect x="600" y="400" width="545" height="325" fill={`url(#pattern4${keySVG})`}/>
 
         <defs>
           <pattern
@@ -138,7 +139,7 @@ const SlideVideo = ({
           >
             <use
               xlinkHref={`#image3_1220_6${keySVG}`}
-              transform="matrix(0.001 0 0 0.00126739 0 -0.12419)"
+              transform="matrix(0.00075 0 0 0.00135 0 -0.12419)"
             />
           </pattern>
           <pattern
@@ -149,7 +150,7 @@ const SlideVideo = ({
           >
             <use
               xlinkHref={`#image4_1220_6${keySVG}`}
-              transform="matrix(0.001 0 0 0.00167692 0 -0.0600923)"
+              transform="matrix(0.00105 0 0 0.0022 0 -0.25)"
             />
           </pattern>
           <pattern
@@ -206,7 +207,7 @@ const SlideVideo = ({
               <image
                 href={images.home.banner2.tableCharacter}
                 id={`image3_1220_6${keySVG}`}
-                width="1000" height="718"
+                height="718"
               />
             )
           }
@@ -325,7 +326,26 @@ const SVGBase = styled.svg`
   transform: translate(-50%, 0%);
 `;
 
-const SVGCustom = styled(SVGBase)``
+const opacity = keyframes`
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+`
+const SVGCustom = styled(SVGBase)`
+ ${(props) =>
+    props.loadedBanner2
+      ? css`
+        opacity: 1;
+        animation: ${opacity} 3s  linear;
+      `
+      : css`
+      opacity: 0;
+      `
+}
+`
 
 const SVGCustom2 = styled(SVGBase)``
 

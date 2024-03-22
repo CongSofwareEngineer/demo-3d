@@ -1,4 +1,6 @@
+import { OBSERVER_KEY } from '@/config/app';
 import { images } from '@/config/images';
+import ObserverService from '@/utils/observer';
 import Image from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
@@ -15,13 +17,17 @@ const BgBase2 = styled(Image)`
   margin-left: 50%;
   transform: translate(-50%, 0%);
 `;
-const BgFrameBanner = ({ ref, className, ...props }) => {
+const BgFrameBanner = ({ ref, className, callBackLoad = () => {}, ...props }) => {
   return (
     <BgBase2
       ref={ref}
       fill
       src={images.home.bgFrameBase}
       className={`bg-frame-banner ${className}`}
+      onLoad={() => {
+        callBackLoad()
+        ObserverService.emit(OBSERVER_KEY.loadBgFrame)
+      }}
       {...props}
     />
   );

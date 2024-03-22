@@ -48,3 +48,8 @@ export const videos = {
   aboutUs: '/assets/video/aboutUs.mp4',
   banner2: '/assets/video/banner2.mp4'
 }
+
+export const json = {
+  transitions_1: '/assets/json/transitions_1.mp4.lottie.json'
+
+}

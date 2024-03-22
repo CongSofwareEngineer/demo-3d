@@ -1,6 +1,6 @@
 'use client';
 import { images, videos } from '@/config/images';
-import React, { useState } from 'react';
+import React, { useCallback, useLayoutEffect, useState } from 'react';
 import useModal from '@/hooks/useModal';
 import useSizeScreen from '@/hooks/useSizeScreen';
 // import SvgOurService from './svgOurService';
@@ -10,6 +10,8 @@ import BgFrameBanner from '@/components/BgFrameBanner';
 import FrameBtn from '@/components/FrameBanner/frameBtn';
 import Frame from './Components/Frame';
 import SlideVideo from './Components/SlideVideo';
+import ObserverService from '@/utils/observer';
+import { OBSERVER_KEY } from '@/config/app';
 const VideoBanner = dynamic(() => import('@/components/VideoBanner'), { ssr: false })
 
 const Page2 = () => {
@@ -19,6 +21,19 @@ const Page2 = () => {
   const [hoverGameArt, setHoverGameArt] = useState(false)
   const [hoverCharacter, setHoverCharacter] = useState(false)
   const [hoverBranding, setHoverBranding] = useState(false)
+  const [loadedBanner2, setLoadedBanner2] = useState(false)
+
+  useLayoutEffect(() => {
+    ObserverService.on(OBSERVER_KEY.loadVideoBanner2, () => setLoadedBanner2(true))
+
+    return () => {
+      ObserverService.removeListener(OBSERVER_KEY.loadVideoBanner2)
+    }
+  }, [])
+
+  const callBackLoaded = useCallback(() => {
+    ObserverService.emit(OBSERVER_KEY.loadVideoBanner2)
+  }, [])
 
   return (
     <>
@@ -27,14 +42,9 @@ const Page2 = () => {
           <VideoBanner
             url={videos.banner2}
             poster={images.home.banner2Preload}
+            callBackLoaded={callBackLoaded}
           />
-          {/* <div className='relative w-screen h-screen'>
-            <SlideVideo
-              hoverGameArt={hoverGameArt}
-              setHoverGameArt={setHoverGameArt}
-              keySVG='transparent'
-            />
-          </div> */}
+
           <SlideVideo
             hoverGameArt={hoverGameArt}
             setHoverGameArt={setHoverGameArt}
@@ -43,6 +53,7 @@ const Page2 = () => {
             hoverBranding={hoverBranding}
             setHoverBranding={setHoverBranding}
             keySVG='transparent'
+            isLoaded={loadedBanner2}
           />
           <Frame>
             <SlideVideo

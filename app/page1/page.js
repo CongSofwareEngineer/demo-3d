@@ -7,6 +7,9 @@ import useSizeScreen from '@/hooks/useSizeScreen';
 import dynamic from 'next/dynamic';
 import DesBanner from './Components/DesBanner';
 import FrameBanner from '@/components/FrameBanner';
+import Frame from '@/components/Frame';
+import BgFrameBanner from '@/components/BgFrameBanner';
+import FrameBtn from '@/components/FrameBanner/frameBtn';
 const VideoBanner = dynamic(() => import('@/components/VideoBanner'), { ssr: false })
 
 const page1 = () => {
@@ -20,8 +23,8 @@ const page1 = () => {
           url={videos.planet1}
           poster={images.home.bannerPreload}
         />
-        <FrameBanner />
-        {/* <DesBanner /> */}
+        <BgFrameBanner />
+        <FrameBtn />
       </div>
 
     </div>

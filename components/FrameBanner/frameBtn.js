@@ -1,7 +1,9 @@
-import { TYPE_BANNER } from '@/config/app';
+import { OBSERVER_KEY, TYPE_BANNER } from '@/config/app';
 import { images } from '@/config/images'
 import useModal from '@/hooks/useModal';
 import useSizeScreen from '@/hooks/useSizeScreen';
+import ObserverService from '@/utils/observer';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react'
 import { isMobile } from 'react-device-detect';
 import styled from 'styled-components';
@@ -18,10 +20,11 @@ const SVGCustom = styled.svg`
 
 const Rects = styled.rect.attrs(() => ({ className: 'cursor-pointer' }))``
 
-const FrameBtn = ({ height }) => {
+const FrameBtn = ({ callBackLoad = () => {} }) => {
   const { ratioBeautiful } = useSizeScreen()
   const isMouseClickRef = useRef(false);
-  const { openModal } = useModal();
+  const { openModal } = useModal()
+  const route = useRouter()
 
   const [isCLickOurService, setIsCLickOurService] = useState(false);
   const [isCLickAboutUs, setIsCLickAboutUs] = useState(false);
@@ -55,6 +58,7 @@ const FrameBtn = ({ height }) => {
 
   const handleClick = (type) => {
     const timeDebone = 200;
+    const timeDeboneLoading = 700;
     if (!isMouseClickRef.current) {
       isMouseClickRef.current = true;
       let title = 'our Service';
@@ -65,6 +69,8 @@ const FrameBtn = ({ height }) => {
           setIsCLickAboutUs(false);
         }, timeDebone);
         title = 'About Us';
+        ObserverService.emit(OBSERVER_KEY.loadingPageAboutUs)
+
         break;
       case TYPE_BANNER.contact:
         setIsCLickContact(true);
@@ -72,6 +78,9 @@ const FrameBtn = ({ height }) => {
           setIsCLickContact(false);
         }, timeDebone);
         title = 'contact';
+        ObserverService.emit(OBSERVER_KEY.loadingPageContact)
+        route.push('/page2')
+
         break;
       case TYPE_BANNER.profile:
         setIsCLickProFileRef(true);
@@ -79,6 +88,8 @@ const FrameBtn = ({ height }) => {
           setIsCLickProFileRef(false);
         }, timeDebone);
         title = 'Our ProtFolto';
+        ObserverService.emit(OBSERVER_KEY.loadingPageProfile)
+
         break;
       default:
         setIsCLickOurService(true);
@@ -86,14 +97,17 @@ const FrameBtn = ({ height }) => {
           setIsCLickOurService(false);
         }, timeDebone);
         title = 'our Service';
+        ObserverService.emit(OBSERVER_KEY.loadingPageOurServer)
+        route.push('/home-demo')
+
         break;
       }
-      setTimeout(() => {
-        isMouseClickRef.current = false;
-      }, timeDebone);
-      openModal({
-        body: <div>{title}</div>
-      });
+      // setTimeout(() => {
+      //   isMouseClickRef.current = false;
+      // }, timeDebone);
+      // openModal({
+      //   body: <div>{title}</div>
+      // });
     }
   };
 
@@ -122,7 +136,11 @@ const FrameBtn = ({ height }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      $height={!ratioBeautiful ? heightBgFrame : height}
+      $height={!ratioBeautiful ? heightBgFrame : null}
+      onLoad={() => {
+        callBackLoad()
+        ObserverService.emit(OBSERVER_KEY.loadContentFrame)
+      }}
       // onClick={() => handleClick(TYPE_BANNER.ourService)}
     >
       <Rects
