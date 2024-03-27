@@ -23,14 +23,12 @@ const LoadingMotionPage = () => {
       ObserverService.removeListener(OBSERVER_KEY.loadingPageProfile)
     }
   }, [])
+
   useEffect(() => {
     setTimeout(() => {
-      setLoadingAboutUs(false)
-      setLoadingGameArt(false)
       setLoadingOurServer(false)
-      setLoadingProfile(false)
-    }, 800)
-  }, [patchName])
+    }, 1000)
+  }, [loadingOurServer])
 
   return (
     <>

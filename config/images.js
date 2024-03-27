@@ -46,7 +46,9 @@ export const images = {
 export const videos = {
   planet1: '/assets/video/planet1.mp4',
   aboutUs: '/assets/video/aboutUs.mp4',
-  banner2: '/assets/video/banner2.mp4'
+  banner2: '/assets/video/banner2.mp4',
+  banner3: '/assets/video/banner3.mp4',
+  banner4: '/assets/video/banner4.mp4'
 }
 
 export const json = {

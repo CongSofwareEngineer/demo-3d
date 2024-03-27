@@ -1,4 +1,4 @@
-import { OBSERVER_KEY, TYPE_BANNER } from '@/config/app';
+import { OBSERVER_KEY, PAGE_EX, TYPE_BANNER } from '@/config/app';
 import { images } from '@/config/images'
 import useModal from '@/hooks/useModal';
 import useSizeScreen from '@/hooks/useSizeScreen';
@@ -20,7 +20,13 @@ const SVGCustom = styled.svg`
 
 const Rects = styled.rect.attrs(() => ({ className: 'cursor-pointer' }))``
 
-const FrameBtn = ({ callBackLoad = () => {} }) => {
+const FrameBtn = ({
+  callBackLoad = () => {},
+  clickOurService = () => {},
+  clickProfile = () => {},
+  clickAboutUs = () => {},
+  clickContactAs = () => {}
+}) => {
   const { ratioBeautiful } = useSizeScreen()
   const isMouseClickRef = useRef(false);
   const { openModal } = useModal()
@@ -68,8 +74,7 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
         setTimeout(() => {
           setIsCLickAboutUs(false);
         }, timeDebone);
-        title = 'About Us';
-        ObserverService.emit(OBSERVER_KEY.loadingPageAboutUs)
+        clickAboutUs()
 
         break;
       case TYPE_BANNER.contact:
@@ -78,33 +83,29 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
           setIsCLickContact(false);
         }, timeDebone);
         title = 'contact';
-        ObserverService.emit(OBSERVER_KEY.loadingPageContact)
-        route.push('/page2')
-
+        clickContactAs()
         break;
+
       case TYPE_BANNER.profile:
         setIsCLickProFileRef(true);
         setTimeout(() => {
           setIsCLickProFileRef(false);
         }, timeDebone);
-        title = 'Our ProtFolto';
-        ObserverService.emit(OBSERVER_KEY.loadingPageProfile)
-
+        clickProfile()
         break;
+
       default:
         setIsCLickOurService(true);
         setTimeout(() => {
           setIsCLickOurService(false);
         }, timeDebone);
         title = 'our Service';
-        ObserverService.emit(OBSERVER_KEY.loadingPageOurServer)
-        route.push('/home-demo')
-
+        clickOurService()
         break;
       }
-      // setTimeout(() => {
-      //   isMouseClickRef.current = false;
-      // }, timeDebone);
+      setTimeout(() => {
+        isMouseClickRef.current = false;
+      }, timeDebone);
       // openModal({
       //   body: <div>{title}</div>
       // });

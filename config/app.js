@@ -54,3 +54,10 @@ export const OBSERVER_KEY = {
   loadingPageAboutUs: 'loadingPageAboutUs',
   loadingPageProfile: 'loadingPageProfile'
 };
+
+export const PAGE_EX = {
+  ourService: 'ourService',
+  portfolio: 'portfolio',
+  aboutUs: 'aboutUs',
+  contactAt: 'contactAt'
+};

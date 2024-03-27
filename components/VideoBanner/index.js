@@ -1,9 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './videoBanner.module.scss'
 import useSizeScreen from '@/hooks/useSizeScreen';
 import styled, { css, keyframes } from 'styled-components';
-import ObserverService from '@/utils/observer';
-import { OBSERVER_KEY } from '@/config/app';
 const opacity = keyframes`
   from{
     opacity: 0;
@@ -18,7 +16,8 @@ const VideoCustom = styled.video`
     props.isLoad
       ? css`
         opacity: 1;
-        animation: ${opacity} 3s  linear;
+        animation: ${opacity} 4s  linear;
+        /* animation-delay:1s */
       `
       : css`
       opacity: 0;
@@ -48,8 +47,8 @@ const VideoBanner = ({
 
   return (
     <VideoCustom
+      key={url}
       isLoad={loadingVideo}
-
       ref={videoRef}
       muted
       autoPlay
