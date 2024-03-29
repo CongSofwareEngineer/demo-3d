@@ -4,6 +4,7 @@ import MyImage from '@/components/MyImage';
 import VideoBanner from '@/components/VideoBanner';
 import { images, videos } from '@/config/images';
 import React from 'react';
+import bgContentBannerHome from '@/public/assets/images/Home/bgContentBannerHome.png'
 const arr = []
 for (let index = 0; index < 9; index++) {
   arr.push('')
@@ -26,7 +27,7 @@ const PageOurService = ({
       </div>
       <div className='w-full flex flex-col relative justify-center items-center '>
         <MyImage
-          url={images.home.bgContentBannerHome}
+          url={bgContentBannerHome}
           width='100%'
           height='auto'
         />
