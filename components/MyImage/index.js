@@ -2,7 +2,7 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import styles from './myImage.module.scss'
 const ImgCustom = styled(Image)`
-  position: relative !important;
+  position: ${props => props.$position} !important;
   height: ${props => props.heightImg} !important;
   width: ${props => props.widthImg} !important;
 `
@@ -17,6 +17,7 @@ const MyImage = ({
   quality = 80,
   onClick = () => {},
   onLoad = () => {},
+  position = 'relative',
   ...props
 }) => {
   return (
@@ -29,6 +30,7 @@ const MyImage = ({
       className={`${styles['my-image-base']} ${className}`}
       quality={quality}
       onLoad={onLoad}
+      $position={position}
       {...props}
     />
   )

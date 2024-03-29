@@ -12,17 +12,16 @@ const opacity = keyframes`
 `
 const VideoCustom = styled.video`
   
-  ${(props) =>
+  /* ${(props) =>
     props.isLoad
       ? css`
         opacity: 1;
         animation: ${opacity} 4s  linear;
-        /* animation-delay:1s */
-      `
+       `
       : css`
       opacity: 0;
       `
-}
+} */
    
   
 `;
@@ -60,7 +59,7 @@ const VideoBanner = ({
       poster={poster}
       onLoadedData={(e) => {
         callBackLoaded()
-        setLoadingVideo(true)
+        // setLoadingVideo(true)
       }}
       className={`${styles.videoBannerBase} ${!ratioBeautiful && styles.isScale} `}
     >

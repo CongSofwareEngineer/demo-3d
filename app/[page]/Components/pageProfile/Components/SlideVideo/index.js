@@ -335,7 +335,7 @@ const opacity = keyframes`
   }
 `
 const SVGCustom = styled(SVGBase)`
- ${(props) =>
+ /* ${(props) =>
     props.loadedBanner2
       ? css`
         opacity: 1;
@@ -344,7 +344,7 @@ const SVGCustom = styled(SVGBase)`
       : css`
       opacity: 0;
       `
-}
+} */
 `
 
 const SVGCustom2 = styled(SVGBase)``

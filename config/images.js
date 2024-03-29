@@ -40,7 +40,9 @@ export const images = {
       character: '/assets/images/Home/Banner2/character.png',
       characterClick: '/assets/images/Home/Banner2/characterClick.png'
 
-    }
+    },
+    bgContentBannerHome: '/assets/images/Home/bgContentBannerHome.png',
+    bgMaskContentBannerHome: '/assets/images/Home/bgMaskContentBannerHome.png'
   }
 }
 export const videos = {

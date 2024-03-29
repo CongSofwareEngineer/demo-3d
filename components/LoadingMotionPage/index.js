@@ -4,8 +4,32 @@ import React, { useEffect, useState } from 'react'
 import jsonProfile from '@/public/assets/json/transitions_1.mp4.lottie.json';
 import LoadingRoutePage from '../LoadingRoutePage';
 import { usePathname } from 'next/navigation';
+import transitionBannerHome from '@/public/assets/gif/transitionBannerHome.gif'
+import styled, { css } from 'styled-components';
+import Image from 'next/image';
+import useSizeScreen from '@/hooks/useSizeScreen';
+const ImageCustom = styled(Image)`
+  position: relative !important;
+
+  margin-left: 50% !important;
+  max-width: unset !important;
+  transform: translate(-50%, 0%);
+  ${
+  props => props.$isScale
+    ? css`
+      width: 100vw !important;
+      height: auto !important; 
+    `
+    : css`
+    width: auto !important;
+  height: 100vh !important; 
+    `
+}
+  
+`;
 const LoadingMotionPage = () => {
   const patchName = usePathname()
+  const { ratioBeautiful } = useSizeScreen()
   const [loadingGameArt, setLoadingGameArt] = useState(false)
   const [loadingOurServer, setLoadingOurServer] = useState(false)
   const [loadingAboutUs, setLoadingAboutUs] = useState(false)
@@ -35,9 +59,17 @@ const LoadingMotionPage = () => {
       {
         loadingGameArt && <LoadingRoutePage src={jsonProfile} />
       }
-      {
+      {/* {
         loadingOurServer && <LoadingRoutePage src={jsonProfile} />
+      } */}
+      {
+        loadingOurServer && (
+          <div className='fixed inset-0 w-screen h-screen z-[100]'>
+            <ImageCustom $isScale={!ratioBeautiful} src={transitionBannerHome} fill/>
+          </div>
+        )
       }
+
       {
         loadingAboutUs && <LoadingRoutePage src={jsonProfile} />
       }
