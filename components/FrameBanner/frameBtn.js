@@ -1,11 +1,9 @@
-import { OBSERVER_KEY, PAGE_EX, QUEY_KEY, TYPE_BANNER } from '@/config/app';
+import { OBSERVER_KEY, QUEY_KEY, TYPE_BANNER } from '@/config/app';
 import { images } from '@/config/images'
-import useModal from '@/hooks/useModal';
 import useSizeScreen from '@/hooks/useSizeScreen';
 import ObserverService from '@/utils/observer';
 import { useQueryClient } from '@tanstack/react-query';
-import { useRouter } from 'next/navigation';
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useLayoutEffect, useRef, useState } from 'react'
 import { isMobile } from 'react-device-detect';
 import styled, { keyframes } from 'styled-components';
 

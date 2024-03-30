@@ -3,7 +3,7 @@ import { useParams, useRouter } from 'next/navigation'
 import React from 'react'
 import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
 import ObserverService from '@/utils/observer';
-import PageHome from './Components/pageHome/page';
+import PageHome from './Components/pageHome';
 
 import PageAboutUse from './Components/pageAboutUs';
 import PageOurService from './Components/pageOurService';
