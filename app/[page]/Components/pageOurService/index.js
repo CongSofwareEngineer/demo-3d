@@ -111,7 +111,7 @@ const PageOurService = ({
                       // mask: index > 5 ? 'linear-gradient(0deg, transparent, white 40%, white 80%, white 80%)' : 'none'
                       }}
                       key={index}
-                      className={`cursor-pointer ${hoverItem === index && 'scale-[1.01] '}  relative w-full flex pb-[100%] bg-blue-400 rounded-2xl`}
+                      className={`cursor-pointer ${hoverItem === index && 'scale-[1.01] duration-300'}  relative w-full flex pb-[100%] bg-blue-400 rounded-2xl`}
                     />
                   )
                 })
