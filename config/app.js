@@ -13,6 +13,8 @@ export const SLICES = {
 export const QUEY_KEY = {
   userData: 'userData',
   language: 'language',
+  dataSizeScreen: 'dataSizeScreen',
+  heightBgFrame: 'heightBgFrame',
   local: 'local'
 }
 
@@ -36,7 +38,8 @@ export const TYPE_BANNER = {
   ourService: 'ourService',
   aboutUs: 'aboutUs',
   contact: 'contact',
-  profile: 'profile'
+  profile: 'profile',
+  tree: 'tree'
 };
 
 export const TYPE_OPTION_BANNER_2 = {
@@ -59,5 +62,6 @@ export const PAGE_EX = {
   ourService: 'ourService',
   portfolio: 'portfolio',
   aboutUs: 'aboutUs',
+  home: 'home',
   contactAt: 'contactAt'
 };

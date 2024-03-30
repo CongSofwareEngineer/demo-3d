@@ -2,45 +2,50 @@
 import { useParams, useRouter } from 'next/navigation'
 import React from 'react'
 import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
-import dynamic from 'next/dynamic';
+import ObserverService from '@/utils/observer';
+import PageHome from './Components/pageHome/page';
+
+import PageAboutUse from './Components/pageAboutUs';
 import PageOurService from './Components/pageOurService';
 import PageProfile from './Components/pageProfile';
-import ObserverService from '@/utils/observer';
-import PageAboutUse from './Components/pageAboutUs';
+
 const PageScreen = () => {
   const params = useParams()
   const router = useRouter()
 
   const clickOurService = () => {
-    console.log('====================================');
-    console.log('clickOurService');
-    console.log('====================================');
-
     ObserverService.emit(OBSERVER_KEY.loadingPageOurServer)
     setTimeout(() => {
-      router.push('/home')
+      router.push(PAGE_EX.ourService)
     }, 250)
   }
 
   const clickProfile = () => {
-    console.log('===clickProfile==');
     router.push(PAGE_EX.portfolio)
   }
 
   const clickAboutUs = () => {
-    console.log('clickAboutUs');
     router.push(PAGE_EX.aboutUs)
   }
 
   const clickContactAs = () => {
-    console.log('===clickContactAs=====');
-    router.push(PAGE_EX.contactAt)
+    // router.push(PAGE_EX.contactAt)
   }
 
   return (
     <>
       {
-        params?.page === 'home' && (
+        params?.page === PAGE_EX.home && (
+          <PageHome
+            clickAboutUs={clickAboutUs}
+            clickContactAs={clickContactAs}
+            clickProfile={clickProfile}
+            clickOurService={clickOurService}
+          />
+        )
+      }
+      {
+        params?.page === PAGE_EX.ourService && (
           <PageOurService
             clickAboutUs={clickAboutUs}
             clickContactAs={clickContactAs}
@@ -51,9 +56,9 @@ const PageScreen = () => {
       {
         params?.page === PAGE_EX.portfolio && (
           <PageProfile
+            clickOurService={clickOurService}
             clickAboutUs={clickAboutUs}
             clickContactAs={clickContactAs}
-            clickOurService={clickOurService}
           />
         )
       }

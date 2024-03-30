@@ -12,7 +12,7 @@ const PageAboutUse = ({
   return (
     <div className="relative w-screen h-screen overflow-hidden  ">
       <div className="w-full h-full relative">
-        <VideoBanner url={videos.banner3} />
+        <VideoBanner url={videos.bannerAboutUs} />
         <BgFrameBanner />
         <FrameBtn
           clickContactAs={clickContactAs}

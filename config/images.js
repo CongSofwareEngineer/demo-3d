@@ -26,6 +26,8 @@ export const images = {
     btnOurServiceClick: '/assets/images/Home/btnOurServiceClick.png',
     btnPortFlto: '/assets/images/Home/btnPortFlto.png',
     btnPortFltoClick: '/assets/images/Home/btnPortFltoClick.png',
+    btnTree: '/assets/images/Home/btnTree.png',
+    btnTreeClick: '/assets/images/Home/btnTreeClick.png',
     bgFrameBase: '/assets/images/Home/bgFrameBase.webp',
     bannerPreload: '/assets/images/Home/bannerPreload.png',
     banner2Preload: '/assets/images/Home/banner2Preload.png',
@@ -46,11 +48,10 @@ export const images = {
   }
 }
 export const videos = {
-  planet1: '/assets/video/planet1.mp4',
-  aboutUs: '/assets/video/aboutUs.mp4',
-  banner2: '/assets/video/banner2.mp4',
-  banner3: '/assets/video/banner3.mp4',
-  banner4: '/assets/video/banner4.mp4'
+  bannerHome: '/assets/video/bannerHome.mp4',
+  bannerOurService: '/assets/video/bannerOurService.mp4',
+  bannerProfile: '/assets/video/bannerProfile.mp4',
+  bannerAboutUs: '/assets/video/bannerAboutUs.mp4'
 }
 
 export const json = {

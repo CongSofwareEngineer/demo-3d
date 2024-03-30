@@ -65,7 +65,7 @@ const LoadingMotionPage = () => {
       {
         loadingOurServer && (
           <div className='fixed inset-0 w-screen h-screen z-[100]'>
-            <ImageCustom $isScale={!ratioBeautiful} src={transitionBannerHome} fill/>
+            <ImageCustom loading='eager' $isScale={!ratioBeautiful} src={transitionBannerHome} fill/>
           </div>
         )
       }

@@ -1,27 +1,26 @@
 import BgFrameBanner from '@/components/BgFrameBanner';
 import FrameBtn from '@/components/FrameBanner/frameBtn';
-import MyImage from '@/components/MyImage';
 import VideoBanner from '@/components/VideoBanner';
 import { images, videos } from '@/config/images';
-import React, { useState } from 'react';
-const arr = []
-for (let index = 0; index < 9; index++) {
-  arr.push('')
-}
-const PageProfile = ({
-  clickOurService = () => {},
+import React from 'react';
+
+const PageHome = ({
+  clickProfile = () => {},
   clickAboutUs = () => {},
-  clickContactAs = () => {}
+  clickContactAs = () => {},
+  clickOurService = () => {}
+
 }) => {
   return (
     <div className="relative w-screen h-screen overflow-x-hidden ">
       <div className="w-full h-full relative overflow-hidden ">
-        <VideoBanner url={videos.bannerProfile} poster={images.home.bannerPreload} />
+        <VideoBanner url={videos.bannerHome} poster={images.home.bannerPreload} />
         <BgFrameBanner />
         <FrameBtn
           clickContactAs={clickContactAs}
-          clickOurService={clickOurService}
+          clickProfile={clickProfile}
           clickAboutUs={clickAboutUs}
+          clickOurService={clickOurService}
         />
       </div>
 
@@ -29,4 +28,4 @@ const PageProfile = ({
   );
 };
 
-export default PageProfile;
+export default PageHome;

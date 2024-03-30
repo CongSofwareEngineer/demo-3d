@@ -1,3 +1,5 @@
+import { QUEY_KEY } from '@/config/app';
+import { useQueryClient } from '@tanstack/react-query'
 import { useLayoutEffect, useState } from 'react'
 
 const useSizeScreen = () => {

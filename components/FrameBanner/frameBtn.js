@@ -1,21 +1,29 @@
-import { OBSERVER_KEY, PAGE_EX, TYPE_BANNER } from '@/config/app';
+import { OBSERVER_KEY, PAGE_EX, QUEY_KEY, TYPE_BANNER } from '@/config/app';
 import { images } from '@/config/images'
 import useModal from '@/hooks/useModal';
 import useSizeScreen from '@/hooks/useSizeScreen';
 import ObserverService from '@/utils/observer';
+import { useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { isMobile } from 'react-device-detect';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
+const opacity = keyframes`
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+`
 const SVGCustom = styled.svg` 
   position: absolute;
-  /* width: 100%; */
   z-index: 99;
   bottom: 0;
-  /* background: #323e3e80 !important; */
   height: ${props => props.$height ? `${props.$height}px` : '19%'};
-  min-width: 100vw;
+  min-width: 100%;
+  /* animation: ${opacity} 0.5s  linear; */
 `;
 
 const Rects = styled.rect.attrs(() => ({ className: 'cursor-pointer' }))``
@@ -25,49 +33,53 @@ const FrameBtn = ({
   clickOurService = () => {},
   clickProfile = () => {},
   clickAboutUs = () => {},
-  clickContactAs = () => {}
+  clickContactAs = () => {},
+  clickTree = () => {}
 }) => {
   const { ratioBeautiful } = useSizeScreen()
   const isMouseClickRef = useRef(false);
-  const { openModal } = useModal()
-  const route = useRouter()
+  const queryClient = useQueryClient();
 
   const [isCLickOurService, setIsCLickOurService] = useState(false);
   const [isCLickAboutUs, setIsCLickAboutUs] = useState(false);
   const [isCLickContact, setIsCLickContact] = useState(false);
-  const [isCLickProFileRef, setIsCLickProFileRef] = useState(false);
+  const [isCLickProFile, setIsCLickProFile] = useState(false);
+  const [isCLickTree, setIsCLickTree] = useState(false);
+  const [heightFrame, setHeightFrame] = useState(queryClient.getQueryData(QUEY_KEY.heightBgFrame))
 
-  const [heightBgFrame, setHeightBgFrame] = useState(null)
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!ratioBeautiful) {
+      console.log('ratioBeautiful');
       window.addEventListener(('resize'), () => {
         const bgFrame = document.getElementsByClassName('bg-frame-banner')[0]
         if (bgFrame) {
           setTimeout(() => {
-            setHeightBgFrame(bgFrame.clientHeight * 0.19)
+            queryClient.setQueryData(QUEY_KEY.heightBgFrame, bgFrame.clientHeight * 0.19)
+            setHeightFrame(bgFrame.clientHeight * 0.19)
           }, 100);
         }
       })
       const bgFrame = document.getElementsByClassName('bg-frame-banner')[0]
       if (bgFrame) {
         setTimeout(() => {
-          setHeightBgFrame(bgFrame.clientHeight * 0.19)
+          queryClient.setQueryData(QUEY_KEY.heightBgFrame, bgFrame.clientHeight * 0.19)
+          setHeightFrame(bgFrame.clientHeight * 0.19)
         }, 100);
       }
     } else {
-      setHeightBgFrame(null)
+      queryClient.setQueryData(QUEY_KEY.heightBgFrame, null)
+      setHeightFrame(null)
       window.removeEventListener('resize', () => {})
     }
     return () => window.removeEventListener('resize', () => {})
-  }, [ratioBeautiful])
+  }, [ratioBeautiful, queryClient])
 
   const handleClick = (type) => {
     const timeDebone = 200;
-    const timeDeboneLoading = 700;
+
     if (!isMouseClickRef.current) {
       isMouseClickRef.current = true;
-      let title = 'our Service';
+
       switch (type) {
       case TYPE_BANNER.aboutUs:
         setIsCLickAboutUs(true);
@@ -82,16 +94,23 @@ const FrameBtn = ({
         setTimeout(() => {
           setIsCLickContact(false);
         }, timeDebone);
-        title = 'contact';
         clickContactAs()
         break;
 
       case TYPE_BANNER.profile:
-        setIsCLickProFileRef(true);
+        setIsCLickProFile(true);
         setTimeout(() => {
-          setIsCLickProFileRef(false);
+          setIsCLickProFile(false);
         }, timeDebone);
         clickProfile()
+        break;
+
+      case TYPE_BANNER.tree:
+        setIsCLickTree(true);
+        setTimeout(() => {
+          setIsCLickTree(false);
+        }, timeDebone);
+        clickTree()
         break;
 
       default:
@@ -99,16 +118,12 @@ const FrameBtn = ({
         setTimeout(() => {
           setIsCLickOurService(false);
         }, timeDebone);
-        title = 'our Service';
         clickOurService()
         break;
       }
       setTimeout(() => {
         isMouseClickRef.current = false;
       }, timeDebone);
-      // openModal({
-      //   body: <div>{title}</div>
-      // });
     }
   };
 
@@ -131,19 +146,21 @@ const FrameBtn = ({
       </>
     )
   }
+
   return (
     <SVGCustom
       viewBox="0 0 2560 1097"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      $height={!ratioBeautiful ? heightBgFrame : null}
+      $height={!ratioBeautiful ? heightFrame : null}
       onLoad={() => {
         callBackLoad()
         ObserverService.emit(OBSERVER_KEY.loadContentFrame)
       }}
-      // onClick={() => handleClick(TYPE_BANNER.ourService)}
+
     >
+
       <Rects
         onMouseDown={() => handleClick(TYPE_BANNER.ourService)}
         onClick={() => (isMobile ? handleClick(TYPE_BANNER.ourService) : {})}
@@ -168,6 +185,13 @@ const FrameBtn = ({
         onClick={() => handleClick(TYPE_BANNER.contact)}
         x={4150} y={350} width="1900" height="680"
         fill="url(#pattern3frame)"
+      />
+
+      <Rects
+        onMouseDown={() => handleClick(TYPE_BANNER.tree)}
+        onClick={() => handleClick(TYPE_BANNER.tree)}
+        x={380} y={80} width="1900" height="680"
+        fill="url(#pattern4frame)"
       />
       <defs>
         <pattern
@@ -198,6 +222,12 @@ const FrameBtn = ({
           />
         </pattern>
 
+        <pattern id="pattern4frame" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlinkHref="#image4_1265_3"
+            transform="matrix(0.000370625 0 0 0.001 0 0)"
+          />
+        </pattern>
+
         {
           renderImage(
             'image0_1265_3',
@@ -209,9 +239,18 @@ const FrameBtn = ({
         {
           renderImage(
             'image1_1265_3',
-            isCLickProFileRef,
+            isCLickProFile,
             images.home.btnPortFlto,
             images.home.btnPortFltoClick
+          )
+        }
+
+        {
+          renderImage(
+            'image4_1265_3',
+            isCLickTree,
+            images.home.btnTree,
+            images.home.btnTreeClick
           )
         }
 
@@ -233,17 +272,9 @@ const FrameBtn = ({
           )
         }
 
-        {/* <image
-          href={images.home.btnOurService}
-          id="image0_1265_3"
-          height="1097"
-        /> */}
-        {/*
-              <image id="image2_1265_3" width="2560" height="1097" />
-              <image id="image3_1265_3" width="2560" height="1097" /> */}
       </defs>
     </SVGCustom>
   )
 }
 
-export default FrameBtn
+export default React.memo(FrameBtn)

@@ -4,9 +4,9 @@ import React from 'react';
 
 const Frame = ({
   children,
-  clickOurService = () => {},
   clickAboutUs = () => {},
-  clickContactAs = () => {}
+  clickContactAs = () => {},
+  clickProfile = () => {}
 }) => {
   return (
     <>
@@ -15,7 +15,7 @@ const Frame = ({
       <FrameBtn
         clickAboutUs={clickAboutUs}
         clickContactAs={clickContactAs}
-        clickOurService={clickOurService}
+        clickProfile={clickProfile}
       />
     </>
   );
