@@ -1,29 +1,36 @@
 import { PAGE_EX } from '@/config/app';
 import PageScreen from './page';
+import { generateMetaBase } from '@/utils/serverNext';
 
-export async function generateMetadata ({ params }) {
-  const metaData = { description: 'coming soon' }
+export async function generateMetadata ({ params }, parent) {
+  let title = ''
   switch (params.page) {
   case PAGE_EX.home:
-    metaData.title = 'Home'
+    title = 'Home'
     break;
   case PAGE_EX.ourService:
-    metaData.title = 'Our Service'
+    title = 'Our Service'
     break;
   case PAGE_EX.aboutUs:
-    metaData.title = 'About Us'
+    title = 'About Us'
     break;
   case PAGE_EX.portfolio:
-    metaData.title = 'Portfolio'
+    title = 'Portfolio'
     break;
   default:
-    metaData.title = 'Contact'
+    title = 'Contact'
 
     break;
   }
-  return {
-    ...metaData
-  }
+  const dataBase = await parent
+
+  const metaData = generateMetaBase({
+    dataBase,
+    title,
+    override: true
+  })
+
+  return metaData
 }
 const Layout = ({ children, params }) => {
   return (
