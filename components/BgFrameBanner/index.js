@@ -20,6 +20,7 @@ const BgBase2 = styled(Image)`
 const BgFrameBanner = ({ ref, className, callBackLoad = () => {}, ...props }) => {
   return (
     <BgBase2
+      loading='eager'
       ref={ref}
       fill
       src={images.home.bgFrameBase}

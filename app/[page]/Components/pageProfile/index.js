@@ -16,7 +16,7 @@ const PageProfile = ({
   return (
     <div className="relative w-screen h-screen overflow-x-hidden ">
       <div className="w-full h-full relative overflow-hidden ">
-        <VideoBanner url={videos.bannerProfile} poster={images.home.bannerPreload} />
+        <VideoBanner url={videos.bannerProfile} />
         <BgFrameBanner />
         <FrameBtn
           clickContactAs={clickContactAs}

@@ -14,7 +14,10 @@ const PageHome = ({
   return (
     <div className="relative w-screen h-screen overflow-x-hidden ">
       <div className="w-full h-full relative overflow-hidden ">
-        <VideoBanner url={videos.bannerHome} poster={images.home.bannerPreload} />
+        <VideoBanner
+          url={videos.bannerHome}
+          poster={images.home.bannerPreload}
+        />
         <BgFrameBanner />
         <FrameBtn
           clickContactAs={clickContactAs}

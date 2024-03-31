@@ -9,8 +9,7 @@ import PageAboutUse from './Components/pageAboutUs';
 import PageOurService from './Components/pageOurService';
 import PageProfile from './Components/pageProfile';
 
-const PageScreen = () => {
-  const params = useParams()
+const PageScreen = ({ page }) => {
   const router = useRouter()
 
   const clickOurService = () => {
@@ -35,7 +34,7 @@ const PageScreen = () => {
   return (
     <>
       {
-        params?.page === PAGE_EX.home && (
+        page === PAGE_EX.home && (
           <PageHome
             clickAboutUs={clickAboutUs}
             clickContactAs={clickContactAs}
@@ -45,7 +44,7 @@ const PageScreen = () => {
         )
       }
       {
-        params?.page === PAGE_EX.ourService && (
+        page === PAGE_EX.ourService && (
           <PageOurService
             clickAboutUs={clickAboutUs}
             clickContactAs={clickContactAs}
@@ -54,7 +53,7 @@ const PageScreen = () => {
         )
       }
       {
-        params?.page === PAGE_EX.portfolio && (
+        page === PAGE_EX.portfolio && (
           <PageProfile
             clickOurService={clickOurService}
             clickAboutUs={clickAboutUs}
@@ -64,7 +63,7 @@ const PageScreen = () => {
       }
 
       {
-        params?.page === PAGE_EX.aboutUs && (
+        page === PAGE_EX.aboutUs && (
           <PageAboutUse
             clickContactAs={clickContactAs}
             clickOurService={clickOurService}
@@ -74,7 +73,7 @@ const PageScreen = () => {
       }
 
       {
-        params?.page === PAGE_EX.contactAt && (
+        page === PAGE_EX.contactAt && (
           <PageAboutUse
             clickContactAs={clickContactAs}
             clickOurService={clickOurService}

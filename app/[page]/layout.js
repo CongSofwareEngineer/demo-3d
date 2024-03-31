@@ -1,6 +1,7 @@
 import { PAGE_EX } from '@/config/app';
+import PageScreen from './page';
 
-export async function generateMetadata ({ params, searchParams }, parent) {
+export async function generateMetadata ({ params }) {
   const metaData = { description: 'coming soon' }
   switch (params.page) {
   case PAGE_EX.home:
@@ -24,9 +25,9 @@ export async function generateMetadata ({ params, searchParams }, parent) {
     ...metaData
   }
 }
-const Layout = ({ children }) => {
+const Layout = ({ children, params }) => {
   return (
-    children
+    <PageScreen page={params.page} />
   )
 }
 
