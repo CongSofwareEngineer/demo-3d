@@ -1,6 +1,6 @@
 'use client'
 import { useParams, useRouter } from 'next/navigation'
-import React from 'react'
+import React, { Suspense } from 'react'
 import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
 import ObserverService from '@/utils/observer';
 import PageHome from './Components/pageHome';
@@ -9,14 +9,15 @@ import PageAboutUse from './Components/pageAboutUs';
 import PageOurService from './Components/pageOurService';
 import PageProfile from './Components/pageProfile';
 
-const PageScreen = ({ page }) => {
+const PageScreen = () => {
   const router = useRouter()
+  const params = useParams()
 
   const clickOurService = () => {
     ObserverService.emit(OBSERVER_KEY.loadingPageOurServer)
     setTimeout(() => {
       router.push(PAGE_EX.ourService)
-    }, 250)
+    }, 1000)
   }
 
   const clickProfile = () => {
@@ -34,36 +35,44 @@ const PageScreen = ({ page }) => {
   return (
     <>
       {
-        page === PAGE_EX.home && (
-          <PageHome
-            clickAboutUs={clickAboutUs}
-            clickContactAs={clickContactAs}
-            clickProfile={clickProfile}
-            clickOurService={clickOurService}
-          />
+        params?.page === PAGE_EX.home && (
+          <Suspense >
+            <PageHome
+              clickAboutUs={clickAboutUs}
+              clickContactAs={clickContactAs}
+              clickProfile={clickProfile}
+              clickOurService={clickOurService}
+            />
+          </Suspense>
+
         )
       }
       {
-        page === PAGE_EX.ourService && (
-          <PageOurService
-            clickAboutUs={clickAboutUs}
-            clickContactAs={clickContactAs}
-            clickProfile={clickProfile}
-          />
+        params?.page === PAGE_EX.ourService && (
+          <Suspense>
+            <PageOurService
+              clickAboutUs={clickAboutUs}
+              clickContactAs={clickContactAs}
+              clickProfile={clickProfile}
+            />
+          </Suspense>
         )
       }
       {
-        page === PAGE_EX.portfolio && (
-          <PageProfile
-            clickOurService={clickOurService}
-            clickAboutUs={clickAboutUs}
-            clickContactAs={clickContactAs}
-          />
+        params?.page === PAGE_EX.portfolio && (
+          <Suspense >
+            <PageProfile
+              clickOurService={clickOurService}
+              clickAboutUs={clickAboutUs}
+              clickContactAs={clickContactAs}
+            />
+          </Suspense>
+
         )
       }
 
       {
-        page === PAGE_EX.aboutUs && (
+        params?.page === PAGE_EX.aboutUs && (
           <PageAboutUse
             clickContactAs={clickContactAs}
             clickOurService={clickOurService}
@@ -73,7 +82,7 @@ const PageScreen = ({ page }) => {
       }
 
       {
-        page === PAGE_EX.contactAt && (
+        params?.page === PAGE_EX.contactAt && (
           <PageAboutUse
             clickContactAs={clickContactAs}
             clickOurService={clickOurService}

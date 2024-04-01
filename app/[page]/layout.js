@@ -33,9 +33,7 @@ export async function generateMetadata ({ params }, parent) {
   return metaData
 }
 const Layout = ({ children, params }) => {
-  return (
-    <PageScreen page={params.page} />
-  )
+  return children
 }
 
 export default Layout

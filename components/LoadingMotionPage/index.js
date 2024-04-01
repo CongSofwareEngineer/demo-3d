@@ -36,9 +36,19 @@ const LoadingMotionPage = () => {
   const [loadingProfile, setLoadingProfile] = useState(false)
 
   useEffect(() => {
-    ObserverService.on(OBSERVER_KEY.loadingPageAboutUs, () => setLoadingAboutUs(true))
+    ObserverService.on(OBSERVER_KEY.loadingPageAboutUs, () => {
+      setLoadingAboutUs(true)
+      setTimeout(() => {
+        setLoadingAboutUs(false)
+      }, 1000)
+    })
     ObserverService.on(OBSERVER_KEY.loadingPageContact, () => setLoadingGameArt(true))
-    ObserverService.on(OBSERVER_KEY.loadingPageOurServer, () => setLoadingOurServer(true))
+    ObserverService.on(OBSERVER_KEY.loadingPageOurServer, () => {
+      setLoadingOurServer(true)
+      setTimeout(() => {
+        setLoadingOurServer(false)
+      }, 1000)
+    })
     ObserverService.on(OBSERVER_KEY.loadingPageProfile, () => setLoadingProfile(true))
     return () => {
       ObserverService.removeListener(OBSERVER_KEY.loadingPageAboutUs)
@@ -47,12 +57,6 @@ const LoadingMotionPage = () => {
       ObserverService.removeListener(OBSERVER_KEY.loadingPageProfile)
     }
   }, [])
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoadingOurServer(false)
-    }, 1000)
-  }, [loadingOurServer])
 
   return (
     <>
@@ -65,7 +69,7 @@ const LoadingMotionPage = () => {
       {
         loadingOurServer && (
           <div className='fixed inset-0 w-screen h-screen z-[100]'>
-            <ImageCustom $isScale={!ratioBeautiful} src={transitionBannerHome} fill/>
+            <ImageCustom key={'loadingOurServer'} $isScale={!ratioBeautiful} src={transitionBannerHome} fill/>
           </div>
         )
       }
