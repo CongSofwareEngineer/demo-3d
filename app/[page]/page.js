@@ -8,6 +8,7 @@ import PageHome from './Components/pageHome';
 import PageAboutUse from './Components/pageAboutUs';
 import PageOurService from './Components/pageOurService';
 import PageProfile from './Components/pageProfile';
+import Fiber3D from '@/components/Fiber3D'
 
 const PageScreen = () => {
   const router = useRouter()
@@ -34,6 +35,11 @@ const PageScreen = () => {
 
   return (
     <>
+      {
+        (params?.page === '' || params?.page === '/') && (
+          <Fiber3D />
+        )
+      }
       {
         params?.page === PAGE_EX.home && (
           <Suspense >
