@@ -27,6 +27,14 @@ const ImageCustom = styled(Image)`
 }
   
 `;
+
+const ImageOpacity = styled(Image)`
+  position: absolute !important;
+  height: 0px !important;
+  width: 0px !important;
+  opacity: 0 !important;
+  z-index: -9999999999;
+ `
 const LoadingMotionPage = () => {
   const patchName = usePathname()
   const { ratioBeautiful } = useSizeScreen()
@@ -68,8 +76,8 @@ const LoadingMotionPage = () => {
       } */}
       {
         loadingOurServer && (
-          <div className='fixed inset-0 w-screen h-screen z-[100]'>
-            <ImageCustom key={'loadingOurServer'} $isScale={!ratioBeautiful} src={transitionBannerHome} fill/>
+          <div key={Date.now()} className='fixed inset-0 w-screen h-screen z-[100]'>
+            <ImageCustom $isScale={!ratioBeautiful} src={transitionBannerHome} fill/>
           </div>
         )
       }
@@ -80,10 +88,10 @@ const LoadingMotionPage = () => {
       {
         loadingProfile && <LoadingRoutePage src={jsonProfile} />
       }
-      <ImageCustom
+      <ImageOpacity
         key={'loadingOurServer-opacity'}
-        style={{ opacity: '0 !important', position: 'absolute !important', zIndex: -9999999999 }}
-        src={transitionBannerHome} fill
+        src={transitionBannerHome}
+        fill
       />
 
     </>
