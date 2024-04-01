@@ -80,6 +80,12 @@ const LoadingMotionPage = () => {
       {
         loadingProfile && <LoadingRoutePage src={jsonProfile} />
       }
+      <ImageCustom
+        key={'loadingOurServer-opacity'}
+        style={{ opacity: '0 !important', position: 'absolute !important', zIndex: -9999999999 }}
+        src={transitionBannerHome} fill
+      />
+
     </>
   )
 }
