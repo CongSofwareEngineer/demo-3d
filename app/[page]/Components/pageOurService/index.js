@@ -55,14 +55,14 @@ const PageOurService = ({
   }, [])
 
   useEffect(() => {
-    window.addEventListener('scrollend', (e) => {
+    window.addEventListener('scroll', (e) => {
       const viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
       const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
       if (scrollPosition < viewportHeight && !isScrollContent.current) {
         window.scrollTo({
           top: viewportHeight,
           left: 0,
-          behavior: 'smooth'
+          behavior: 'instant'
         })
         isScrollContent.current = true
       }
@@ -74,7 +74,7 @@ const PageOurService = ({
         window?.scrollTo({
           top: 0,
           left: 0,
-          behavior: 'smooth'
+          behavior: 'instant'
         })
       }
     }
