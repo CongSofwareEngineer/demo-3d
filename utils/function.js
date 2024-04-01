@@ -19,6 +19,12 @@ export const getPersistDataByKey = (key, defaultValue = '') => {
   return persistData?.[key] ? JSON.parse(persistData[key]) : defaultValue
 }
 
+export const scrollTop = () => {
+  if (window) {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+}
+
 export const saveDataLocal = (key, data) => {
   try {
     // eslint-disable-next-line no-undef

@@ -324,6 +324,7 @@ const SVGBase = styled.svg`
    position: absolute;
   margin-left: 50%;
   transform: translate(-50%, 0%);
+
 `;
 
 const opacity = keyframes`
@@ -347,6 +348,8 @@ const SVGCustom = styled(SVGBase)`
 } */
 `
 
-const SVGCustom2 = styled(SVGBase)``
+const SVGCustom2 = styled(SVGBase)`
+  z-index: 11;
+`
 
 export default SlideVideo;

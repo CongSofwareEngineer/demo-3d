@@ -28,25 +28,9 @@ const nextConfig = {
       'ipfs.filebase.io',
       'ucarecdn.com'
     ]
-  },
-
-  async redirects () {
-    return [
-      {
-        source: '/home-demo',
-        destination: '/',
-        permanent: true
-      }
-    ]
-  },
-  async rewrites () {
-    return [
-      {
-        source: '/home-demo',
-        destination: '/'
-      }
-    ]
   }
+
 }
 
-module.exports = withBundleAnalyzer({ nextConfig })
+// module.exports = withBundleAnalyzer({ nextConfig })
+module.exports = nextConfig

@@ -2,7 +2,7 @@
 
 import ObserverService from '@/utils/observer';
 import { OBSERVER_KEY } from '@/config/app';
-import { useCallback, useState, useEffect, useRef } from 'react';
+import { useCallback, useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { images, videos } from '@/config/images';
 import SlideVideo from './Components/SlideVideo';
 import Frame from './Components/Frame';
@@ -11,6 +11,7 @@ import MyImage from '@/components/MyImage';
 import bgContentBannerHome from '@/public/assets/images/Home/bgContentBannerHome.png'
 import SelectSort from './Components/SelectSort';
 import dynamic from 'next/dynamic';
+import { scrollTop } from '@/utils/function';
 const Content = dynamic(() => import('./Components/Content'), { ssr: false })
 const arr = []
 for (let index = 0; index < 9; index++) {
@@ -54,29 +55,30 @@ const PageOurService = ({
     };
   }, [])
 
+  useLayoutEffect(() => {
+    scrollTop()
+  }, [])
+
   useEffect(() => {
     window.addEventListener('scroll', (e) => {
       const viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
       const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollPosition < viewportHeight && !isScrollContent.current) {
-        window.scrollTo({
-          top: viewportHeight,
-          left: 0,
-          behavior: 'instant'
-        })
-        isScrollContent.current = true
+
+      if (scrollPosition > 0 && scrollPosition < viewportHeight && !isScrollContent.current) {
+        setTimeout(() => {
+          if (typeof refContent.current?.scrollIntoView === 'function') {
+            refContent.current.scrollIntoView({
+              behavior: 'instant',
+              block: 'start'
+            })
+            isScrollContent.current = true
+          }
+        }, 100)
       }
     })
 
     return () => {
-      if (window) {
-        window?.removeEventListener('scrollend', () => {})
-        window?.scrollTo({
-          top: 0,
-          left: 0,
-          behavior: 'instant'
-        })
-      }
+      scrollTop()
     }
   }, [])
 
@@ -120,7 +122,7 @@ const PageOurService = ({
             />
           </Frame>
         </div>
-        <Content ref={refContent} />
+        <Content refContent={refContent} />
       </div>
     </>
   );

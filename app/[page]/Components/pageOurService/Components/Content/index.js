@@ -8,11 +8,11 @@ for (let index = 0; index < 9; index++) {
   arr.push('')
 }
 
-const Content = ({ ref }) => {
+const Content = ({ refContent }) => {
   const [hoverItem, setHoverItem] = useState(-1)
 
   return (
-    <div ref={ref} className='w-full flex flex-col relative justify-center items-center '>
+    <div ref={refContent} className='w-full flex flex-col relative justify-center items-center '>
       <MyImage
         url={bgContentBannerHome}
         width='100%'
