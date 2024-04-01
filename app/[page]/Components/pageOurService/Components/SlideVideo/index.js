@@ -251,7 +251,7 @@ const SlideVideo = ({
           className=" cursor-pointer"
           x={360}
           y={320}
-          width="420"
+          width="350"
           height="170"
           fill={`url(#pattern0${keySVG})`}
         />
