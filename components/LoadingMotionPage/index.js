@@ -71,16 +71,16 @@ const LoadingMotionPage = () => {
       {
         loadingGameArt && <LoadingRoutePage src={jsonProfile} />
       }
-      {/* {
-        loadingOurServer && <LoadingRoutePage src={jsonProfile} />
-      } */}
       {
+        loadingOurServer && <LoadingRoutePage src={jsonProfile} />
+      }
+      {/* {
         loadingOurServer && (
           <div key={Date.now()} className='fixed inset-0 w-screen h-screen z-[100]'>
             <ImageCustom $isScale={!ratioBeautiful} src={transitionBannerHome} fill/>
           </div>
         )
-      }
+      } */}
 
       {
         loadingAboutUs && <LoadingRoutePage src={jsonProfile} />
