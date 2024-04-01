@@ -69,7 +69,7 @@ const PageOurService = ({
     })
 
     return () => {
-      if (typeof window !== undefined) {
+      if (window) {
         window?.removeEventListener('scrollend', () => {})
         window?.scrollTo({
           top: 0,
