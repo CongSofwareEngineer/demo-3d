@@ -1,5 +1,6 @@
 import { TYPE_OPTION_BANNER_2 } from '@/config/app';
 import { images } from '@/config/images';
+import useSizeScreen from '@/hooks/useSizeScreen';
 import React from 'react';
 import { isMobile, isSafari } from 'react-device-detect';
 import styled, { css, keyframes } from 'styled-components';
@@ -15,6 +16,7 @@ const SlideVideo = ({
   keySVG = 'slide',
   isLoaded = true
 }) => {
+  const { ratioBeautiful } = useSizeScreen()
   const handleHover = (key) => {
     switch (key) {
     case TYPE_OPTION_BANNER_2.gameArt:
@@ -67,7 +69,8 @@ const SlideVideo = ({
         className={keySVG}
         id={keySVG}
         loadedBanner2={isLoaded}
-        height={isSafari ? 1 : ''}
+        height={(isSafari && ratioBeautiful) ? 1 : ''}
+        width={(isSafari && !ratioBeautiful) ? 1 : ''}
       >
         {/* <rect width="2560" height="1097" fill="url(#pattern0)"/>
         <rect width="2560" height="1097" fill="url(#pattern1)"/> */}
