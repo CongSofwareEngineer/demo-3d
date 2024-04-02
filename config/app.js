@@ -65,3 +65,8 @@ export const PAGE_EX = {
   home: 'home',
   contactAt: 'contactAt'
 };
+
+export const TYPE_SCROLL_PAGE = {
+  toTop: 'toTop',
+  toBottom: 'toBottom'
+};

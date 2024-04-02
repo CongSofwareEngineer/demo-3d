@@ -24,7 +24,7 @@ const SlideVideo = ({
       !isMobile && setHoverCharacter(true);
       break;
     default:
-      !isMobile && setHoverBranding(true)
+      !isMobile && setHoverBranding(true);
       break;
     }
   };
@@ -38,7 +38,7 @@ const SlideVideo = ({
       !isMobile && setHoverCharacter(false);
       break;
     default:
-      !isMobile && setHoverBranding(false)
+      !isMobile && setHoverBranding(false);
       break;
     }
   };
@@ -50,7 +50,12 @@ const SlideVideo = ({
     return (
       <>
         <image href={url} id={isHover ? 'no-data' : id} height={100} />
-        <image y={scale === 1 ? 0 : 1} href={urHover} id={!isHover ? 'no-data' : id} height={scale * 100} />
+        <image
+          y={scale === 1 ? 0 : 1}
+          href={urHover}
+          id={!isHover ? 'no-data' : id}
+          height={scale * 100}
+        />
       </>
     );
   };
@@ -66,7 +71,7 @@ const SlideVideo = ({
         key={keySVG}
         className={keySVG}
         id={keySVG}
-        loadedBanner2={isLoaded}
+        style={{ maxWidth: 'unset' }}
       >
         {/* <rect width="2560" height="1097" fill="url(#pattern0)"/>
         <rect width="2560" height="1097" fill="url(#pattern1)"/> */}
@@ -102,24 +107,51 @@ const SlideVideo = ({
         />
 
         {/* table game art */}
-        <rect x="1335" y="456" width="583" height="460" fill={`url(#pattern5${keySVG})`} />
+        <rect
+          x="1335"
+          y="456"
+          width="583"
+          height="460"
+          fill={`url(#pattern5${keySVG})`}
+        />
         {/* table branding */}
-        <rect x="1163" y="499" width="655" height="400" fill={`url(#pattern3${keySVG})`}/>
+        <rect
+          x="1163"
+          y="499"
+          width="655"
+          height="400"
+          fill={`url(#pattern3${keySVG})`}
+        />
         {/* table branding */}
-        <rect x="600" y="400" width="545" height="325" fill={`url(#pattern4${keySVG})`}/>
+        <rect
+          x="600"
+          y="400"
+          width="545"
+          height="325"
+          fill={`url(#pattern4${keySVG})`}
+        />
 
         <defs>
           <pattern
             id={`pattern0${keySVG}`}
             patternContentUnits="objectBoundingBox"
-            width="1" height="1"
+            width="1"
+            height="1"
           >
-            <use xlinkHref={`#image0_1220_6${keySVG}`}
+            <use
+              xlinkHref={`#image0_1220_6${keySVG}`}
               transform="scale(0.0037 0.009)"
             />
           </pattern>
-          <pattern x={1000} id={`pattern1${keySVG}`} patternContentUnits="objectBoundingBox" width="1" height="1">
-            <use xlinkHref={`#image1_1220_6${keySVG}`}
+          <pattern
+            x={1000}
+            id={`pattern1${keySVG}`}
+            patternContentUnits="objectBoundingBox"
+            width="1"
+            height="1"
+          >
+            <use
+              xlinkHref={`#image1_1220_6${keySVG}`}
               transform="scale(0.0031 0.009)"
             />
           </pattern>
@@ -129,7 +161,10 @@ const SlideVideo = ({
             width="1"
             height="1"
           >
-            <use xlinkHref={`#image2_1220_6${keySVG}`} transform="scale(0.0037 0.009)" />
+            <use
+              xlinkHref={`#image2_1220_6${keySVG}`}
+              transform="scale(0.0037 0.009)"
+            />
           </pattern>
           <pattern
             id={`pattern3${keySVG}`}
@@ -192,37 +227,30 @@ const SlideVideo = ({
             images.home.banner2.gameArtClick,
             hoverGameArt
           )} */}
-          {
-            hoverBranding && (
-              <image
-                href={images.home.banner2.tableBranding}
-                id={`image4_1220_6${keySVG}`}
-                width="750"
-                height="800"
-              />
-            )
-          }
-          {
-            hoverCharacter && (
-              <image
-                href={images.home.banner2.tableCharacter}
-                id={`image3_1220_6${keySVG}`}
-                height="718"
-              />
-            )
-          }
+          {hoverBranding && (
+            <image
+              href={images.home.banner2.tableBranding}
+              id={`image4_1220_6${keySVG}`}
+              width="750"
+              height="800"
+            />
+          )}
+          {hoverCharacter && (
+            <image
+              href={images.home.banner2.tableCharacter}
+              id={`image3_1220_6${keySVG}`}
+              height="718"
+            />
+          )}
 
-          {
-            hoverGameArt && (
-              <image
-                href={images.home.banner2.tableGameArt}
-                id={`image5_1220_6${keySVG}`}
-                width="800"
-                height="800"
-              />
-            )
-          }
-
+          {hoverGameArt && (
+            <image
+              href={images.home.banner2.tableGameArt}
+              id={`image5_1220_6${keySVG}`}
+              width="800"
+              height="800"
+            />
+          )}
         </defs>
       </SVGCustom>
     );
@@ -305,7 +333,6 @@ const SlideVideo = ({
             width="1"
             height="1"
           />
-
         </defs>
       </SVGCustom2>
     );
@@ -315,39 +342,18 @@ const SlideVideo = ({
 };
 const SVGBase = styled.svg`
   height: auto;
-  width: auto;
   min-height: 100vh;
   min-width: 100vw;
   width: auto;
-  /* left: 50%; */
-  /* right: 50%; */
-   position: absolute;
+  position: absolute;
   margin-left: 50%;
   transform: translate(-50%, 0%);
+ `;
+
+const SVGCustom = styled(SVGBase)`
   max-width: unset !important;
 `;
 
-const opacity = keyframes`
-  from{
-    opacity: 0;
-  }
-  to{
-    opacity: 1;
-  }
-`
-const SVGCustom = styled(SVGBase)`
- ${(props) =>
-    props.loadedBanner2
-      ? css`
-        opacity: 1;
-        animation: ${opacity} 3s  linear;
-      `
-      : css`
-      opacity: 0;
-      `
-}
-`
-
-const SVGCustom2 = styled(SVGBase)``
+const SVGCustom2 = styled(SVGBase)``;
 
 export default SlideVideo;

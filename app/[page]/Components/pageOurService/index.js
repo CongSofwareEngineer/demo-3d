@@ -1,7 +1,7 @@
 'use client';
 
 import ObserverService from '@/utils/observer';
-import { OBSERVER_KEY } from '@/config/app';
+import { OBSERVER_KEY, TYPE_SCROLL_PAGE } from '@/config/app';
 import { useCallback, useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { images, videos } from '@/config/images';
 import SlideVideo from './Components/SlideVideo';
@@ -23,7 +23,7 @@ const PageOurService = ({
   clickAboutUs = () => {},
   clickContactAs = () => {}
 }) => {
-  const refContent = useRef(null)
+  const refContent = useRef(TYPE_SCROLL_PAGE.toBottom)
   const isScrollContent = useRef(false)
 
   const [hoverGameArt, setHoverGameArt] = useState(false);
@@ -53,33 +53,6 @@ const PageOurService = ({
     return () => {
       ObserverService.removeListener(OBSERVER_KEY.loadVideoBanner2);
     };
-  }, [])
-
-  useLayoutEffect(() => {
-    scrollTop()
-  }, [])
-
-  useEffect(() => {
-    window.addEventListener('scroll', (e) => {
-      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-      const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-
-      if (scrollPosition > 0 && scrollPosition < viewportHeight && !isScrollContent.current) {
-        setTimeout(() => {
-          if (typeof refContent.current?.scrollIntoView === 'function') {
-            refContent.current.scrollIntoView({
-              behavior: 'instant',
-              block: 'start'
-            })
-            isScrollContent.current = true
-          }
-        }, 100)
-      }
-    })
-
-    return () => {
-      scrollTop()
-    }
   }, [])
 
   const callBackLoaded = useCallback(() => {
@@ -122,7 +95,6 @@ const PageOurService = ({
             />
           </Frame>
         </div>
-        <Content refContent={refContent} />
       </div>
     </>
   );
