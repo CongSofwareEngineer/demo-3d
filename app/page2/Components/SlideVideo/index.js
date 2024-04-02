@@ -324,6 +324,7 @@ const SVGBase = styled.svg`
    position: absolute;
   margin-left: 50%;
   transform: translate(-50%, 0%);
+  max-width: unset !important;
 `;
 
 const opacity = keyframes`
