@@ -16,9 +16,7 @@ const PageScreen = () => {
 
   const clickOurService = () => {
     ObserverService.emit(OBSERVER_KEY.loadingPageOurServer)
-    setTimeout(() => {
-      router.push(PAGE_EX.ourService)
-    }, 800)
+    router.push(PAGE_EX.ourService)
   }
 
   const clickProfile = () => {

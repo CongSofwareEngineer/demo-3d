@@ -30,24 +30,20 @@ const PageProfile = ({
 
       if (scrollDirection.current === TYPE_SCROLL_PAGE.toBottom) {
         if (scrollPosition > 0 && scrollPosition < viewportHeight) {
-          setTimeout(() => {
-            if (typeof refContent.current?.scrollIntoView === 'function') {
-              refContent.current.scrollIntoView({
-                behavior: 'instant',
-                block: 'start'
-              })
-              scrollDirection.current = TYPE_SCROLL_PAGE.toTop
-            }
-          }, 100)
+          if (typeof refContent.current?.scrollIntoView === 'function') {
+            refContent.current.scrollIntoView({
+              behavior: 'instant',
+              block: 'start'
+            })
+            scrollDirection.current = TYPE_SCROLL_PAGE.toTop
+          }
         }
       } else {
         if (scrollPosition > 0 && scrollPosition < viewportHeight) {
-          setTimeout(() => {
-            if (window) {
-              window.scrollTo({ top: 0, behavior: 'instant' })
-              scrollDirection.current = TYPE_SCROLL_PAGE.toBottom
-            }
-          }, 100)
+          if (window) {
+            window.scrollTo({ top: 0, behavior: 'instant' })
+            scrollDirection.current = TYPE_SCROLL_PAGE.toBottom
+          }
         }
       }
     })
