@@ -31,6 +31,8 @@ export const images = {
     bgFrameBase: '/assets/images/Home/bgFrameBase.webp',
     bannerPreload: '/assets/images/Home/bannerPreload.png',
     banner2Preload: '/assets/images/Home/banner2Preload.png',
+    aboutUsPreload: '/assets/images/Home/aboutUsPreload.png',
+    profilePreload: '/assets/images/Home/profilePreload.png',
     banner2: {
       gameArt: '/assets/images/Home/Banner2/gameArt.png',
       gameArtClick: '/assets/images/Home/Banner2/gameArtClick.png',
@@ -45,6 +47,9 @@ export const images = {
     },
     bgContentBannerHome: '/assets/images/Home/bgContentBannerHome.png',
     bgMaskContentBannerHome: '/assets/images/Home/bgMaskContentBannerHome.png'
+  },
+  profile: {
+    bgSorter: '/assets/images/Profile/bgSorter.png'
   }
 }
 export const videos = {
