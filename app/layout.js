@@ -1,4 +1,4 @@
-import { Inter, Port_Lligat_Sans } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import '@/styles/global.scss'
 import ReduxProvider from '@/components/ReduxProvider'
