@@ -22,7 +22,8 @@ module.exports = {
         },
         '.text-medium': {},
         '.text-common': {},
-        '.absolute-center': {}
+        '.absolute-center': {},
+        '.bg-green-main': {}
       }
 
       addUtilities(newUtilities)

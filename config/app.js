@@ -70,3 +70,8 @@ export const TYPE_SCROLL_PAGE = {
   toTop: 'toTop',
   toBottom: 'toBottom'
 };
+
+export const COLOR = {
+  greenMain: '#00FFCE',
+  blueMain: '#1146c0'
+};
