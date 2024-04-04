@@ -1,3 +1,4 @@
+@import "variable.scss";
 @font-face {
     font-family: Sans_Bold;
     src: url("/assets/fonts/Providenc_Sans_Bold.otf");
@@ -24,6 +25,15 @@
         font-size: 14px; // Set your desired font size here
 
     }
+}
+.bg-green-main{
+    background-color: map-get($background-colors, "greenMain");;
+    background: map-get($background-colors, "greenMain");;
+}
+
+.bg-blue-main{
+    background-color: map-get($background-colors, "blueMain");;
+    background: map-get($background-colors, "blueMain");;
 }
 
 .animation {
