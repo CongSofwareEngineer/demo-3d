@@ -1,4 +1,4 @@
-const plugin = require('tailwindcss')
+import plugin from 'tailwindcss/plugin'
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -17,7 +17,6 @@ module.exports = {
     plugin(function ({ addUtilities }) {
       const newUtilities = {
         '.text-title': {
-          fontFamily: 'var(--font-title) !important',
           fontSize: '40px',
           fontWeight: '700'
         },
