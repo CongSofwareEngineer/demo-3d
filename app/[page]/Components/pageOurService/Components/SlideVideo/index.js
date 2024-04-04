@@ -78,9 +78,9 @@ const SlideVideo = ({
         {/* img character */}
         <rect
           className=" cursor-pointer"
-          x={1045}
+          x={1025}
           y={340}
-          width="480"
+          width="540"
           height="170"
           fill={`url(#pattern1${keySVG})`}
         />

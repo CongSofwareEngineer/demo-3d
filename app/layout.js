@@ -8,6 +8,7 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import ReactQueryProvider from '@/components/ReactQueryProvider'
 /** @type {import('next').Metadata} */
 const inter = Inter({ subsets: ['latin'] })
+
 const BaseMeta = {
   title: 'TREE STUDIOS',
   des: 'Tree Studios is an art outsourcing studio for game art, concept art, 2D/ 3D environment, assets and animations specializing in stylized art styles.'
@@ -55,7 +56,7 @@ export const metadata = {
 export default function RootLayout ({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body >
         <main className="flex min-h-screen flex-col items-center justify-between">
           <ReduxProvider>
             <AntdRegistry >
