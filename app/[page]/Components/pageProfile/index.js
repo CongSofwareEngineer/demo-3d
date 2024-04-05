@@ -1,13 +1,11 @@
-import BgFrameBanner from '@/components/BgFrameBanner';
-import FrameBtn from '@/components/FrameBanner/frameBtn';
-import MyImage from '@/components/MyImage';
-import VideoBanner from '@/components/VideoBanner';
-import { TYPE_SCROLL_PAGE } from '@/config/app';
-import { images, videos } from '@/config/images';
-import { scrollTop } from '@/utils/function';
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import Content from './Component/Content';
-import { ContainerBanner } from './styled';
+import BgFrameBanner from '@/components/BgFrameBanner'
+import FrameBtn from '@/components/FrameBanner/frameBtn'
+import VideoBanner from '@/components/VideoBanner'
+import { TYPE_SCROLL_PAGE } from '@/config/app'
+import { images, videos } from '@/config/images'
+import React, { useEffect, useRef, useState } from 'react'
+import Content from './Component/Content'
+import { ContainerBanner } from './styled'
 const arr = []
 for (let index = 0; index < 9; index++) {
   arr.push('')
@@ -24,7 +22,7 @@ const PageProfile = ({
 
   const [animationBottom, setAnimationBottom] = useState(false)
   const [animationTop, setAnimationTop] = useState(false)
-  console.log({ animationBottom, animationTop });
+  console.log({ animationBottom, animationTop })
 
   useEffect(() => {
     const scrollToTop = () => {
@@ -53,9 +51,9 @@ const PageProfile = ({
       }, 100)
     }
     window.addEventListener('scroll', (e) => {
-      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-      const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-      console.log({ scrollDirection: scrollDirection.current });
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+      const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop
+      console.log({ scrollDirection: scrollDirection.current })
       if (!scrollDirection.current) {
         if (scrollPosition >= viewportHeight) {
           scrollDirection.current = TYPE_SCROLL_PAGE.toBottom
@@ -125,7 +123,7 @@ const PageProfile = ({
       <Content enableAnimation={animationBottom} refContent={refContent} />
     </div>
 
-  );
-};
+  )
+}
 
-export default PageProfile;
+export default PageProfile

@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Banner2 from './Banner2';
+import React from 'react'
+import styled from 'styled-components'
+import Banner2 from './Banner2'
 
 const SlideBanner = () => {
   return (
@@ -15,8 +15,8 @@ const SlideBanner = () => {
         <Banner2 />
       </ItemSlide>
     </ContainerSlide>
-  );
-};
+  )
+}
 
 const ContainerSlide = styled.div`
   display: flex;
@@ -36,12 +36,12 @@ const ContainerSlide = styled.div`
     display: none;
   }
 
-`;
+`
 
 const ItemSlide = styled.div`
   scroll-snap-align: center;
   height: 100%;
   width: 100%;
-`;
+`
 
-export default SlideBanner;
+export default SlideBanner

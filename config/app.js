@@ -40,13 +40,13 @@ export const TYPE_BANNER = {
   contact: 'contact',
   profile: 'profile',
   tree: 'tree'
-};
+}
 
 export const TYPE_OPTION_BANNER_2 = {
   character: 'character',
   gameArt: 'gameArt',
   branding: 'branding'
-};
+}
 
 export const OBSERVER_KEY = {
   loadBgFrame: 'loadBgFrame',
@@ -56,7 +56,7 @@ export const OBSERVER_KEY = {
   loadingPageContact: 'loadingPageContact',
   loadingPageAboutUs: 'loadingPageAboutUs',
   loadingPageProfile: 'loadingPageProfile'
-};
+}
 
 export const PAGE_EX = {
   ourService: 'ourService',
@@ -64,14 +64,14 @@ export const PAGE_EX = {
   aboutUs: 'aboutUs',
   home: 'home',
   contactAt: 'contactAt'
-};
+}
 
 export const TYPE_SCROLL_PAGE = {
   toTop: 'toTop',
   toBottom: 'toBottom'
-};
+}
 
 export const COLOR = {
   greenMain: '#00FFCE',
   blueMain: '#1146c0'
-};
+}

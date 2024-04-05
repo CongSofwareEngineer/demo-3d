@@ -1,8 +1,8 @@
-import React from 'react';
-import Lottie from 'react-lottie';
-import json from '@/public/assets/json/transitions_1.mp4.lottie.json';
-import styled, { css } from 'styled-components';
-import useSizeScreen from '@/hooks/useSizeScreen';
+import React from 'react'
+import Lottie from 'react-lottie'
+import json from '@/public/assets/json/transitions_1.mp4.lottie.json'
+import styled, { css } from 'styled-components'
+import useSizeScreen from '@/hooks/useSizeScreen'
 const ContainerLottie = styled.div`
   position: fixed;
   width: 100vw;
@@ -22,11 +22,11 @@ const ContainerLottie = styled.div`
             width: 100vw !important;
           `}
   }
-`;
+`
 
-const LottieCustom = styled(Lottie)``;
+const LottieCustom = styled(Lottie)``
 const LoadingRoutePage = ({ src }) => {
-  const { ratioBeautiful } = useSizeScreen();
+  const { ratioBeautiful } = useSizeScreen()
   return (
     <ContainerLottie $ratioBeautiful={ratioBeautiful}>
       <LottieCustom
@@ -39,7 +39,7 @@ const LoadingRoutePage = ({ src }) => {
         height={'100%'}
       />
     </ContainerLottie>
-  );
-};
+  )
+}
 
-export default LoadingRoutePage;
+export default LoadingRoutePage

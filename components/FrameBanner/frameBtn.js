@@ -1,11 +1,11 @@
-import { OBSERVER_KEY, QUEY_KEY, TYPE_BANNER } from '@/config/app';
+import { OBSERVER_KEY, QUEY_KEY, TYPE_BANNER } from '@/config/app'
 import { images } from '@/config/images'
-import useSizeScreen from '@/hooks/useSizeScreen';
-import ObserverService from '@/utils/observer';
-import { useQueryClient } from '@tanstack/react-query';
+import useSizeScreen from '@/hooks/useSizeScreen'
+import ObserverService from '@/utils/observer'
+import { useQueryClient } from '@tanstack/react-query'
 import React, { useLayoutEffect, useRef, useState } from 'react'
-import { isMobile } from 'react-device-detect';
-import styled, { keyframes } from 'styled-components';
+import { isMobile } from 'react-device-detect'
+import styled, { keyframes } from 'styled-components'
 
 const opacity = keyframes`
   from{
@@ -22,7 +22,7 @@ const SVGCustom = styled.svg`
   height: ${props => props.$height ? `${props.$height}px` : '19%'};
   min-width: 100%;
   /* animation: ${opacity} 0.5s  linear; */
-`;
+`
 
 const Rects = styled.rect.attrs(() => ({ className: 'cursor-pointer' }))``
 
@@ -35,26 +35,26 @@ const FrameBtn = ({
   clickTree = () => {}
 }) => {
   const { ratioBeautiful } = useSizeScreen()
-  const isMouseClickRef = useRef(false);
-  const queryClient = useQueryClient();
+  const isMouseClickRef = useRef(false)
+  const queryClient = useQueryClient()
 
-  const [isCLickOurService, setIsCLickOurService] = useState(false);
-  const [isCLickAboutUs, setIsCLickAboutUs] = useState(false);
-  const [isCLickContact, setIsCLickContact] = useState(false);
-  const [isCLickProFile, setIsCLickProFile] = useState(false);
-  const [isCLickTree, setIsCLickTree] = useState(false);
+  const [isCLickOurService, setIsCLickOurService] = useState(false)
+  const [isCLickAboutUs, setIsCLickAboutUs] = useState(false)
+  const [isCLickContact, setIsCLickContact] = useState(false)
+  const [isCLickProFile, setIsCLickProFile] = useState(false)
+  const [isCLickTree, setIsCLickTree] = useState(false)
   const [heightFrame, setHeightFrame] = useState(queryClient.getQueryData(QUEY_KEY.heightBgFrame))
 
   useLayoutEffect(() => {
     if (!ratioBeautiful) {
-      console.log('ratioBeautiful');
+      console.log('ratioBeautiful')
       window.addEventListener(('resize'), () => {
         const bgFrame = document.getElementsByClassName('bg-frame-banner')[0]
         if (bgFrame) {
           setTimeout(() => {
             queryClient.setQueryData(QUEY_KEY.heightBgFrame, bgFrame.clientHeight * 0.19)
             setHeightFrame(bgFrame.clientHeight * 0.19)
-          }, 100);
+          }, 100)
         }
       })
       const bgFrame = document.getElementsByClassName('bg-frame-banner')[0]
@@ -62,7 +62,7 @@ const FrameBtn = ({
         setTimeout(() => {
           queryClient.setQueryData(QUEY_KEY.heightBgFrame, bgFrame.clientHeight * 0.19)
           setHeightFrame(bgFrame.clientHeight * 0.19)
-        }, 100);
+        }, 100)
       }
     } else {
       queryClient.setQueryData(QUEY_KEY.heightBgFrame, null)
@@ -73,57 +73,57 @@ const FrameBtn = ({
   }, [ratioBeautiful, queryClient])
 
   const handleClick = (type) => {
-    const timeDebone = 200;
+    const timeDebone = 200
 
     if (!isMouseClickRef.current) {
-      isMouseClickRef.current = true;
+      isMouseClickRef.current = true
 
       switch (type) {
       case TYPE_BANNER.aboutUs:
-        setIsCLickAboutUs(true);
+        setIsCLickAboutUs(true)
         setTimeout(() => {
-          setIsCLickAboutUs(false);
-        }, timeDebone);
+          setIsCLickAboutUs(false)
+        }, timeDebone)
         clickAboutUs()
 
-        break;
+        break
       case TYPE_BANNER.contact:
-        setIsCLickContact(true);
+        setIsCLickContact(true)
         setTimeout(() => {
-          setIsCLickContact(false);
-        }, timeDebone);
+          setIsCLickContact(false)
+        }, timeDebone)
         clickContactAs()
-        break;
+        break
 
       case TYPE_BANNER.profile:
-        setIsCLickProFile(true);
+        setIsCLickProFile(true)
         setTimeout(() => {
-          setIsCLickProFile(false);
-        }, timeDebone);
+          setIsCLickProFile(false)
+        }, timeDebone)
         clickProfile()
-        break;
+        break
 
       case TYPE_BANNER.tree:
-        setIsCLickTree(true);
+        setIsCLickTree(true)
         setTimeout(() => {
-          setIsCLickTree(false);
-        }, timeDebone);
+          setIsCLickTree(false)
+        }, timeDebone)
         clickTree()
-        break;
+        break
 
       default:
-        setIsCLickOurService(true);
+        setIsCLickOurService(true)
         setTimeout(() => {
-          setIsCLickOurService(false);
-        }, timeDebone);
+          setIsCLickOurService(false)
+        }, timeDebone)
         clickOurService()
-        break;
+        break
       }
       setTimeout(() => {
-        isMouseClickRef.current = false;
-      }, timeDebone);
+        isMouseClickRef.current = false
+      }, timeDebone)
     }
-  };
+  }
 
   const renderImage = (id, stateClick, url, urlClick) => {
     return (

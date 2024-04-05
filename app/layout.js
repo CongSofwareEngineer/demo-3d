@@ -4,7 +4,7 @@ import '@/styles/global.scss'
 import ReduxProvider from '@/components/ReduxProvider'
 import StyledComponentsRegistry from '@/components/AntdRegistry'
 import ClientRender from '@/components/ClientRender'
-import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { AntdRegistry } from '@ant-design/nextjs-registry'
 import ReactQueryProvider from '@/components/ReactQueryProvider'
 /** @type {import('next').Metadata} */
 const inter = Inter({ subsets: ['latin'] })

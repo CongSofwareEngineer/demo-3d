@@ -1,9 +1,9 @@
-import { images } from '@/config/images';
-import Image from 'next/image';
+import { images } from '@/config/images'
+import Image from 'next/image'
 import React, { useState } from 'react'
-import styled from 'styled-components';
-import FrameBtn from './frameBtn';
-import SlideBanner from './slideBanner';
+import styled from 'styled-components'
+import FrameBtn from './frameBtn'
+import SlideBanner from './slideBanner'
 
 const BgBase2 = styled(Image)`
     min-height: 100vh !important; 
@@ -16,7 +16,7 @@ const BgBase2 = styled(Image)`
     max-width: none !important;
     margin-left: 50%;
     transform: translate(-50%, 0%);
-`;
+`
 
 const SVGCustom = styled.svg` 
   position: absolute;
@@ -25,7 +25,7 @@ const SVGCustom = styled.svg`
   bottom: 0;
   background: #323e3e80 !important;
   height: 19%;
-`;
+`
 
 const Rects = styled.rect.attrs(() => ({ className: 'cursor-pointer' }))``
 const Frame2 = () => {

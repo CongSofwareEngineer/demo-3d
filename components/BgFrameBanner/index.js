@@ -1,9 +1,9 @@
-import { OBSERVER_KEY } from '@/config/app';
-import { images } from '@/config/images';
-import ObserverService from '@/utils/observer';
-import Image from 'next/image';
-import React from 'react';
-import styled from 'styled-components';
+import { OBSERVER_KEY } from '@/config/app'
+import { images } from '@/config/images'
+import ObserverService from '@/utils/observer'
+import Image from 'next/image'
+import React from 'react'
+import styled from 'styled-components'
 
 const BgBase2 = styled(Image)`
   min-height: 100vh !important;
@@ -17,7 +17,7 @@ const BgBase2 = styled(Image)`
   margin-left: 50%;
   transform: translate(-50%, 0%);
   z-index: 10;
-`;
+`
 const BgFrameBanner = ({ ref, className, callBackLoad = () => {}, ...props }) => {
   return (
     <BgBase2
@@ -31,7 +31,7 @@ const BgFrameBanner = ({ ref, className, callBackLoad = () => {}, ...props }) =>
       }}
       {...props}
     />
-  );
-};
+  )
+}
 
-export default BgFrameBanner;
+export default BgFrameBanner

@@ -1,13 +1,15 @@
 import { OBSERVER_KEY } from '@/config/app'
 import ObserverService from '@/utils/observer'
 import React, { useEffect, useState } from 'react'
-import jsonProfile from '@/public/assets/json/transitions_1.mp4.lottie.json';
-import LoadingRoutePage from '../LoadingRoutePage';
-import { usePathname } from 'next/navigation';
+import jsonProfile from '@/public/assets/json/transitions_1.mp4.lottie.json'
+import loadingFirstLoad from '@/public/assets/json/loadingFirstLoad.json'
+
+import LoadingRoutePage from '../LoadingRoutePage'
+import { usePathname } from 'next/navigation'
 import transitionBannerHome from '@/public/assets/gif/transitionBannerHome.gif'
-import styled, { css } from 'styled-components';
-import Image from 'next/image';
-import useSizeScreen from '@/hooks/useSizeScreen';
+import styled, { css } from 'styled-components'
+import Image from 'next/image'
+import useSizeScreen from '@/hooks/useSizeScreen'
 const ImageCustom = styled(Image)`
   position: relative !important;
 
@@ -26,7 +28,7 @@ const ImageCustom = styled(Image)`
     `
 }
   
-`;
+`
 
 const ImageOpacity = styled(Image)`
   position: absolute !important;
@@ -36,7 +38,6 @@ const ImageOpacity = styled(Image)`
   z-index: -9999999999;
  `
 const LoadingMotionPage = () => {
-  const patchName = usePathname()
   const { ratioBeautiful } = useSizeScreen()
   const [loadingGameArt, setLoadingGameArt] = useState(false)
   const [loadingOurServer, setLoadingOurServer] = useState(false)
@@ -74,6 +75,7 @@ const LoadingMotionPage = () => {
       {
         loadingOurServer && <LoadingRoutePage src={jsonProfile} />
       }
+      {/* <LoadingRoutePage src={jsonProfile} /> */}
       {/* {
         loadingOurServer && (
           <div key={Date.now()} className='fixed inset-0 w-screen h-screen z-[100]'>

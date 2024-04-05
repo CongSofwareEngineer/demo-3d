@@ -1,17 +1,17 @@
-'use client';
+'use client'
 import React, { Suspense, useLayoutEffect, useState } from 'react'
 import { IntlProvider } from 'react-intl'
 import { useSelector } from 'react-redux'
 import Container from '../Container'
-import LoadingFrame from '../LoadingFrame';
-import LoadingRoutePage from '../LoadingRoutePage';
-import LoadingMotionPage from '../LoadingMotionPage';
-import { useParams } from 'next/navigation';
-import { PAGE_EX } from '@/config/app';
-import { Spin } from 'antd';
+import LoadingFrame from '../LoadingFrame'
+import LoadingRoutePage from '../LoadingRoutePage'
+import LoadingMotionPage from '../LoadingMotionPage'
+import { useParams } from 'next/navigation'
+import { PAGE_EX } from '@/config/app'
+import { Spin } from 'antd'
 const LoadingUI = () => {
   return (
-    <div className='w-full h-full flex justify-center items-center' >
+    <div className='w-screen h-screen flex justify-center items-center' >
       <Spin />
     </div>
   )
@@ -38,17 +38,17 @@ const ClientRender = ({ children }) => {
             {children}
 
           </>}
-          {
+          {/* {
             PAGE_EX[params?.page] && (
               <LoadingFrame />
             )
-          }
+          } */}
 
           <LoadingMotionPage />
         </IntlProvider>
       </Container>
     </Suspense>
-  );
-};
+  )
+}
 
-export default ClientRender;
+export default ClientRender

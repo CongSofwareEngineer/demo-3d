@@ -28,18 +28,18 @@ export const scrollTop = () => {
 export const saveDataLocal = (key, data) => {
   try {
     // eslint-disable-next-line no-undef
-    localStorage.setItem(key, JSON.stringify(data));
+    localStorage.setItem(key, JSON.stringify(data))
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
-};
+}
 
 export const getDataLocal = (key) => {
   try {
     // eslint-disable-next-line no-undef
-    return JSON.parse(localStorage.getItem(key));
+    return JSON.parse(localStorage.getItem(key))
   } catch (error) {
-    console.log(error);
-    return null;
+    console.log(error)
+    return null
   }
-};
+}

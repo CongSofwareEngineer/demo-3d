@@ -1,14 +1,16 @@
 'use client'
 import { useParams, useRouter } from 'next/navigation'
-import React, { Suspense } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
-import ObserverService from '@/utils/observer';
-import PageHome from './Components/pageHome';
+import ObserverService from '@/utils/observer'
+import PageHome from './Components/pageHome'
 
-import PageAboutUse from './Components/pageAboutUs';
-import PageOurService from './Components/pageOurService';
-import PageProfile from './Components/pageProfile';
+import PageAboutUse from './Components/pageAboutUs'
+import PageOurService from './Components/pageOurService'
+import PageProfile from './Components/pageProfile'
 import Fiber3D from '@/components/Fiber3D'
+import Loading from '../loading'
+import LoadingFirst from './test'
 
 const PageScreen = () => {
   const router = useRouter()
@@ -31,72 +33,68 @@ const PageScreen = () => {
     // router.push(PAGE_EX.contactAt)
   }
 
-  return (
-    <>
-      {
-        (params?.page === '' || params?.page === '/') && (
-          <Fiber3D />
-        )
-      }
-      {
-        params?.page === PAGE_EX.home && (
-          <Suspense >
+  const renderData = () => {
+    return (
+      <Suspense fallback={<Loading />}>
+        {
+          (params?.page === '' || params?.page === '/') && (
+            <Fiber3D />
+          )
+        }
+        {
+          params?.page === PAGE_EX.home && (
             <PageHome
               clickAboutUs={clickAboutUs}
               clickContactAs={clickContactAs}
               clickProfile={clickProfile}
               clickOurService={clickOurService}
             />
-          </Suspense>
-
-        )
-      }
-      {
-        params?.page === PAGE_EX.ourService && (
-          <Suspense>
+          )
+        }
+        {
+          params?.page === PAGE_EX.ourService && (
             <PageOurService
               clickAboutUs={clickAboutUs}
               clickContactAs={clickContactAs}
               clickProfile={clickProfile}
             />
-          </Suspense>
-        )
-      }
-      {
-        params?.page === PAGE_EX.portfolio && (
-          <Suspense >
+          )
+        }
+        {
+          params?.page === PAGE_EX.portfolio && (
             <PageProfile
               clickOurService={clickOurService}
               clickAboutUs={clickAboutUs}
               clickContactAs={clickContactAs}
             />
-          </Suspense>
 
-        )
-      }
+          )
+        }
 
-      {
-        params?.page === PAGE_EX.aboutUs && (
-          <PageAboutUse
-            clickContactAs={clickContactAs}
-            clickOurService={clickOurService}
-            clickProfile={clickProfile}
-          />
-        )
-      }
+        {
+          params?.page === PAGE_EX.aboutUs && (
+            <PageAboutUse
+              clickContactAs={clickContactAs}
+              clickOurService={clickOurService}
+              clickProfile={clickProfile}
+            />
+          )
+        }
 
-      {
-        params?.page === PAGE_EX.contactAt && (
-          <PageAboutUse
-            clickContactAs={clickContactAs}
-            clickOurService={clickOurService}
-            clickProfile={clickProfile}
-          />
-        )
-      }
+        {
+          params?.page === PAGE_EX.contactAt && (
+            <PageAboutUse
+              clickContactAs={clickContactAs}
+              clickOurService={clickOurService}
+              clickProfile={clickProfile}
+            />
+          )
+        }
+      </Suspense>
+    )
+  }
 
-    </>
-  )
+  return renderData()
 }
 
 export default PageScreen

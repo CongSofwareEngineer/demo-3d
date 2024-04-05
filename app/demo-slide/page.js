@@ -1,13 +1,13 @@
 'use client'
-import BgFrameBanner from '@/components/BgFrameBanner';
-import FrameBtn from '@/components/FrameBanner/frameBtn';
-import VideoBanner from '@/components/VideoBanner';
-import { images, videos } from '@/config/images';
+import BgFrameBanner from '@/components/BgFrameBanner'
+import FrameBtn from '@/components/FrameBanner/frameBtn'
+import VideoBanner from '@/components/VideoBanner'
+import { images, videos } from '@/config/images'
 import React, { useEffect } from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components'
 const ContainerSlide = styled.div`
   display: flex;
-  position: absolute;
+  position: absolute; 
   inset: 0;
   min-height: 100vh;
   width: 100%;
@@ -22,14 +22,14 @@ const ContainerSlide = styled.div`
   &::-webkit-scrollbar {
     display: none;
   } 
-`;
+`
 
 const ItemSlide = styled.div`
   scroll-snap-align: center;
   height: 100%;
   width: 100%;
   position: relative;
-`;
+`
 
 const DemoSlide = () => {
   useEffect(() => {
@@ -38,7 +38,7 @@ const DemoSlide = () => {
     slideVideo && slideVideoTrans.addEventListener('scroll', (e) => {
       setTimeout(() => {
         slideVideo.scrollTo({ left: slideVideoTrans.scrollLeft, behavior: 'smooth' })
-      }, 100);
+      }, 100)
     })
   }, [])
 

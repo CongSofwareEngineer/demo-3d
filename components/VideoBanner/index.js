@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './videoBanner.module.scss'
-import useSizeScreen from '@/hooks/useSizeScreen';
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components'
+import useSizeScreen from '@/hooks/useSizeScreen'
 const opacity = keyframes`
   from{
     opacity: 0;
@@ -24,7 +24,7 @@ const VideoCustom = styled.video`
 } */
    
   
-`;
+`
 
 const VideoBanner = ({
   url,

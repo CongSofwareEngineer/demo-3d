@@ -16,15 +16,14 @@ module.exports = {
   plugins: [
     plugin(function ({ addUtilities }) {
       const newUtilities = {
-        '.text-title': {
-          fontSize: '40px',
-          fontWeight: '700'
-        },
+        '.text-title': {},
         '.text-medium': {},
         '.text-common': {},
         '.absolute-center': {},
         '.bg-green-main': {},
-        '.bg-blue-main': {}
+        '.bg-blue-main': {},
+        '.hover-zoom25': {},
+        '.relative-center': {}
       }
 
       addUtilities(newUtilities)

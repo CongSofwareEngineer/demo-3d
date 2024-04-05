@@ -1,9 +1,9 @@
-import { COLOR } from '@/config/app';
-import { DownOutlined } from '@ant-design/icons';
-import { Button, Dropdown, Select, Space } from 'antd';
-import React from 'react';
-import styled from 'styled-components';
-const SelectCustom = styled(Select)`
+import { COLOR } from '@/config/app'
+import { DownOutlined } from '@ant-design/icons'
+import { Button, Dropdown, Select, Space } from 'antd'
+import React from 'react'
+import styled from 'styled-components'
+const SelectCustom = styled(Select)` 
   background: transparent !important;
   .ant-select-selector {
     background: transparent !important;
@@ -32,16 +32,16 @@ const SelectCustom = styled(Select)`
       /* color: ${COLOR.greenMain}; */
     }
   }
-`;
+`
 const fakeData = [
   { name: 'text 1', value: 'text1' },
   { name: 'text 2', value: 'text2' }
-];
+]
 
 const SelectSort = () => {
   const renderDrops = () => {
-    return <div>renderDrops</div>;
-  };
+    return <div>renderDrops</div>
+  }
   return (
     <div>
       <div className="flex items-center gap-4">
@@ -63,7 +63,7 @@ const SelectSort = () => {
         </Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SelectSort;
+export default SelectSort

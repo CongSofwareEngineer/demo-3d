@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components'
 const dance = keyframes`
   0%, 100% {
     top: 0;
@@ -6,7 +6,7 @@ const dance = keyframes`
   50% {
     top: 30px;
   } 
-`;
+`
 export const ContainerBanner = styled.div`
   position: relative;
   width: 100%;
@@ -18,4 +18,4 @@ export const ContainerBanner = styled.div`
       animation: ${dance} 0.5s linear alternate; 
       top: 0;
      `}
-`;
+`

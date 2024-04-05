@@ -1,12 +1,12 @@
-import { images } from '@/config/images';
-import useModal from '@/hooks/useModal';
-import useSizeScreen from '@/hooks/useSizeScreen';
-import Image from 'next/image';
-import React, { useEffect, useRef, useState } from 'react';
-import { isMobile } from 'react-device-detect';
+import { images } from '@/config/images'
+import useModal from '@/hooks/useModal'
+import useSizeScreen from '@/hooks/useSizeScreen'
+import Image from 'next/image'
+import React, { useEffect, useRef, useState } from 'react'
+import { isMobile } from 'react-device-detect'
 
-import styled from 'styled-components';
-import Frame2 from './frame2';
+import styled from 'styled-components'
+import Frame2 from './frame2'
 
 const SVGCustom = styled.svg`
   /* min-height: 100vh; */
@@ -22,22 +22,22 @@ const SVGCustom = styled.svg`
   width: 100%;
   z-index: 99;
   bottom: 0;
-`;
+`
 
 const RectCustom = styled.rect`
   cursor: pointer;
-`;
+`
 const ContainerBgFrame = styled.div`
   position: absolute;
   bottom: 0 !important;
   width: auto !important;
   left: 50% !important;
   right: 50% !important;
-`;
+`
 
 const ContainerBgSVG = styled.div`
   position: relative;
-`;
+`
 
 const BgSVG = styled(Image)`
   position: relative !important;
@@ -70,29 +70,29 @@ const BgSVG = styled(Image)`
   margin-right: 50% !important;
   max-width: none !important;
   transform: translate(-50%, 0%);  */
-`;
+`
 
 const TYPE = {
   ourService: 'ourService',
   aboutUs: 'aboutUs',
   contact: 'contact',
   profile: 'profile'
-};
+}
 const FrameBanner = () => {
-  const { ratioBeautiful } = useSizeScreen();
-  const { openModal } = useModal();
-  const isMouseClickRef = useRef(false);
-  const svgRef = useRef(null);
-  const bgSvg = useRef(null);
+  const { ratioBeautiful } = useSizeScreen()
+  const { openModal } = useModal()
+  const isMouseClickRef = useRef(false)
+  const svgRef = useRef(null)
+  const bgSvg = useRef(null)
 
-  const [isCLickOurService, setIsCLickOurService] = useState(false);
-  const [isCLickAboutUs, setIsCLickAboutUs] = useState(false);
-  const [isCLickContact, setIsCLickContact] = useState(false);
-  const [isCLickProFileRef, setIsCLickProFileRef] = useState(false);
+  const [isCLickOurService, setIsCLickOurService] = useState(false)
+  const [isCLickAboutUs, setIsCLickAboutUs] = useState(false)
+  const [isCLickContact, setIsCLickContact] = useState(false)
+  const [isCLickProFileRef, setIsCLickProFileRef] = useState(false)
   const [dataFrame, setDataFrame] = useState({
     w: 0,
     h: 0
-  });
+  })
 
   useEffect(() => {
     // window.addEventListener('resize', () => {
@@ -108,51 +108,51 @@ const FrameBanner = () => {
     //     h: `${svgRef.current.clientHeight}px !important`
     //   });
     // }
-  }, []);
+  }, [])
 
   const handleClick = (type) => {
-    const timeDebone = 200;
+    const timeDebone = 200
     if (!isMouseClickRef.current) {
-      isMouseClickRef.current = true;
-      let title = 'our Service';
+      isMouseClickRef.current = true
+      let title = 'our Service'
       switch (type) {
       case TYPE.aboutUs:
-        setIsCLickAboutUs(true);
+        setIsCLickAboutUs(true)
         setTimeout(() => {
-          setIsCLickAboutUs(false);
-        }, timeDebone);
-        title = 'About Us';
-        break;
+          setIsCLickAboutUs(false)
+        }, timeDebone)
+        title = 'About Us'
+        break
       case TYPE.contact:
-        setIsCLickContact(true);
+        setIsCLickContact(true)
         setTimeout(() => {
-          setIsCLickContact(false);
-        }, timeDebone);
-        title = 'contact';
-        break;
+          setIsCLickContact(false)
+        }, timeDebone)
+        title = 'contact'
+        break
       case TYPE.profile:
-        setIsCLickProFileRef(true);
+        setIsCLickProFileRef(true)
         setTimeout(() => {
-          setIsCLickProFileRef(false);
-        }, timeDebone);
-        title = 'Our ProtFolto';
-        break;
+          setIsCLickProFileRef(false)
+        }, timeDebone)
+        title = 'Our ProtFolto'
+        break
       default:
-        setIsCLickOurService(true);
+        setIsCLickOurService(true)
         setTimeout(() => {
-          setIsCLickOurService(false);
-        }, timeDebone);
-        title = 'our Service';
-        break;
+          setIsCLickOurService(false)
+        }, timeDebone)
+        title = 'our Service'
+        break
       }
       setTimeout(() => {
-        isMouseClickRef.current = false;
-      }, timeDebone);
+        isMouseClickRef.current = false
+      }, timeDebone)
       openModal({
         body: <div>{title}</div>
-      });
+      })
     }
-  };
+  }
 
   const renderImgSvg = (id, stateClick, url, urlClick) => {
     return (
@@ -166,8 +166,8 @@ const FrameBanner = () => {
         />
         <image id={id} height={95} key={`${stateClick}`} href={urlClick} />
       </>
-    );
-  };
+    )
+  }
 
   const renderSVG2 = () => {
     return (
@@ -215,8 +215,8 @@ const FrameBanner = () => {
           <image id="image3_1265_3" width="2560" height="1097" /> */}
         </defs>
       </SVGCustom>
-    );
-  };
+    )
+  }
 
   const renderSVGBase = () => {
     return (
@@ -355,7 +355,7 @@ const FrameBanner = () => {
           )}
         </defs>
       </SVGCustom>
-    );
+    )
   }
   return <Frame2 />
 
@@ -375,6 +375,6 @@ const FrameBanner = () => {
   //   </ContainerBgFrame>
 
   // );
-};
+}
 
-export default React.memo(FrameBanner);
+export default React.memo(FrameBanner)

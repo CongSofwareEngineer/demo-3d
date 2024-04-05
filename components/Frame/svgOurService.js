@@ -1,8 +1,8 @@
-import { images } from '@/config/images';
-import useModal from '@/hooks/useModal';
-import Image from 'next/image';
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import { images } from '@/config/images'
+import useModal from '@/hooks/useModal'
+import Image from 'next/image'
+import React from 'react'
+import styled, { keyframes } from 'styled-components'
 
 const rotate = keyframes`
   from {
@@ -12,28 +12,28 @@ const rotate = keyframes`
   to {
     transform: scale(1) translateX(0%); 
   }
-`;
+`
 const RectCustom = styled.rect`
   /* animation: ${rotate} 2s linear infinite; */
-`;
+`
 const ImageCustom = styled.image`
   -o-animation: ${rotate} 2s ease-in infinite alternate;
   -moz-animation: ${rotate} 2s ease-in infinite alternate;
   -webkit-animation: ${rotate} 2s ease-in infinite alternate;
   animation: ${rotate} 2s ease-in infinite alternate;
-`;
+`
 
 const SvgOurService = () => {
-  const { openModal } = useModal();
+  const { openModal } = useModal()
 
   const handleOpen = (text) => {
-    console.log('====================================');
-    console.log({ text });
-    console.log('====================================');
+    console.log('====================================')
+    console.log({ text })
+    console.log('====================================')
     openModal({
       body: <div>{text}</div>
-    });
-  };
+    })
+  }
   return (
     <div className="absolute w-full bottom-0 z-10">
       <svg
@@ -186,7 +186,7 @@ const SvgOurService = () => {
       </svg>
       {/* <image id="image0_33_2" width="400" height="320" href={images.ourServices1} /> */}
     </div>
-  );
-};
+  )
+}
 
-export default SvgOurService;
+export default SvgOurService

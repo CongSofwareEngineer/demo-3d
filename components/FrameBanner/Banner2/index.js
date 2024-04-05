@@ -7,12 +7,12 @@ const Banner2 = ({ ref, noShowElement = false }) => {
   const [hoverGameArt, setHoverGameArt] = useState(false)
 
   const handleHover = () => {
-    console.log('handleHover');
+    console.log('handleHover')
     !isMobileOnly && setHoverGameArt(true)
   }
 
   const handleUnHover = () => {
-    console.log('handleUnHover');
+    console.log('handleUnHover')
     !isMobileOnly && setHoverGameArt(false)
   }
 
@@ -110,6 +110,6 @@ const SVGCustom = styled.svg`
   left: 50%;
   right: 50%;
   transform: translate(-50%, 0%);
-`;
+`
 
 export default Banner2

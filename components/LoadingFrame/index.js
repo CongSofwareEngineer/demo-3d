@@ -1,6 +1,6 @@
 import { OBSERVER_KEY } from '@/config/app'
 import ObserverService from '@/utils/observer'
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const LoadingFrame = () => {
   const [loadBgFrame, setLoadBgFrame] = useState(false)

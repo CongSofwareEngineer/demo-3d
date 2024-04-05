@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components'
 import BN from 'bignumber.js'
-import { images } from '@/config/images';
+import { images } from '@/config/images'
 
 const ImgCustom = styled.img`
   
-`;
+`
 
 const Line = styled.div`
     height: 10%;
     width: 100%;
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(3,3,3,1) 50%, rgba(247,247,247,1) 100%);
   
-`;
+`
 
 const BgVideo = styled.img`
   position: absolute !important;
@@ -20,7 +20,7 @@ const BgVideo = styled.img`
   left: 50%;
   transform: translate(-50%, -50%);
   height: 100vh;
-`;
+`
 
 const ImageEx = ({
   src,
@@ -49,7 +49,7 @@ const ImageEx = ({
       window.removeEventListener('resize', () => {})
     }
   }, [])
-  console.log({ isOver219 });
+  console.log({ isOver219 })
 
   return (
     <div className='w-full h-full relative'>

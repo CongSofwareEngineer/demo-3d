@@ -1,8 +1,8 @@
-import BgFrameBanner from '@/components/BgFrameBanner';
-import FrameBtn from '@/components/FrameBanner/frameBtn';
-import VideoBanner from '@/components/VideoBanner';
-import { images, videos } from '@/config/images';
-import React from 'react';
+import BgFrameBanner from '@/components/BgFrameBanner'
+import FrameBtn from '@/components/FrameBanner/frameBtn'
+import VideoBanner from '@/components/VideoBanner'
+import { images, videos } from '@/config/images'
+import React from 'react'
 
 const PageHome = ({
   clickProfile = () => {},
@@ -28,7 +28,7 @@ const PageHome = ({
       </div>
 
     </div>
-  );
-};
+  )
+}
 
-export default PageHome;
+export default PageHome

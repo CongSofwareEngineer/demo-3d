@@ -1,26 +1,26 @@
-import { PAGE_EX } from '@/config/app';
-import PageScreen from './page';
-import { generateMetaBase } from '@/utils/serverNext';
+import { PAGE_EX } from '@/config/app'
+import PageScreen from './page'
+import { delay, generateMetaBase } from '@/utils/serverNext'
 
 export async function generateMetadata ({ params }, parent) {
   let title = ''
   switch (params.page) {
   case PAGE_EX.home:
     title = 'Home'
-    break;
+    break
   case PAGE_EX.ourService:
     title = 'Our Service'
-    break;
+    break
   case PAGE_EX.aboutUs:
     title = 'About Us'
-    break;
+    break
   case PAGE_EX.portfolio:
     title = 'Portfolio'
-    break;
+    break
   default:
     title = 'Contact'
 
-    break;
+    break
   }
   const dataBase = await parent
 
@@ -32,7 +32,8 @@ export async function generateMetadata ({ params }, parent) {
 
   return metaData
 }
-const Layout = ({ children, params }) => {
+const Layout = async ({ children, params }) => {
+  // await delay(3000)
   return children
 }
 

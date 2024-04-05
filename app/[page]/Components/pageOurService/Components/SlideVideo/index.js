@@ -1,9 +1,9 @@
-import { TYPE_OPTION_BANNER_2 } from '@/config/app';
-import { images } from '@/config/images';
-import useSizeScreen from '@/hooks/useSizeScreen';
-import React from 'react';
-import { isMobile, isSafari } from 'react-device-detect';
-import styled, { css, keyframes } from 'styled-components';
+import { TYPE_OPTION_BANNER_2 } from '@/config/app'
+import { images } from '@/config/images'
+import useSizeScreen from '@/hooks/useSizeScreen'
+import React from 'react'
+import { isMobile, isSafari } from 'react-device-detect'
+import styled, { css, keyframes } from 'styled-components'
 
 const SlideVideo = ({
   hoverGameArt,
@@ -20,30 +20,30 @@ const SlideVideo = ({
   const handleHover = (key) => {
     switch (key) {
     case TYPE_OPTION_BANNER_2.gameArt:
-      !isMobile && setHoverGameArt(true);
-      break;
+      !isMobile && setHoverGameArt(true)
+      break
     case TYPE_OPTION_BANNER_2.character:
-      !isMobile && setHoverCharacter(true);
-      break;
+      !isMobile && setHoverCharacter(true)
+      break
     default:
       !isMobile && setHoverBranding(true)
-      break;
+      break
     }
-  };
+  }
 
   const handleUnHover = (key) => {
     switch (key) {
     case TYPE_OPTION_BANNER_2.gameArt:
-      !isMobile && setHoverGameArt(false);
-      break;
+      !isMobile && setHoverGameArt(false)
+      break
     case TYPE_OPTION_BANNER_2.character:
-      !isMobile && setHoverCharacter(false);
-      break;
+      !isMobile && setHoverCharacter(false)
+      break
     default:
       !isMobile && setHoverBranding(false)
-      break;
+      break
     }
-  };
+  }
 
   const renderImgSvg = (id, url, urHover, isHover, scale = 1) => {
     // const getId = (isClick) => {
@@ -54,8 +54,8 @@ const SlideVideo = ({
         <image href={url} id={isHover ? 'no-data' : id} height={100} />
         <image y={scale === 1 ? 0 : 1} href={urHover} id={!isHover ? 'no-data' : id} height={scale * 100} />
       </>
-    );
-  };
+    )
+  }
 
   const renderElement = () => {
     return (
@@ -229,8 +229,8 @@ const SlideVideo = ({
 
         </defs>
       </SVGCustom>
-    );
-  };
+    )
+  }
 
   const renderNoElement = () => {
     return (
@@ -312,11 +312,11 @@ const SlideVideo = ({
 
         </defs>
       </SVGCustom2>
-    );
-  };
+    )
+  }
 
-  return noShowElement ? renderNoElement() : renderElement();
-};
+  return noShowElement ? renderNoElement() : renderElement()
+}
 const SVGBase = styled.svg`
   height: auto;
   width: auto;
@@ -329,7 +329,7 @@ const SVGBase = styled.svg`
   margin-left: 50%;
   transform: translate(-50%, 0%);
 
-`;
+`
 
 const opacity = keyframes`
   from{
@@ -356,4 +356,4 @@ const SVGCustom2 = styled(SVGBase)`
   z-index: 11;
 `
 
-export default SlideVideo;
+export default SlideVideo
