@@ -13,16 +13,16 @@
 
 * {
   font-family: Sans_Re, sans-serif;  
-}
-
-* {
   font-size: 16px; // Set your desired font size here
 
   @media screen and (max-width: 768px) {
     font-size: 14px; // Set your desired font size here
 
   }
+  color: map-get(($background-colors),"blueMain" );
 }
+
+ 
 .bg-green-main{
     background-color: map-get($background-colors, "greenMain");;
     background: map-get($background-colors, "greenMain");;
@@ -50,7 +50,9 @@
     font-size: 20px;
   }
 }
-
+.text-green-main{
+    color: map-get($background-colors,"greenMain" );
+}
 .hover {
   cursor: pointer;
 

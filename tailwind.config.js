@@ -17,6 +17,7 @@ module.exports = {
     plugin(function ({ addUtilities }) {
       const newUtilities = {
         '.text-title': {},
+        '.text-green-main': {},
         '.text-medium': {},
         '.text-common': {},
         '.absolute-center': {},

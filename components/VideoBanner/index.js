@@ -31,7 +31,9 @@ const VideoBanner = ({
   poster,
   callBack = () => {},
   videoRef = React.createRef(null),
-  callBackLoaded = () => {}
+  callBackLoaded = () => {},
+  className = '',
+  ...props
 }) => {
   const { ratioBeautiful } = useSizeScreen()
   const [loadingVideo, setLoadingVideo] = useState(false)
@@ -61,9 +63,10 @@ const VideoBanner = ({
         callBackLoaded()
         // setLoadingVideo(true)
       }}
-      className={`${styles.videoBannerBase} ${!ratioBeautiful && styles.isScale} `}
+      className={`${className} ${styles.videoBannerBase} ${!ratioBeautiful && styles.isScale} `}
+      {...props}
     >
-      <source src={url} type="video/mp4"/>
+      <source src={url} />
     </VideoCustom>
   )
 }

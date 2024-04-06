@@ -90,11 +90,11 @@ const LoadingMotionPage = () => {
       {
         loadingProfile && <LoadingRoutePage src={jsonProfile} />
       }
-      <ImageOpacity
+      {/* <ImageOpacity
         key={'loadingOurServer-opacity'}
         src={transitionBannerHome}
         fill
-      />
+      /> */}
 
     </>
   )

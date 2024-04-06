@@ -189,43 +189,24 @@ const SlideVideo = ({
             hoverGameArt,
             0.9799
           )}
-          {/*
-          {renderImgSvg(
-            `image1_1220_6${keySVG}`,
-            images.home.banner2.gameArt,
-            images.home.banner2.gameArtClick,
-            hoverGameArt
-          )} */}
-          {
-            hoverBranding && (
-              <image
-                href={images.home.banner2.tableBranding}
-                id={`image4_1220_6${keySVG}`}
-                width="750"
-                height="800"
-              />
-            )
-          }
-          {
-            hoverCharacter && (
-              <image
-                href={images.home.banner2.tableCharacter}
-                id={`image3_1220_6${keySVG}`}
-                height="718"
-              />
-            )
-          }
+          <image
+            href={images.home.banner2.tableBranding}
+            id={hoverBranding ? `image4_1220_6${keySVG}` : 'no-date'}
+            width="750"
+            height="800"
+          />
+          <image
+            href={images.home.banner2.tableCharacter}
+            id={hoverCharacter ? `image3_1220_6${keySVG}` : 'no-data'}
+            height="718"
+          />
 
-          {
-            hoverGameArt && (
-              <image
-                href={images.home.banner2.tableGameArt}
-                id={`image5_1220_6${keySVG}`}
-                width="800"
-                height="800"
-              />
-            )
-          }
+          <image
+            href={images.home.banner2.tableGameArt}
+            id={hoverGameArt ? `image5_1220_6${keySVG}` : 'no-date'}
+            width="800"
+            height="800"
+          />
 
         </defs>
       </SVGCustom>
@@ -266,10 +247,10 @@ const SlideVideo = ({
           onMouseLeave={() => handleUnHover(TYPE_OPTION_BANNER_2.character)}
           onClick={() => setHoverCharacter(!hoverCharacter)}
           className=" cursor-pointer"
-          x={1035}
-          y={340}
-          width="420"
-          height="170"
+          x={1080}
+          y={370}
+          width="450"
+          height="90"
           fill={`url(#pattern1${keySVG})`}
         />
 

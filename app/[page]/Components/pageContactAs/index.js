@@ -1,8 +1,9 @@
 import BgFrameBanner from '@/components/BgFrameBanner'
 import FrameBtn from '@/components/FrameBanner/frameBtn'
-import VideoBanner from '@/components/VideoBanner'
-import { videos } from '@/config/images'
+import MyImage from '@/components/MyImage'
 import React from 'react'
+import { ImageBanner } from './styled'
+import { images } from '@/config/images'
 
 const PageContactAs = ({
   clickProfile = () => {},
@@ -12,7 +13,12 @@ const PageContactAs = ({
   return (
     <div className="relative w-screen h-screen overflow-hidden  ">
       <div className="w-full h-full relative">
-        <VideoBanner url={videos.bannerAboutUs} />
+        {/* <VideoBanner url={videos.bannerAboutUs} /> */}
+        <ImageBanner
+          fill
+          alt='banner-contact-at'
+          src={images.contactAt.bannerContactAt}
+        />
         <BgFrameBanner />
         <FrameBtn
           clickProfile={clickProfile}

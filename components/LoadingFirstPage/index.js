@@ -3,7 +3,7 @@ import React from 'react'
 
 const LoadingFirst = () => {
   return (
-    <div className='relative z-[13] w-screen h-screen flex justify-center items-center' >
+    <div className='fixed bg-black z-[13] w-screen h-screen flex justify-center items-center' >
       <video
         className='w-[50%] h-auto object-cover'
         muted

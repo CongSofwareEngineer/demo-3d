@@ -75,3 +75,10 @@ export const COLOR = {
   greenMain: '#00FFCE',
   blueMain: '#1146c0'
 }
+
+export const MENU_SORTER = {
+  animation: 'Animation',
+  gameArt: 'Game Art',
+  characterDesign: 'Character Design',
+  visual: 'Visual & Design'
+}

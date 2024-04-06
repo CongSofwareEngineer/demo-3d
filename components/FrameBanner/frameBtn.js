@@ -17,7 +17,7 @@ const opacity = keyframes`
 `
 const SVGCustom = styled.svg` 
   position: fixed;
-  z-index: 99;
+  z-index: 11;
   bottom: 0;
   height: ${props => props.$height ? `${props.$height}px` : '19%'};
   min-width: 100%;

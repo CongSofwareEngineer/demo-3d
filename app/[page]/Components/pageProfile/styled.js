@@ -11,11 +11,5 @@ export const ContainerBanner = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow-x: hidden;
-  ${({ $animation }) =>
-    $animation &&
-    css`
-      animation: ${dance} 0.5s linear alternate; 
-      top: 0;
-     `}
+  overflow-x: hidden; 
 `

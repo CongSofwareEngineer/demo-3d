@@ -6,6 +6,10 @@ import { images, videos } from '@/config/images'
 import React, { useEffect, useRef, useState } from 'react'
 import Content from './Component/Content'
 import { ContainerBanner } from './styled'
+import './styles.scss'
+import { useInView } from 'react-intersection-observer'
+import useScrollPage from '@/hooks/useScrollPage'
+
 const arr = []
 for (let index = 0; index < 9; index++) {
   arr.push('')
@@ -16,102 +20,53 @@ const PageProfile = ({
   clickAboutUs = () => {},
   clickContactAs = () => {}
 }) => {
-  const refContent = useRef(null)
-  const scrollDirection = useRef(null)
-  const deboneRef = useRef(false)
+  const [isViewportContent, setIsViewportContent] = useState(false)
+  const [isFirstLoadPage, setIsFirstLoadPage] = useState(true)
 
-  const [animationBottom, setAnimationBottom] = useState(false)
-  const [animationTop, setAnimationTop] = useState(false)
-  console.log({ animationBottom, animationTop })
+  const { ref: refContent, inView: inViewContent } = useInView({ threshold: 0.15 })
+  const { ref: refBanner, inView: inViewBanner } = useInView({ threshold: 0.2 })
 
   useEffect(() => {
-    const scrollToTop = () => {
-      setAnimationTop(true)
-      setAnimationBottom(false)
-
-      window.scrollTo({ top: 0, behavior: 'instant' })
-      setTimeout(() => {
-        scrollDirection.current = TYPE_SCROLL_PAGE.toTop
-      }, 100)
-      setTimeout(() => {
-        setAnimationTop(false)
-      }, 500)
-    }
-
-    const scrollToBottom = (viewportHeight) => {
-      setAnimationTop(false)
-      window.scrollTo({ top: viewportHeight + 100, behavior: 'instant' })
-      window.scrollTo({ top: viewportHeight, behavior: 'smooth' })
-      // refContent.current.scrollIntoView({
-      //   behavior: 'instant',
-      //   block: 'start'
-      // })
-      setTimeout(() => {
-        scrollDirection.current = TYPE_SCROLL_PAGE.toBottom
-      }, 100)
-    }
-    window.addEventListener('scroll', (e) => {
-      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
-      const scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop
-      console.log({ scrollDirection: scrollDirection.current })
-      if (!scrollDirection.current) {
-        if (scrollPosition >= viewportHeight) {
-          scrollDirection.current = TYPE_SCROLL_PAGE.toBottom
-        } else {
-          scrollDirection.current = TYPE_SCROLL_PAGE.toTop
-        }
-      } else {
-        if (scrollDirection.current === TYPE_SCROLL_PAGE.toTop) {
-          if (scrollPosition > 0 && scrollPosition < viewportHeight) {
-            scrollToBottom(window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight)
-          }
-        }
-
-        if (scrollDirection.current === TYPE_SCROLL_PAGE.toBottom) {
-          if (scrollPosition < viewportHeight) {
-            scrollToTop()
-          }
-        }
-      }
-      // if (scrollDirection.current === TYPE_SCROLL_PAGE.toBottom) {
-      //   if (scrollPosition > 0 && scrollPosition < viewportHeight) {
-      //     if (typeof refContent.current?.scrollIntoView === 'function') {
-      //       window.scrollTo({
-      //         top: viewportHeight,
-      //         behavior: 'instant'
-      //       })
-      //       // setTimeout(() => {
-      //       //   window.scrollTo({
-      //       //     top: viewportHeight,
-      //       //     behavior: 'smooth'
-      //       //   })
-      //       // }, 100)
-      //       // refContent.current.scrollIntoView({
-      //       //   behavior: 'instant',
-      //       //   block: 'start'
-      //       // })
-      //       scrollDirection.current = TYPE_SCROLL_PAGE.toTop
-      //     }
-      //   }
-      // } else {
-      //   if (scrollPosition > 0 && scrollPosition < viewportHeight) {
-      //     if (window) {
-      //       // window.scrollTo({ top: 0, behavior: 'instant' })
-      //       // setTimeout(() => {
-      //       //   window.scrollTo({ top: 0, behavior: 'smooth' })
-      //       // }, 100)
-      //       scrollDirection.current = TYPE_SCROLL_PAGE.toBottom
-      //     }
-      //   }
-      // }
-    })
+    setIsFirstLoadPage(false)
   }, [])
 
+  useEffect(() => {
+    const dataContent = document.getElementsByClassName('container-content-base')[0]
+    if (dataContent) {
+      if (inViewContent) {
+        setIsViewportContent(true)
+      } else {
+        setIsViewportContent(false)
+      }
+    }
+  }, [inViewContent])
+
+  useEffect(() => {
+    const dataContent = document.getElementsByClassName('container-banner-base')[0]
+    if (dataContent) {
+      if (inViewBanner) {
+        dataContent.classList.add('in-viewport-content')
+      } else {
+        dataContent.classList.remove('in-viewport-content')
+      }
+    }
+  }, [inViewBanner])
+
+  const callBackScrollToTop = () => {
+
+  }
+  const callbackScrollToBottom = () => {
+  }
+
+  useScrollPage({ callbackScrollToBottom, callBackScrollToTop })
+
   return (
-    <div className='w-full overflow-x-hidden'>
-      <ContainerBanner $animation={animationTop} >
+
+    <div className='w-full overflow-hidden '>
+
+      <ContainerBanner >
         <div className="text-medium w-full h-full relative overflow-hidden ">
-          <VideoBanner poster={images.home.profilePreload} url={videos.bannerProfile} />
+          <VideoBanner videoRef={refBanner} className={`${!isFirstLoadPage && 'container-banner-base'}`} poster={images.home.profilePreload} url={videos.bannerProfile} />
           <BgFrameBanner />
           <FrameBtn
             clickContactAs={clickContactAs}
@@ -119,8 +74,11 @@ const PageProfile = ({
             clickAboutUs={clickAboutUs}
           />
         </div>
-      </ContainerBanner>
-      <Content enableAnimation={animationBottom} refContent={refContent} />
+      </ContainerBanner >
+      <Content
+        isViewportContent={isViewportContent}
+        refContent={refContent}
+      />
     </div>
 
   )

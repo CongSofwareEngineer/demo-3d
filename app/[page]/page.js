@@ -9,12 +9,19 @@ import PageAboutUse from './Components/pageAboutUs'
 import PageOurService from './Components/pageOurService'
 import PageProfile from './Components/pageProfile'
 import Fiber3D from '@/components/Fiber3D'
-import Loading from '../loading'
-import LoadingFirst from './test'
+import PageContactAs from './Components/pageContactAs'
 
 const PageScreen = () => {
   const router = useRouter()
   const params = useParams()
+
+  const [loadingFirstPage, setLoadingFirstPage] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoadingFirstPage(false)
+    }, 2000)
+  }, [])
 
   const clickOurService = () => {
     ObserverService.emit(OBSERVER_KEY.loadingPageOurServer)
@@ -30,12 +37,12 @@ const PageScreen = () => {
   }
 
   const clickContactAs = () => {
-    // router.push(PAGE_EX.contactAt)
+    router.push(PAGE_EX.contactAt)
   }
 
   const renderData = () => {
     return (
-      <Suspense fallback={<Loading />}>
+      <Suspense >
         {
           (params?.page === '' || params?.page === '/') && (
             <Fiber3D />
@@ -83,8 +90,8 @@ const PageScreen = () => {
 
         {
           params?.page === PAGE_EX.contactAt && (
-            <PageAboutUse
-              clickContactAs={clickContactAs}
+            <PageContactAs
+              clickAboutUs={clickAboutUs}
               clickOurService={clickOurService}
               clickProfile={clickProfile}
             />

@@ -14,10 +14,9 @@ const LoadingFrame = () => {
     }
   }, [])
   return (
-    !loadBgFrame && !loadContentFrame && (
-      <div className='z-[999999999] fixed w-screen h-full bg-black'>
 
-      </div>
+    (!loadBgFrame || !loadContentFrame) && (
+      <div className='z-[12] fixed w-screen h-full bg-black'/>
     )
   )
 }

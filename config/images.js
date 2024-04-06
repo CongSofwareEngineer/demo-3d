@@ -45,18 +45,24 @@ export const images = {
       characterClick: '/assets/images/Home/Banner2/characterClick.png'
 
     },
-    bgContentBannerHome: '/assets/images/Home/bgContentBannerHome.png',
+    bgContentBannerHome: '/assets/images/Home/bgContentBannerHome.webp',
     bgMaskContentBannerHome: '/assets/images/Home/bgMaskContentBannerHome.png'
   },
   profile: {
-    bgSorter: '/assets/images/Profile/bgSorter.png'
+    bgSorter: '/assets/images/Profile/bgSorter.png',
+    bgMenuSorted: '/assets/images/Profile/bgMenuSorted.png',
+    btnAllRegister: '/assets/images/Profile/btnAllRegister.png'
+  },
+  contactAt: {
+    bannerContactAt: '/assets/images/ContactAt/bannerContactAt.webp'
   }
 }
 export const videos = {
-  bannerHome: '/assets/video/bannerHome.mp4',
-  bannerOurService: '/assets/video/bannerOurService.mp4',
-  bannerProfile: '/assets/video/bannerProfile.mp4',
-  bannerAboutUs: '/assets/video/bannerAboutUs.mp4'
+  bannerHome: '/assets/video/bannerHome.webm',
+  bannerOurService: '/assets/video/bannerOurService.webm',
+  bannerProfile: '/assets/video/bannerProfile.webm',
+  bannerAboutUs: '/assets/video/bannerAboutUs.webm',
+  loadingFirstPage: 'https://firebasestorage.googleapis.com/v0/b/tc-store-7c79f.appspot.com/o/tree-studio%2FloadingFristPage.webm?alt=media&token=c065ee03-1ef9-491e-a6f7-f69a27727772'
 }
 
 export const json = {
