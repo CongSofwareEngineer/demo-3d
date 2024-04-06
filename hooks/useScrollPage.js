@@ -11,9 +11,6 @@ const useScrollPage = ({
 
   useEffect(() => {
     const scrollToTop = () => {
-      console.log('====================================')
-      console.log('scrollToTop')
-      console.log('====================================')
       deboneScrollRef.current = true
 
       callBackScrollToTop()
