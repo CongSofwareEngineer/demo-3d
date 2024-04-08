@@ -40,6 +40,10 @@ const PageScreen = () => {
     router.push(PAGE_EX.contactAt)
   }
 
+  const clickPageHome = () => {
+    router.push(PAGE_EX.home)
+  }
+
   const renderData = () => {
     return (
       <Suspense >
@@ -64,6 +68,7 @@ const PageScreen = () => {
               clickAboutUs={clickAboutUs}
               clickContactAs={clickContactAs}
               clickProfile={clickProfile}
+              clickPageHome={clickPageHome}
             />
           )
         }
@@ -73,6 +78,7 @@ const PageScreen = () => {
               clickOurService={clickOurService}
               clickAboutUs={clickAboutUs}
               clickContactAs={clickContactAs}
+              clickPageHome={clickPageHome}
             />
 
           )
@@ -84,6 +90,7 @@ const PageScreen = () => {
               clickContactAs={clickContactAs}
               clickOurService={clickOurService}
               clickProfile={clickProfile}
+              clickPageHome={clickPageHome}
             />
           )
         }
@@ -94,6 +101,7 @@ const PageScreen = () => {
               clickAboutUs={clickAboutUs}
               clickOurService={clickOurService}
               clickProfile={clickProfile}
+              clickPageHome={clickPageHome}
             />
           )
         }

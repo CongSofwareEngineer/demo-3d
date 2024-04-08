@@ -18,7 +18,9 @@ for (let index = 0; index < 9; index++) {
 const PageProfile = ({
   clickOurService = () => {},
   clickAboutUs = () => {},
-  clickContactAs = () => {}
+  clickContactAs = () => {},
+  clickPageHome = () => {}
+
 }) => {
   const [isViewportContent, setIsViewportContent] = useState(false)
   const [isFirstLoadPage, setIsFirstLoadPage] = useState(true)
@@ -65,13 +67,14 @@ const PageProfile = ({
     <div className='w-full overflow-hidden '>
 
       <ContainerBanner >
-        <div className="text-medium w-full h-full relative overflow-hidden ">
+        <div className="text-medium w-full h-full relative overflow-x-hidden ">
           <VideoBanner videoRef={refBanner} className={`${!isFirstLoadPage && 'container-banner-base'}`} poster={images.home.profilePreload} url={videos.bannerProfile} />
           <BgFrameBanner />
           <FrameBtn
             clickContactAs={clickContactAs}
             clickOurService={clickOurService}
             clickAboutUs={clickAboutUs}
+            clickPageHome={clickPageHome}
           />
         </div>
       </ContainerBanner >

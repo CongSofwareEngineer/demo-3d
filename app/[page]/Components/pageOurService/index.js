@@ -15,7 +15,8 @@ for (let index = 0; index < 9; index++) {
 const PageOurService = ({
   clickProfile = () => {},
   clickAboutUs = () => {},
-  clickContactAs = () => {}
+  clickContactAs = () => {},
+  clickPageHome = () => {}
 }) => {
   const refContent = useRef(TYPE_SCROLL_PAGE.toBottom)
   const isScrollContent = useRef(false)
@@ -77,6 +78,7 @@ const PageOurService = ({
             clickContactAs={clickContactAs}
             clickProfile={clickProfile}
             clickAboutUs={clickAboutUs}
+            clickPageHome={clickPageHome}
           >
             <SlideVideo
               hoverGameArt={hoverGameArt}

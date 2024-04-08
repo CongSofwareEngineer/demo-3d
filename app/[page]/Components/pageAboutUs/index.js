@@ -7,7 +7,8 @@ import React from 'react'
 const PageAboutUse = ({
   clickProfile = () => {},
   clickOurService = () => {},
-  clickContactAs = () => {}
+  clickContactAs = () => {},
+  clickPageHome = () => {}
 }) => {
   return (
     <div className="relative w-screen h-screen overflow-hidden  ">
@@ -18,6 +19,7 @@ const PageAboutUse = ({
           clickContactAs={clickContactAs}
           clickProfile={clickProfile}
           clickOurService={clickOurService}
+          clickPageHome={clickPageHome}
         />
       </div>
     </div>

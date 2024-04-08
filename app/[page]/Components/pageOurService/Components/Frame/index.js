@@ -6,7 +6,8 @@ const Frame = ({
   children,
   clickAboutUs = () => {},
   clickContactAs = () => {},
-  clickProfile = () => {}
+  clickProfile = () => {},
+  clickPageHome = () => {}
 }) => {
   return (
     <>
@@ -16,6 +17,7 @@ const Frame = ({
         clickAboutUs={clickAboutUs}
         clickContactAs={clickContactAs}
         clickProfile={clickProfile}
+        clickPageHome={clickPageHome}
       />
     </>
   )

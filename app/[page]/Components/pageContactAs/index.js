@@ -8,7 +8,8 @@ import { images } from '@/config/images'
 const PageContactAs = ({
   clickProfile = () => {},
   clickOurService = () => {},
-  clickAboutUs = () => {}
+  clickAboutUs = () => {},
+  clickPageHome = () => {}
 }) => {
   return (
     <div className="relative w-screen h-screen overflow-hidden  ">
@@ -24,6 +25,7 @@ const PageContactAs = ({
           clickProfile={clickProfile}
           clickOurService={clickOurService}
           clickAboutUs={clickAboutUs}
+          clickPageHome={clickPageHome}
         />
       </div>
     </div>

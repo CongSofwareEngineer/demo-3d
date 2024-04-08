@@ -32,7 +32,7 @@ const FrameBtn = ({
   clickProfile = () => {},
   clickAboutUs = () => {},
   clickContactAs = () => {},
-  clickTree = () => {}
+  clickPageHome = () => {}
 }) => {
   const { ratioBeautiful } = useSizeScreen()
   const isMouseClickRef = useRef(false)
@@ -108,7 +108,7 @@ const FrameBtn = ({
         setTimeout(() => {
           setIsCLickTree(false)
         }, timeDebone)
-        clickTree()
+        clickPageHome()
         break
 
       default:
