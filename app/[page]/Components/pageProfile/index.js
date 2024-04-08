@@ -64,7 +64,7 @@ const PageProfile = ({
 
   return (
 
-    <div className='w-full overflow-x-hidden '>
+    <div className='w-full'>
 
       <ContainerBanner >
         <div className="text-medium w-full h-full relative overflow-x-hidden ">
