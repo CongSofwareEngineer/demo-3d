@@ -31,7 +31,7 @@ const ClientRender = ({ children }) => {
   useEffect(() => {
     setTimeout(() => {
       setLoadingFirstPage(false)
-    }, 2000)
+    }, 3000)
   }, [])
 
   return (
