@@ -7,6 +7,7 @@ import ClientRender from '@/components/ClientRender'
 import { AntdRegistry } from '@ant-design/nextjs-registry'
 import ReactQueryProvider from '@/components/ReactQueryProvider'
 // import ParallaxProvider from '@/components/ParallaxProvider'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 /** @type {import('next').Metadata} */
 const inter = Inter({ subsets: ['latin'] })
 
@@ -72,7 +73,7 @@ export default function RootLayout ({ children }) {
             </AntdRegistry>
           </ReduxProvider>
           {/* </ParallaxProvider> */}
-
+          <SpeedInsights/>
         </main>
       </body>
     </html>
