@@ -78,12 +78,12 @@ const ClientRender = ({ children }) => {
 
         </>}
         {
-          PAGE_EX[params?.page] && (
+          PAGE_EX[params?.page] && Boolean(!process.env.NEXT_PUBLIC_DISABLE_LOADING) && (
             <LoadingFrame />
           )
         }
         {
-          loadingFirstPage && (
+          loadingFirstPage && Boolean(!process.env.NEXT_PUBLIC_DISABLE_LOADING) && (
             <LoadingFirst/>
           )
         }

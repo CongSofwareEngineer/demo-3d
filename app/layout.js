@@ -6,7 +6,7 @@ import StyledComponentsRegistry from '@/components/AntdRegistry'
 import ClientRender from '@/components/ClientRender'
 import { AntdRegistry } from '@ant-design/nextjs-registry'
 import ReactQueryProvider from '@/components/ReactQueryProvider'
-import ParallaxProvider from '@/components/ParallaxProvider'
+// import ParallaxProvider from '@/components/ParallaxProvider'
 /** @type {import('next').Metadata} */
 const inter = Inter({ subsets: ['latin'] })
 
@@ -59,19 +59,19 @@ export default function RootLayout ({ children }) {
     <html lang="en">
       <body >
         <main className="flex min-h-screen flex-col items-center justify-between">
-          <ParallaxProvider>
-            <ReduxProvider>
-              <AntdRegistry >
-                <ReactQueryProvider>
-                  <StyledComponentsRegistry >
-                    <ClientRender>
-                      {children}
-                    </ClientRender>
-                  </StyledComponentsRegistry>
-                </ReactQueryProvider>
-              </AntdRegistry>
-            </ReduxProvider>
-          </ParallaxProvider>
+          {/* <ParallaxProvider> */}
+          <ReduxProvider>
+            <AntdRegistry >
+              <ReactQueryProvider>
+                <StyledComponentsRegistry >
+                  <ClientRender>
+                    {children}
+                  </ClientRender>
+                </StyledComponentsRegistry>
+              </ReactQueryProvider>
+            </AntdRegistry>
+          </ReduxProvider>
+          {/* </ParallaxProvider> */}
 
         </main>
       </body>
