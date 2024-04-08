@@ -48,6 +48,14 @@ export const TYPE_OPTION_BANNER_2 = {
   branding: 'branding'
 }
 
+export const PAGE_EX = {
+  ourService: 'ourService',
+  portfolio: 'portfolio',
+  aboutUs: 'aboutUs',
+  home: 'home',
+  contactAt: 'contactAt'
+}
+
 export const OBSERVER_KEY = {
   loadBgFrame: 'loadBgFrame',
   loadContentFrame: 'loadContentFrame',
@@ -55,15 +63,8 @@ export const OBSERVER_KEY = {
   loadingPageOurServer: 'loadingPageOurServer',
   loadingPageContact: 'loadingPageContact',
   loadingPageAboutUs: 'loadingPageAboutUs',
-  loadingPageProfile: 'loadingPageProfile'
-}
-
-export const PAGE_EX = {
-  ourService: 'ourService',
-  portfolio: 'portfolio',
-  aboutUs: 'aboutUs',
-  home: 'home',
-  contactAt: 'contactAt'
+  loadingPageProfile: 'loadingPageProfile',
+  ...PAGE_EX
 }
 
 export const TYPE_SCROLL_PAGE = {

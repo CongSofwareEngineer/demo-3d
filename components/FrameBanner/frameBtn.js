@@ -26,14 +26,7 @@ const SVGCustom = styled.svg`
 
 const Rects = styled.rect.attrs(() => ({ className: 'cursor-pointer' }))``
 
-const FrameBtn = ({
-  callBackLoad = () => {},
-  clickOurService = () => {},
-  clickProfile = () => {},
-  clickAboutUs = () => {},
-  clickContactAs = () => {},
-  clickPageHome = () => {}
-}) => {
+const FrameBtn = ({ callBackLoad = () => {} }) => {
   const { ratioBeautiful } = useSizeScreen()
   const isMouseClickRef = useRef(false)
   const queryClient = useQueryClient()
@@ -47,7 +40,6 @@ const FrameBtn = ({
 
   useLayoutEffect(() => {
     if (!ratioBeautiful) {
-      console.log('ratioBeautiful')
       window.addEventListener(('resize'), () => {
         const bgFrame = document.getElementsByClassName('bg-frame-banner')[0]
         if (bgFrame) {
@@ -84,7 +76,7 @@ const FrameBtn = ({
         setTimeout(() => {
           setIsCLickAboutUs(false)
         }, timeDebone)
-        clickAboutUs()
+        ObserverService.emit(OBSERVER_KEY.aboutUs)
 
         break
       case TYPE_BANNER.contact:
@@ -92,7 +84,7 @@ const FrameBtn = ({
         setTimeout(() => {
           setIsCLickContact(false)
         }, timeDebone)
-        clickContactAs()
+        ObserverService.emit(OBSERVER_KEY.contactAt)
         break
 
       case TYPE_BANNER.profile:
@@ -100,7 +92,7 @@ const FrameBtn = ({
         setTimeout(() => {
           setIsCLickProFile(false)
         }, timeDebone)
-        clickProfile()
+        ObserverService.emit(OBSERVER_KEY.portfolio)
         break
 
       case TYPE_BANNER.tree:
@@ -108,7 +100,7 @@ const FrameBtn = ({
         setTimeout(() => {
           setIsCLickTree(false)
         }, timeDebone)
-        clickPageHome()
+        ObserverService.emit(OBSERVER_KEY.home)
         break
 
       default:
@@ -116,7 +108,7 @@ const FrameBtn = ({
         setTimeout(() => {
           setIsCLickOurService(false)
         }, timeDebone)
-        clickOurService()
+        ObserverService.emit(OBSERVER_KEY.ourService)
         break
       }
       setTimeout(() => {
@@ -188,7 +180,7 @@ const FrameBtn = ({
       <Rects
         onMouseDown={() => handleClick(TYPE_BANNER.tree)}
         onClick={() => handleClick(TYPE_BANNER.tree)}
-        x={380} y={80} width="1900" height="680"
+        x={800} y={80} width="1000" height="680"
         fill="url(#pattern4frame)"
       />
       <defs>
@@ -222,7 +214,8 @@ const FrameBtn = ({
 
         <pattern id="pattern4frame" patternContentUnits="objectBoundingBox" width="1" height="1">
           <use xlinkHref="#image4_1265_3"
-            transform="matrix(0.000370625 0 0 0.001 0 0)"
+            transform="matrix(0.0007 0 0 0.001 0 0)"
+            x={-590}
           />
         </pattern>
 

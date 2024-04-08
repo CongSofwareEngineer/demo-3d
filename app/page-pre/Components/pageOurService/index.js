@@ -64,7 +64,7 @@ const PageOurService = ({
             callBackLoaded={callBackLoaded}
           />
 
-          <SlideVideo
+          {/* <SlideVideo
             hoverGameArt={hoverGameArt}
             setHoverGameArt={setHoverGameArt}
             hoverCharacter={hoverCharacter}
@@ -73,14 +73,14 @@ const PageOurService = ({
             setHoverBranding={setHoverBranding}
             keySVG="transparent"
             isLoaded={loadedBanner2}
-          />
+          /> */}
           <Frame
             clickContactAs={clickContactAs}
             clickProfile={clickProfile}
             clickAboutUs={clickAboutUs}
             clickPageHome={clickPageHome}
           >
-            <SlideVideo
+            {/* <SlideVideo
               hoverGameArt={hoverGameArt}
               setHoverGameArt={setHoverGameArt}
               hoverCharacter={hoverCharacter}
@@ -88,6 +88,16 @@ const PageOurService = ({
               hoverBranding={hoverBranding}
               setHoverBranding={setHoverBranding}
               noShowElement
+            /> */}
+            <SlideVideo
+              hoverGameArt={hoverGameArt}
+              setHoverGameArt={setHoverGameArt}
+              hoverCharacter={hoverCharacter}
+              setHoverCharacter={setHoverCharacter}
+              hoverBranding={hoverBranding}
+              setHoverBranding={setHoverBranding}
+              keySVG="transparent"
+              isLoaded={loadedBanner2}
             />
           </Frame>
         </div>

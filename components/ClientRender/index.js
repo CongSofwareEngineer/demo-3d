@@ -7,22 +7,19 @@ import LoadingFrame from '../LoadingFrame'
 import LoadingRoutePage from '../LoadingRoutePage'
 import LoadingMotionPage from '../LoadingMotionPage'
 import { useParams } from 'next/navigation'
-import { PAGE_EX } from '@/config/app'
+import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
 import { Spin } from 'antd'
 import LoadingFirst from '../LoadingFirstPage'
-const LoadingUI = () => {
-  return (
-    <div className='w-screen h-screen flex justify-center items-center' >
-      <Spin />
-    </div>
-  )
-}
+import ObserverService from '@/utils/observer'
+import useRouter from '@/hooks/useRouter'
+
 const ClientRender = ({ children }) => {
   const [isClient, setIsClient] = useState(false)
   const [loadingFirstPage, setLoadingFirstPage] = useState(true)
 
   const language = useSelector((state) => state.app.language)
   const params = useParams()
+  const router = useRouter()
 
   useLayoutEffect(() => {
     setIsClient(true)
@@ -32,6 +29,41 @@ const ClientRender = ({ children }) => {
     setTimeout(() => {
       setLoadingFirstPage(false)
     }, 3000)
+
+    const clickOurService = () => {
+      ObserverService.emit(OBSERVER_KEY.loadingPageOurServer)
+      router.push(PAGE_EX.ourService)
+    }
+
+    const clickProfile = () => {
+      router.push(PAGE_EX.portfolio)
+    }
+
+    const clickAboutUs = () => {
+      router.push(PAGE_EX.aboutUs)
+    }
+
+    const clickContactAt = () => {
+      router.push(PAGE_EX.contactAt)
+    }
+
+    const clickPageHome = () => {
+      router.push(PAGE_EX.home)
+    }
+
+    ObserverService.on(OBSERVER_KEY.aboutUs, clickAboutUs)
+    ObserverService.on(OBSERVER_KEY.contactAt, clickContactAt)
+    ObserverService.on(OBSERVER_KEY.ourService, clickOurService)
+    ObserverService.on(OBSERVER_KEY.home, clickPageHome)
+    ObserverService.on(OBSERVER_KEY.portfolio, clickProfile)
+
+    return () => {
+      ObserverService.removeListener(OBSERVER_KEY.aboutUs)
+      ObserverService.removeListener(OBSERVER_KEY.contactAt)
+      ObserverService.removeListener(OBSERVER_KEY.ourService)
+      ObserverService.removeListener(OBSERVER_KEY.home)
+      ObserverService.removeListener(OBSERVER_KEY.portfolio)
+    }
   }, [])
 
   return (

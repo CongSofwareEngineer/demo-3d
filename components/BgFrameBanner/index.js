@@ -2,7 +2,8 @@ import { OBSERVER_KEY } from '@/config/app'
 import { images } from '@/config/images'
 import ObserverService from '@/utils/observer'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { isSafari } from 'react-device-detect'
 import styled from 'styled-components'
 
 const BgBase2 = styled(Image)`
@@ -17,8 +18,18 @@ const BgBase2 = styled(Image)`
   margin-left: 50%;
   transform: translate(-50%, 0%);
   z-index: 10;
+  pointer-events: none; //disable work with mouse = no behavior 
 `
 const BgFrameBanner = ({ ref, className, callBackLoad = () => {}, ...props }) => {
+  const [reRender, setReRender] = useState(false)
+
+  useEffect(() => {
+    if (isSafari) {
+      setReRender(true)
+      setReRender(false)
+    }
+  }, [isSafari])
+
   return (
     <BgBase2
       ref={ref}

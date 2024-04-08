@@ -1,30 +1,25 @@
+'use client'
 import BgFrameBanner from '@/components/BgFrameBanner'
 import FrameBtn from '@/components/FrameBanner/frameBtn'
-import MyImage from '@/components/MyImage'
+import VideoBanner from '@/components/VideoBanner'
+import { images, videos } from '@/config/images'
 import React from 'react'
-import { ImageBanner } from './styled'
-import { images } from '@/config/images'
 
-const PageContactAs = ({
+const PageAboutUse = ({
   clickProfile = () => {},
   clickOurService = () => {},
-  clickAboutUs = () => {},
+  clickContactAs = () => {},
   clickPageHome = () => {}
 }) => {
   return (
     <div className="relative w-screen h-screen overflow-hidden  ">
       <div className="w-full h-full relative">
-        {/* <VideoBanner url={videos.bannerAboutUs} /> */}
-        <ImageBanner
-          fill
-          alt='banner-contact-at'
-          src={images.contactAt.bannerContactAt}
-        />
+        <VideoBanner poster={images.home.aboutUsPreload} url={videos.bannerAboutUs} />
         <BgFrameBanner />
         <FrameBtn
+          clickContactAs={clickContactAs}
           clickProfile={clickProfile}
           clickOurService={clickOurService}
-          clickAboutUs={clickAboutUs}
           clickPageHome={clickPageHome}
         />
       </div>
@@ -32,4 +27,4 @@ const PageContactAs = ({
   )
 }
 
-export default PageContactAs
+export default PageAboutUse
