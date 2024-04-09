@@ -24,6 +24,9 @@ const ClientRender = ({ children }) => {
 
   useLayoutEffect(() => {
     setIsClient(true)
+    setTimeout(() => {
+      setLoadingFirstPage(false)
+    }, 3000)
   }, [])
 
   useLayoutEffect(() => {
@@ -31,10 +34,6 @@ const ClientRender = ({ children }) => {
   }, [patchName])
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoadingFirstPage(false)
-    }, 3000)
-
     ObserverService.on(OBSERVER_KEY.aboutUs, () => callBackRoutePage(PAGE_EX.aboutUs))
     ObserverService.on(OBSERVER_KEY.contactAt, () => callBackRoutePage(PAGE_EX.contactAt))
     ObserverService.on(OBSERVER_KEY.ourService, () => callBackRoutePage(PAGE_EX.ourService))
