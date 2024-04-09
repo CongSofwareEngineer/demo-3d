@@ -13,7 +13,8 @@ const inter = Inter({ subsets: ['latin'] })
 
 const BaseMeta = {
   title: 'TREE STUDIOS',
-  des: 'Tree Studios is an art outsourcing studio for game art, concept art, 2D/ 3D environment, assets and animations specializing in stylized art styles.'
+  des: 'Tree Studios is an art outsourcing studio for game art, concept art, 2D/ 3D environment, assets and animations specializing in stylized art styles.',
+  image: 'https://www.tree.net.vn/favicon.ico'
 }
 export const metadata = {
   metadataBase: new URL('https://tree.net.vn/'),
@@ -23,7 +24,7 @@ export const metadata = {
   openGraph: {
     title: BaseMeta.title,
     description: BaseMeta.des,
-    images: 'https://www.tree.net.vn/favicon.ico',
+    images: BaseMeta.image,
     siteName: BaseMeta.title,
     url: 'https://tree.net.vn'
   },
@@ -31,15 +32,15 @@ export const metadata = {
   bookmarks: 'https://tree.net.vn',
   type: 'website',
   icons: {
-    icon: { url: 'https://www.tree.net.vn/favicon.ico' },
-    shortcut: { url: 'https://www.tree.net.vn/favicon.ico' },
-    apple: { url: 'https://www.tree.net.vn/favicon.ico' }
+    icon: { url: BaseMeta.image },
+    shortcut: { url: BaseMeta.image },
+    apple: { url: BaseMeta.image }
   },
   twitter: {
     title: BaseMeta.title,
     description: BaseMeta.des,
     card: 'summary_large_image',
-    images: 'https://www.tree.net.vn/favicon.ico'
+    images: BaseMeta.image
   },
   verification: {
     google: 't1w9GTio8AJGDTzsGbJVaMX1yHocs4zCvyLqa_kQmAg'

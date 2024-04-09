@@ -62,7 +62,7 @@ export const videos = {
   bannerOurService: '/assets/video/bannerOurService.webm',
   bannerProfile: '/assets/video/bannerProfile.webm',
   bannerAboutUs: '/assets/video/bannerAboutUs.webm',
-  loadingFirstPage: 'https://firebasestorage.googleapis.com/v0/b/tc-store-7c79f.appspot.com/o/tree-studio%2FloadingFristPage.webm?alt=media&token=c065ee03-1ef9-491e-a6f7-f69a27727772'
+  loadingFirstPage: '/assets/video/loadingFristPage.webm'
 }
 
 export const json = {
