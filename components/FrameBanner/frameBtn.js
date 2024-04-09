@@ -148,7 +148,6 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
         callBackLoad()
         ObserverService.emit(OBSERVER_KEY.loadContentFrame)
       }}
-
     >
 
       <Rects

@@ -8,11 +8,11 @@ export const generateMetaBase = ({
 }) => {
   const dataClone = JSON.parse(JSON.stringify(dataBase))
   if (title) {
-    dataClone.title = override ? title : `${process.env.NEXT_PUBLIC_TITLE} | ${title}`
-    dataClone.openGraph.title = override ? title : `${process.env.NEXT_PUBLIC_TITLE} | ${title}`
-    dataClone.openGraph.siteName = override ? title : `${process.env.NEXT_PUBLIC_TITLE} | ${title}`
-    dataClone.twitter.title = override ? title : `${process.env.NEXT_PUBLIC_TITLE} | ${title}`
-    dataClone.appleWebApp.title = override ? title : `${process.env.NEXT_PUBLIC_TITLE} | ${title}`
+    dataClone.title = override ? title : `${dataClone.title.absolute} | ${title}`
+    dataClone.openGraph.title = override ? title : `${dataClone.title.absolute} | ${title}`
+    dataClone.openGraph.siteName = override ? title : `${dataClone.title.absolute} | ${title}`
+    dataClone.twitter.title = override ? title : `${dataClone.title.absolute} | ${title}`
+    dataClone.appleWebApp.title = override ? title : `${dataClone.title.absolute} | ${title}`
   }
 
   if (des) {

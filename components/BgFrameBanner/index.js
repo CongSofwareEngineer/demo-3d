@@ -36,6 +36,7 @@ const BgFrameBanner = ({ ref, className, callBackLoad = () => {}, ...props }) =>
       fill
       src={images.home.bgFrameBase}
       className={`bg-frame-banner ${className}`}
+      alt='bg-frame-banner-main'
       onLoad={() => {
         callBackLoad()
         ObserverService.emit(OBSERVER_KEY.loadBgFrame)
@@ -45,4 +46,4 @@ const BgFrameBanner = ({ ref, className, callBackLoad = () => {}, ...props }) =>
   )
 }
 
-export default BgFrameBanner
+export default React.memo(BgFrameBanner)
