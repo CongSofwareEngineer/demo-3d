@@ -58,7 +58,7 @@ const Content = () => {
             />
           </div>
           <div className='mt-[10%]  mb-5 flex-1 ' >
-            <div className='h-[150px] mb-[50px]'>
+            <div className='min-h-[120px] w-[50%] mb-[50px] m-auto'>
               <MyImage
                 height='100%'
                 width='auto'
