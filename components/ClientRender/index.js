@@ -73,7 +73,12 @@ const ClientRender = ({ children }) => {
         messages={language?.messages || {}}
       >
         {isClient && children}
-        <FrameMain />
+        {
+          (patchName !== '' || patchName !== '/') && (
+            <FrameMain />
+          )
+        }
+
         {/* <LoadingFrame /> */}
         {
           loadingFirstPage && Boolean(!process.env.NEXT_PUBLIC_DISABLE_LOADING) && (
