@@ -3,16 +3,13 @@ import React, { useCallback, useEffect, useLayoutEffect, useState, useRef } from
 import { IntlProvider } from 'react-intl'
 import { useSelector } from 'react-redux'
 import Container from '../Container'
-// import LoadingMotionPage from '../LoadingMotionPage'
-import { useParams, usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
 import LoadingFirst from '../LoadingFirstPage'
 import ObserverService from '@/utils/observer'
 import useRouter from '@/hooks/useRouter'
 import dynamic from 'next/dynamic'
-// import FrameMain from '../FrameMain'
 
-// const LoadingFrame = dynamic(() => import('../LoadingFrame'), { ssr: false })
 const LoadingMotionPage = dynamic(() => import('../LoadingMotionPage'), { ssr: false })
 const FrameMain = dynamic(() => import('../FrameMain'), { ssr: false })
 
@@ -66,7 +63,7 @@ const ClientRender = ({ children }) => {
       }
       router.push(url)
     }
-  }, [patchName, router])
+  }, [])
 
   return (
     <Container>
