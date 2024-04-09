@@ -3,7 +3,7 @@ import { images } from '@/config/images'
 import useSizeScreen from '@/hooks/useSizeScreen'
 import ObserverService from '@/utils/observer'
 import { useQueryClient } from '@tanstack/react-query'
-import React, { useLayoutEffect, useRef, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import styled, { keyframes } from 'styled-components'
 
@@ -27,7 +27,7 @@ const SVGCustom = styled.svg`
 const Rects = styled.rect.attrs(() => ({ className: 'cursor-pointer' }))``
 
 const FrameBtn = ({ callBackLoad = () => {} }) => {
-  const { ratioBeautiful } = useSizeScreen()
+  const { ratioBeautiful, height, width } = useSizeScreen()
   const isMouseClickRef = useRef(false)
   const queryClient = useQueryClient()
 
@@ -38,7 +38,7 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
   const [isCLickTree, setIsCLickTree] = useState(false)
   const [heightFrame, setHeightFrame] = useState(queryClient.getQueryData(QUEY_KEY.heightBgFrame))
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!ratioBeautiful) {
       window.addEventListener(('resize'), () => {
         const bgFrame = document.getElementsByClassName('bg-frame-banner')[0]

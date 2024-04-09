@@ -10,9 +10,11 @@ import LoadingFirst from '../LoadingFirstPage'
 import ObserverService from '@/utils/observer'
 import useRouter from '@/hooks/useRouter'
 import dynamic from 'next/dynamic'
+// import FrameMain from '../FrameMain'
 
 // const LoadingFrame = dynamic(() => import('../LoadingFrame'), { ssr: false })
 const LoadingMotionPage = dynamic(() => import('../LoadingMotionPage'), { ssr: false })
+const FrameMain = dynamic(() => import('../FrameMain'), { ssr: false })
 
 const ClientRender = ({ children }) => {
   const [isClient, setIsClient] = useState(false)
@@ -74,6 +76,7 @@ const ClientRender = ({ children }) => {
         messages={language?.messages || {}}
       >
         {isClient && children}
+        <FrameMain />
         {/* <LoadingFrame /> */}
         {
           loadingFirstPage && Boolean(!process.env.NEXT_PUBLIC_DISABLE_LOADING) && (

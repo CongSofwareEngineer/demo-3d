@@ -6,8 +6,6 @@ import { images, videos } from '@/config/images'
 import ObserverService from '@/utils/observer'
 import { useCallback, useEffect, useState } from 'react'
 import SlideVideo from './Components/SlideVideo'
-import BgFrameBanner from '@/components/BgFrameBanner'
-import FrameBtn from '@/components/FrameBanner/frameBtn'
 
 const PageOurService = () => {
   const [loadedBanner2, setLoadedBanner2] = useState(false)
@@ -35,9 +33,9 @@ const PageOurService = () => {
             poster={images.home.banner2Preload}
             callBackLoaded={callBackLoaded}
           />
-          <BgFrameBanner />
+          {/* <BgFrameBanner /> */}
           <SlideVideo keySVG="transparent" isLoaded={loadedBanner2} />
-          <FrameBtn />
+          {/* <FrameBtn /> */}
 
         </div>
       </div>

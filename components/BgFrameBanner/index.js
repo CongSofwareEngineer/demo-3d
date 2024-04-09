@@ -7,7 +7,7 @@ import { isSafari } from 'react-device-detect'
 import styled from 'styled-components'
 
 const BgBase2 = styled(Image)`
-  min-height: 100vh !important;
+  min-height: 100% !important;
   position: fixed !important;
   width: auto !important;
   height: auto !important;
@@ -15,8 +15,8 @@ const BgBase2 = styled(Image)`
   bottom: 0 !important;
   max-width: none !important;
   max-width: none !important;
-  margin-left: 50%;
-  transform: translate(-50%, 0%);
+  /* margin-left: 50%;
+  transform: translate(-50%, 0%); */
   z-index: 10;
   pointer-events: none; //disable work with mouse = no behavior 
 `

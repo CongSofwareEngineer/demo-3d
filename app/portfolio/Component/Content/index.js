@@ -47,6 +47,7 @@ const Content = () => {
           width='auto'
           height='100%'
           position='absolute'
+          className='pointer-events-none'
         />
         <div className={'w-[90%] max-w-[1550px] md:max-w-[1300px]  h-[90%]  pt-[20%] pb-[10%] flex flex-col justify-between items-center  '}>
           <div className=' flex-1 ' >
