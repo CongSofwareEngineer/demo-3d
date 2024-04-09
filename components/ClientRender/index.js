@@ -74,7 +74,7 @@ const ClientRender = ({ children }) => {
       >
         {isClient && children}
         {
-          (patchName !== '' || patchName !== '/') && (
+          (patchName !== '' && patchName !== '/') && (
             <FrameMain />
           )
         }
