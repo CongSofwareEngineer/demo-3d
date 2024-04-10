@@ -1,6 +1,5 @@
 'use client'
-import BgFrameBanner from '@/components/BgFrameBanner'
-import FrameBtn from '@/components/FrameBanner/frameBtn'
+
 import VideoBanner from '@/components/VideoBanner'
 import { images, videos } from '@/config/images'
 import React from 'react'
@@ -13,8 +12,8 @@ const PageHome = () => {
           url={videos.bannerHome}
           poster={images.home.bannerPreload}
         />
-        <BgFrameBanner />
-        <FrameBtn />
+        {/* <BgFrameBanner />
+        <FrameBtn /> */}
       </div>
 
     </div>

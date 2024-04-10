@@ -3,16 +3,15 @@ import React, { useCallback, useEffect, useLayoutEffect, useState, useRef } from
 import { IntlProvider } from 'react-intl'
 import { useSelector } from 'react-redux'
 import Container from '../Container'
-// import LoadingMotionPage from '../LoadingMotionPage'
-import { useParams, usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
 import LoadingFirst from '../LoadingFirstPage'
 import ObserverService from '@/utils/observer'
 import useRouter from '@/hooks/useRouter'
 import dynamic from 'next/dynamic'
 
-// const LoadingFrame = dynamic(() => import('../LoadingFrame'), { ssr: false })
 const LoadingMotionPage = dynamic(() => import('../LoadingMotionPage'), { ssr: false })
+const FrameMain = dynamic(() => import('../FrameMain'), { ssr: false })
 
 const ClientRender = ({ children }) => {
   const [isClient, setIsClient] = useState(false)
@@ -25,6 +24,9 @@ const ClientRender = ({ children }) => {
 
   useLayoutEffect(() => {
     setIsClient(true)
+    setTimeout(() => {
+      setLoadingFirstPage(false)
+    }, 3000)
   }, [])
 
   useLayoutEffect(() => {
@@ -32,10 +34,6 @@ const ClientRender = ({ children }) => {
   }, [patchName])
 
   useEffect(() => {
-    setTimeout(() => {
-      setLoadingFirstPage(false)
-    }, 3000)
-
     ObserverService.on(OBSERVER_KEY.aboutUs, () => callBackRoutePage(PAGE_EX.aboutUs))
     ObserverService.on(OBSERVER_KEY.contactAt, () => callBackRoutePage(PAGE_EX.contactAt))
     ObserverService.on(OBSERVER_KEY.ourService, () => callBackRoutePage(PAGE_EX.ourService))
@@ -64,7 +62,7 @@ const ClientRender = ({ children }) => {
       }
       router.push(url)
     }
-  }, [patchName, router])
+  }, [])
 
   return (
     <Container>
@@ -74,6 +72,12 @@ const ClientRender = ({ children }) => {
         messages={language?.messages || {}}
       >
         {isClient && children}
+        {
+          (patchName !== '' && patchName !== '/') && (
+            <FrameMain />
+          )
+        }
+
         {/* <LoadingFrame /> */}
         {
           loadingFirstPage && Boolean(!process.env.NEXT_PUBLIC_DISABLE_LOADING) && (

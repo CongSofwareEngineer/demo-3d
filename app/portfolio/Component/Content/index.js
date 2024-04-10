@@ -47,6 +47,7 @@ const Content = () => {
           width='auto'
           height='100%'
           position='absolute'
+          className='pointer-events-none'
         />
         <div className={'w-[90%] max-w-[1550px] md:max-w-[1300px]  h-[90%]  pt-[20%] pb-[10%] flex flex-col justify-between items-center  '}>
           <div className=' flex-1 ' >
@@ -57,7 +58,7 @@ const Content = () => {
             />
           </div>
           <div className='mt-[10%]  mb-5 flex-1 ' >
-            <div className='h-[150px] mb-[50px]'>
+            <div className='min-h-[120px] w-[50%] mb-[50px] m-auto'>
               <MyImage
                 height='100%'
                 width='auto'

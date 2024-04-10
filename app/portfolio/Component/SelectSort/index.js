@@ -102,6 +102,7 @@ const SelectSort = ({
         className='inset-0 w-full h-full'
         fill
         src={images.profile.bgSorter}
+        alt='background-sorter'
       />
       <div className='relative text-green-main mb-2 uppercase font-bold '>
         {translate('profile.sorted')}

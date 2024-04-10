@@ -1,4 +1,5 @@
 'use client'
+import { videos } from '@/config/images'
 import React from 'react'
 
 const LoadingFirst = () => {
@@ -14,7 +15,7 @@ const LoadingFirst = () => {
         preload="none"
 
       >
-        <source src={'https://firebasestorage.googleapis.com/v0/b/tc-store-7c79f.appspot.com/o/tree-studio%2FloadingFristPage.webm?alt=media&token=c065ee03-1ef9-491e-a6f7-f69a27727772'} />
+        <source src={videos.loadingFirstPage} />
       </video>
     </div>
   )

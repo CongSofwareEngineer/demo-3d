@@ -3,42 +3,9 @@ import ObserverService from '@/utils/observer'
 import React, { useEffect, useState } from 'react'
 import jsonProfile from '@/public/assets/json/transitions_1.mp4.lottie.json'
 import loadingFirstLoad from '@/public/assets/json/loadingFirstLoad.json'
-
 import LoadingRoutePage from '../LoadingRoutePage'
-import { usePathname } from 'next/navigation'
-import transitionBannerHome from '@/public/assets/gif/transitionBannerHome.gif'
-import styled, { css } from 'styled-components'
-import Image from 'next/image'
-import useSizeScreen from '@/hooks/useSizeScreen'
-const ImageCustom = styled(Image)`
-  position: relative !important;
 
-  margin-left: 50% !important;
-  max-width: unset !important;
-  transform: translate(-50%, 0%);
-  ${
-  props => props.$isScale
-    ? css`
-      width: 100vw !important;
-      height: auto !important; 
-    `
-    : css`
-    width: auto !important;
-  height: 100vh !important; 
-    `
-}
-  
-`
-
-const ImageOpacity = styled(Image)`
-  position: absolute !important;
-  height: 0px !important;
-  width: 0px !important;
-  opacity: 0 !important;
-  z-index: -9999999999;
- `
 const LoadingMotionPage = () => {
-  const { ratioBeautiful } = useSizeScreen()
   const [loadingGameArt, setLoadingGameArt] = useState(false)
   const [loadingOurServer, setLoadingOurServer] = useState(false)
   const [loadingAboutUs, setLoadingAboutUs] = useState(false)
