@@ -73,14 +73,13 @@ const ClientRender = ({ children }) => {
       >
         {isClient && children}
         {
-          (patchName !== '' && patchName !== '/') && (
+          patchName !== '' && patchName !== '/' && (
             <FrameMain />
           )
         }
 
-        {/* <LoadingFrame /> */}
         {
-          loadingFirstPage && Boolean(!process.env.NEXT_PUBLIC_DISABLE_LOADING) && (
+          patchName !== '' && patchName !== '/' && loadingFirstPage && Boolean(!process.env.NEXT_PUBLIC_DISABLE_LOADING) && (
             <LoadingFirst/>
           )
         }
