@@ -6,14 +6,12 @@ const ImgCustom = styled(Image)`
   position: ${props => props.$position} !important;
   height: ${props => props.heightImg} !important;
   width: ${props => props.widthImg} !important;
-  max-width: ${props => props.$maxWidth} !important;
 `
 
 const MyImage = ({
   url,
   width = '100%',
   height = 'auto',
-  maxWidth = '100%',
   alt,
   className = '',
   loading = 'lazy',
@@ -34,7 +32,6 @@ const MyImage = ({
       quality={quality}
       onLoad={onLoad}
       $position={position}
-      $maxWidth={maxWidth}
       {...props}
     />
   )
