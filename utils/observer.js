@@ -15,8 +15,8 @@ class Observer {
     eventEmitter.emit(key, object)
   }
 
-  removeListener (key, func = null) {
-    eventEmitter.removeListener(key, () => func ? func() : {})
+  removeListener (key, func = () => {}) {
+    eventEmitter.removeListener(key, func)
   }
 }
 
