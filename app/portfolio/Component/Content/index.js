@@ -50,7 +50,7 @@ const Content = () => {
           className='pointer-events-none min-w-full min-h-full'
         />
         <div className={'w-[90%] max-w-[1550px] md:max-w-[1300px]  h-[90%]  pt-[20%] pb-[10%] flex flex-col justify-between items-center  '}>
-          <div className=' flex-1 ' >
+          <div className=' flex-1 bg-red-700 w-1/3 min-w-[300px]' >
             <SelectSort
               itemSelected={itemSelected}
               setItemSelected={setItemSelected}
@@ -58,12 +58,12 @@ const Content = () => {
             />
           </div>
           <div className='mt-[10%]  mb-5 flex-1 ' >
-            <div className='min-h-[120px] w-[50%] mb-[50px] m-auto'>
+            <div className=' w-1/2 mb-[50px] m-auto min-w-[100px]'>
               <MyImage
-                height='100%'
-                width='auto'
+                height='auto'
+                width='100%'
                 url={images.profile.btnAllRegister}
-                className={'hover:scale-105 duration-300 cursor-pointer'}
+
               />
             </div>
           </div>

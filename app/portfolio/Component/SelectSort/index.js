@@ -97,7 +97,7 @@ const SelectSort = ({
   handleClickGo
 }) => {
   return (
-    <div className="relative md:w-[400px]  md:pt-[20px] md:pl-[30px] md:pb-[30px] md:pr-[30px]">
+    <div className="relative  w-full  pt-[20px]  pl-[30px]  pb-[30px]  pr-[30px]">
       <Image
         className='inset-0 w-full h-full'
         fill

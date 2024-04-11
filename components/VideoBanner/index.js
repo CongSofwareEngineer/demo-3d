@@ -3,6 +3,7 @@ import styles from './videoBanner.module.scss'
 import useSizeScreen from '@/hooks/useSizeScreen'
 import { useQueryClient } from '@tanstack/react-query'
 import { QUEY_KEY } from '@/config/app'
+import Image from 'next/image'
 
 const VideoBanner = ({
   url,
@@ -17,12 +18,17 @@ const VideoBanner = ({
   const { ratioBeautiful } = useSizeScreen()
   const query = useQueryClient()
 
+  const [isLoadedVideo, setIsLoadedVideo] = useState(false)
+
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.addEventListener('canplaythrough', (event) => {
         callBack()
       })
     }
+    setTimeout(() => {
+      setIsLoadedVideo(true)
+    }, 200)
   }, [])
 
   const getUrlPoster = () => {
@@ -31,33 +37,57 @@ const VideoBanner = ({
       if (dataCache[typeCache]) {
         return dataCache[typeCache]
       }
-      return poster
+      return {
+        src: poster,
+        blurDataURL: poster
+      }
     } catch (error) {
-      return poster
+      return {
+        src: poster,
+        blurDataURL: poster
+      }
     }
   }
 
   return (
-    <video
-      key={url}
-      ref={videoRef}
-      muted
-      autoPlay
-      playsInline
-      loop
-      controls={false}
-      preload="none"
-      isScaleWidth={!ratioBeautiful}
-      poster={getUrlPoster()}
-      onLoadedData={(e) => {
-        callBackLoaded()
-        // setLoadingVideo(true)
-      }}
-      className={`${className} ${styles.videoBannerBase} ${!ratioBeautiful && styles.isScale} `}
-      {...props}
-    >
-      <source src={url} />
-    </video>
+    <>
+      <video
+        key={url}
+        ref={videoRef}
+        muted
+        autoPlay
+        playsInline
+        loop
+        controls={false}
+        preload="none"
+        isScaleWidth={!ratioBeautiful}
+        poster={getUrlPoster()?.src}
+        onLoadedData={(e) => {
+          callBackLoaded()
+        }}
+        className={`${className} ${styles.videoBannerBase} ${!ratioBeautiful && styles.isScale} `}
+        {...props}
+      >
+        <source src={url} />
+      </video>
+      {
+        !isLoadedVideo && (
+          <Image
+            blurDataURL={getUrlPoster()?.blurDataURL}
+            fill
+            src={getUrlPoster()?.src}
+            className={`transform -translate-x-1/2 inset-0 min-w-full min-h-full max-w-none w-auto h-auto ml-[50%] ${styles['img-preload-poster']}`}
+          />
+        )
+      }
+      <Image
+        blurDataURL={getUrlPoster()?.blurDataURL}
+        fill
+        src={getUrlPoster()?.src}
+        className={`transform -translate-x-1/2 inset-0 min-w-full min-h-full max-w-none w-auto h-auto ml-[50%] ${styles['img-preload-poster']}`}
+      />
+
+    </>
   )
 }
 

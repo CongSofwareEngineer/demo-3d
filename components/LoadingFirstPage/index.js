@@ -6,7 +6,7 @@ import preloadOurService from '@/public/assets/images/Home/banner2Preload.png'
 import preloadPortfolio from '@/public/assets/images/Home/profilePreload.png'
 import preloadHome from '@/public/assets/images/Home/bannerPreload.png'
 import preloadAboutUs from '@/public/assets/images/Home/aboutUsPreload.png'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useQueryClient } from '@tanstack/react-query'
 import { QUEY_KEY } from '@/config/app'
 
 const LoadingFirst = () => {
@@ -14,12 +14,15 @@ const LoadingFirst = () => {
   const query = useQueryClient()
 
   useEffect(() => {
+    console.log('====================================')
+    console.log({ preloadAboutUs, preloadContactAt })
+    console.log('====================================')
     const data = {
-      [QUEY_KEY.preLoadAboutAt]: preloadAboutUs.src,
-      [QUEY_KEY.preLoadContactUs]: preloadContactAt.src,
-      [QUEY_KEY.preLoadOurService]: preloadOurService.src,
-      [QUEY_KEY.preLoadPortfolio]: preloadPortfolio.src,
-      [QUEY_KEY.preLoadHome]: preloadHome.src
+      [QUEY_KEY.preLoadAboutAt]: preloadAboutUs,
+      [QUEY_KEY.preLoadContactUs]: preloadContactAt,
+      [QUEY_KEY.preLoadOurService]: preloadOurService,
+      [QUEY_KEY.preLoadPortfolio]: preloadPortfolio,
+      [QUEY_KEY.preLoadHome]: preloadHome
     }
     query.setQueryData(QUEY_KEY.dataPosterBanner, data)
   }, [])
