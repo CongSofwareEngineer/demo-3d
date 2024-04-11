@@ -21,15 +21,6 @@ const BgBase2 = styled(Image)`
   pointer-events: none; //disable work with mouse = no behavior 
 `
 const BgFrameBanner = ({ ref, className, callBackLoad = () => {}, ...props }) => {
-  const [reRender, setReRender] = useState(false)
-
-  useEffect(() => {
-    if (isSafari) {
-      setReRender(true)
-      setReRender(false)
-    }
-  }, [isSafari])
-
   return (
     <BgBase2
       ref={ref}
