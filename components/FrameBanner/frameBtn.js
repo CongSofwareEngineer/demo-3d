@@ -37,7 +37,7 @@ const ButtonDetail = ({ id, url, urlClick, typeClick = OBSERVER_KEY.aboutUs }) =
         setIsClick(true)
         setTimeout(() => {
           setIsClick(false)
-        }, 200)
+        }, 100)
       }
     })
 

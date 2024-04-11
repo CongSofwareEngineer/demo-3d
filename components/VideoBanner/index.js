@@ -24,6 +24,7 @@ const VideoBanner = ({
     if (videoRef.current) {
       videoRef.current.addEventListener('canplaythrough', (event) => {
         callBack()
+        setIsLoadedVideo(true)
       })
     }
     setTimeout(() => {
@@ -70,21 +71,11 @@ const VideoBanner = ({
       >
         <source src={url} />
       </video>
-      {
-        !isLoadedVideo && (
-          <Image
-            blurDataURL={getUrlPoster()?.blurDataURL}
-            fill
-            src={getUrlPoster()?.src}
-            className={`transform -translate-x-1/2 inset-0 min-w-full min-h-full max-w-none w-auto h-auto ml-[50%] ${styles['img-preload-poster']}`}
-          />
-        )
-      }
       <Image
         blurDataURL={getUrlPoster()?.blurDataURL}
         fill
         src={getUrlPoster()?.src}
-        className={`transform -translate-x-1/2 inset-0 min-w-full min-h-full max-w-none w-auto h-auto ml-[50%] ${styles['img-preload-poster']}`}
+        className={`transform -translate-x-1/2 inset-0 min-w-full min-h-full max-w-none w-auto h-auto ml-[50%] ${styles['img-preload-poster']} ${isLoadedVideo ? 'opacity-0 z-[-9999] ' : ''}`}
       />
 
     </>
