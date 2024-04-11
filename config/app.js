@@ -15,7 +15,13 @@ export const QUEY_KEY = {
   language: 'language',
   dataSizeScreen: 'dataSizeScreen',
   heightBgFrame: 'heightBgFrame',
-  local: 'local'
+  local: 'local',
+  preLoadHome: 'preLoadHome',
+  preLoadOurService: 'preLoadOurService',
+  preLoadPortfolio: 'preLoadPortfolio',
+  preLoadAboutAt: 'preLoadAboutAt',
+  preLoadContactUs: 'preLoadContactUs',
+  dataPosterBanner: 'dataPosterBanner'
 }
 
 export const LOCALE_KEY = {
@@ -57,14 +63,17 @@ export const PAGE_EX = {
 }
 
 export const OBSERVER_KEY = {
+  ...PAGE_EX,
   loadBgFrame: 'loadBgFrame',
+  loadingFistPage: 'loadingFistPage',
   loadContentFrame: 'loadContentFrame',
   loadVideoBanner2: 'loadVideoBanner2',
   loadingPageOurServer: 'loadingPageOurServer',
   loadingPageContact: 'loadingPageContact',
   loadingPageAboutUs: 'loadingPageAboutUs',
   loadingPageProfile: 'loadingPageProfile',
-  ...PAGE_EX
+  clickBtnFrame: 'clickBtnFrame'
+
 }
 
 export const TYPE_SCROLL_PAGE = {

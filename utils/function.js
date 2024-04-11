@@ -15,20 +15,24 @@ export const flattenMessages = (nestedMessages, prefix = '') => {
   }, {})
 }
 export const getPersistDataByKey = (key, defaultValue = '') => {
-  const persistData = JSON.parse(localStorage.getItem('persist:nextjs'))
-  return persistData?.[key] ? JSON.parse(persistData[key]) : defaultValue
+  if (typeof localStorage !== 'undefined') {
+    const persistData = JSON.parse(localStorage.getItem('persist:nextjs'))
+    return persistData?.[key] ? JSON.parse(persistData[key]) : defaultValue
+  }
+  return null
 }
 
 export const scrollTop = () => {
-  if (window) {
+  if (typeof window !== 'undefined') {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 }
 
 export const saveDataLocal = (key, data) => {
   try {
-    // eslint-disable-next-line no-undef
-    localStorage.setItem(key, JSON.stringify(data))
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem(key, JSON.stringify(data))
+    }
   } catch (error) {
     console.log(error)
   }
@@ -36,8 +40,10 @@ export const saveDataLocal = (key, data) => {
 
 export const getDataLocal = (key) => {
   try {
-    // eslint-disable-next-line no-undef
-    return JSON.parse(localStorage.getItem(key))
+    if (typeof localStorage !== 'undefined') {
+      return JSON.parse(localStorage.getItem(key))
+    }
+    return null
   } catch (error) {
     console.log(error)
     return null

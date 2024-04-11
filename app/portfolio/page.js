@@ -6,6 +6,7 @@ import React, { useEffect } from 'react'
 import Content from './Component/Content'
 import './styles.scss'
 import { useInView } from 'react-intersection-observer'
+import { QUEY_KEY } from '@/config/app'
 
 const PageProfile = () => {
   const { ref: refBanner, inView: inViewBanner } = useInView({ threshold: 0.2 })
@@ -28,7 +29,13 @@ const PageProfile = () => {
     <div className='w-full h-screen overflow-x-hidden snap-mandatory snap-y'>
 
       <div className='  w-full snap-start h-screen relative  ' >
-        <VideoBanner className={'banner-video'} videoRef={refBanner} poster={images.home.profilePreload} url={videos.bannerProfile} />
+        <VideoBanner
+          typeCache={QUEY_KEY.preLoadPortfolio}
+          className={'banner-video'}
+          videoRef={refBanner}
+          poster={images.home.profilePreload}
+          url={videos.bannerProfile}
+        />
 
       </ div>
       <Content />

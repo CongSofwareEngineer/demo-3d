@@ -2,8 +2,17 @@ import { OBSERVER_KEY } from '@/config/app'
 import ObserverService from '@/utils/observer'
 import React, { useEffect, useState } from 'react'
 import jsonProfile from '@/public/assets/json/transitions_1.mp4.lottie.json'
-import loadingFirstLoad from '@/public/assets/json/loadingFirstLoad.json'
 import LoadingRoutePage from '../LoadingRoutePage'
+// import styled from 'styled-components'
+import Image from 'next/image'
+
+// const ImageOpacity = styled(Image)`
+//   position: absolute !important;
+//   height: 0px !important;
+//   width: 0px !important;
+//   opacity: 0 !important;
+//   z-index: -9999999999;
+//  `
 
 const LoadingMotionPage = () => {
   const [loadingGameArt, setLoadingGameArt] = useState(false)
@@ -58,9 +67,42 @@ const LoadingMotionPage = () => {
         loadingProfile && <LoadingRoutePage src={jsonProfile} />
       }
       {/* <ImageOpacity
-        key={'loadingOurServer-opacity'}
-        src={transitionBannerHome}
+        src={images.contactAt.bannerContactAt}
         fill
+        alt='image-ImageOpacit1'
+        loading='lazy'
+      />
+
+      <ImageOpacity
+        src={images.home.bannerPreload}
+        fill
+        alt='image-ImageOpacit2'
+        loading='lazy'
+
+      />
+
+      <ImageOpacity
+        src={images.home.banner2Preload}
+        fill
+        alt='image-ImageOpacit3'
+        loading='lazy'
+
+      />
+
+      <ImageOpacity
+        src={images.home.aboutUsPreload}
+        fill
+        alt='image-ImageOpacit4'
+        loading='lazy'
+
+      />
+
+      <ImageOpacity
+        src={images.home.profilePreload}
+        fill
+        alt='image-ImageOpacit5'
+        loading='lazy'
+
       /> */}
 
     </>

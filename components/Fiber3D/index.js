@@ -26,7 +26,6 @@ function Box ({ position, indexItem = 0 }) {
 
   const [hovered, setHover] = useState(false)
   const [active, setActive] = useState(false)
-  const [scrollY, setScrollY] = useState(window.scrollY)
 
   const checkRatioScreen = (isPlus = true) => {
     const hisScreen = window.innerHeight

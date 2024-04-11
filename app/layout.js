@@ -8,6 +8,7 @@ import { AntdRegistry } from '@ant-design/nextjs-registry'
 import ReactQueryProvider from '@/components/ReactQueryProvider'
 // import ParallaxProvider from '@/components/ParallaxProvider'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import LoadingFirst from '@/components/LoadingFirstPage'
 /** @type {import('next').Metadata} */
 const inter = Inter({ subsets: ['latin'] })
 
@@ -56,22 +57,27 @@ export const metadata = {
   }
 }
 
-export default function RootLayout ({ children }) {
+export default function RootLayout (props) {
   return (
     <html lang="en">
       <body >
         <main className="flex min-h-screen flex-col items-center justify-between relative">
+          {/* <div className='absolute pointer-events-none'>
+            serverside
+          </div> */}
+
           {/* <ParallaxProvider> */}
           <ReduxProvider>
-            <AntdRegistry >
-              <ReactQueryProvider>
-                <StyledComponentsRegistry >
-                  <ClientRender>
-                    {children}
-                  </ClientRender>
-                </StyledComponentsRegistry>
-              </ReactQueryProvider>
-            </AntdRegistry>
+            {/* <AntdRegistry > */}
+            <ReactQueryProvider>
+              <LoadingFirst/>
+              <StyledComponentsRegistry >
+                <ClientRender>
+                  {props.children}
+                </ClientRender>
+              </StyledComponentsRegistry>
+            </ReactQueryProvider>
+            {/* </AntdRegistry> */}
           </ReduxProvider>
           {/* </ParallaxProvider> */}
           <SpeedInsights/>

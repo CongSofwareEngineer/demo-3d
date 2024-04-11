@@ -9,6 +9,7 @@ import LoadingFirst from '../LoadingFirstPage'
 import ObserverService from '@/utils/observer'
 import useRouter from '@/hooks/useRouter'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 
 const LoadingMotionPage = dynamic(() => import('../LoadingMotionPage'), { ssr: false })
 const FrameMain = dynamic(() => import('../FrameMain'), { ssr: false })
@@ -72,17 +73,18 @@ const ClientRender = ({ children }) => {
         messages={language?.messages || {}}
       >
         {isClient && children}
+        {/* {children} */}
         {
           patchName !== '' && patchName !== '/' && (
             <FrameMain />
           )
         }
 
-        {
+        {/* {
           patchName !== '' && patchName !== '/' && loadingFirstPage && Boolean(!process.env.NEXT_PUBLIC_DISABLE_LOADING) && (
             <LoadingFirst/>
           )
-        }
+        } */}
 
         <LoadingMotionPage />
       </IntlProvider>

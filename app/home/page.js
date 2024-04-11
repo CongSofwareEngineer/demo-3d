@@ -1,6 +1,7 @@
 'use client'
 
 import VideoBanner from '@/components/VideoBanner'
+import { QUEY_KEY } from '@/config/app'
 import { images, videos } from '@/config/images'
 import React from 'react'
 
@@ -11,6 +12,7 @@ const PageHome = () => {
         <VideoBanner
           url={videos.bannerHome}
           poster={images.home.bannerPreload}
+          typeCache={QUEY_KEY.preLoadHome}
         />
         {/* <BgFrameBanner />
         <FrameBtn /> */}

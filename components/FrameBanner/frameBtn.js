@@ -16,6 +16,7 @@ const opacity = keyframes`
   }
 `
 const SVGCustom = styled.svg` 
+  user-select: none;
   position: fixed;
   z-index: 11;
   bottom: 0;
@@ -26,6 +27,47 @@ const SVGCustom = styled.svg`
 
 const Rects = styled.rect.attrs(() => ({ className: 'cursor-pointer' }))``
 
+const ButtonDetail = ({ id, url, urlClick, typeClick = OBSERVER_KEY.aboutUs }) => {
+  const [isClick, setIsClick] = useState(false)
+
+  useEffect(() => {
+    ObserverService.on(OBSERVER_KEY.clickBtnFrame, (type) => {
+      console.log({ type })
+      if (typeClick === type) {
+        setIsClick(true)
+        setTimeout(() => {
+          setIsClick(false)
+        }, 200)
+      }
+    })
+
+    return () => {
+      ObserverService.removeListener(OBSERVER_KEY.clickBtnFrame)
+    }
+  }, [])
+
+  return (
+
+    <>
+      <image
+        href={url}
+        // href={isClick ? urlClick : url}
+        // id={isClick ? 'no-data' : id}
+        // style={{op}}
+        id={isClick ? 'no-data' : id}
+        // key={`${id}+${isClick}`}
+        width={2560} height={1097}
+      />
+
+      <image
+        href={urlClick}
+        id={!isClick ? 'no-data' : id}
+        // id={id}
+        width={2560} height={1000}
+      />
+    </>
+  )
+}
 const FrameBtn = ({ callBackLoad = () => {} }) => {
   const { ratioBeautiful, height, width } = useSizeScreen()
   const isMouseClickRef = useRef(false)
@@ -72,42 +114,51 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
 
       switch (type) {
       case TYPE_BANNER.aboutUs:
-        setIsCLickAboutUs(true)
-        setTimeout(() => {
-          setIsCLickAboutUs(false)
-        }, timeDebone)
+        // setIsCLickAboutUs(true)
+        // setTimeout(() => {
+        //   setIsCLickAboutUs(false)
+        // }, timeDebone)
+        ObserverService.emit(OBSERVER_KEY.clickBtnFrame, OBSERVER_KEY.aboutUs)
+
         ObserverService.emit(OBSERVER_KEY.aboutUs)
 
         break
       case TYPE_BANNER.contact:
-        setIsCLickContact(true)
-        setTimeout(() => {
-          setIsCLickContact(false)
-        }, timeDebone)
+        // setIsCLickContact(true)
+        // setTimeout(() => {
+        //   setIsCLickContact(false)
+        // }, timeDebone)
+        ObserverService.emit(OBSERVER_KEY.clickBtnFrame, OBSERVER_KEY.contactAt)
         ObserverService.emit(OBSERVER_KEY.contactAt)
         break
 
       case TYPE_BANNER.profile:
-        setIsCLickProFile(true)
-        setTimeout(() => {
-          setIsCLickProFile(false)
-        }, timeDebone)
+        // setIsCLickProFile(true)
+        // setTimeout(() => {
+        //   setIsCLickProFile(false)
+        // }, timeDebone)
+        ObserverService.emit(OBSERVER_KEY.clickBtnFrame, OBSERVER_KEY.portfolio)
+
         ObserverService.emit(OBSERVER_KEY.portfolio)
         break
 
       case TYPE_BANNER.tree:
-        setIsCLickTree(true)
-        setTimeout(() => {
-          setIsCLickTree(false)
-        }, timeDebone)
+        // setIsCLickTree(true)
+        // setTimeout(() => {
+        //   setIsCLickTree(false)
+        // }, timeDebone)
+        ObserverService.emit(OBSERVER_KEY.clickBtnFrame, OBSERVER_KEY.home)
+
         ObserverService.emit(OBSERVER_KEY.home)
         break
 
       default:
-        setIsCLickOurService(true)
-        setTimeout(() => {
-          setIsCLickOurService(false)
-        }, timeDebone)
+        // setIsCLickOurService(true)
+        // setTimeout(() => {
+        //   setIsCLickOurService(false)
+        // }, timeDebone)
+        ObserverService.emit(OBSERVER_KEY.clickBtnFrame, OBSERVER_KEY.ourService)
+
         ObserverService.emit(OBSERVER_KEY.ourService)
         break
       }
@@ -119,6 +170,7 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
 
   const renderImage = (id, stateClick, url, urlClick) => {
     return (
+
       <>
         <image
           style={{ opacity: stateClick ? 0 : 1 }}
@@ -131,7 +183,6 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
           href={urlClick}
           id={id}
           width="2560" height="1000"
-          key={`${stateClick}`}
         />
       </>
     )
@@ -218,41 +269,68 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
           />
         </pattern>
 
-        {
-          renderImage(
-            'image0_1265_3',
-            isCLickOurService,
-            images.home.btnOurService,
-            images.home.btnOurServiceClick
-          )
-        }
-        {
+        <ButtonDetail
+          id={'image0_1265_3'}
+          stateClick={isCLickTree}
+          url={images.home.btnOurService}
+          urlClick={ images.home.btnOurServiceClick}
+          typeClick={OBSERVER_KEY.ourService}
+        />
+
+        <ButtonDetail
+          id={'image1_1265_3'}
+          url={images.home.btnPortFlto}
+          urlClick={ images.home.btnPortFltoClick}
+          typeClick={OBSERVER_KEY.portfolio}
+        />
+        {/* {
           renderImage(
             'image1_1265_3',
             isCLickProFile,
             images.home.btnPortFlto,
             images.home.btnPortFltoClick
           )
-        }
+        } */}
 
-        {
+        {/* {
           renderImage(
             'image4_1265_3',
             isCLickTree,
             images.home.btnTree,
             images.home.btnTreeClick
           )
-        }
+        } */}
 
-        {
+        <ButtonDetail
+          id={'image4_1265_3'}
+          stateClick={isCLickTree}
+          url={images.home.btnTree}
+          urlClick={ images.home.btnTreeClick}
+          typeClick={OBSERVER_KEY.home}
+        />
+        <ButtonDetail
+          id={'image2_1265_3'}
+          stateClick={isCLickAboutUs}
+          url={images.home.btnAboutUs}
+          urlClick={ images.home.btnAboutUsClick}
+          typeClick={OBSERVER_KEY.aboutUs}
+        />
+        {/* {
           renderImage(
             'image2_1265_3',
             isCLickAboutUs,
             images.home.btnAboutUs,
             images.home.btnAboutUsClick
           )
-        }
-
+        } */}
+        <ButtonDetail
+          id={'image3_1265_3'}
+          stateClick={isCLickAboutUs}
+          url={images.home.btnContact}
+          urlClick={ images.home.btnContactClick}
+          typeClick={OBSERVER_KEY.contactAt}
+        />
+        {/*
         {
           renderImage(
             'image3_1265_3',
@@ -260,11 +338,11 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
             images.home.btnContact,
             images.home.btnContactClick
           )
-        }
+        } */}
 
       </defs>
     </SVGCustom>
   )
 }
 
-export default React.memo(FrameBtn)
+export default FrameBtn

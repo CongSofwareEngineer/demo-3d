@@ -1,30 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styles from './videoBanner.module.scss'
-import styled, { css, keyframes } from 'styled-components'
 import useSizeScreen from '@/hooks/useSizeScreen'
-const opacity = keyframes`
-  from{
-    opacity: 0;
-  }
-  to{
-    opacity: 1;
-  }
-`
-const VideoCustom = styled.video`
-  
-  /* ${(props) =>
-    props.isLoad
-      ? css`
-        opacity: 1;
-        animation: ${opacity} 4s  linear;
-       `
-      : css`
-      opacity: 0;
-      `
-} */
-   
-  
-`
+import { useQueryClient } from '@tanstack/react-query'
+import { QUEY_KEY } from '@/config/app'
 
 const VideoBanner = ({
   url,
@@ -33,10 +11,11 @@ const VideoBanner = ({
   videoRef = React.createRef(null),
   callBackLoaded = () => {},
   className = '',
+  typeCache = '',
   ...props
 }) => {
   const { ratioBeautiful } = useSizeScreen()
-  const [loadingVideo, setLoadingVideo] = useState(false)
+  const query = useQueryClient()
 
   useEffect(() => {
     if (videoRef.current) {
@@ -46,10 +25,21 @@ const VideoBanner = ({
     }
   }, [])
 
+  const getUrlPoster = () => {
+    try {
+      const dataCache = query.getQueryData(QUEY_KEY.dataPosterBanner)
+      if (dataCache[typeCache]) {
+        return dataCache[typeCache]
+      }
+      return poster
+    } catch (error) {
+      return poster
+    }
+  }
+
   return (
-    <VideoCustom
+    <video
       key={url}
-      isLoad={loadingVideo}
       ref={videoRef}
       muted
       autoPlay
@@ -58,7 +48,7 @@ const VideoBanner = ({
       controls={false}
       preload="none"
       isScaleWidth={!ratioBeautiful}
-      poster={poster}
+      poster={getUrlPoster()}
       onLoadedData={(e) => {
         callBackLoaded()
         // setLoadingVideo(true)
@@ -67,7 +57,7 @@ const VideoBanner = ({
       {...props}
     >
       <source src={url} />
-    </VideoCustom>
+    </video>
   )
 }
 

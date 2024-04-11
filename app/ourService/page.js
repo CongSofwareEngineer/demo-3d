@@ -1,7 +1,7 @@
 'use client'
 
 import VideoBanner from '@/components/VideoBanner'
-import { OBSERVER_KEY } from '@/config/app'
+import { OBSERVER_KEY, QUEY_KEY } from '@/config/app'
 import { images, videos } from '@/config/images'
 import ObserverService from '@/utils/observer'
 import { useCallback, useEffect, useState } from 'react'
@@ -32,6 +32,7 @@ const PageOurService = () => {
             url={videos.bannerOurService}
             poster={images.home.banner2Preload}
             callBackLoaded={callBackLoaded}
+            typeCache={QUEY_KEY.preLoadOurService}
           />
           {/* <BgFrameBanner /> */}
           <SlideVideo keySVG="transparent" isLoaded={loadedBanner2} />

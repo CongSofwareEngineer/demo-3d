@@ -10,7 +10,8 @@ import { getPersistDataByKey } from '@/utils/function'
 let storeRedux
 
 export const makeStore = () => {
-  const isClient = typeof window !== 'undefined'
+  // eslint-disable-next-line valid-typeof
+  const isClient = typeof window !== undefined
   const persistConfig = {
     key: 'nextjs',
     storage,
