@@ -2,8 +2,8 @@ import { useLayoutEffect, useState } from 'react'
 
 const useSizeScreen = () => {
   const [sizeScreen, setSizeScreen] = useState({
-    width: window?.innerWidth || 21,
-    height: window?.innerHeight || 99,
+    width: 21,
+    height: 99,
     ratioBeautiful: false
   })
 

@@ -72,8 +72,8 @@ const ClientRender = ({ children }) => {
         locale={language?.locale || 'vn'}
         messages={language?.messages || {}}
       >
-        {isClient && children}
-        {/* {children} */}
+        {/* {isClient && children} */}
+        {children}
         {
           patchName !== '' && patchName !== '/' && (
             <FrameMain />
