@@ -26,8 +26,8 @@ const PageOurService = () => {
 
   return (
     <>
-      <div className="relative w-full h-screen   ">
-        <div className="w-full h-full relative overflow-hidden">
+      <div className="relative w-full h-screen  ">
+        <div className="page-our-service  w-full h-full relative overflow-hidden">
           <VideoBanner
             url={videos.bannerOurService}
             poster={images.home.banner2Preload}

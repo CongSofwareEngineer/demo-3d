@@ -5,7 +5,6 @@ import { images } from '@/config/images'
 import './styles.scss'
 import { useInView } from 'react-intersection-observer'
 import { MENU_SORTER } from '@/config/app'
-import useSizeScreen from '@/hooks/useSizeScreen'
 
 const arr = []
 for (let index = 0; index < 9; index++) {
@@ -13,11 +12,32 @@ for (let index = 0; index < 9; index++) {
 }
 
 const Content = () => {
-  const [hoverItem, setHoverItem] = useState(-1)
   const [itemSelected, setItemSelected] = useState(MENU_SORTER.animation)
+  const [isScrollBottomMax, setIScrollBottomMax] = useState(false)
 
   const { ref, inView: inViewContent } = useInView({ threshold: 0.15 })
-  const { height } = useSizeScreen()
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight
+      const scrollY = window.scrollY || window.pageYOffset
+      const bodyHeight = document.body.offsetHeight
+      // Check if we are close to the bottom (adding a small buffer)
+      console.log('====================================')
+      console.log({ bodyHeight, windowHeight, scrollY })
+      console.log('====================================')
+      setIScrollBottomMax(bodyHeight - windowHeight - scrollY <= 20)
+    }
+    console.log('====================================')
+    console.log({ isScrollBottomMax })
+    console.log('====================================')
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   useEffect(() => {
     const content = document.getElementsByClassName('content')[0]
@@ -72,10 +92,6 @@ const Content = () => {
               arr.map((e, index) => {
                 return (
                   <div
-                    style={{
-                      boxShadow: hoverItem === index ? 'red 0px 5px 15px' : 'none'
-                    // mask: index > 5 ? 'linear-gradient(0deg, transparent, white 40%, white 80%, white 80%)' : 'none'
-                    }}
                     key={index}
                     className={'cursor-pointer hover:scale-[1.01]  duration-300 shadow-lg shadow-red-500 relative w-full flex pb-[100%] bg-blue-400 rounded-2xl'}
                   />
@@ -87,16 +103,16 @@ const Content = () => {
       </div>
 
       {/* {
-      !isScrollBottomMax && (
-        <MyImage
-          url={images.home.bgMaskContentBannerHome}
-          width='100%'
-          height='auto'
-          position='absolute'
-          className='z-10'
-        />
-      )
-    } */}
+        !isScrollBottomMax && (
+          <MyImage
+            url={images.home.bgMaskContentBannerHome}
+            width='100%'
+            height='auto'
+            position='absolute'
+            className='z-10'
+          />
+        )
+      } */}
 
     </div>
   )

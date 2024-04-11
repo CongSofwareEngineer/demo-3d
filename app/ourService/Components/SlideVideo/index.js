@@ -6,13 +6,6 @@ import { isMobile, isSafari } from 'react-device-detect'
 import styled, { css, keyframes } from 'styled-components'
 
 const SlideVideo = ({
-  // hoverGameArt,
-  // setHoverGameArt,
-  noShowElement = false,
-  // hoverCharacter,
-  // setHoverCharacter,
-  // hoverBranding,
-  // setHoverBranding,
   keySVG = 'slide',
   isLoaded = true
 }) => {
@@ -68,7 +61,6 @@ const SlideVideo = ({
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
-        absolute={noShowElement}
         key={keySVG}
         className={keySVG}
         id={keySVG}
@@ -88,7 +80,7 @@ const SlideVideo = ({
           x={1025}
           y={340}
           width="540"
-          height="170"
+          height="130"
           fill={`url(#pattern1${keySVG})`}
         />
 
@@ -127,7 +119,7 @@ const SlideVideo = ({
           fill={`url(#pattern3${keySVG})`}
         />
         {/* table branding */}
-        <rect x="600" y="450" width="400" height="325"
+        <rect x="600" y="450" width="450" height="325"
           fill={`url(#pattern4${keySVG})`}
         />
 
@@ -143,7 +135,7 @@ const SlideVideo = ({
           </pattern>
           <pattern x={1000} id={`pattern1${keySVG}`} patternContentUnits="objectBoundingBox" width="1" height="1">
             <use xlinkHref={`#image1_1220_6${keySVG}`}
-              transform="scale(0.0031 0.009)"
+              transform="scale(0.0031 0.012)"
             />
           </pattern>
           <pattern
@@ -235,90 +227,7 @@ const SlideVideo = ({
     )
   }
 
-  const renderNoElement = () => {
-    return (
-      <SVGCustom2
-        viewBox="0 0 2560 1097"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-        absolute={noShowElement}
-        key={keySVG}
-        className={keySVG}
-        id={keySVG}
-      >
-        {/* <rect width="2560" height="1097" fill="url(#pattern0)"/>
-        <rect width="2560" height="1097" fill="url(#pattern1)"/> */}
-
-        {/* table branding */}
-        <rect
-          onMouseEnter={() => handleHover(TYPE_OPTION_BANNER_2.branding)}
-          onMouseLeave={() => handleUnHover(TYPE_OPTION_BANNER_2.branding)}
-          onClick={() => setHoverBranding(!hoverBranding)}
-          className=" cursor-pointer"
-          x={360}
-          y={320}
-          width="350"
-          height="170"
-          fill={`url(#pattern0${keySVG})`}
-        />
-
-        {/* table branding */}
-        <rect
-          onMouseEnter={() => handleHover(TYPE_OPTION_BANNER_2.character)}
-          onMouseLeave={() => handleUnHover(TYPE_OPTION_BANNER_2.character)}
-          onClick={() => setHoverCharacter(!hoverCharacter)}
-          className=" cursor-pointer"
-          x={1080}
-          y={370}
-          width="450"
-          height="90"
-          fill={`url(#pattern1${keySVG})`}
-        />
-
-        {/* table game art */}
-        <rect
-          onMouseEnter={() => handleHover(TYPE_OPTION_BANNER_2.gameArt)}
-          onMouseLeave={() => handleUnHover(TYPE_OPTION_BANNER_2.gameArt)}
-          onClick={() => setHoverGameArt(!hoverGameArt)}
-          className=" cursor-pointer"
-          x={1770}
-          y={420}
-          width="420"
-          height="170"
-          fill={`url(#pattern2${keySVG})`}
-        />
-
-        <defs>
-          {/* img branding */}
-          <pattern
-            id={`pattern0${keySVG}`}
-            patternContentUnits="objectBoundingBox"
-            width="1"
-            height="1"
-          />
-
-          {/* img character */}
-          <pattern
-            id={`pattern1${keySVG}`}
-            patternContentUnits="objectBoundingBox"
-            width="1"
-            height="1"
-          />
-          {/* img game art */}
-          <pattern
-            id={`pattern2${keySVG}`}
-            patternContentUnits="objectBoundingBox"
-            width="1"
-            height="1"
-          />
-
-        </defs>
-      </SVGCustom2>
-    )
-  }
-
-  return noShowElement ? renderNoElement() : renderElement()
+  return renderElement()
 }
 const SVGBase = styled.svg`
   height: auto;
@@ -343,20 +252,7 @@ const opacity = keyframes`
   }
 `
 const SVGCustom = styled(SVGBase)`
- /* ${(props) =>
-    props.loadedBanner2
-      ? css`
-        opacity: 1;
-        animation: ${opacity} 3s  linear;
-      `
-      : css`
-      opacity: 0;
-      `
-} */
-`
-
-const SVGCustom2 = styled(SVGBase)`
-  z-index: 11;
+ 
 `
 
 export default SlideVideo

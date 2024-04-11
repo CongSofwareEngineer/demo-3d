@@ -1,8 +1,10 @@
 import { OBSERVER_KEY, QUEY_KEY, TYPE_BANNER } from '@/config/app'
 import { images } from '@/config/images'
+import useRouter from '@/hooks/useRouter'
 import useSizeScreen from '@/hooks/useSizeScreen'
 import ObserverService from '@/utils/observer'
 import { useQueryClient } from '@tanstack/react-query'
+import { usePathname } from 'next/navigation'
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import styled, { keyframes } from 'styled-components'
@@ -29,15 +31,15 @@ const Rects = styled.rect.attrs(() => ({ className: 'cursor-pointer' }))``
 
 const ButtonDetail = ({ id, url, urlClick, typeClick = OBSERVER_KEY.aboutUs }) => {
   const [isClick, setIsClick] = useState(false)
+  const patchName = usePathname()
 
   useEffect(() => {
     ObserverService.on(OBSERVER_KEY.clickBtnFrame, (type) => {
-      console.log({ type })
       if (typeClick === type) {
         setIsClick(true)
         setTimeout(() => {
           setIsClick(false)
-        }, 100)
+        }, 200)
       }
     })
 
@@ -49,20 +51,41 @@ const ButtonDetail = ({ id, url, urlClick, typeClick = OBSERVER_KEY.aboutUs }) =
   return (
 
     <>
+      {/* no click */}
       <image
+        className={patchName?.includes(typeClick) ? '' : 'brightness-75'}
         href={url}
-        // href={isClick ? urlClick : url}
-        // id={isClick ? 'no-data' : id}
-        // style={{op}}
-        id={isClick ? 'no-data' : id}
-        // key={`${id}+${isClick}`}
+        id={isClick ? 'no-data' : id }
         width={2560} height={1097}
+      />
+      <image
+        className={patchName?.includes(typeClick) ? '' : 'brightness-75'}
+        href={url}
+        id={isClick ? 'no-data' : id }
+        width={2560} height={1097}
+      />
+      <image
+        className={patchName?.includes(typeClick) ? '' : 'brightness-75'}
+        href={url}
+        id={isClick ? 'no-data' : id }
+        width={2560} height={1097}
+      />
+
+      {/* is click */}
+      <image
+        href={urlClick}
+        id={!isClick ? 'no-data' : id }
+        width={2560} height={1000}
+      />
+      <image
+        href={urlClick}
+        id={!isClick ? 'no-data' : id }
+        width={2560} height={1000}
       />
 
       <image
         href={urlClick}
-        id={!isClick ? 'no-data' : id}
-        // id={id}
+        id={!isClick ? 'no-data' : id }
         width={2560} height={1000}
       />
     </>
