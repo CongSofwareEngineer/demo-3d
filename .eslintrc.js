@@ -33,7 +33,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'no-unused-vars': 0,
     'react/no-unknown-property': 0,
-    semi: 'off',
+    // semi: 'off',
     eqeqeq: 0
   }
 }

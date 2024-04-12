@@ -1,7 +1,14 @@
 'use client'
 import Fiber3D from '@/components/Fiber3D'
+import { useEffect, useState } from 'react'
 export default function Home () {
-  return (<Fiber3D />
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  return (isClient && <Fiber3D />
   // <main className="flex min-h-screen flex-col items-center justify-between">
   //   <Fiber3D />
 

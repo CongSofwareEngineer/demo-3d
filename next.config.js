@@ -29,6 +29,8 @@ const nextConfig = {
       'ucarecdn.com'
     ]
   }
+
 }
 
-module.exports = withBundleAnalyzer({ nextConfig })
+// module.exports = withBundleAnalyzer({ nextConfig })
+module.exports = nextConfig

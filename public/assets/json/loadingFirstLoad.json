@@ -1,0 +1,585 @@
+[{
+  "version": "1.0",
+  "image": {
+    "name": "/home/videosdownloader/public_html/image/public/uploadt/tree-mascot.gif",
+    "baseName": "tree-mascot.gif",
+    "format": "GIF",
+    "formatDescription": "GIF",
+    "mimeType": "image/gif",
+    "class": "PseudoClass",
+    "geometry": {
+      "width": 406,
+      "height": 405,
+      "x": 0,
+      "y": 0
+    },
+    "units": "Undefined",
+    "type": "GrayscaleAlpha",
+    "baseType": "Undefined",
+    "endianness": "Undefined",
+    "colorspace": "sRGB",
+    "depth": 8,
+    "baseDepth": 8,
+    "channelDepth": {
+      "alpha": 1,
+      "red": 8,
+      "green": 8,
+      "blue": 1
+    },
+    "pixels": 657720,
+    "imageStatistics": {
+      "Overall": {
+        "min": 0,
+        "max": 255,
+        "mean": 180.964,
+        "median": 191.25,
+        "standardDeviation": 22217,
+        "kurtosis": -1.00231,
+        "skewness": -0.957867,
+        "entropy": 0.51373
+      }
+    },
+    "channelStatistics": {
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "mean": 62.6528,
+        "median": 0,
+        "standardDeviation": 28212.9,
+        "kurtosis": -0.604252,
+        "skewness": 1.18142,
+        "entropy": 0.804387
+      },
+      "red": {
+        "min": 0,
+        "max": 255,
+        "mean": 220.4,
+        "median": 255,
+        "standardDeviation": 20218.4,
+        "kurtosis": 3.34189,
+        "skewness": -2.22492,
+        "entropy": 0.416845
+      },
+      "green": {
+        "min": 0,
+        "max": 255,
+        "mean": 220.4,
+        "median": 255,
+        "standardDeviation": 20218.4,
+        "kurtosis": 3.34189,
+        "skewness": -2.22492,
+        "entropy": 0.416845
+      },
+      "blue": {
+        "min": 0,
+        "max": 255,
+        "mean": 220.4,
+        "median": 255,
+        "standardDeviation": 20218.4,
+        "kurtosis": 3.34189,
+        "skewness": -2.22492,
+        "entropy": 0.416845
+      }
+    },
+    "alpha": "#FFFFFF00",
+    "colormapEntries": 16,
+    "colormap": [
+      "#D4D4D4FF","#010101FF","#000000FF","#999999FF","#FFFFFFFF",
+      "#BBBBBBFF","#747474FF","#5F5F5FFF","#AEAEAEFF","#FFFFFF00",
+      "#000000FF","#000000FF","#000000FF","#000000FF","#000000FF",
+      "#000000FF"
+    ],
+    "renderingIntent": "Perceptual",
+    "gamma": 0.454545,
+    "chromaticity": {
+      "redPrimary": {
+        "x": 0.64,
+        "y": 0.33
+      },
+      "greenPrimary": {
+        "x": 0.3,
+        "y": 0.6
+      },
+      "bluePrimary": {
+        "x": 0.15,
+        "y": 0.06
+      },
+      "whitePrimary": {
+        "x": 0.3127,
+        "y": 0.329
+      }
+    },
+    "matteColor": "#BDBDBD",
+    "backgroundColor": "#FFFFFF00",
+    "borderColor": "#DFDFDF",
+    "transparentColor": "#FFFFFF00",
+    "interlace": "None",
+    "intensity": "Undefined",
+    "compose": "Over",
+    "pageGeometry": {
+      "width": 406,
+      "height": 405,
+      "x": 0,
+      "y": 0
+    },
+    "dispose": "Background",
+    "delay": "17x100",
+    "iterations": 0,
+    "scene": 0,
+    "scenes": 4,
+    "compression": "LZW",
+    "orientation": "Undefined",
+    "properties": {
+      "date:create": "2024-04-05T04:13:43+00:00",
+      "date:modify": "2024-04-05T04:13:43+00:00",
+      "signature": "d7f901ca2a5e60d818d7453fac2a47153d87d387c404f813daf6c3bc88966e57"
+    },
+    "profiles": {
+      "gif:xmp dataxmp": {
+        "length": 1107
+      }
+    },
+    "tainted": false,
+    "filesize": "0B",
+    "numberPixels": "164430",
+    "pixelsPerSecond": "4.9043MB",
+    "userTime": "0.040u",
+    "elapsedTime": "0:01.033",
+    "version": "ImageMagick 7.0.10-58 Q16 x86_64 2021-01-14 https://imagemagick.org"
+  }
+},
+{
+  "version": "1.0",
+  "image": {
+    "name": "/home/videosdownloader/public_html/image/public/uploadt/tree-mascot.gif",
+    "baseName": "tree-mascot.gif",
+    "format": "GIF",
+    "formatDescription": "GIF",
+    "mimeType": "image/gif",
+    "class": "PseudoClass",
+    "geometry": {
+      "width": 406,
+      "height": 405,
+      "x": 0,
+      "y": 0
+    },
+    "units": "Undefined",
+    "type": "GrayscaleAlpha",
+    "baseType": "Undefined",
+    "endianness": "Undefined",
+    "colorspace": "sRGB",
+    "depth": 8,
+    "baseDepth": 8,
+    "channelDepth": {
+      "alpha": 1,
+      "red": 8,
+      "green": 8,
+      "blue": 1
+    },
+    "pixels": 657720,
+    "imageStatistics": {
+      "Overall": {
+        "min": 0,
+        "max": 255,
+        "mean": 181.741,
+        "median": 191.25,
+        "standardDeviation": 21667.3,
+        "kurtosis": -0.974988,
+        "skewness": -0.972488,
+        "entropy": 0.497565
+      }
+    },
+    "channelStatistics": {
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "mean": 59.5512,
+        "median": 0,
+        "standardDeviation": 27726.6,
+        "kurtosis": -0.413311,
+        "skewness": 1.25964,
+        "entropy": 0.784121
+      },
+      "red": {
+        "min": 0,
+        "max": 255,
+        "mean": 222.471,
+        "median": 255,
+        "standardDeviation": 19647.5,
+        "kurtosis": 3.85606,
+        "skewness": -2.3298,
+        "entropy": 0.402046
+      },
+      "green": {
+        "min": 0,
+        "max": 255,
+        "mean": 222.471,
+        "median": 255,
+        "standardDeviation": 19647.5,
+        "kurtosis": 3.85606,
+        "skewness": -2.3298,
+        "entropy": 0.402046
+      },
+      "blue": {
+        "min": 0,
+        "max": 255,
+        "mean": 222.471,
+        "median": 255,
+        "standardDeviation": 19647.5,
+        "kurtosis": 3.85606,
+        "skewness": -2.3298,
+        "entropy": 0.402046
+      }
+    },
+    "alpha": "#FFFFFF00",
+    "colormapEntries": 16,
+    "colormap": [
+      "#D4D4D4FF","#010101FF","#000000FF","#999999FF","#FFFFFFFF",
+      "#BBBBBBFF","#747474FF","#5F5F5FFF","#AEAEAEFF","#FFFFFF00",
+      "#000000FF","#000000FF","#000000FF","#000000FF","#000000FF",
+      "#000000FF"
+    ],
+    "renderingIntent": "Perceptual",
+    "gamma": 0.454545,
+    "chromaticity": {
+      "redPrimary": {
+        "x": 0.64,
+        "y": 0.33
+      },
+      "greenPrimary": {
+        "x": 0.3,
+        "y": 0.6
+      },
+      "bluePrimary": {
+        "x": 0.15,
+        "y": 0.06
+      },
+      "whitePrimary": {
+        "x": 0.3127,
+        "y": 0.329
+      }
+    },
+    "matteColor": "#BDBDBD",
+    "backgroundColor": "#FFFFFF00",
+    "borderColor": "#DFDFDF",
+    "transparentColor": "#FFFFFF00",
+    "interlace": "None",
+    "intensity": "Undefined",
+    "compose": "Over",
+    "pageGeometry": {
+      "width": 406,
+      "height": 405,
+      "x": 0,
+      "y": 0
+    },
+    "dispose": "Background",
+    "delay": "17x100",
+    "iterations": 0,
+    "scene": 1,
+    "scenes": 4,
+    "compression": "LZW",
+    "orientation": "Undefined",
+    "properties": {
+      "date:create": "2024-04-05T04:13:43+00:00",
+      "date:modify": "2024-04-05T04:13:43+00:00",
+      "signature": "fc77e9a0c7da606a5a3706ba7e94acaf658f295e041d459ac09f4ae2c07aedb5"
+    },
+    "tainted": false,
+    "filesize": "0B",
+    "numberPixels": "164430",
+    "pixelsPerSecond": "1.0276MB",
+    "userTime": "0.160u",
+    "elapsedTime": "0:01.160",
+    "version": "ImageMagick 7.0.10-58 Q16 x86_64 2021-01-14 https://imagemagick.org"
+  }
+},
+{
+  "version": "1.0",
+  "image": {
+    "name": "/home/videosdownloader/public_html/image/public/uploadt/tree-mascot.gif",
+    "baseName": "tree-mascot.gif",
+    "format": "GIF",
+    "formatDescription": "GIF",
+    "mimeType": "image/gif",
+    "class": "PseudoClass",
+    "geometry": {
+      "width": 406,
+      "height": 405,
+      "x": 0,
+      "y": 0
+    },
+    "units": "Undefined",
+    "type": "GrayscaleAlpha",
+    "baseType": "Undefined",
+    "endianness": "Undefined",
+    "colorspace": "sRGB",
+    "depth": 8,
+    "baseDepth": 8,
+    "channelDepth": {
+      "alpha": 1,
+      "red": 8,
+      "green": 8,
+      "blue": 1
+    },
+    "pixels": 657720,
+    "imageStatistics": {
+      "Overall": {
+        "min": 0,
+        "max": 255,
+        "mean": 180.964,
+        "median": 191.25,
+        "standardDeviation": 22217,
+        "kurtosis": -1.00231,
+        "skewness": -0.957867,
+        "entropy": 0.51373
+      }
+    },
+    "channelStatistics": {
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "mean": 62.6528,
+        "median": 0,
+        "standardDeviation": 28212.9,
+        "kurtosis": -0.604252,
+        "skewness": 1.18142,
+        "entropy": 0.804387
+      },
+      "red": {
+        "min": 0,
+        "max": 255,
+        "mean": 220.4,
+        "median": 255,
+        "standardDeviation": 20218.4,
+        "kurtosis": 3.34189,
+        "skewness": -2.22492,
+        "entropy": 0.416845
+      },
+      "green": {
+        "min": 0,
+        "max": 255,
+        "mean": 220.4,
+        "median": 255,
+        "standardDeviation": 20218.4,
+        "kurtosis": 3.34189,
+        "skewness": -2.22492,
+        "entropy": 0.416845
+      },
+      "blue": {
+        "min": 0,
+        "max": 255,
+        "mean": 220.4,
+        "median": 255,
+        "standardDeviation": 20218.4,
+        "kurtosis": 3.34189,
+        "skewness": -2.22492,
+        "entropy": 0.416845
+      }
+    },
+    "alpha": "#FFFFFF00",
+    "colormapEntries": 16,
+    "colormap": [
+      "#D4D4D4FF","#010101FF","#000000FF","#999999FF","#FFFFFFFF",
+      "#BBBBBBFF","#747474FF","#5F5F5FFF","#AEAEAEFF","#FFFFFF00",
+      "#000000FF","#000000FF","#000000FF","#000000FF","#000000FF",
+      "#000000FF"
+    ],
+    "renderingIntent": "Perceptual",
+    "gamma": 0.454545,
+    "chromaticity": {
+      "redPrimary": {
+        "x": 0.64,
+        "y": 0.33
+      },
+      "greenPrimary": {
+        "x": 0.3,
+        "y": 0.6
+      },
+      "bluePrimary": {
+        "x": 0.15,
+        "y": 0.06
+      },
+      "whitePrimary": {
+        "x": 0.3127,
+        "y": 0.329
+      }
+    },
+    "matteColor": "#BDBDBD",
+    "backgroundColor": "#FFFFFF00",
+    "borderColor": "#DFDFDF",
+    "transparentColor": "#FFFFFF00",
+    "interlace": "None",
+    "intensity": "Undefined",
+    "compose": "Over",
+    "pageGeometry": {
+      "width": 406,
+      "height": 405,
+      "x": 0,
+      "y": 0
+    },
+    "dispose": "Background",
+    "delay": "17x100",
+    "iterations": 0,
+    "scene": 2,
+    "scenes": 4,
+    "compression": "LZW",
+    "orientation": "Undefined",
+    "properties": {
+      "date:create": "2024-04-05T04:13:43+00:00",
+      "date:modify": "2024-04-05T04:13:43+00:00",
+      "signature": "d7f901ca2a5e60d818d7453fac2a47153d87d387c404f813daf6c3bc88966e57"
+    },
+    "tainted": false,
+    "filesize": "0B",
+    "numberPixels": "164430",
+    "pixelsPerSecond": "637035B",
+    "userTime": "0.270u",
+    "elapsedTime": "0:01.258",
+    "version": "ImageMagick 7.0.10-58 Q16 x86_64 2021-01-14 https://imagemagick.org"
+  }
+},
+{
+  "version": "1.0",
+  "image": {
+    "name": "/home/videosdownloader/public_html/image/public/uploadt/tree-mascot.gif",
+    "baseName": "tree-mascot.gif",
+    "format": "GIF",
+    "formatDescription": "GIF",
+    "mimeType": "image/gif",
+    "class": "PseudoClass",
+    "geometry": {
+      "width": 406,
+      "height": 405,
+      "x": 0,
+      "y": 0
+    },
+    "units": "Undefined",
+    "type": "GrayscaleAlpha",
+    "baseType": "Undefined",
+    "endianness": "Undefined",
+    "colorspace": "sRGB",
+    "depth": 8,
+    "baseDepth": 8,
+    "channelDepth": {
+      "alpha": 1,
+      "red": 8,
+      "green": 8,
+      "blue": 1
+    },
+    "pixels": 657720,
+    "imageStatistics": {
+      "Overall": {
+        "min": 0,
+        "max": 255,
+        "mean": 180.376,
+        "median": 191.25,
+        "standardDeviation": 22686.2,
+        "kurtosis": -1.01157,
+        "skewness": -0.947369,
+        "entropy": 0.535686
+      }
+    },
+    "channelStatistics": {
+      "alpha": {
+        "min": 0,
+        "max": 255,
+        "mean": 66.9951,
+        "median": 0,
+        "standardDeviation": 28843,
+        "kurtosis": -0.837429,
+        "skewness": 1.07823,
+        "entropy": 0.830832
+      },
+      "red": {
+        "min": 0,
+        "max": 255,
+        "mean": 218.17,
+        "median": 255,
+        "standardDeviation": 20633.9,
+        "kurtosis": 2.88448,
+        "skewness": -2.1167,
+        "entropy": 0.437304
+      },
+      "green": {
+        "min": 0,
+        "max": 255,
+        "mean": 218.17,
+        "median": 255,
+        "standardDeviation": 20633.9,
+        "kurtosis": 2.88448,
+        "skewness": -2.1167,
+        "entropy": 0.437304
+      },
+      "blue": {
+        "min": 0,
+        "max": 255,
+        "mean": 218.17,
+        "median": 255,
+        "standardDeviation": 20633.9,
+        "kurtosis": 2.88448,
+        "skewness": -2.1167,
+        "entropy": 0.437304
+      }
+    },
+    "alpha": "#FFFFFF00",
+    "colormapEntries": 16,
+    "colormap": [
+      "#D4D4D4FF","#010101FF","#000000FF","#999999FF","#FFFFFFFF",
+      "#BBBBBBFF","#747474FF","#5F5F5FFF","#AEAEAEFF","#FFFFFF00",
+      "#000000FF","#000000FF","#000000FF","#000000FF","#000000FF",
+      "#000000FF"
+    ],
+    "renderingIntent": "Perceptual",
+    "gamma": 0.454545,
+    "chromaticity": {
+      "redPrimary": {
+        "x": 0.64,
+        "y": 0.33
+      },
+      "greenPrimary": {
+        "x": 0.3,
+        "y": 0.6
+      },
+      "bluePrimary": {
+        "x": 0.15,
+        "y": 0.06
+      },
+      "whitePrimary": {
+        "x": 0.3127,
+        "y": 0.329
+      }
+    },
+    "matteColor": "#BDBDBD",
+    "backgroundColor": "#FFFFFF00",
+    "borderColor": "#DFDFDF",
+    "transparentColor": "#FFFFFF00",
+    "interlace": "None",
+    "intensity": "Undefined",
+    "compose": "Over",
+    "pageGeometry": {
+      "width": 406,
+      "height": 405,
+      "x": 0,
+      "y": 0
+    },
+    "dispose": "None",
+    "delay": "17x100",
+    "iterations": 0,
+    "scene": 3,
+    "scenes": 4,
+    "compression": "LZW",
+    "orientation": "Undefined",
+    "properties": {
+      "date:create": "2024-04-05T04:13:43+00:00",
+      "date:modify": "2024-04-05T04:13:43+00:00",
+      "signature": "4e7b8ddfaa32f23fa9502f2fd6c05f5b36b74e489e479986c19c99d701e2975c"
+    },
+    "tainted": false,
+    "filesize": "13999B",
+    "numberPixels": "164430",
+    "pixelsPerSecond": "461213B",
+    "userTime": "0.380u",
+    "elapsedTime": "0:01.356",
+    "version": "ImageMagick 7.0.10-58 Q16 x86_64 2021-01-14 https://imagemagick.org"
+  }
+}]

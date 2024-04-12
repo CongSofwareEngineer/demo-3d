@@ -1,45 +1,53 @@
 import { Inter } from 'next/font/google'
-import './globals.css'
+import '@/styles/globals.css'
 import '@/styles/global.scss'
 import ReduxProvider from '@/components/ReduxProvider'
 import StyledComponentsRegistry from '@/components/AntdRegistry'
 import ClientRender from '@/components/ClientRender'
-import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { AntdRegistry } from '@ant-design/nextjs-registry'
 import ReactQueryProvider from '@/components/ReactQueryProvider'
+// import ParallaxProvider from '@/components/ParallaxProvider'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import LoadingFirst from '@/components/LoadingFirstPage'
 /** @type {import('next').Metadata} */
 const inter = Inter({ subsets: ['latin'] })
 
+const BaseMeta = {
+  title: 'TREE STUDIOS',
+  des: 'Tree Studios is an art outsourcing studio for game art, concept art, 2D/ 3D environment, assets and animations specializing in stylized art styles.',
+  image: 'https://www.tree.net.vn/favicon.ico'
+}
 export const metadata = {
   metadataBase: new URL('https://tree.net.vn/'),
-  title: 'TREE STUDIOS',
-  description: 'coming soon',
+  title: BaseMeta.title,
+  description: BaseMeta.des,
   keywords: [],
   openGraph: {
-    title: 'TREE STUDIOS',
-    description: 'coming soon',
-    images: 'https://www.tree.net.vn/favicon.ico',
-    siteName: 'TREE STUDIOS',
+    title: BaseMeta.title,
+    description: BaseMeta.des,
+    images: BaseMeta.image,
+    siteName: BaseMeta.title,
     url: 'https://tree.net.vn'
   },
   url: 'https://tree.net.vn',
   bookmarks: 'https://tree.net.vn',
   type: 'website',
   icons: {
-    icon: { url: 'https://www.tree.net.vn/favicon.ico' },
-    shortcut: { url: 'https://www.tree.net.vn/favicon.ico' },
-    apple: { url: 'https://www.tree.net.vn/favicon.ico' }
+    icon: { url: BaseMeta.image },
+    shortcut: { url: BaseMeta.image },
+    apple: { url: BaseMeta.image }
   },
   twitter: {
-    title: 'TREE STUDIOS',
-    description: 'coming soon',
+    title: BaseMeta.title,
+    description: BaseMeta.des,
     card: 'summary_large_image',
-    images: 'https://www.tree.net.vn/favicon.ico'
+    images: BaseMeta.image
   },
   verification: {
     google: 't1w9GTio8AJGDTzsGbJVaMX1yHocs4zCvyLqa_kQmAg'
   },
   appleWebApp: {
-    title: 'TREE STUDIOS'
+    title: BaseMeta.title
   },
   viewport: {
     width: 'device-width',
@@ -49,22 +57,30 @@ export const metadata = {
   }
 }
 
-export default function RootLayout ({ children }) {
+export default function RootLayout (props) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <main className="flex min-h-screen flex-col items-center justify-between">
+      <body >
+        <main className="flex min-h-screen flex-col items-center justify-between relative">
+          {/* <div className='absolute pointer-events-none'>
+            serverside
+          </div> */}
+
+          {/* <ParallaxProvider> */}
           <ReduxProvider>
-            <AntdRegistry >
-              <ReactQueryProvider>
-                <StyledComponentsRegistry >
-                  <ClientRender>
-                    {children}
-                  </ClientRender>
-                </StyledComponentsRegistry>
-              </ReactQueryProvider>
-            </AntdRegistry>
+            {/* <AntdRegistry > */}
+            <ReactQueryProvider>
+              <LoadingFirst/>
+              <StyledComponentsRegistry >
+                <ClientRender>
+                  {props.children}
+                </ClientRender>
+              </StyledComponentsRegistry>
+            </ReactQueryProvider>
+            {/* </AntdRegistry> */}
           </ReduxProvider>
+          {/* </ParallaxProvider> */}
+          <SpeedInsights/>
         </main>
       </body>
     </html>

@@ -18,8 +18,11 @@ const ReduxServices = {
     }
   },
   getPersistDataByKey: (key, defaultValue = '') => {
-    const { app: persistData } = JSON.parse(localStorage.getItem('persist:nextjs'))
-    return persistData?.[key] ? JSON.parse(persistData[key]) : defaultValue
+    if (typeof localStorage !== 'undefined') {
+      const { app: persistData } = JSON.parse(localStorage.getItem('persist:nextjs'))
+      return persistData?.[key] ? JSON.parse(persistData[key]) : defaultValue
+    }
+    return null
   }
 }
 export default ReduxServices

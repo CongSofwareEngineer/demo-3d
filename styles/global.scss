@@ -1,50 +1,125 @@
-.animation {
-    &__transformTop {
-        animation: vibrateTop 2s ease-in infinite alternate ;
-        @keyframes vibrateTop {
-            from {
-                transform: translateY(0px) ;
-            }
-            to {
-                transform: translateY(-15px) ;
-            }
-        }
-    }
+@import "variable.scss";
+@font-face {
+  font-family: Sans_Bold;
+  src: url("/assets/fonts/Providenc_Sans_Bold.otf");
+  font-weight: 700;
 
-    &-zoom955-2 {
-        -o-animation: zoom 2s linear infinite alternate;
-        -moz-animation: zoom 2s linear infinite alternate;
-        -webkit-animation: zoom 2s linear infinite alternate;
-        animation: zoom 2s linear infinite alternate;
-        @keyframes zoom {
-            from { 
-                transform: scale(0.955) translateX(1%);
-            }
-            to {
-                transform: scale(1) translateX(0%); 
-            }
-        }
-        
-
-        @-webkit-keyframes zoom {
-            from { 
-                transform: scale(0.955) translateX(1%);
-            }
-            to {
-                transform: scale(1) translateX(0%);
-            }
-        }
-    }
-
-   
 }
 
+@font-face {
+  font-family: Sans_Re;
+  src: url("/assets/fonts/Providence_Sans_Regular.ttf");
+}
+
+* {
+  font-family: Sans_Re, sans-serif;  
+  font-size: 16px; // Set your desired font size here
+ 
+  @media screen and (max-width: 768px) {
+    font-size: 13px; // Set your desired font size here
+
+  }
+  color: map-get(($background-colors),"blueMain" );
+}
+body{
+  background: wheat !important;
+  background-color: wheat !important;;
+}
+
+ 
+.bg-green-main{
+    background-color: #00FFCE;
+    background: #00FFCE;
+}
+
+.bg-blue-main{
+    background-color:#1146c0;
+    background:#1146c0;
+}
+
+.text-title {
+  font-size: 32px;
+  font-weight: 700;
+
+  @media screen and (max-width: 768px) {
+    font-size: 26px;
+  }
+}
+
+.text-medium {
+  font-size: 28px;
+  font-weight: 700;
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+.text-green-main{
+    color: map-get($background-colors,"greenMain" );
+}
 .hover {
-    cursor: pointer;
-    &-zoom25 {
-        &:hover {
-            transform: scale(1.025);
-            cursor: pointer;
-        }
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.025);
+  }
+}
+
+.absolute-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.relative-center {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.animation {
+  &__transformTop {
+    animation: vibrateTop 2s ease-in infinite alternate;
+
+    @keyframes vibrateTop {
+      from {
+        transform: translateY(0px);
+      }
+
+      to {
+        transform: translateY(-15px);
+      }
     }
+  }
+
+  &-zoom955-2 {
+    -o-animation: zoom 2s linear infinite alternate;
+    -moz-animation: zoom 2s linear infinite alternate;
+    -webkit-animation: zoom 2s linear infinite alternate;
+    animation: zoom 2s linear infinite alternate;
+
+    @keyframes zoom {
+      from {
+        transform: scale(0.955) translateX(1%);
+      }
+
+      to {
+        transform: scale(1) translateX(0%);
+      }
+    }
+
+
+    @-webkit-keyframes zoom {
+      from {
+        transform: scale(0.955) translateX(1%);
+      }
+
+      to {
+        transform: scale(1) translateX(0%);
+      }
+    }
+  }
+
+
 }

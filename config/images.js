@@ -26,10 +26,46 @@ export const images = {
     btnOurServiceClick: '/assets/images/Home/btnOurServiceClick.png',
     btnPortFlto: '/assets/images/Home/btnPortFlto.png',
     btnPortFltoClick: '/assets/images/Home/btnPortFltoClick.png',
-    bgFrameBase: '/assets/images/Home/bgFrameBase.png'
+    btnTree: '/assets/images/Home/btnTree.png',
+    btnTreeClick: '/assets/images/Home/btnTreeClick.png',
+    bgFrameBase: '/assets/images/Home/bgFrameBase.webp',
+    bannerPreload: '/assets/images/Home/bannerPreload.png',
+    banner2Preload: '/assets/images/Home/banner2Preload.png',
+    aboutUsPreload: '/assets/images/Home/aboutUsPreload.png',
+    profilePreload: '/assets/images/Home/profilePreload.png',
+    banner2: {
+      gameArt: '/assets/images/Home/Banner2/gameArt.png',
+      gameArtClick: '/assets/images/Home/Banner2/gameArtClick.png',
+      tableGameArt: '/assets/images/Home/Banner2/tableGameArt.png',
+      tableCharacter: '/assets/images/Home/Banner2/tableChacter.png',
+      branding: '/assets/images/Home/Banner2/branding.png',
+      brandingClick: '/assets/images/Home/Banner2/brandingClick.png',
+      tableBranding: '/assets/images/Home/Banner2/tableBranding.png',
+      character: '/assets/images/Home/Banner2/character.png',
+      characterClick: '/assets/images/Home/Banner2/characterClick.png'
+
+    },
+    bgContentBannerHome: '/assets/images/Home/bgContentBannerHome.webp',
+    bgMaskContentBannerHome: '/assets/images/Home/bgMaskContentBannerHome.png'
+  },
+  profile: {
+    bgSorter: '/assets/images/Profile/bgSorter.png',
+    bgMenuSorted: '/assets/images/Profile/bgMenuSorted.png',
+    btnAllRegister: '/assets/images/Profile/btnAllRegister.png'
+  },
+  contactAt: {
+    bannerContactAt: '/assets/images/ContactAt/bannerContactAt.webp'
   }
 }
 export const videos = {
-  planet1: '/assets/video/planet1.mp4',
-  aboutUs: '/assets/video/aboutUs.mp4'
+  bannerHome: '/assets/video/bannerHome.webm',
+  bannerOurService: '/assets/video/bannerOurService.webm',
+  bannerProfile: '/assets/video/bannerProfile.webm',
+  bannerAboutUs: '/assets/video/bannerAboutUs.webm',
+  loadingFirstPage: '/assets/video/loadingFristPage.webm'
+}
+
+export const json = {
+  transitions_1: '/assets/json/transitions_1.mp4.lottie.json'
+
 }
