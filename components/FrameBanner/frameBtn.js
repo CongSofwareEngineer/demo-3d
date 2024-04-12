@@ -1,11 +1,10 @@
 import { OBSERVER_KEY, QUEY_KEY, TYPE_BANNER } from '@/config/app'
 import { images } from '@/config/images'
-import useRouter from '@/hooks/useRouter'
 import useSizeScreen from '@/hooks/useSizeScreen'
 import ObserverService from '@/utils/observer'
 import { useQueryClient } from '@tanstack/react-query'
 import { usePathname } from 'next/navigation'
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import styled, { keyframes } from 'styled-components'
 
@@ -96,11 +95,6 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
   const isMouseClickRef = useRef(false)
   const queryClient = useQueryClient()
 
-  const [isCLickOurService, setIsCLickOurService] = useState(false)
-  const [isCLickAboutUs, setIsCLickAboutUs] = useState(false)
-  const [isCLickContact, setIsCLickContact] = useState(false)
-  const [isCLickProFile, setIsCLickProFile] = useState(false)
-  const [isCLickTree, setIsCLickTree] = useState(false)
   const [heightFrame, setHeightFrame] = useState(queryClient.getQueryData(QUEY_KEY.heightBgFrame))
 
   useEffect(() => {
@@ -137,51 +131,27 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
 
       switch (type) {
       case TYPE_BANNER.aboutUs:
-        // setIsCLickAboutUs(true)
-        // setTimeout(() => {
-        //   setIsCLickAboutUs(false)
-        // }, timeDebone)
         ObserverService.emit(OBSERVER_KEY.clickBtnFrame, OBSERVER_KEY.aboutUs)
-
         ObserverService.emit(OBSERVER_KEY.aboutUs)
 
         break
       case TYPE_BANNER.contact:
-        // setIsCLickContact(true)
-        // setTimeout(() => {
-        //   setIsCLickContact(false)
-        // }, timeDebone)
         ObserverService.emit(OBSERVER_KEY.clickBtnFrame, OBSERVER_KEY.contactAt)
         ObserverService.emit(OBSERVER_KEY.contactAt)
         break
 
       case TYPE_BANNER.profile:
-        // setIsCLickProFile(true)
-        // setTimeout(() => {
-        //   setIsCLickProFile(false)
-        // }, timeDebone)
         ObserverService.emit(OBSERVER_KEY.clickBtnFrame, OBSERVER_KEY.portfolio)
-
         ObserverService.emit(OBSERVER_KEY.portfolio)
         break
 
       case TYPE_BANNER.tree:
-        // setIsCLickTree(true)
-        // setTimeout(() => {
-        //   setIsCLickTree(false)
-        // }, timeDebone)
         ObserverService.emit(OBSERVER_KEY.clickBtnFrame, OBSERVER_KEY.home)
-
         ObserverService.emit(OBSERVER_KEY.home)
         break
 
       default:
-        // setIsCLickOurService(true)
-        // setTimeout(() => {
-        //   setIsCLickOurService(false)
-        // }, timeDebone)
         ObserverService.emit(OBSERVER_KEY.clickBtnFrame, OBSERVER_KEY.ourService)
-
         ObserverService.emit(OBSERVER_KEY.ourService)
         break
       }
@@ -189,26 +159,6 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
         isMouseClickRef.current = false
       }, timeDebone)
     }
-  }
-
-  const renderImage = (id, stateClick, url, urlClick) => {
-    return (
-
-      <>
-        <image
-          style={{ opacity: stateClick ? 0 : 1 }}
-          href={url}
-          id={stateClick ? 'no-data' : id}
-          width="2560" height="1097"
-        />
-
-        <image
-          href={urlClick}
-          id={id}
-          width="2560" height="1000"
-        />
-      </>
-    )
   }
 
   return (
@@ -294,7 +244,6 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
 
         <ButtonDetail
           id={'image0_1265_3'}
-          stateClick={isCLickTree}
           url={images.home.btnOurService}
           urlClick={ images.home.btnOurServiceClick}
           typeClick={OBSERVER_KEY.ourService}
@@ -306,62 +255,26 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
           urlClick={ images.home.btnPortFltoClick}
           typeClick={OBSERVER_KEY.portfolio}
         />
-        {/* {
-          renderImage(
-            'image1_1265_3',
-            isCLickProFile,
-            images.home.btnPortFlto,
-            images.home.btnPortFltoClick
-          )
-        } */}
-
-        {/* {
-          renderImage(
-            'image4_1265_3',
-            isCLickTree,
-            images.home.btnTree,
-            images.home.btnTreeClick
-          )
-        } */}
 
         <ButtonDetail
           id={'image4_1265_3'}
-          stateClick={isCLickTree}
           url={images.home.btnTree}
           urlClick={ images.home.btnTreeClick}
           typeClick={OBSERVER_KEY.home}
         />
         <ButtonDetail
           id={'image2_1265_3'}
-          stateClick={isCLickAboutUs}
           url={images.home.btnAboutUs}
           urlClick={ images.home.btnAboutUsClick}
           typeClick={OBSERVER_KEY.aboutUs}
         />
-        {/* {
-          renderImage(
-            'image2_1265_3',
-            isCLickAboutUs,
-            images.home.btnAboutUs,
-            images.home.btnAboutUsClick
-          )
-        } */}
+
         <ButtonDetail
           id={'image3_1265_3'}
-          stateClick={isCLickAboutUs}
           url={images.home.btnContact}
           urlClick={ images.home.btnContactClick}
           typeClick={OBSERVER_KEY.contactAt}
         />
-        {/*
-        {
-          renderImage(
-            'image3_1265_3',
-            isCLickContact,
-            images.home.btnContact,
-            images.home.btnContactClick
-          )
-        } */}
 
       </defs>
     </SVGCustom>

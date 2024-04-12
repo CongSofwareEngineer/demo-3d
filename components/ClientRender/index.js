@@ -5,30 +5,18 @@ import { useSelector } from 'react-redux'
 import Container from '../Container'
 import { usePathname } from 'next/navigation'
 import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
-import LoadingFirst from '../LoadingFirstPage'
 import ObserverService from '@/utils/observer'
 import useRouter from '@/hooks/useRouter'
 import dynamic from 'next/dynamic'
-import Image from 'next/image'
 
 const LoadingMotionPage = dynamic(() => import('../LoadingMotionPage'), { ssr: false })
 const FrameMain = dynamic(() => import('../FrameMain'), { ssr: false })
 
 const ClientRender = ({ children }) => {
-  const [isClient, setIsClient] = useState(false)
-  const [loadingFirstPage, setLoadingFirstPage] = useState(true)
-
   const language = useSelector((state) => state.app.language)
   const router = useRouter()
   const patchName = usePathname()
   const urlSelected = useRef('')
-
-  useLayoutEffect(() => {
-    setIsClient(true)
-    setTimeout(() => {
-      setLoadingFirstPage(false)
-    }, 3000)
-  }, [])
 
   useLayoutEffect(() => {
     urlSelected.current = patchName.slice(1)
@@ -74,11 +62,13 @@ const ClientRender = ({ children }) => {
       >
         {/* {isClient && children} */}
         {children}
-        {
+
+        {/* {
           patchName !== '' && patchName !== '/' && (
             <FrameMain />
           )
-        }
+        } */}
+        <FrameMain />
 
         {/* {
           patchName !== '' && patchName !== '/' && loadingFirstPage && Boolean(!process.env.NEXT_PUBLIC_DISABLE_LOADING) && (
