@@ -1,8 +1,11 @@
 import { images } from '@/config/images'
-import useSizeScreen from '@/hooks/useSizeScreen'
 import Image from 'next/image'
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { useWindowSize } from 'react-use'
+import { OBSERVER_KEY } from '@/config/app'
+import ObserverService from '@/utils/observer'
+import { isMobile } from 'react-device-detect'
 
 const ImageCustom = styled(Image)`
   position: relative !important;
@@ -12,70 +15,67 @@ const ImageCustom = styled(Image)`
   max-width: none !important;
 `
 
-const ImageOurService = ({ src }) => {
+const ContainerImgBtn = styled.div`
+  user-select: none;
+  position: relative;
+  left: ${props => props.$left}%;
+  height: ${props => props.$height}%;
+  cursor: pointer;
+`
+
+const ImageBtn = ({
+  src,
+  srcClick,
+  typeClick = OBSERVER_KEY.aboutUs,
+  height = '',
+  top = '',
+  left = ''
+}) => {
+  const [isClick, setIsClick] = useState(false)
+
+  const handleClick = () => {
+    setIsClick(true)
+    setTimeout(() => {
+      setIsClick(false)
+    }, 200)
+    ObserverService.emit(typeClick)
+  }
+
   return (
-    <div className='relative h-[72%]  top-[23%] left-[-11%] '>
+    <ContainerImgBtn
+      $left={left}
+      $height={height}
+      onMouseDown={handleClick}
+      onClick={() => isMobile ? handleClick() : {}}
+      style={{ top: isClick ? `${top - 1}%` : `${top}%` }}
+    >
       <ImageCustom
-        src={src}
+        src={isClick ? srcClick : src}
         fill
       />
-    </div>
+    </ContainerImgBtn>
   )
 }
 
-const ImageProfile = ({ src }) => {
-  return (
-    <div className='relative h-[72%]  top-[9%] left-[-13%] '>
-      <ImageCustom
-        src={src}
-        fill
-      />
-    </div>
-  )
-}
-
-const ImageTree = ({ src }) => {
-  return (
-    <div className='relative h-[72%]  top-[-10%] left-[-4.3%] '>
-      <ImageCustom
-        src={src}
-        fill
-      />
-    </div>
-  )
-}
-
-const ImageAboutAt = ({ src }) => {
-  return (
-    <div className='relative h-[72%]  top-[23%] '>
-      <ImageCustom
-        src={src}
-        fill
-      />
-    </div>
-  )
-}
-
-const ImageContact = ({ src }) => {
-  return (
-    <div className='relative h-[72%]  top-[23%] '>
-      <ImageCustom
-        src={src}
-        fill
-      />
-    </div>
-  )
-}
 const FrameBtnByImage = () => {
   const [widthBgFrame, setWidthBgFrame] = useState(10000)
+  const [heightBgFrame, setHeightBgFrame] = useState(10000)
+
+  const { width, height } = useWindowSize()
+
+  const getWidth = () => {
+    const bg = document.getElementsByClassName('bg-frame-banner')[0]
+    if (bg) {
+      setWidthBgFrame(bg.clientWidth)
+      setHeightBgFrame(bg.clientHeight)
+    }
+  }
 
   useEffect(() => {
-    const getWidth = () => {
-      const bg = document.getElementsByClassName('bg-frame-banner')[0]
-      if (bg) {
-        setWidthBgFrame(bg.clientWidth)
-      }
-    }
+    getWidth()
+  }, [width, height])
+
+  useEffect(() => {
     window.addEventListener('resize', () => {
       getWidth()
     })
@@ -83,21 +83,55 @@ const FrameBtnByImage = () => {
       getWidth()
     }, 500)
   }, [])
-  console.log('====================================')
-  console.log({ widthBgFrame })
-  console.log('====================================')
+
   return (
-    <div className={'pl-[100px] fixed z-[11] gap-3 bottom-0   h-[19%] flex items-center justify-around'} style={{ width: widthBgFrame }}>
-      <ImageOurService src={images.home.btnOurService} />
+    <div className={'fixed z-[11]  bottom-0  flex items-center select-none '} style={{ width: widthBgFrame, height: heightBgFrame * 0.21 }}>
+      <ImageBtn
+        src={images.home.btnOurService}
+        srcClick={images.home.btnOurServiceClick}
+        height={70}
+        left={15}
+        top={25}
+        typeClick={OBSERVER_KEY.ourService}
+      />
 
-      <ImageProfile src={images.home.btnPortFltoClick} />
+      <ImageBtn
+        src={images.home.btnPortFlto}
+        srcClick={images.home.btnPortFltoClick}
+        height={66}
+        left={14}
+        top={15}
+        typeClick={OBSERVER_KEY.portfolio}
+      />
 
-      <ImageTree src={images.home.btnTree} />
+      <ImageBtn
+        src={images.home.btnTree}
+        srcClick={images.home.btnTreeClick}
+        height={72}
+        left={19}
+        top={-1}
+        typeClick={OBSERVER_KEY.home}
+      />
 
-      <ImageAboutAt src={images.home.btnAboutUs} />
+      <ImageBtn
+        src={images.home.btnAboutUs}
+        srcClick={images.home.btnAboutUsClick}
+        height={66}
+        left={23.5}
+        top={15}
+        typeClick={OBSERVER_KEY.aboutUs}
+      />
 
-      <ImageContact src={images.home.btnContact} />
+      <ImageBtn
+        src={images.home.btnContact}
+        srcClick={images.home.btnContactClick}
+        height={69}
+        left={23}
+        top={26}
+        typeClick={OBSERVER_KEY.contactAt}
+      />
+
     </div>
   )
 }
-export default FrameBtnByImage
+export default React.memo(FrameBtnByImage, () => false)

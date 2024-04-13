@@ -179,6 +179,7 @@ const FrameBtn = ({ callBackLoad = () => {} }) => {
         onClick={() => (isMobile ? handleClick(TYPE_BANNER.ourService) : {})}
         x={-3400} y={400} width="1900" height="650"
         fill="url(#pattern0frame)"
+        className='rect-ourService'
       />
 
       <Rects
