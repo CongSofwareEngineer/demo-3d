@@ -61,7 +61,7 @@ export default function RootLayout (props) {
   return (
     <html lang="en">
       <body >
-        <main className="flex min-h-full flex-col items-center justify-between relative">
+        <main className="flex min-h-screen flex-col items-center justify-between relative">
           {/* <div className='absolute pointer-events-none'>
             serverside
           </div> */}
