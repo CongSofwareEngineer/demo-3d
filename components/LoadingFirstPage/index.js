@@ -27,7 +27,7 @@ const LoadingFirst = () => {
   useLayoutEffect(() => {
     setTimeout(() => {
       setIsLoaded(true)
-    }, 1500)
+    }, 2000)
   }, [])
 
   return (

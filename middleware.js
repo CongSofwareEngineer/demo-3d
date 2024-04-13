@@ -8,16 +8,16 @@ export const config = {
 
 export default async function middleware (request) {
   if (request.nextUrl.pathname.startsWith('/home-demo')) {
-    console.log('====================================');
-    console.log('replace');
-    console.log('====================================');
+    console.log('====================================')
+    console.log('replace')
+    console.log('====================================')
     // const res = NextResponse.redirect(new URL('/', request.url))
     // return res
 
     // Why? using fetch instead of axios here
     // => https://github.com/vercel/next.js/issues/30932
   }
-  console.log('no replace');
+  console.log('no replace')
 
   return NextResponse.next()
 }
