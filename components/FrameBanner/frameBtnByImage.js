@@ -1,25 +1,35 @@
 import { images } from '@/config/images'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { useWindowSize } from 'react-use'
 import { OBSERVER_KEY } from '@/config/app'
 import ObserverService from '@/utils/observer'
 import { isMobile } from 'react-device-detect'
 
 const ImageCustom = styled(Image)`
-  position: relative !important;
-  max-height:100% !important;
-  height: 90% !important;
-  width: auto !important;
-  max-width: none !important;
+  ${(props) =>
+    props.$isClick
+      ? css`
+          position: relative !important;
+          max-height: 100% !important;
+          height: 90% !important;
+          width: auto !important;
+          max-width: none !important;
+        `
+      : css`
+          position: relative !important;
+          height: 0px !important;
+          width: 0px !important;
+          opacity: 0 !important;
+        `}
 `
 
 const ContainerImgBtn = styled.div`
   user-select: none;
   position: relative;
-  left: ${props => props.$left}%;
-  height: ${props => props.$height}%;
+  left: ${(props) => props.$left}%;
+  height: ${(props) => props.$height}%;
   cursor: pointer;
 `
 
@@ -46,13 +56,12 @@ const ImageBtn = ({
       $left={left}
       $height={height}
       onMouseDown={handleClick}
-      onClick={() => isMobile ? handleClick() : {}}
+      onClick={() => (isMobile ? handleClick() : {})}
       style={{ top: isClick ? `${top - 1}%` : `${top}%` }}
     >
-      <ImageCustom
-        src={isClick ? srcClick : src}
-        fill
-      />
+      <ImageCustom src={src} fill $isClick={!isClick} />
+
+      <ImageCustom src={srcClick} fill $isClick={isClick} />
     </ContainerImgBtn>
   )
 }
@@ -85,7 +94,10 @@ const FrameBtnByImage = () => {
   }, [])
 
   return (
-    <div className={'fixed z-[11]  bottom-0  flex items-center select-none '} style={{ width: widthBgFrame, height: heightBgFrame * 0.21 }}>
+    <div
+      className={'fixed z-[11]  bottom-0  flex items-center select-none '}
+      style={{ width: widthBgFrame, height: heightBgFrame * 0.21 }}
+    >
       <ImageBtn
         src={images.home.btnOurService}
         srcClick={images.home.btnOurServiceClick}
@@ -130,7 +142,6 @@ const FrameBtnByImage = () => {
         top={26}
         typeClick={OBSERVER_KEY.contactAt}
       />
-
     </div>
   )
 }
