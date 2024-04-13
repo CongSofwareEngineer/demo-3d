@@ -3,11 +3,13 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { useWindowSize } from 'react-use'
-import { OBSERVER_KEY } from '@/config/app'
+import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
 import ObserverService from '@/utils/observer'
 import { isMobile } from 'react-device-detect'
+import { usePathname } from 'next/navigation'
 
 const ImageCustom = styled(Image)`
+opacity: ${props => props.$noPageSelected ? 1 : 0.7};
   ${(props) =>
     props.$isClick
       ? css`
@@ -41,6 +43,8 @@ const ImageBtn = ({
   top = '',
   left = ''
 }) => {
+  const patchName = usePathname()
+
   const [isClick, setIsClick] = useState(false)
 
   const handleClick = () => {
@@ -59,9 +63,21 @@ const ImageBtn = ({
       onClick={() => (isMobile ? handleClick() : {})}
       style={{ top: isClick ? `${top - 1}%` : `${top}%` }}
     >
-      <ImageCustom src={src} fill $isClick={!isClick} />
+      <ImageCustom
+        $noPageSelected={patchName.slice(1) === typeClick}
+        src={src}
+        fill
+        $isClick={!isClick}
+        className='hover:opacity-100'
+      />
 
-      <ImageCustom src={srcClick} fill $isClick={isClick} />
+      <ImageCustom
+        $noPageSelected={patchName.slice(1) === typeClick}
+        src={srcClick}
+        fill
+        $isClick={isClick}
+        className='hover:opacity-100'
+      />
     </ContainerImgBtn>
   )
 }

@@ -8,7 +8,6 @@ import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
 import ObserverService from '@/utils/observer'
 import useRouter from '@/hooks/useRouter'
 import dynamic from 'next/dynamic'
-import { saveDataLocal } from '@/utils/function'
 
 const LoadingMotionPage = dynamic(() => import('../LoadingMotionPage'), { ssr: false })
 const FrameMain = dynamic(() => import('../FrameMain'), { ssr: false })
@@ -24,7 +23,6 @@ const ClientRender = ({ children }) => {
   }, [patchName])
 
   useEffect(() => {
-    saveDataLocal('domain', 'tree.studio.com')
     ObserverService.on(OBSERVER_KEY.aboutUs, () => callBackRoutePage(PAGE_EX.aboutUs))
     ObserverService.on(OBSERVER_KEY.contactAt, () => callBackRoutePage(PAGE_EX.contactAt))
     ObserverService.on(OBSERVER_KEY.ourService, () => callBackRoutePage(PAGE_EX.ourService))
