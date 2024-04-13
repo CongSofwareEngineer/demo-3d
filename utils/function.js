@@ -1,3 +1,6 @@
+import { toast } from 'react-toastify'
+import { message, notification } from 'antd'
+
 export const cloneObArr = (data) => JSON.parse(JSON.stringify(data))
 
 export const flattenMessages = (nestedMessages, prefix = '') => {
@@ -48,4 +51,47 @@ export const getDataLocal = (key) => {
     console.log(error)
     return null
   }
+}
+
+export const showNotification = (
+  title = null,
+  description = '',
+  type = 'open'
+) => {
+  const params = {
+    placement: 'bottomRight',
+    className: 'notification-class',
+    bottom: 54,
+    duration: 5
+  }
+  if (title) {
+    params.message = title
+  }
+  if (description) {
+    params.description = description
+  }
+  notification[type](params)
+}
+export const showNotificationError = (errorMessage = '', autoClose = 5000) => {
+  toast.error(errorMessage, {
+    position: 'bottom-right',
+    autoClose,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined
+  })
+}
+
+export const showNotificationSuccess = (message = '', autoClose = 5000) => {
+  toast.success(message, {
+    position: 'bottom-right',
+    autoClose,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined
+  })
 }

@@ -14,9 +14,6 @@ const LoadingFirst = () => {
   const query = useQueryClient()
 
   useEffect(() => {
-    console.log('====================================')
-    console.log({ preloadAboutUs, preloadContactAt })
-    console.log('====================================')
     const data = {
       [QUEY_KEY.preLoadAboutAt]: preloadAboutUs,
       [QUEY_KEY.preLoadContactUs]: preloadContactAt,
@@ -30,7 +27,7 @@ const LoadingFirst = () => {
   useLayoutEffect(() => {
     setTimeout(() => {
       setIsLoaded(true)
-    }, 3000)
+    }, 1000)
   }, [])
 
   return (

@@ -1,7 +1,8 @@
 import { flattenMessages } from '@/utils/function'
 import MessageEN from 'public/assets/lang/en.json'
 export const WHITE_LIST_REDUX = [
-  'local'
+  'local',
+  'userAmin'
 ]
 
 export const SLICES = {
@@ -91,4 +92,12 @@ export const MENU_SORTER = {
   gameArt: 'Game Art',
   characterDesign: 'Character Design',
   visual: 'Visual & Design'
+}
+
+export const REQUEST_TYPE = {
+  POST: 'POST',
+  GET: 'GET',
+  PUT: 'PUT',
+  DELETE: 'DELETE',
+  PATCH: 'PATCH'
 }

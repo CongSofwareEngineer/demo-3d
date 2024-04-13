@@ -19,11 +19,11 @@
     font-size: 13px; // Set your desired font size here
 
   }
-  color: map-get(($background-colors),"blueMain" );
-}
+ }
 body{
   background: wheat !important;
-  background-color: wheat !important;;
+  background-color: wheat !important; 
+  color: map-get(($background-colors),"blueMain" );
 }
 
  

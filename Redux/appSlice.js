@@ -8,7 +8,8 @@ export const initialState = {
   loadingRoutePage: false,
   banner2: {
     hoverGameArt: false
-  }
+  },
+  userAmin: null
 
 }
 export const appSlice = createSlice({
@@ -24,6 +25,9 @@ export const appSlice = createSlice({
     setEventBanner: (state, action) => {
       state.banner2 = action.payload
     },
+    setUserAdmin: (state, action) => {
+      state.userAmin = action.userAmin
+    },
     setLanguage: (state, action) => {
       if (!action?.payload) {
         state.language = LOCALE_DATA[state.local]
@@ -36,6 +40,7 @@ export const appSlice = createSlice({
 })
 export const {
   setModal,
-  setLanguage
+  setLanguage,
+  setUserAdmin
 } = appSlice.actions
 export default appSlice.reducer
