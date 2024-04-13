@@ -4,6 +4,8 @@ import styled from 'styled-components'
 export const ImageBanner = styled(Image)`
   min-height: 100vh !important;
   position: relative !important;
+  min-width: 100% !important;
+
   width: auto !important;
   height: auto !important;
   inset: unset !important;

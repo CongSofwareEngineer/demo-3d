@@ -7,7 +7,7 @@ const ContainerLottie = styled.div`
   position: fixed;
   width: 100vw;
   height: 100vh;
-  z-index: 999999999999;
+  z-index: 19;
   svg {
     margin-left: 50%;
     transform: translate(-50%, 0%) !important;

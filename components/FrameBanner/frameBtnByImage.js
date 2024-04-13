@@ -95,7 +95,7 @@ const FrameBtnByImage = () => {
 
   return (
     <div
-      className={'fixed z-[11]  bottom-0  flex items-center select-none '}
+      className={'fixed z-[21]  bottom-0  flex items-center select-none '}
       style={{ width: widthBgFrame, height: heightBgFrame * 0.21 }}
     >
       <ImageBtn

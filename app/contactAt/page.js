@@ -9,7 +9,7 @@ import useSizeScreen from '@/hooks/useSizeScreen'
 
 const PageContactAs = () => {
   const query = useQueryClient()
-  const { ratioBeautiful } = useSizeScreen()
+
   const getUrlPoster = () => {
     try {
       const dataCache = query.getQueryData(QUEY_KEY.dataPosterBanner)

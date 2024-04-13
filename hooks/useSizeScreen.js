@@ -1,4 +1,5 @@
 import { useLayoutEffect, useState } from 'react'
+import { useWindowSize } from 'react-use'
 
 const useSizeScreen = () => {
   const [sizeScreen, setSizeScreen] = useState({
@@ -6,6 +7,7 @@ const useSizeScreen = () => {
     height: 99,
     ratioBeautiful: false
   })
+  const { width, height } = useWindowSize()
 
   useLayoutEffect(() => {
     const changeSizeScreen = () => {
@@ -28,13 +30,8 @@ const useSizeScreen = () => {
       }
     }
 
-    window.addEventListener('resize', () => {
-      changeSizeScreen()
-    })
-
     changeSizeScreen()
-    return () => window.removeEventListener('resize', () => {})
-  }, [])
+  }, [width, height])
 
   return sizeScreen
 }

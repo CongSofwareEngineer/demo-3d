@@ -176,7 +176,7 @@ const SlideVideo = ({
           >
             <use
               xlinkHref={`#image5_1220_6${keySVG}`}
-              transform="matrix(0.0013 0 0 0.00127 0 -0.12419)"
+              transform="matrix(0.0012 0 0 0.00127 0 -0.12419)"
             />
           </pattern>
           {/* <image id="image1_1220_6" width="2560" height="1097" /> */}

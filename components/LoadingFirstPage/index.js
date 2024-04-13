@@ -27,13 +27,13 @@ const LoadingFirst = () => {
   useLayoutEffect(() => {
     setTimeout(() => {
       setIsLoaded(true)
-    }, 1000)
+    }, 1500)
   }, [])
 
   return (
     !isLoaded
       ? (
-        <div className='fixed bg-white z-[13] w-screen h-screen flex justify-center items-center' >
+        <div className='fixed bg-white z-30 w-screen h-screen flex justify-center items-center' >
           <video
             className='w-[100px] h-[100px] object-cover'
             muted
