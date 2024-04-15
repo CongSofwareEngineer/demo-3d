@@ -1,9 +1,9 @@
-"use client";
-import React, { useRef, useState } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+'use client';
+import React, { useRef, useState } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 
-function Box(props) {
+function Box (props) {
   // This reference will give us direct access to the mesh
   const meshRef = useRef();
   // Set up state for the hovered and active state
@@ -22,7 +22,7 @@ function Box(props) {
       onPointerOut={(event) => setHover(false)}
     >
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
+      <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
     </mesh>
   );
 }
