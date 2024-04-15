@@ -1,28 +1,9 @@
 'use client'
 import { videos } from '@/config/images'
-import { useEffect, useLayoutEffect, useState } from 'react'
-import preloadContactAt from '@/public/assets/images/ContactAt/bannerContactAt.webp'
-import preloadOurService from '@/public/assets/images/Home/banner2Preload.png'
-import preloadPortfolio from '@/public/assets/images/Home/profilePreload.png'
-import preloadHome from '@/public/assets/images/Home/bannerPreload.png'
-import preloadAboutUs from '@/public/assets/images/Home/aboutUsPreload.png'
-import { useQueryClient } from '@tanstack/react-query'
-import { QUEY_KEY } from '@/config/app'
+import { useLayoutEffect, useState } from 'react'
 
 const LoadingFirst = () => {
   const [isLoaded, setIsLoaded] = useState(false)
-  const query = useQueryClient()
-
-  useEffect(() => {
-    const data = {
-      [QUEY_KEY.preLoadAboutAt]: preloadAboutUs,
-      [QUEY_KEY.preLoadContactUs]: preloadContactAt,
-      [QUEY_KEY.preLoadOurService]: preloadOurService,
-      [QUEY_KEY.preLoadPortfolio]: preloadPortfolio,
-      [QUEY_KEY.preLoadHome]: preloadHome
-    }
-    query.setQueryData(QUEY_KEY.dataPosterBanner, data)
-  }, [])
 
   useLayoutEffect(() => {
     setTimeout(() => {

@@ -101,12 +101,13 @@ const FrameBtnByImage = () => {
   }, [width, height])
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      getWidth()
-    })
+    ObserverService.on(OBSERVER_KEY.loadBgFrame, getWidth)
     setTimeout(() => {
       getWidth()
-    }, 500)
+    }, 1000)
+    return () => {
+      ObserverService.removeListener(OBSERVER_KEY.loadBgFrame)
+    }
   }, [])
 
   return (

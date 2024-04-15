@@ -60,22 +60,9 @@ const ClientRender = ({ children }) => {
         locale={language?.locale || 'vn'}
         messages={language?.messages || {}}
       >
-        {/* {isClient && children} */}
+
         {children}
-
-        {/* {
-          patchName !== '' && patchName !== '/' && (
-            <FrameMain />
-          )
-        } */}
         <FrameMain />
-
-        {/* {
-          patchName !== '' && patchName !== '/' && loadingFirstPage && Boolean(!process.env.NEXT_PUBLIC_DISABLE_LOADING) && (
-            <LoadingFirst/>
-          )
-        } */}
-
         <LoadingMotionPage />
       </IntlProvider>
     </Container>
