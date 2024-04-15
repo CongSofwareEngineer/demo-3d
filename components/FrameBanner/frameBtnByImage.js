@@ -9,7 +9,7 @@ import { isMobile } from 'react-device-detect'
 import { usePathname } from 'next/navigation'
 
 const ImageCustom = styled(Image)`
-  filter: brightness(${props => props.$noPageSelected ? 1 : 0.8});
+  opacity: ${(props) => props.$noPageSelected ? 1 : 0.7};
   ${(props) =>
     props.$isClick
       ? css`
@@ -70,7 +70,7 @@ const ImageBtn = ({
         src={src}
         fill
         $isClick={!isClick}
-        className={'brightness-100'}
+        className={'hover:opacity-100'}
       />
 
       <ImageCustom
@@ -80,7 +80,7 @@ const ImageBtn = ({
         src={srcClick}
         fill
         $isClick={isClick}
-        className={'brightness-100'}
+        className={'hover:opacity-100'}
       />
     </ContainerImgBtn>
   )
