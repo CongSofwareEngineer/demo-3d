@@ -7,7 +7,8 @@ export async function generateMetadata (_, parent) {
 
   const metaData = generateMetaBase({
     dataBase,
-    title
+    title,
+    override: true
   })
 
   return metaData
