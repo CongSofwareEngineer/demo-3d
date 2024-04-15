@@ -7,6 +7,7 @@ import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
 import ObserverService from '@/utils/observer'
 import { isMobile } from 'react-device-detect'
 import { usePathname } from 'next/navigation'
+import styles from './frameBtnByImage.module.scss'
 
 const ImageCustom = styled(Image)`
 opacity: ${props => props.$noPageSelected ? 1 : 0.7};
@@ -64,21 +65,23 @@ const ImageBtn = ({
       style={{ top: isClick ? `${top - 1}%` : `${top}%` }}
     >
       <ImageCustom
+        loading='lazy'
         draggable={false}
         $noPageSelected={patchName.slice(1) === typeClick}
         src={src}
         fill
         $isClick={!isClick}
-        className='hover:opacity-100'
+        className={`${styles['my-image-base']} hover:opacity-100`}
       />
 
       <ImageCustom
+        loading='lazy'
         draggable={false}
         $noPageSelected={patchName.slice(1) === typeClick}
         src={srcClick}
         fill
         $isClick={isClick}
-        className='hover:opacity-100'
+        className={`${styles['my-image-base']} hover:opacity-100`}
       />
     </ContainerImgBtn>
   )
