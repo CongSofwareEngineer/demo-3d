@@ -11,6 +11,7 @@ import dynamic from 'next/dynamic'
 
 const LoadingMotionPage = dynamic(() => import('../LoadingMotionPage'), { ssr: false })
 const FrameMain = dynamic(() => import('../FrameMain'), { ssr: false })
+const MyModal = dynamic(() => import('../MyModal'), { ssr: false })
 
 const ClientRender = ({ children }) => {
   const language = useSelector((state) => state.app.language)
@@ -64,6 +65,7 @@ const ClientRender = ({ children }) => {
         {children}
         <FrameMain />
         <LoadingMotionPage />
+        <MyModal />
       </IntlProvider>
     </Container>
   )
