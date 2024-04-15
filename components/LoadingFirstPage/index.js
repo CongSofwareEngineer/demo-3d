@@ -1,5 +1,4 @@
 'use client'
-import { videos } from '@/config/images'
 import Image from 'next/image'
 import { useLayoutEffect, useState } from 'react'
 
