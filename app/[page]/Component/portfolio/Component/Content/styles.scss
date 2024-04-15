@@ -1,0 +1,16 @@
+.container-content-base { 
+  opacity: 0;
+  will-change: transform, scale, opacity;
+  transform: translateY(6rem) scale(0.93) ;
+  transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  width: 100%;
+  display: flex; 
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  overflow-y: hidden; 
+  overflow-x: hidden; 
+  
+}
+ 

@@ -7,7 +7,7 @@ const ClientRender = ({ children }) => {
   const [isClient, setIsClient] = useState(false)
   useLayoutEffect(() => {
     setIsClient(true)
-    console.log({ la: getCurrentBrowserLanguage() });
+    console.log({ la: getCurrentBrowserLanguage() })
   }, [])
 
   return (

@@ -101,9 +101,6 @@ const FrameBtnByImage = () => {
   }, [width, height])
 
   useEffect(() => {
-    window.addEventListener('resize', () => {
-      getWidth()
-    })
     setTimeout(() => {
       getWidth()
     }, 500)
