@@ -70,7 +70,7 @@ const ImageBtn = ({
         src={src}
         fill
         $isClick={!isClick}
-        className={'hover:opacity-100'}
+        className={'brightness-100'}
       />
 
       <ImageCustom
@@ -80,7 +80,7 @@ const ImageBtn = ({
         src={srcClick}
         fill
         $isClick={isClick}
-        className={'hover:opacity-100'}
+        className={'brightness-100'}
       />
     </ContainerImgBtn>
   )
