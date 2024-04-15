@@ -64,7 +64,6 @@ const ImageBtn = ({
       style={{ top: isClick ? `${top - 1}%` : `${top}%` }}
     >
       <ImageCustom
-        loading="lazy"
         draggable={false}
         $noPageSelected={patchName.slice(1) === typeClick}
         src={src}
@@ -74,7 +73,6 @@ const ImageBtn = ({
       />
 
       <ImageCustom
-        loading="lazy"
         draggable={false}
         $noPageSelected={patchName.slice(1) === typeClick}
         src={srcClick}
