@@ -1,5 +1,6 @@
 'use client'
 import { videos } from '@/config/images'
+import Image from 'next/image'
 import { useLayoutEffect, useState } from 'react'
 
 const LoadingFirst = () => {
@@ -15,7 +16,7 @@ const LoadingFirst = () => {
     !isLoaded
       ? (
         <div className='fixed bg-white z-30 w-screen h-screen flex justify-center items-center' >
-          <video
+          {/* <video
             className='w-[100px] h-[100px] object-cover'
             muted
             autoPlay
@@ -25,7 +26,13 @@ const LoadingFirst = () => {
             preload="none"
           >
             <source src={videos.loadingFirstPage} />
-          </video>
+          </video> */}
+          <Image
+            width={100}
+            height={100}
+            src={'/assets/gif/loadingFirstPage.gif'}
+            alt='loadingFirstPage'
+          />
         </div>
       )
       : <></>

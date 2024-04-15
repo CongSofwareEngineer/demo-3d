@@ -1,4 +1,5 @@
 export const images = {
+  loadingFirstPage: '/assets/gif/loadingFirstPage.gif',
   comingSoon: {
     bgComingSoon: '/assets/images/ComingSoon/bgComingSoon.jpg'
   },
