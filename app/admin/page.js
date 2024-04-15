@@ -5,7 +5,7 @@ const LayoutAdmin = ({ children }) => {
   return (
     <div className='flex flex-1 w-full min-h-full  bg-white'>
       <MenuTab />
-      <div className='flex-1 relative pt-6'>
+      <div className='flex-1 relative pt-6 px-4'>
         {children}
       </div>
     </div>
