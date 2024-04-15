@@ -89,6 +89,7 @@ const ImageBtn = ({
 const FrameBtnByImage = () => {
   const [widthBgFrame, setWidthBgFrame] = useState(10000)
   const [heightBgFrame, setHeightBgFrame] = useState(10000)
+  const [isShow, setIsShow] = useState(false)
 
   const { width, height } = useWindowSize()
 
@@ -105,7 +106,10 @@ const FrameBtnByImage = () => {
   }, [width, height])
 
   useEffect(() => {
-    ObserverService.on(OBSERVER_KEY.loadBgFrame, getWidth)
+    ObserverService.on(OBSERVER_KEY.loadBgFrame, () => {
+      getWidth()
+      setIsShow(true)
+    })
     setTimeout(() => {
       getWidth()
     }, 1000)
@@ -115,55 +119,59 @@ const FrameBtnByImage = () => {
   }, [])
 
   return (
-    <div
-      className={'fixed z-[21]  bottom-0  flex items-center select-none '}
-      style={{ width: widthBgFrame, height: heightBgFrame * 0.21 }}
-    >
-      <ImageBtn
-        src={images.home.btnOurService}
-        srcClick={images.home.btnOurServiceClick}
-        height={70}
-        left={15}
-        top={25}
-        typeClick={OBSERVER_KEY.ourService}
-      />
+    isShow
+      ? (
+        <div
+          className={'fixed z-[21]  bottom-0  flex items-center select-none '}
+          style={{ width: widthBgFrame, height: heightBgFrame * 0.21 }}
+        >
+          <ImageBtn
+            src={images.home.btnOurService}
+            srcClick={images.home.btnOurServiceClick}
+            height={70}
+            left={15}
+            top={25}
+            typeClick={OBSERVER_KEY.ourService}
+          />
 
-      <ImageBtn
-        src={images.home.btnPortFlto}
-        srcClick={images.home.btnPortFltoClick}
-        height={66}
-        left={14}
-        top={15}
-        typeClick={OBSERVER_KEY.portfolio}
-      />
+          <ImageBtn
+            src={images.home.btnPortFlto}
+            srcClick={images.home.btnPortFltoClick}
+            height={66}
+            left={14}
+            top={15}
+            typeClick={OBSERVER_KEY.portfolio}
+          />
 
-      <ImageBtn
-        src={images.home.btnTree}
-        srcClick={images.home.btnTreeClick}
-        height={72}
-        left={19}
-        top={-1}
-        typeClick={OBSERVER_KEY.home}
-      />
+          <ImageBtn
+            src={images.home.btnTree}
+            srcClick={images.home.btnTreeClick}
+            height={72}
+            left={19}
+            top={-1}
+            typeClick={OBSERVER_KEY.home}
+          />
 
-      <ImageBtn
-        src={images.home.btnAboutUs}
-        srcClick={images.home.btnAboutUsClick}
-        height={66}
-        left={23.5}
-        top={15}
-        typeClick={OBSERVER_KEY.aboutUs}
-      />
+          <ImageBtn
+            src={images.home.btnAboutUs}
+            srcClick={images.home.btnAboutUsClick}
+            height={66}
+            left={23.5}
+            top={15}
+            typeClick={OBSERVER_KEY.aboutUs}
+          />
 
-      <ImageBtn
-        src={images.home.btnContact}
-        srcClick={images.home.btnContactClick}
-        height={69}
-        left={23}
-        top={26}
-        typeClick={OBSERVER_KEY.contactAt}
-      />
-    </div>
+          <ImageBtn
+            src={images.home.btnContact}
+            srcClick={images.home.btnContactClick}
+            height={69}
+            left={23}
+            top={26}
+            typeClick={OBSERVER_KEY.contactAt}
+          />
+        </div>
+      )
+      : <></>
   )
 }
 export default React.memo(FrameBtnByImage, () => false)
