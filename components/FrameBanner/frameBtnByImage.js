@@ -3,14 +3,13 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { useWindowSize } from 'react-use'
-import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
+import { OBSERVER_KEY } from '@/config/app'
 import ObserverService from '@/utils/observer'
 import { isMobile } from 'react-device-detect'
 import { usePathname } from 'next/navigation'
-import styles from './frameBtnByImage.module.scss'
 
 const ImageCustom = styled(Image)`
-opacity: ${props => props.$noPageSelected ? 1 : 0.7};
+  filter: brightness(${props => props.$noPageSelected ? 1 : 0.8});
   ${(props) =>
     props.$isClick
       ? css`
@@ -65,7 +64,7 @@ const ImageBtn = ({
       style={{ top: isClick ? `${top - 1}%` : `${top}%` }}
     >
       <ImageCustom
-        loading='lazy'
+        loading="lazy"
         draggable={false}
         $noPageSelected={patchName.slice(1) === typeClick}
         src={src}
@@ -75,7 +74,7 @@ const ImageBtn = ({
       />
 
       <ImageCustom
-        loading='lazy'
+        loading="lazy"
         draggable={false}
         $noPageSelected={patchName.slice(1) === typeClick}
         src={srcClick}
