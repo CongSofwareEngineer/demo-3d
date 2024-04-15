@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.tree.net.vn/
+
+# Sitemaps
+Sitemap: https://www.tree.net.vn/sitemap.xml

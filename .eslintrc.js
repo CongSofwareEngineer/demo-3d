@@ -28,15 +28,12 @@ module.exports = {
     'react'
   ],
   rules: {
-    'react/react-in-jsx-scope': 'off',
     indent: [2, 2],
-    quotes: ['error', 'single'],
-    'space-in-parens': ['error', 'never'],
-    'react/no-unknown-property': 'off',
-    'no-unused-vars': 0,
-    semi: 'off',
     'react/prop-types': 0,
-    'react/display-name': 'off',
-    'no-empty-pattern': 0
+    'react/react-in-jsx-scope': 'off',
+    'no-unused-vars': 0,
+    'react/no-unknown-property': 0,
+    // semi: 'off',
+    eqeqeq: 0
   }
 }

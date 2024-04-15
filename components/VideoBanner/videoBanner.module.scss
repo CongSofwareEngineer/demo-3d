@@ -1,0 +1,21 @@
+.videoBannerBase{
+    position: absolute !important;
+    inset: 0;
+    -o-object-fit: cover; /* Opera */
+    -moz-object-fit: cover; /* Firefox */
+    -webkit-object-fit: cover; /* Safari/Chrome */
+    object-fit: cover; /* Standard */
+
+    // height: 100vh;
+    min-height: 100%;
+    width: auto;
+}
+
+.isScale{
+    width: 100vw;
+    height: auto;
+}
+.img-preload-poster{
+    width: auto !important;
+    height: auto !important;
+}
