@@ -5,6 +5,8 @@ import { images } from '@/config/images'
 import './styles.scss'
 import { useInView } from 'react-intersection-observer'
 import { MENU_SORTER } from '@/config/app'
+import { useScroll } from 'react-use'
+import useBgFrame from '@/hooks/useBgFrame'
 
 const arr = []
 for (let index = 0; index < 9; index++) {
@@ -12,31 +14,25 @@ for (let index = 0; index < 9; index++) {
 }
 
 const Content = () => {
+  const classNameListSorted = 'w-[90%] max-w-[1550px] md:max-w-[1300px]  h-[90%]  pt-[20%] flex flex-col justify-between items-center'
+
   const [itemSelected, setItemSelected] = useState(MENU_SORTER.animation)
   const [isScrollBottomMax, setIScrollBottomMax] = useState(false)
 
   const { ref, inView: inViewContent } = useInView({ threshold: 0.15 })
+  const { bgFrame } = useBgFrame()
 
   useEffect(() => {
-    const handleScroll = () => {
-      const windowHeight = window.innerHeight
-      const scrollY = window.scrollY || window.pageYOffset
-      const bodyHeight = document.body.offsetHeight
-      // Check if we are close to the bottom (adding a small buffer)
-      console.log('====================================')
-      console.log({ bodyHeight, windowHeight, scrollY })
-      console.log('====================================')
-      setIScrollBottomMax(bodyHeight - windowHeight - scrollY <= 20)
-    }
-    console.log('====================================')
-    console.log({ isScrollBottomMax })
-    console.log('====================================')
+    const scroll = document.getElementsByClassName('container-portfolio')[0]
 
-    window.addEventListener('scroll', handleScroll)
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
+    scroll && scroll.addEventListener('scroll', () => {
+      const isAtBottom = scroll.scrollTop + scroll.clientHeight + 50 >= scroll.scrollHeight
+      if (isAtBottom) {
+        setIScrollBottomMax(true)
+      } else {
+        setIScrollBottomMax(false)
+      }
+    })
   }, [])
 
   useEffect(() => {
@@ -54,10 +50,6 @@ const Content = () => {
     alert('handleClickGo')
   }
 
-  const handleClickAllRegister = () => {
-    alert('handleClickAllRegister')
-  }
-
   return (
     // <div ref={refContent} className={`${className} container-content-base ${isViewportContent ? '' : 'content-un-in-viewport'}  `}>
     <div ref={ref} className=' snap-start  w-full '>
@@ -69,16 +61,18 @@ const Content = () => {
           position='absolute'
           className='pointer-events-none min-w-full min-h-full'
         />
-        <div className={'w-[90%] max-w-[1550px] md:max-w-[1300px]  h-[90%]  pt-[20%] pb-[10%] flex flex-col justify-between items-center  '}>
-          <div className=' flex-1 bg-red-700 w-1/3 min-w-[300px]' >
-            <SelectSort
-              itemSelected={itemSelected}
-              setItemSelected={setItemSelected}
-              handleClickGo={handleClickGo}
-            />
+        <div className={classNameListSorted} style={{ paddingBottom: bgFrame?.clientHeight ? bgFrame?.clientHeight * 0.2 : 20 }}>
+          <div className=' flex-1 bg-red-700 w-full ' >
+            <div className='w-[35%] min-w-[300px] m-auto'>
+              <SelectSort
+                itemSelected={itemSelected}
+                setItemSelected={setItemSelected}
+                handleClickGo={handleClickGo}
+              />
+            </div>
           </div>
-          <div className='mt-[10%]  mb-5 flex-1 ' >
-            <div className=' w-1/2 mb-[50px] m-auto min-w-[100px]'>
+          <div className='mt-[10%] w-full mb-5 flex-1 ' >
+            <div className=' w-1/4 mb-[50px] m-auto min-w-[100px]'>
               <MyImage
                 height='auto'
                 width='100%'
@@ -93,27 +87,25 @@ const Content = () => {
                 return (
                   <div
                     key={index}
-                    className={'cursor-pointer hover:scale-[1.01]  duration-300 shadow-lg shadow-red-500 relative w-full flex pb-[100%] bg-blue-400 rounded-2xl'}
+                    className={'cursor-pointer hover:scale-[1.01]  duration-300 shadow-lg hover:shadow-red-500 relative w-full flex pb-[100%] bg-blue-400 rounded-2xl'}
                   />
                 )
               })
             }
           </div>
         </div>
+        {
+          !isScrollBottomMax && (
+            <MyImage
+              url={images.home.bgMaskContentBannerHome}
+              width='auto'
+              height='100%'
+              position='absolute'
+              className='pointer-events-none min-w-full min-h-full'
+            />
+          )
+        }
       </div>
-
-      {/* {
-        !isScrollBottomMax && (
-          <MyImage
-            url={images.home.bgMaskContentBannerHome}
-            width='100%'
-            height='auto'
-            position='absolute'
-            className='z-10'
-          />
-        )
-      } */}
-
     </div>
   )
 }

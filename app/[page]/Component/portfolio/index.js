@@ -26,9 +26,9 @@ const PageProfile = () => {
 
   return (
 
-    <div className='w-full h-screen overflow-x-hidden snap-mandatory snap-y'>
+    <div className='container-portfolio w-full h-screen overflow-x-hidden snap-mandatory snap-y'>
 
-      <div className='  w-full snap-start h-screen relative  ' >
+      <div className='w-full snap-start h-screen relative  ' >
         <VideoBanner
           typeCache={QUEY_KEY.preLoadPortfolio}
           className={'banner-video'}

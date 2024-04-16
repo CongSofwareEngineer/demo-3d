@@ -7,6 +7,7 @@ import { OBSERVER_KEY } from '@/config/app'
 import ObserverService from '@/utils/observer'
 import { isMobile } from 'react-device-detect'
 import { usePathname } from 'next/navigation'
+import useBgFrame from '@/hooks/useBgFrame'
 
 const ImageCustom = styled(Image)`
    filter:  ${(props) => props.$noPageSelected ? 'brightness(1)' : 'brightness(0.75)'};
@@ -41,7 +42,8 @@ const ImageBtn = ({
   typeClick = OBSERVER_KEY.aboutUs,
   height = '',
   top = '',
-  left = ''
+  left = '',
+  isEx = false
 }) => {
   const patchName = usePathname()
 
@@ -57,7 +59,7 @@ const ImageBtn = ({
 
   return (
     <ContainerImgBtn
-      $left={left}
+      $left={isEx ? left * 0.99 : left}
       $height={height}
       onMouseDown={handleClick}
       onClick={() => (isMobile ? handleClick() : {})}
@@ -95,31 +97,15 @@ const FrameBtnByImage = () => {
   const [isShow, setIsShow] = useState(false)
 
   const { width, height } = useWindowSize()
-
-  const getWidth = () => {
-    const bg = document.getElementsByClassName('bg-frame-banner')[0]
-    if (bg) {
-      setWidthBgFrame(bg.clientWidth)
-      setHeightBgFrame(bg.clientHeight)
-    }
-  }
+  const { bgFrame } = useBgFrame()
 
   useEffect(() => {
-    getWidth()
-  }, [width, height])
-
-  useEffect(() => {
-    ObserverService.on(OBSERVER_KEY.loadBgFrame, () => {
-      getWidth()
+    if (bgFrame) {
       setIsShow(true)
-    })
-    setTimeout(() => {
-      getWidth()
-    }, 1000)
-    return () => {
-      ObserverService.removeListener(OBSERVER_KEY.loadBgFrame)
+      setWidthBgFrame(bgFrame.clientWidth)
+      setHeightBgFrame(bgFrame.clientHeight)
     }
-  }, [])
+  }, [width, height, bgFrame])
 
   return (
     isShow
@@ -153,6 +139,7 @@ const FrameBtnByImage = () => {
             left={19}
             top={-1}
             typeClick={OBSERVER_KEY.home}
+            isEx
           />
 
           <ImageBtn
