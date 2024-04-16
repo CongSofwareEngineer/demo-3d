@@ -1,5 +1,7 @@
 import { PAGE_EX } from '@/config/app'
 import React from 'react'
+import { notFound } from 'next/navigation'
+
 // import AboutScreen from './Component/aboutUs'
 // import PageOurService from './Component/ourService'
 // import PageProfile from './Component/portfolio'
@@ -13,39 +15,24 @@ const PageOurService = dynamic(() => import('./Component/ourService'))
 const AboutScreen = dynamic(() => import('./Component/aboutUs'))
 
 const PageScreen = ({ page }) => {
-  return (
-    <>
-      {
-        page === PAGE_EX.ourService && (
-          <PageOurService />
-        )
-      }
+  switch (page) {
+  case PAGE_EX.ourService:
+    return <PageOurService />
 
-      {
-        page === PAGE_EX.portfolio && (
-          <PageProfile />
-        )
-      }
+  case PAGE_EX.portfolio:
+    return <PageProfile />
 
-      {
-        page === PAGE_EX.home && (
-          <PageHome />
-        )
-      }
+  case PAGE_EX.home:
+    return <PageHome />
 
-      {
-        page === PAGE_EX.aboutUs && (
-          <AboutScreen />
-        )
-      }
+  case PAGE_EX.aboutUs:
+    return <AboutScreen />
 
-      {
-        page === PAGE_EX.contactAt && (
-          <PageContactAs />
-        )
-      }
-    </>
-  )
+  case PAGE_EX.contactAt:
+    return <PageContactAs />
+  default:
+    notFound()
+  }
 }
 
 export default PageScreen
