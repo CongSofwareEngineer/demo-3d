@@ -2,7 +2,7 @@
 import React, { useCallback, useEffect, useLayoutEffect, useState, useRef } from 'react'
 import { IntlProvider } from 'react-intl'
 import { useSelector } from 'react-redux'
-import Container from '../Container'
+// import Container from '../Container'
 import { usePathname } from 'next/navigation'
 import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
 import ObserverService from '@/utils/observer'
@@ -11,7 +11,7 @@ import dynamic from 'next/dynamic'
 
 const LoadingMotionPage = dynamic(() => import('../LoadingMotionPage'), { ssr: false })
 const FrameMain = dynamic(() => import('../FrameMain'), { ssr: false })
-const MyModal = dynamic(() => import('../MyModal'), { ssr: false })
+// const MyModal = dynamic(() => import('../MyModal'), { ssr: false })
 
 const ClientRender = ({ children }) => {
   const language = useSelector((state) => state.app.language)
@@ -55,19 +55,19 @@ const ClientRender = ({ children }) => {
   }, [])
 
   return (
-    <Container>
-      <IntlProvider
-        defaultLocale={'vi'}
-        locale={language?.locale || 'vn'}
-        messages={language?.messages || {}}
-      >
+    // <Container>
+    <IntlProvider
+      defaultLocale={'vi'}
+      locale={language?.locale || 'vn'}
+      messages={language?.messages || {}}
+    >
 
-        {children}
-        <FrameMain />
-        <LoadingMotionPage />
-        <MyModal />
-      </IntlProvider>
-    </Container>
+      {children}
+      <FrameMain />
+      <LoadingMotionPage />
+      {/* <MyModal /> */}
+    </IntlProvider>
+    // </Container>
   )
 }
 

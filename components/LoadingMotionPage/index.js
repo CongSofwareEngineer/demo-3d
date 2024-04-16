@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import jsonProfile from '@/public/assets/json/transitions_1.mp4.lottie.json'
 import LoadingRoutePage from '../LoadingRoutePage'
 // import styled from 'styled-components'
-import Image from 'next/image'
 
 // const ImageOpacity = styled(Image)`
 //   position: absolute !important;

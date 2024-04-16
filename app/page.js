@@ -1,6 +1,8 @@
 'use client'
-import Fiber3D from '@/components/Fiber3D'
 import { useEffect, useState } from 'react'
+import dynamic from 'next/dynamic'
+const Fiber3D = dynamic(() => import('@/components/Fiber3D'), { ssr: false })
+
 export default function Home () {
   const [isClient, setIsClient] = useState(false)
 
