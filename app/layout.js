@@ -4,9 +4,7 @@ import '@/styles/global.scss'
 import ReduxProvider from '@/components/ReduxProvider'
 import StyledComponentsRegistry from '@/components/AntdRegistry'
 import ClientRender from '@/components/ClientRender'
-// import { AntdRegistry } from '@ant-design/nextjs-registry'
 import ReactQueryProvider from '@/components/ReactQueryProvider'
-// import ParallaxProvider from '@/components/ParallaxProvider'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import LoadingFirst from '@/components/LoadingFirstPage'
 /** @type {import('next').Metadata} */
@@ -62,11 +60,7 @@ export default function RootLayout (props) {
     <html lang="en">
       <body >
         <main className="flex min-h-screen flex-col items-center justify-between relative">
-          {/* <div className='absolute pointer-events-none'>
-            serverside
-          </div> */}
 
-          {/* <ParallaxProvider> */}
           <ReduxProvider>
             {/* <AntdRegistry > */}
             <ReactQueryProvider>

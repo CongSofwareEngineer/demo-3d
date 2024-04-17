@@ -13,9 +13,9 @@ for (let index = 0; index < 9; index++) {
   arr.push('')
 }
 
+const classNameListSorted = 'w-[90%] max-w-[1550px] md:max-w-[1300px]  h-[90%]  pt-[20%] flex flex-col justify-between items-center'
+const classItemSorted = 'cursor-pointer hover:scale-[1.01]  duration-300 shadow-lg hover:shadow-white relative w-full flex pb-[100%] bg-blue-400 rounded-2xl'
 const Content = () => {
-  const classNameListSorted = 'w-[90%] max-w-[1550px] md:max-w-[1300px]  h-[90%]  pt-[20%] flex flex-col justify-between items-center'
-
   const [itemSelected, setItemSelected] = useState(MENU_SORTER.animation)
   const [isScrollBottomMax, setIScrollBottomMax] = useState(false)
 
@@ -87,7 +87,7 @@ const Content = () => {
                 return (
                   <div
                     key={index}
-                    className={'cursor-pointer hover:scale-[1.01]  duration-300 shadow-lg hover:shadow-red-500 relative w-full flex pb-[100%] bg-blue-400 rounded-2xl'}
+                    className={classItemSorted}
                   />
                 )
               })

@@ -8,11 +8,11 @@ import { notFound } from 'next/navigation'
 // import PageHome from './Component/home'
 // import PageContactAs from './Component/contactAt'
 import dynamic from 'next/dynamic'
-const PageContactAs = dynamic(() => import('./Component/contactAt'))
-const PageHome = dynamic(() => import('./Component/home'))
-const PageProfile = dynamic(() => import('./Component/portfolio'))
-const PageOurService = dynamic(() => import('./Component/ourService'))
-const AboutScreen = dynamic(() => import('./Component/aboutUs'))
+const PageContactAs = dynamic(() => import('./Component/contactAt'), { ssr: false })
+const PageHome = dynamic(() => import('./Component/home'), { ssr: false })
+const PageProfile = dynamic(() => import('./Component/portfolio'), { ssr: false })
+const PageOurService = dynamic(() => import('./Component/ourService'), { ssr: false })
+const AboutScreen = dynamic(() => import('./Component/aboutUs'), { ssr: false })
 
 const PageScreen = ({ page }) => {
   switch (page) {

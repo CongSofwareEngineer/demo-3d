@@ -1,5 +1,5 @@
 'use client'
-import React, { useCallback, useEffect, useLayoutEffect, useState, useRef } from 'react'
+import React, { useCallback, useEffect, useLayoutEffect, useState, useRef, Suspense } from 'react'
 import { IntlProvider } from 'react-intl'
 import { useSelector } from 'react-redux'
 // import Container from '../Container'
@@ -11,7 +11,7 @@ import dynamic from 'next/dynamic'
 
 const LoadingMotionPage = dynamic(() => import('../LoadingMotionPage'), { ssr: false })
 const FrameMain = dynamic(() => import('../FrameMain'), { ssr: false })
-// const MyModal = dynamic(() => import('../MyModal'), { ssr: false })
+const MyModal = dynamic(() => import('../MyModal'))
 
 const ClientRender = ({ children }) => {
   const language = useSelector((state) => state.app.language)
@@ -55,19 +55,20 @@ const ClientRender = ({ children }) => {
   }, [])
 
   return (
-    // <Container>
-    <IntlProvider
-      defaultLocale={'vi'}
-      locale={language?.locale || 'vn'}
-      messages={language?.messages || {}}
-    >
+    <>
+      <IntlProvider
+        defaultLocale={'vi'}
+        locale={language?.locale || 'vn'}
+        messages={language?.messages || {}}
+      />
 
       {children}
       <FrameMain />
-      <LoadingMotionPage />
-      {/* <MyModal /> */}
-    </IntlProvider>
-    // </Container>
+      <Suspense fallback={null}>
+        <LoadingMotionPage />
+      </Suspense>
+      <MyModal />
+    </>
   )
 }
 
