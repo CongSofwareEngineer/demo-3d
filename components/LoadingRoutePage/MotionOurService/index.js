@@ -14,7 +14,7 @@ const MotionOurService = ({ callBackSuccess = () => {} }) => {
   }, [patchName])
 
   const handleChange = () => {
-    const interval = setInterval(() => { 
+    const interval = setInterval(() => {
       if (isChangePage.current) {
         setIsStart(false)
         clearInterval(interval)

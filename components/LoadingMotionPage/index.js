@@ -1,12 +1,9 @@
 import { OBSERVER_KEY } from '@/config/app'
 import ObserverService from '@/utils/observer'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
-import LoadingRoutePage from '../LoadingRoutePage'
-import jsonProfile from '@/public/assets/json/transitions_1.mp4.lottie.json'
 import { usePathname } from 'next/navigation'
-
-// import MotionOurService from '../LoadingRoutePage/MotionOurService'
 import dynamic from 'next/dynamic'
+
 const MotionOurService = dynamic(() => import('../LoadingRoutePage/MotionOurService'))
 
 // import styled from 'styled-components'
@@ -56,9 +53,9 @@ const LoadingMotionPage = () => {
 
   return (
     isClient && <>
-      {
+      {/* {
         loadingGameArt && <LoadingRoutePage src={jsonProfile} />
-      }
+      } */}
       {/* {
         loadingOurServer && <LoadingRoutePage src={jsonProfile} />
       } */}
@@ -77,12 +74,12 @@ const LoadingMotionPage = () => {
         )
       } */}
 
-      {
+      {/* {
         loadingAboutUs && <LoadingRoutePage src={jsonProfile} />
       }
       {
         loadingProfile && <LoadingRoutePage src={jsonProfile} />
-      }
+      } */}
       {/* <ImageOpacity
         src={images.contactAt.bannerContactAt}
         fill
