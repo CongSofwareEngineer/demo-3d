@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
 import '@/styles/global.scss'
 import ReduxProvider from '@/components/ReduxProvider'
@@ -8,7 +8,7 @@ import ReactQueryProvider from '@/components/ReactQueryProvider'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import LoadingFirst from '@/components/LoadingFirstPage'
 /** @type {import('next').Metadata} */
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 const BaseMeta = {
   title: 'TREE STUDIOS',
@@ -59,7 +59,7 @@ export default function RootLayout (props) {
   return (
     <html lang="en">
       <body >
-        <main className="flex min-h-screen flex-col items-center justify-between relative">
+        <main className="flex flex-col items-center justify-between relative">
 
           <ReduxProvider>
             {/* <AntdRegistry > */}

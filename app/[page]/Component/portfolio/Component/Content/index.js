@@ -63,7 +63,7 @@ const Content = () => {
         />
         <div className={classNameListSorted} style={{ paddingBottom: bgFrame?.clientHeight ? bgFrame?.clientHeight * 0.2 : 20 }}>
           <div className=' flex-1 bg-red-700 w-full ' >
-            <div className='w-[35%] min-w-[300px] m-auto'>
+            <div className='w-[40%] min-w-[300px] m-auto'>
               <SelectSort
                 itemSelected={itemSelected}
                 setItemSelected={setItemSelected}
@@ -72,12 +72,13 @@ const Content = () => {
             </div>
           </div>
           <div className='mt-[10%] w-full mb-5 flex-1 ' >
+            {/* <div className=' w-1/4 mb-[50px] m-auto min-w-[100px]'> */}
             <div className=' w-1/4 mb-[50px] m-auto min-w-[100px]'>
               <MyImage
                 height='auto'
-                width='100%'
+                width='auto'
                 url={images.profile.btnAllRegister}
-
+                className='max-h-[120px] m-auto'
               />
             </div>
           </div>

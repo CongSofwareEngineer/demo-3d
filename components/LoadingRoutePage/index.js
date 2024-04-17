@@ -24,17 +24,34 @@ const ContainerLottie = styled.div`
   }
 `
 
-const LottieCustom = styled(Lottie)``
-const LoadingRoutePage = ({ src }) => {
+const LoadingRoutePage = ({
+  callbackComplete = () => {},
+  callbackLoopComplete = () => {},
+  src,
+  isLoop = true,
+  isPaused = false
+}) => {
   const { ratioBeautiful } = useSizeScreen()
+
   return (
     <ContainerLottie $ratioBeautiful={ratioBeautiful}>
-      <LottieCustom
+      <Lottie
         options={{
-          loop: true,
+          loop: isLoop,
           autoplay: true,
           animationData: src || json
         }}
+        isPaused={isPaused}
+        eventListeners={[
+          {
+            eventName: 'complete',
+            callback: callbackComplete
+          },
+          {
+            eventName: 'loopComplete',
+            callback: callbackLoopComplete
+          }
+        ]}
         width={'auto'}
         height={'100%'}
       />

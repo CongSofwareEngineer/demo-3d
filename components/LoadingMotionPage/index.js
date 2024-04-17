@@ -1,8 +1,14 @@
 import { OBSERVER_KEY } from '@/config/app'
 import ObserverService from '@/utils/observer'
-import React, { useEffect, useState } from 'react'
-import jsonProfile from '@/public/assets/json/transitions_1.mp4.lottie.json'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import LoadingRoutePage from '../LoadingRoutePage'
+import jsonProfile from '@/public/assets/json/transitions_1.mp4.lottie.json'
+import { usePathname } from 'next/navigation'
+
+// import MotionOurService from '../LoadingRoutePage/MotionOurService'
+import dynamic from 'next/dynamic'
+const MotionOurService = dynamic(() => import('../LoadingRoutePage/MotionOurService'))
+
 // import styled from 'styled-components'
 
 // const ImageOpacity = styled(Image)`
@@ -14,10 +20,17 @@ import LoadingRoutePage from '../LoadingRoutePage'
 //  `
 
 const LoadingMotionPage = () => {
+  const patchName = usePathname()
+
   const [loadingGameArt, setLoadingGameArt] = useState(false)
   const [loadingOurServer, setLoadingOurServer] = useState(false)
   const [loadingAboutUs, setLoadingAboutUs] = useState(false)
   const [loadingProfile, setLoadingProfile] = useState(false)
+  const [isClient, setIsClient] = useState(false)
+
+  useLayoutEffect(() => {
+    setIsClient(true)
+  }, [])
 
   useEffect(() => {
     ObserverService.on(OBSERVER_KEY.loadingPageAboutUs, () => {
@@ -27,12 +40,7 @@ const LoadingMotionPage = () => {
       }, 1000)
     })
     ObserverService.on(OBSERVER_KEY.loadingPageContact, () => setLoadingGameArt(true))
-    ObserverService.on(OBSERVER_KEY.loadingPageOurServer, () => {
-      setLoadingOurServer(true)
-      setTimeout(() => {
-        setLoadingOurServer(false)
-      }, 1000)
-    })
+    ObserverService.on(OBSERVER_KEY.loadingPageOurServer, () => setLoadingOurServer(true))
     ObserverService.on(OBSERVER_KEY.loadingPageProfile, () => setLoadingProfile(true))
     return () => {
       ObserverService.removeListener(OBSERVER_KEY.loadingPageAboutUs)
@@ -42,15 +50,24 @@ const LoadingMotionPage = () => {
     }
   }, [])
 
+  useEffect(() => {
+
+  }, [patchName])
+
   return (
-    <>
+    isClient && <>
       {
         loadingGameArt && <LoadingRoutePage src={jsonProfile} />
       }
-      {
+      {/* {
         loadingOurServer && <LoadingRoutePage src={jsonProfile} />
+      } */}
+      {
+        loadingOurServer && (
+          <MotionOurService callBackSuccess={() => setLoadingOurServer(false)}/>
+        )
       }
-      {/* <LoadingRoutePage src={jsonProfile} /> */}
+
       {/* <LoadingRoutePage src={jsonProfile} /> */}
       {/* {
         loadingOurServer && (

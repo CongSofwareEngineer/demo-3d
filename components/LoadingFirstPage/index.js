@@ -14,23 +14,12 @@ const LoadingFirst = () => {
   return (
     !isLoaded
       ? (
-        <div className='fixed bg-white z-30 w-screen h-screen flex justify-center items-center' >
-          {/* <video
-            className='w-[100px] h-[100px] object-cover'
-            muted
-            autoPlay
-            playsInline
-            loop
-            controls={false}
-            preload="none"
-          >
-            <source src={videos.loadingFirstPage} />
-          </video> */}
+        <div className='fixed bg-white z-30 w-screen h-screen flex justify-center items-center select-none pointer-events-none' >
           <Image
             width={100}
             height={100}
             src={'/assets/gif/loadingFirstPage.gif'}
-            alt='loadingFirstPage'
+            alt='loading-First-Page'
           />
         </div>
       )

@@ -64,9 +64,7 @@ const ClientRender = ({ children }) => {
 
       {children}
       <FrameMain />
-      <Suspense fallback={null}>
-        <LoadingMotionPage />
-      </Suspense>
+      <LoadingMotionPage />
       <MyModal />
     </>
   )

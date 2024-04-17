@@ -119,7 +119,7 @@ const SlideVideo = ({
           fill={`url(#pattern3${keySVG})`}
         />
         {/* table branding */}
-        <rect x="600" y="450" width="400" height="280"
+        <rect x="600" y="450" width="440" height="270"
           fill={`url(#pattern4${keySVG})`}
         />
 
