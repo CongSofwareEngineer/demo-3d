@@ -7,11 +7,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const nextConfig = {
   experimental: {
-    swcMinify: true,
-    optimizeCss: true,
-    gzipSize: true,
-    forceSwcTransforms: true,
-    serverMinification: true,
     optimizePackageImports: [
       'react-toastify',
       'redux-persist',

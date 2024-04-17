@@ -76,6 +76,7 @@ const VideoBanner = ({
         fill
         src={getUrlPoster()?.src}
         className={`transform -translate-x-1/2 inset-0 min-w-full min-h-full max-w-none w-auto h-auto ml-[50%] ${styles['img-preload-poster']} ${isLoadedVideo ? 'opacity-0 z-[-9999] ' : ''}`}
+        alt={'preload-banner'}
       />
 
     </>

@@ -23,7 +23,6 @@
     "antd": "^5.13.3",
     "axios": "^1.6.8",
     "bignumber.js": "^9.1.2",
-    "critters": "^0.0.22",
     "crypto-js": "^4.2.0",
     "html2canvas": "^1.4.1",
     "next": "13.5.6",
@@ -41,7 +40,6 @@
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
     "sass": "^1.70.0",
-    "sharp": "^0.33.3",
     "styled-components": "^6.1.8",
     "three": "^0.160.0"
   },
