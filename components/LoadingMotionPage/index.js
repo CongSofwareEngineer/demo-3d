@@ -3,8 +3,7 @@ import ObserverService from '@/utils/observer'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import dynamic from 'next/dynamic'
-
-const MotionOurService = dynamic(() => import('../LoadingRoutePage/MotionOurService'))
+import MotionOurService from '../LoadingRoutePage/MotionOurService'
 
 // import styled from 'styled-components'
 
