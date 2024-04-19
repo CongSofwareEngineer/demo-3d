@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3003",
-    "build": "next build",
+     "build": "turbo run build",
     "t:build": "turbo run build",
     "t:start": "turbo run start",
-    "start": "next start -p 3003",
+     "start": "turbo run start -p 3003",
     "lint": "next lint",
     "postbuild": "next-sitemap"
   },
