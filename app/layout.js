@@ -59,7 +59,7 @@ export default function RootLayout (props) {
   return (
     <html lang="en">
       <body >
-        <main className="flex flex-col items-center justify-between relative">
+        <main className="flex flex-col min-h-screen items-center justify-between relative">
 
           <ReduxProvider>
             {/* <AntdRegistry > */}

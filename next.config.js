@@ -6,6 +6,21 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 const nextConfig = {
+  webpack: (config, { isServer, nextRuntime, webpack }) => {
+    config.resolve.fallback = {
+      fs: false,
+      child_process: false
+    }
+    config.experiments = {
+      ...config.experiments,
+      topLevelAwait: true
+    }
+    if (!isServer) {
+      // config.externals = [nodeExternals()];
+    }
+
+    return config
+  },
   experimental: {
     optimizePackageImports: [
       'react-toastify',
