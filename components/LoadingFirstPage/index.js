@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { useLayoutEffect, useState } from 'react'
-
+import './styles.scss'
 const LoadingFirst = () => {
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -16,10 +16,11 @@ const LoadingFirst = () => {
       ? (
         <div className='fixed bg-white z-30 w-screen h-screen flex justify-center items-center select-none pointer-events-none' >
           <Image
-            width={100}
-            height={100}
+            fill
             src={'/assets/gif/loadingFirstPage.gif'}
             alt='loading-First-Page'
+            className={'img-loading-icon'}
+            quality={100}
           />
         </div>
       )

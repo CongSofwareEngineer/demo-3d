@@ -13,7 +13,7 @@ for (let index = 0; index < 9; index++) {
   arr.push('')
 }
 
-const classNameListSorted = 'w-[90%] max-w-[1550px] md:max-w-[1300px]  h-[90%]  pt-[20%] flex flex-col justify-between items-center'
+const classNameListSorted = 'w-[90%] max-w-[1550px] md:max-w-[1300px]  h-[90%]  pt-[10%] flex flex-col justify-between items-center'
 const classItemSorted = 'cursor-pointer hover:scale-[1.01]  duration-300 shadow-lg hover:shadow-white relative w-full flex pb-[100%] bg-blue-400 rounded-2xl'
 const Content = () => {
   const [itemSelected, setItemSelected] = useState(MENU_SORTER.animation)
@@ -59,6 +59,7 @@ const Content = () => {
           width='auto'
           height='100%'
           position='absolute'
+          maxWidth={'unset'}
           className='pointer-events-none min-w-full min-h-full'
         />
         <div className={classNameListSorted} style={{ paddingBottom: bgFrame?.clientHeight ? bgFrame?.clientHeight * 0.2 : 20 }}>
@@ -78,6 +79,7 @@ const Content = () => {
                 height='auto'
                 width='auto'
                 url={images.profile.btnAllRegister}
+
                 className='max-h-[120px] m-auto'
               />
             </div>
