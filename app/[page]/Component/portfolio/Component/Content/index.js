@@ -5,7 +5,6 @@ import { images } from '@/config/images'
 import './styles.scss'
 import { useInView } from 'react-intersection-observer'
 import { MENU_SORTER } from '@/config/app'
-import { useScroll } from 'react-use'
 import useBgFrame from '@/hooks/useBgFrame'
 
 const arr = []

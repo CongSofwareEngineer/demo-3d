@@ -3,10 +3,11 @@
 import VideoBanner from '@/components/VideoBanner'
 import { images, videos } from '@/config/images'
 import React, { useEffect } from 'react'
-import Content from './Component/Content'
+// import Content from './Component/Content'
 import './styles.scss'
 import { useInView } from 'react-intersection-observer'
 import { QUEY_KEY } from '@/config/app'
+import { Content2 } from './Component/Content2'
 
 const PageProfile = () => {
   const { ref: refBanner, inView: inViewBanner } = useInView({ threshold: 0.2 })
@@ -38,7 +39,8 @@ const PageProfile = () => {
         />
 
       </ div>
-      <Content />
+      {/* <Content /> */}
+      <Content2 />
     </div>
 
   )

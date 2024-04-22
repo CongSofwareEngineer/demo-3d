@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3003",
+    "t": "turbo run dev -- -p 3003",
     "build": "next build",
     "t:build": "turbo run build",
     "t:start": "turbo run start",

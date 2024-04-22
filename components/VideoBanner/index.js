@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './videoBanner.module.scss'
 import useSizeScreen from '@/hooks/useSizeScreen'
 import { useQueryClient } from '@tanstack/react-query'
@@ -9,13 +9,12 @@ const VideoBanner = ({
   url,
   poster,
   callBack = () => {},
+  videoRef = React.createRef(null),
   callBackLoaded = () => {},
   className = '',
   typeCache = '',
   ...props
 }) => {
-  const videoRef = useRef(null)
-
   const { ratioBeautiful } = useSizeScreen()
   const query = useQueryClient()
 
@@ -26,15 +25,6 @@ const VideoBanner = ({
       videoRef.current.addEventListener('canplaythrough', (event) => {
         callBack()
         setIsLoadedVideo(true)
-        // setTimeout(() => {
-        //   if (typeof videoRef.current.play === 'function') {
-        //     try {
-        //       videoRef.current.play()
-        //     } catch (error) {
-
-        //     }
-        //   }
-        // }, 500)
       })
     }
     setTimeout(() => {
