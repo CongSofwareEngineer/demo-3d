@@ -12,7 +12,7 @@ const useModal = () => {
     className = '',
     header = true,
     footer = false,
-    maskClose = false,
+    maskClose = true,
     onCancel = null,
     closeIcon = true,
     title = '',
