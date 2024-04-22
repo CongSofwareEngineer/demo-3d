@@ -64,7 +64,7 @@ export default function RootLayout (props) {
           <ReduxProvider>
             {/* <AntdRegistry > */}
             <ReactQueryProvider>
-              <LoadingFirst/>
+
               <StyledComponentsRegistry >
                 <ClientRender>
                   {props.children}
@@ -74,6 +74,7 @@ export default function RootLayout (props) {
             {/* </AntdRegistry> */}
           </ReduxProvider>
           {/* </ParallaxProvider> */}
+          <LoadingFirst/>
           <SpeedInsights/>
         </main>
       </body>

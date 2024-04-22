@@ -18,7 +18,7 @@ const useBgFrame = () => {
     })
     setTimeout(() => {
       getWidth()
-    }, 1000)
+    }, 1500)
     return () => {
       ObserverService.removeListener(OBSERVER_KEY.loadBgFrame)
     }

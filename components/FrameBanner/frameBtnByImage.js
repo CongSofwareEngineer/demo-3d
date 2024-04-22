@@ -164,4 +164,4 @@ const FrameBtnByImage = () => {
       : <></>
   )
 }
-export default React.memo(FrameBtnByImage, () => false)
+export default FrameBtnByImage

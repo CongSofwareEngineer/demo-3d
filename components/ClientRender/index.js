@@ -9,8 +9,8 @@ import ObserverService from '@/utils/observer'
 import useRouter from '@/hooks/useRouter'
 import dynamic from 'next/dynamic'
 
-const LoadingMotionPage = dynamic(() => import('../LoadingMotionPage'), { ssr: false })
-const FrameMain = dynamic(() => import('../FrameMain'), { ssr: false })
+const LoadingMotionPage = dynamic(() => import('../LoadingMotionPage'))
+const FrameMain = dynamic(() => import('../FrameMain'))
 const MyModal = dynamic(() => import('../MyModal'))
 
 const ClientRender = ({ children }) => {

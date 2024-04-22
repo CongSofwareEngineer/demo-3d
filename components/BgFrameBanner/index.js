@@ -55,4 +55,4 @@ const BgFrameBanner = ({ ref, className, callBackLoad = () => {}, ...props }) =>
   )
 }
 
-export default React.memo(BgFrameBanner)
+export default BgFrameBanner
