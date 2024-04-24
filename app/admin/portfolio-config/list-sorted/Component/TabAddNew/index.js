@@ -5,6 +5,7 @@ import { LOCAL_STORAGE } from '@/config/app'
 import { saveDataLocal } from '@/utils/function'
 import { EditOutlined } from '@ant-design/icons'
 import { Image, Input, Upload } from 'antd'
+import ImgCrop from 'antd-img-crop'
 import React, { useState } from 'react'
 const initData = {
   title: '',
@@ -26,45 +27,96 @@ const TabAddNew = () => {
     reader.readAsDataURL(img)
   }
 
-  const uploadBg = (info, key) => {
-    // Get this url from response in real world.
-    getBase64(info.file.originFileObj, (url) => {
-      setFormData({ ...formData, [key]: url })
-    })
+  const uploadImage = (info, key) => {
+    try {
+      // getBase64(info, (url) => {
+      getBase64(info.file.originFileObj, (url) => {
+        setFormData({ ...formData, [key]: url })
+      })
+    } catch (error) {
+      console.log('====================================')
+      console.log('uploadImage', error)
+      console.log('====================================')
+    }
+  }
+
+  const uploadVideo = (info, key) => {
+    try {
+      getBase64(info.file.originFileObj, (url) => {
+        setFormData({ ...formData, [key]: url })
+      })
+    } catch (error) {
+      console.log('====================================')
+      console.log('error video', error)
+      console.log('====================================')
+    }
   }
 
   const handleSaveItem = () => {
     saveDataLocal(LOCAL_STORAGE.listItemSorted, formData)
-    setFormData(initData)
+    // setFormData(initData)
   }
+  console.log('====================================')
+  console.log({ formData })
+  console.log('====================================')
 
-  const renderEditImg = (key, isVideo = false) => {
+  const renderEditImg = (key) => {
     return (
       formData[key]
         ? (
           <div className='w-full flex flex-col justify-center gap-3'>
-            {
-              isVideo
-                ? (
-                  <video
-                    className='w-[90%]'
-                    playsInline
-                    loop
-                    autoPlay
-                  >
-                    <source src={formData[key]}/>
-                  </video>
-                )
-                : (
-                  <Image
-                    src={formData[key]}
-                    alt="avatar"
-                    style={{
-                      width: '100%'
-                    }}
-                  />
-                )
-            }
+            <Image
+              src={formData[key]}
+              alt="avatar"
+              style={{
+                width: '100%'
+              }}
+            />
+            <MyButton type={2} className={'m-auto'} onClick={() => setFormData({ ...formData, [key]: '' })}>
+          Clear
+            </MyButton>
+          </div>
+        )
+        : (
+          // <ImgCrop
+          //   aspect={1}
+          //   aspectSlider
+          //   // onModalOk={(file) => uploadImage(file, key)}
+          // >
+          <Upload
+            action={'https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload'}
+
+            showUploadList={false}
+            // accept={ 'image/png, image/jpeg,image/jpg, image/gif .png,.jpg,.jpeg,.gif,.svg'}
+            accept={ 'image/png, image/jpeg,image/jpg, image/gif'}
+            className="avatar-uploader"
+            // onChange={file => uploadBg(file, key)}
+            onChange={file => uploadImage(file, key)}
+          >
+            <label className='edit-avatar' htmlFor='avatar'>
+                  Background
+              <EditOutlined className='ml-2' style={{ fontSize: 20 }} />
+            </label>
+
+          </Upload>
+          // </ImgCrop>
+        )
+    )
+  }
+
+  const renderEditVideo = (key) => {
+    return (
+      formData[key]
+        ? (
+          <div className='w-full flex flex-col justify-center gap-3'>
+            <video
+              className='w-[90%]'
+              playsInline
+              loop
+              autoPlay
+            >
+              <source src={formData[key]}/>
+            </video>
 
             <MyButton type={2} className={'m-auto'} onClick={() => setFormData({ ...formData, [key]: '' })}>
           Clear
@@ -74,12 +126,12 @@ const TabAddNew = () => {
         : (
           <Upload
             showUploadList={false}
-            accept={isVideo ? '.mp4,.webp' : '.png,.jpg,.jpeg,.gif,.svg'}
+            accept={'.mp4,.webm' }
             className="avatar-uploader"
-            onChange={file => uploadBg(file, key)}
+            onChange={file => uploadVideo(file, key)}
           >
             <label className='edit-avatar' htmlFor='avatar'>
-          Background
+        Background
               <EditOutlined className='ml-2' style={{ fontSize: 20 }} />
             </label>
 
@@ -87,6 +139,7 @@ const TabAddNew = () => {
         )
     )
   }
+
   return (
     <div className='flex w-ful justify-between gap-5 h-full'>
       <div className='flex-1 max-w-[49%]'>
@@ -117,7 +170,7 @@ const TabAddNew = () => {
 
             </div>
             <div className='flex-1'>
-              {renderEditImg('video', true) }
+              {renderEditVideo('video') }
 
             </div>
           </div>
