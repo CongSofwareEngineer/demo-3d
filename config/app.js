@@ -101,3 +101,7 @@ export const REQUEST_TYPE = {
   DELETE: 'DELETE',
   PATCH: 'PATCH'
 }
+
+export const LOCAL_STORAGE = {
+  listItemSorted: 'listItemSorted'
+}
