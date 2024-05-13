@@ -10,6 +10,7 @@ const MyInput = ({
   type = 'text',
   controls = true,
   minLine = 3,
+  placeholder = 'Enter',
   ...props
 }) => {
   return (
@@ -22,6 +23,7 @@ const MyInput = ({
             className={className}
             suffix={rightIcon}
             prefix={leftIcon}
+            placeholder={placeholder}
             {...props}
           />
         )
@@ -36,6 +38,7 @@ const MyInput = ({
             suffix={rightIcon}
             prefix={leftIcon}
             controls={controls}
+            placeholder={placeholder}
             {...props}
           />
         )
@@ -51,6 +54,7 @@ const MyInput = ({
             prefix={leftIcon}
             controls={controls}
             rows={minLine}
+            placeholder={placeholder}
             {...props}
           />
         )

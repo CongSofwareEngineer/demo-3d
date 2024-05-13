@@ -8,6 +8,7 @@ import { OBSERVER_KEY, PAGE_EX } from '@/config/app'
 import ObserverService from '@/utils/observer'
 import useRouter from '@/hooks/useRouter'
 import dynamic from 'next/dynamic'
+import { ToastContainer } from 'react-toastify'
 
 const LoadingMotionPage = dynamic(() => import('../LoadingMotionPage'))
 const FrameMain = dynamic(() => import('../FrameMain'))
@@ -66,6 +67,7 @@ const ClientRender = ({ children }) => {
       <FrameMain />
       <LoadingMotionPage />
       <MyModal />
+      <ToastContainer />
     </>
   )
 }

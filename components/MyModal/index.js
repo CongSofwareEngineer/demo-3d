@@ -12,7 +12,8 @@ const MyModal = () => {
       style={{
         ...(modalConfig?.style || {})
       }}
-      className={`rounded-2xl ${modalConfig?.className}`}
+      wrapClassName='bg-red'
+      className={`rounded-2xl bg-transparent ${modalConfig?.className}`}
     >
       { modalConfig?.body }
     </Modal>

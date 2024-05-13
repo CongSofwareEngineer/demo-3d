@@ -36,7 +36,7 @@ const useModal = () => {
   []
   )
   const closeModal = useCallback(() => {
-    ReduxServices.setCloseModal()
+    dispatch(setModal(null))
   },
   []
   )

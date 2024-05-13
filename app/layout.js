@@ -1,14 +1,18 @@
-// import { Inter } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
 import '@/styles/global.scss'
+import 'react-toastify/dist/ReactToastify.css'
+
 import ReduxProvider from '@/components/ReduxProvider'
 import StyledComponentsRegistry from '@/components/AntdRegistry'
 import ClientRender from '@/components/ClientRender'
 import ReactQueryProvider from '@/components/ReactQueryProvider'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import LoadingFirst from '@/components/LoadingFirstPage'
+import AntdProvider from '@/components/AntdProvider'
+
 /** @type {import('next').Metadata} */
-// const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] })
 
 const BaseMeta = {
   title: 'TREE STUDIOS',
@@ -58,23 +62,25 @@ export const metadata = {
 export default function RootLayout (props) {
   return (
     <html lang="en">
-      <body >
+      <body className={inter.className}>
         <main className="flex flex-col min-h-screen items-center justify-between relative">
+          <AntdProvider >
+            <ReduxProvider>
+              {/* <AntdRegistry > */}
+              <ReactQueryProvider>
 
-          <ReduxProvider>
-            {/* <AntdRegistry > */}
-            <ReactQueryProvider>
+                <StyledComponentsRegistry >
+                  <ClientRender>
+                    {props.children}
+                  </ClientRender>
+                </StyledComponentsRegistry>
+              </ReactQueryProvider>
+              {/* </AntdRegistry> */}
+            </ReduxProvider>
+          </AntdProvider>
 
-              <StyledComponentsRegistry >
-                <ClientRender>
-                  {props.children}
-                </ClientRender>
-              </StyledComponentsRegistry>
-            </ReactQueryProvider>
-            {/* </AntdRegistry> */}
-          </ReduxProvider>
           {/* </ParallaxProvider> */}
-          <LoadingFirst/>
+          {/* <LoadingFirst/> */}
           <SpeedInsights/>
         </main>
       </body>

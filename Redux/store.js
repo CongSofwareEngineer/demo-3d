@@ -25,6 +25,10 @@ export const makeStore = () => {
     reducer: {
       app: persistedReducer
     },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: false
+      }),
     devTools: !process.env.NEXT_PUBLIC_ENABLE_TOOL_REDUX
 
   })
