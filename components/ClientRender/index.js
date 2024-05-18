@@ -11,7 +11,7 @@ import dynamic from 'next/dynamic'
 import { ToastContainer } from 'react-toastify'
 
 const LoadingMotionPage = dynamic(() => import('../LoadingMotionPage'))
-const FrameMain = dynamic(() => import('../FrameMain'))
+const FrameMain = dynamic(() => import('../FrameMain'), { ssr: false })
 const MyModal = dynamic(() => import('../MyModal'))
 
 const ClientRender = ({ children }) => {

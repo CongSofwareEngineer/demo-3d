@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import styles from './videoBanner.module.scss'
 import useSizeScreen from '@/hooks/useSizeScreen'
 import { useQueryClient } from '@tanstack/react-query'
@@ -19,8 +19,10 @@ const VideoBanner = ({
   const query = useQueryClient()
 
   const [isLoadedVideo, setIsLoadedVideo] = useState(false)
+  const [isClient, setIsClient] = useState(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    setIsClient(true)
     if (videoRef.current) {
       videoRef.current.addEventListener('canplaythrough', (event) => {
         callBack()
@@ -51,7 +53,7 @@ const VideoBanner = ({
   }
 
   return (
-    <>
+    isClient && <>
       <video
         key={url}
         ref={videoRef}
